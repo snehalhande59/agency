@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-main-bg: #F8FAFC;
+    --color-card-bg: #FFFFFF;
+    --color-primary: #3898D8;
+    --color-light-blue: #DCEEFF;
+    --color-dark-text: #153B5B;
+    --color-secondary-text: #64748B;
+    --color-accent-teal: #19A89A;
+    --color-border: #E5EDF5;
+    --color-soft-bg: #EFF7FC;
+  }
+
+  body {
+    background-color: #F8FAFC;
+    color: #153B5B;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    color: #153B5B;
+  }
+
+  /* Universal input focus styling */
+  input, select, textarea {
+    color: #153B5B;
+  }
+}
+
+/* Light Travel Cards & Panels */
+.glass-panel {
+  background: #FFFFFF;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #E5EDF5;
+  box-shadow: 0 4px 20px -2px rgba(21, 59, 91, 0.05);
+}
+
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E5EDF5;
+  box-shadow: 0 4px 16px -2px rgba(21, 59, 91, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: #3898D8;
+  box-shadow: 0 12px 30px -4px rgba(56, 152, 216, 0.18);
+  transform: translateY(-4px);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #E5EDF5;
+  box-shadow: 0 4px 20px -2px rgba(21, 59, 91, 0.06);
+}
+
+/* Light Theme Contrast Protections for Cards & Panels */
+.glass-panel h1, .glass-panel h2, .glass-panel h3, .glass-panel h4, .glass-panel h5,
+.glass-card h1, .glass-card h2, .glass-card h3, .glass-card h4, .glass-card h5 {
+  color: #153B5B;
+}
+
+.glass-panel .text-slate-400, .glass-panel .text-slate-300,
+.glass-card .text-slate-400, .glass-card .text-slate-300 {
+  color: #64748B;
+}
+
+/* Ensure colored primary buttons always retain crisp white text */
+button[class*="bg-electric"], button[class*="bg-[#3898D8]"],
+button[class*="bg-cyan-600"], button[class*="bg-emerald-600"],
+button[class*="bg-purple-600"], button[class*="bg-red-600"],
+a[class*="bg-electric"], a[class*="bg-[#3898D8]"] {
+  color: #FFFFFF !important;
+}
+button[class*="bg-electric"] *, button[class*="bg-[#3898D8]"] *,
+button[class*="bg-cyan-600"] *, button[class*="bg-emerald-600"] *,
+button[class*="bg-purple-600"] *, button[class*="bg-red-600"] *,
+a[class*="bg-electric"] *, a[class*="bg-[#3898D8]"] * {
+  color: #FFFFFF !important;
+}
+
+/* Gradients for Light Travel Theme */
+.gradient-text {
+  background: linear-gradient(135deg, #153B5B 0%, #3898D8 60%, #19A89A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #3898D8 0%, #19A89A 100%);
+}
+
+.gradient-soft {
+  background: linear-gradient(180deg, #EFF7FC 0%, #F8FAFC 100%);
+}
+
+/* Custom Scrollbar for Light Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3898D8;
+}
+
+/* Ken Burns subtle zoom for hero slideshow */
+@keyframes kenburns {
+  0% {
+    transform: scale(1.0) translate(0%, 0%);
+  }
+  100% {
+    transform: scale(1.06) translate(-1%, -0.5%);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 12s ease-out infinite alternate;
+}
+
+/* Shimmer animation bar */
+.shimmer-glow {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(56, 152, 216, 0) 0,
+    rgba(56, 152, 216, 0.08) 20%,
+    rgba(25, 168, 154, 0.15) 60%,
+    rgba(56, 152, 216, 0)
+  );
+  animation: shimmer 2.5s infinite;
+}
