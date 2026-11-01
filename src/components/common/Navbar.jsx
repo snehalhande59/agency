@@ -17,7 +17,6 @@ import {
   CreditCard
 } from 'lucide-react';
 import { useBooking } from '../../context/BookingContext';
-import { SimulatedBanner } from '../ui/SimulatedBanner';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,7 +55,6 @@ export const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      <SimulatedBanner />
       <div className={`transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-3 border-b border-[#E5EDF5]' : 'bg-white/90 backdrop-blur-md py-3.5 border-b border-[#E5EDF5]/70'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">

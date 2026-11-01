@@ -5,7 +5,6 @@ import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { DemoBookingModal } from './components/common/DemoBookingModal';
 import { ScrollToTop } from './components/common/ScrollToTop';
-import { SimulatedBanner } from './components/ui/SimulatedBanner';
 
 // Pages
 import { HomePage } from './pages/Home/HomePage';
