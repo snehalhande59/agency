@@ -98,13 +98,13 @@ export const TrainBookingPage = () => {
 
       {/* Popular Train Live Board */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="glass-panel p-6 rounded-3xl border border-electric-500/20">
-          <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+        <div className="bg-white p-6 rounded-3xl border border-[#E5EDF5] shadow-sm">
+          <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#E5EDF5]">
             <div className="flex items-center gap-2.5">
-              <Train className="w-5 h-5 text-electric-400" />
-              <h3 className="text-base font-bold text-white">Popular High-Speed Rail Express Routes</h3>
+              <Train className="w-5 h-5 text-[#3898D8]" />
+              <h3 className="text-base font-bold text-[#153B5B]">Popular High-Speed Rail Express Routes</h3>
             </div>
-            <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+            <span className="text-xs font-semibold text-[#19A89A] bg-[#E6F7F5] px-2.5 py-1 rounded-full border border-[#19A89A]/20">
               IRCTC Connected
             </span>
           </div>
@@ -113,29 +113,29 @@ export const TrainBookingPage = () => {
             {popularTrains.map((train) => (
               <div
                 key={train.number}
-                className="p-4 rounded-2xl bg-navy-950/80 border border-slate-800 hover:border-electric-500/40 transition-all flex flex-col justify-between"
+                className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E5EDF5] hover:border-[#3898D8] transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex justify-between items-start mb-1">
-                    <span className="text-xs font-mono font-bold text-electric-400 bg-electric-600/15 px-2 py-0.5 rounded">
+                    <span className="text-xs font-mono font-bold text-[#3898D8] bg-[#DCEEFF] px-2 py-0.5 rounded">
                       #{train.number}
                     </span>
-                    <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">
+                    <span className="text-xs font-semibold text-[#19A89A] bg-[#E6F7F5] px-2 py-0.5 rounded">
                       {train.status}
                     </span>
                   </div>
-                  <h4 className="text-sm font-bold text-white mt-1">{train.name}</h4>
-                  <div className="flex items-center justify-between text-xs text-slate-400 mt-2">
+                  <h4 className="text-sm font-bold text-[#153B5B] mt-1">{train.name}</h4>
+                  <div className="flex items-center justify-between text-xs text-[#64748B] mt-2">
                     <span>{train.time}</span>
                     <span>Duration: {train.duration}</span>
                   </div>
                 </div>
 
-                <div className="pt-3 mt-3 border-t border-slate-800 flex items-center justify-between">
-                  <span className="text-sm font-extrabold text-white font-display">From {train.fare}</span>
+                <div className="pt-3 mt-3 border-t border-[#E5EDF5] flex items-center justify-between">
+                  <span className="text-sm font-extrabold text-[#153B5B] font-display">From {train.fare}</span>
                   <button
                     onClick={() => openBookingModal({ category: `Train ${train.name}`, fare: train.fare })}
-                    className="px-3.5 py-1.5 rounded-lg bg-electric-600 hover:bg-electric-500 text-white text-xs font-bold transition-all shadow-glow-sm"
+                    className="px-3.5 py-1.5 rounded-lg bg-[#3898D8] hover:bg-[#287DB8] text-white text-xs font-bold transition-all shadow-sm"
                   >
                     Reserve Berth
                   </button>

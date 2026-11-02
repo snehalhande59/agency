@@ -891,62 +891,62 @@ export const CustomerRefundRequestsPage = () => {
 
       {/* Raise Refund Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="w-full max-w-md bg-navy-900 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <RefreshCw className="w-4 h-4 text-amber-400" />
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="w-full max-w-md bg-white border border-[#E5EDF5] rounded-3xl p-6 shadow-2xl space-y-4 text-[#153B5B]">
+            <div className="flex items-center justify-between pb-2 border-b border-[#E5EDF5]">
+              <h3 className="text-base font-bold text-[#153B5B] flex items-center gap-2">
+                <RefreshCw className="w-4 h-4 text-amber-500" />
                 <span>Submit Refund Request</span>
               </h3>
-              <button onClick={() => setShowModal(false)} className="text-slate-400 hover:text-white">
+              <button onClick={() => setShowModal(false)} className="text-[#64748B] hover:text-[#153B5B] p-1.5 rounded-lg hover:bg-[#EFF7FC]">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {submittedMessage ? (
-              <div className="p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-semibold text-center">
+              <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold text-center">
                 Refund claim submitted for Super Admin review!
               </div>
             ) : (
               <form onSubmit={handleSubmitRefund} className="space-y-4 text-xs">
                 <div>
-                  <label className="block text-slate-400 font-semibold mb-1">Booking Reference ID</label>
+                  <label className="block text-[#153B5B] font-bold mb-1">Booking Reference ID</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. DEMO-RAIL-8K92X or BK-10492"
                     value={bookingRefInput}
                     onChange={(e) => setBookingRefInput(e.target.value)}
-                    className="w-full bg-navy-950 border border-slate-800 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-3 py-2 text-[#153B5B] placeholder-[#94A3B8] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-slate-400 font-semibold mb-1">Reason for Cancellation</label>
+                  <label className="block text-[#153B5B] font-bold mb-1">Reason for Cancellation</label>
                   <textarea
                     rows={3}
                     placeholder="Explain why the travel was modified or cancelled..."
                     value={reasonInput}
                     onChange={(e) => setReasonInput(e.target.value)}
-                    className="w-full bg-navy-950 border border-slate-800 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-3 py-2 text-[#153B5B] placeholder-[#94A3B8] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white"
                   />
                 </div>
 
-                <div className="p-3 rounded-xl bg-navy-950 border border-slate-800 text-[11px] text-slate-400">
+                <div className="p-3 rounded-xl bg-[#EFF7FC] border border-[#E5EDF5] text-[11px] text-[#64748B]">
                   Standard policy: Cancellations processed within 2-4 hours in demo simulation mode.
                 </div>
 
-                <div className="flex items-center justify-end gap-2 pt-2">
+                <div className="flex items-center justify-end gap-2 pt-2 border-t border-[#E5EDF5]">
                   <button
                     type="button"
                     onClick={() => setShowModal(false)}
-                    className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-semibold"
+                    className="px-4 py-2 rounded-xl bg-[#EFF7FC] text-[#153B5B] hover:bg-[#DCEEFF] font-semibold"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold"
+                    className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold shadow-sm"
                   >
                     Submit Request
                   </button>
@@ -1152,37 +1152,37 @@ export const CustomerSupportTicketsPage = () => {
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="w-full max-w-md bg-navy-900 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <LifeBuoy className="w-4 h-4 text-cyan-400" />
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="w-full max-w-md bg-white border border-[#E5EDF5] rounded-3xl p-6 shadow-2xl space-y-4 text-[#153B5B]">
+            <div className="flex items-center justify-between pb-2 border-b border-[#E5EDF5]">
+              <h3 className="text-base font-bold text-[#153B5B] flex items-center gap-2">
+                <LifeBuoy className="w-4 h-4 text-[#3898D8]" />
                 <span>Create Support Ticket</span>
               </h3>
-              <button onClick={() => setShowModal(false)} className="text-slate-400 hover:text-white">
+              <button onClick={() => setShowModal(false)} className="text-[#64748B] hover:text-[#153B5B] p-1.5 rounded-lg hover:bg-[#EFF7FC]">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleCreateTicket} className="space-y-4 text-xs">
               <div>
-                <label className="block text-slate-400 font-semibold mb-1">Subject</label>
+                <label className="block text-[#153B5B] font-bold mb-1">Subject</label>
                 <input
                   type="text"
                   required
                   placeholder="Summary of your inquiry..."
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="w-full bg-navy-950 border border-slate-800 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-3 py-2 text-[#153B5B] placeholder-[#94A3B8] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-400 font-semibold mb-1">Category</label>
+                <label className="block text-[#153B5B] font-bold mb-1">Category</label>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full bg-navy-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-3 py-2 text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white"
                 >
                   <option value="NCMC Transit Inquiry">NCMC Transit & Turnstile</option>
                   <option value="Railway Ticket Query">Railway Ticket Query</option>
@@ -1193,28 +1193,28 @@ export const CustomerSupportTicketsPage = () => {
               </div>
 
               <div>
-                <label className="block text-slate-400 font-semibold mb-1">Description</label>
+                <label className="block text-[#153B5B] font-bold mb-1">Description</label>
                 <textarea
                   rows={3}
                   required
                   placeholder="Provide trip details, ticket ref or turnstile location..."
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full bg-navy-950 border border-slate-800 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-3 py-2 text-[#153B5B] placeholder-[#94A3B8] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-2">
+              <div className="flex items-center justify-end gap-2 pt-2 border-t border-[#E5EDF5]">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-semibold"
+                  className="px-4 py-2 rounded-xl bg-[#EFF7FC] text-[#153B5B] hover:bg-[#DCEEFF] font-semibold"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold"
+                  className="px-4 py-2 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold shadow-sm"
                 >
                   Submit Ticket
                 </button>

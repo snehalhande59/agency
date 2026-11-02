@@ -86,7 +86,68 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* 2. TRAVEL SERVICES SECTION */}
+      {/* 2. POPULAR MAHARASHTRA DESTINATIONS (Elevated directly below Hero Booking Bar for Prime Visibility) */}
+      <section id="destinations-section" className="py-16 sm:py-20 bg-white border-b border-[#E5EDF5] relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#3898D8]">Maharashtra Tourism &amp; Outstation Escapes</span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#153B5B] font-display">
+              Popular Maharashtra Destinations
+            </h2>
+            <p className="text-sm text-[#64748B]">
+              One-way drops and scenic round trips with guaranteed chauffeur availability across Maharashtra and coastal Goa.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {destinationsData.map((dest) => (
+              <div
+                key={dest.name}
+                onClick={() => handleDestinationClick(dest)}
+                className="group relative rounded-3xl overflow-hidden bg-white cursor-pointer border border-[#E5EDF5] hover:border-[#3898D8] shadow-sm hover:shadow-xl transition-all duration-300 h-84 flex flex-col justify-end p-5"
+              >
+                <img
+                  src={dest.image}
+                  alt={dest.name}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.target.src = 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80';
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+                <div className="relative z-10 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold text-white bg-black/50 backdrop-blur-sm px-2.5 py-0.5 rounded-md border border-white/20">
+                      {dest.duration}
+                    </span>
+                    <span className="text-xs font-bold text-white bg-[#3898D8] px-2.5 py-0.5 rounded-md shadow-sm">
+                      From {dest.startingPrice}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-extrabold text-white group-hover:text-[#DCEEFF] transition-colors font-display">
+                    {dest.name}
+                  </h3>
+                  <p className="text-xs text-slate-200 line-clamp-1">{dest.tagline}</p>
+
+                  <div className="pt-2 flex items-center justify-between text-xs text-slate-200 border-t border-white/20">
+                    <span>{dest.distance}</span>
+                    <span className="text-[#3898D8] group-hover:text-white font-bold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                      Book Route →
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3. TRAVEL SERVICES SECTION */}
       <section id="services-section" className="py-20 sm:py-24 bg-[#EFF7FC] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -161,67 +222,6 @@ export const HomePage = () => {
                 </motion.div>
               );
             })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* 3. POPULAR MAHARASHTRA DESTINATIONS (Moved Higher Up for Prime Visibility) */}
-      <section id="destinations-section" className="py-20 sm:py-24 bg-white border-y border-[#E5EDF5] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#3898D8]">Getaways &amp; Business Hubs</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#153B5B] font-display">
-              Popular Maharashtra Destinations
-            </h2>
-            <p className="text-sm text-[#64748B]">
-              One-way drops and scenic round trips with guaranteed chauffeur availability across Maharashtra and coastal Goa.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {destinationsData.map((dest) => (
-              <div
-                key={dest.name}
-                onClick={() => handleDestinationClick(dest)}
-                className="group relative rounded-3xl overflow-hidden bg-white cursor-pointer border border-[#E5EDF5] hover:border-[#3898D8] shadow-sm hover:shadow-xl transition-all duration-300 h-84 flex flex-col justify-end p-5"
-              >
-                <img
-                  src={dest.image}
-                  alt={dest.name}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80';
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-                <div className="relative z-10 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold text-white bg-black/50 backdrop-blur-sm px-2.5 py-0.5 rounded-md border border-white/20">
-                      {dest.duration}
-                    </span>
-                    <span className="text-xs font-bold text-white bg-[#3898D8] px-2.5 py-0.5 rounded-md shadow-sm">
-                      From {dest.startingPrice}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-extrabold text-white group-hover:text-[#DCEEFF] transition-colors font-display">
-                    {dest.name}
-                  </h3>
-                  <p className="text-xs text-slate-200 line-clamp-1">{dest.tagline}</p>
-
-                  <div className="pt-2 flex items-center justify-between text-xs text-slate-200 border-t border-white/20">
-                    <span>{dest.distance}</span>
-                    <span className="text-[#3898D8] group-hover:text-white font-bold flex items-center gap-1 group-hover:translate-x-1 transition-all">
-                      Book Route →
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
 
         </div>

@@ -81,34 +81,34 @@ export const NcmcTransitPage = () => {
           </Link>
         </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-electric-500/20">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-slate-800 gap-2">
+        <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#E5EDF5] shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#E5EDF5] gap-2">
             <div className="flex items-center gap-2.5">
-              <CreditCard className="w-5 h-5 text-electric-400" />
-              <h3 className="text-base font-bold text-white">Supported Multimodal Transit Corridors</h3>
+              <CreditCard className="w-5 h-5 text-[#3898D8]" />
+              <h3 className="text-base font-bold text-[#153B5B]">Supported Multimodal Transit Corridors</h3>
             </div>
-            <span className="text-xs font-semibold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-full border border-purple-500/20">
+            <span className="text-xs font-semibold text-[#3898D8] bg-[#DCEEFF] px-2.5 py-1 rounded-full border border-[#3898D8]/20">
               One Nation One Card
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-4 rounded-2xl bg-navy-950/80 border border-slate-800 space-y-2">
-              <span className="text-xs font-bold text-electric-400">Mumbai Metro Rail Network</span>
-              <p className="text-xs text-slate-300">Lines 1 (Ghatkopar-Versova), 2A (Dahisar-Andheri W), 7 (Dahisar-Gundavali), Line 3 Aqua Line (Colaba-Bandra-SEEPZ).</p>
-              <div className="text-[11px] text-emerald-400 font-semibold">✓ Automated Tap Gates Ready</div>
+            <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E5EDF5] space-y-2">
+              <span className="text-xs font-bold text-[#3898D8]">Mumbai Metro Rail Network</span>
+              <p className="text-xs text-[#64748B]">Lines 1 (Ghatkopar-Versova), 2A (Dahisar-Andheri W), 7 (Dahisar-Gundavali), Line 3 Aqua Line (Colaba-Bandra-SEEPZ).</p>
+              <div className="text-[11px] text-[#19A89A] font-semibold">✓ Automated Tap Gates Ready</div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-navy-950/80 border border-slate-800 space-y-2">
-              <span className="text-xs font-bold text-blue-400">BEST & NMMT Electric Bus Fleets</span>
-              <p className="text-xs text-slate-300">All 3,500+ AC and non-AC electric city buses with contactless conductor ticketing machines.</p>
-              <div className="text-[11px] text-emerald-400 font-semibold">✓ Zero Cash Commute</div>
+            <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E5EDF5] space-y-2">
+              <span className="text-xs font-bold text-[#3898D8]">BEST & NMMT Electric Bus Fleets</span>
+              <p className="text-xs text-[#64748B]">All 3,500+ AC and non-AC electric city buses with contactless conductor ticketing machines.</p>
+              <div className="text-[11px] text-[#19A89A] font-semibold">✓ Zero Cash Commute</div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-navy-950/80 border border-slate-800 space-y-2">
-              <span className="text-xs font-bold text-emerald-400">Pune Metro & Highway Fastag</span>
-              <p className="text-xs text-slate-300">PCMC to Swargate, Vanaz to Ramwadi, plus fastag integration on major Maharashtra expressways.</p>
-              <div className="text-[11px] text-emerald-400 font-semibold">✓ Unified State Mobility</div>
+            <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E5EDF5] space-y-2">
+              <span className="text-xs font-bold text-[#19A89A]">Pune Metro & Highway Fastag</span>
+              <p className="text-xs text-[#64748B]">PCMC to Swargate, Vanaz to Ramwadi, plus fastag integration on major Maharashtra expressways.</p>
+              <div className="text-[11px] text-[#19A89A] font-semibold">✓ Unified State Mobility</div>
             </div>
           </div>
         </div>

@@ -244,23 +244,23 @@ export const NcmcDashboardPage = () => {
 
       {/* QR Gate Pass Modal Simulation */}
       {showQrModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="w-full max-w-sm rounded-3xl bg-navy-900 border border-cyan-500/40 p-6 text-center space-y-4 shadow-2xl relative">
-            <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-              <span className="text-xs font-bold uppercase tracking-wider text-cyan-300">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="w-full max-w-sm rounded-3xl bg-white border border-[#E5EDF5] p-6 text-center space-y-4 shadow-2xl relative text-[#153B5B]">
+            <div className="flex items-center justify-between pb-2 border-b border-[#E5EDF5]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#3898D8]">
                 Digital Turnstile QR Pass
               </span>
               <button
                 type="button"
                 onClick={() => setShowQrModal(false)}
-                className="text-slate-400 hover:text-white text-xs font-mono font-bold"
+                className="text-[#64748B] hover:text-[#153B5B] text-xs font-mono font-bold p-1 rounded hover:bg-[#EFF7FC]"
               >
                 ✕
               </button>
             </div>
 
             {/* QR Mockup */}
-            <div className="p-4 bg-white rounded-2xl mx-auto inline-block shadow-inner">
+            <div className="p-4 bg-white rounded-2xl mx-auto inline-block shadow-inner border border-[#E5EDF5]">
               <div className="w-48 h-48 bg-slate-900 p-2 rounded-xl flex items-center justify-center">
                 <div className="grid grid-cols-5 gap-1.5 w-full h-full p-2 bg-white rounded-lg">
                   <div className="bg-black rounded-sm" />
@@ -271,19 +271,19 @@ export const NcmcDashboardPage = () => {
 
                   <div className="bg-black rounded-sm" />
                   <div className="bg-white rounded-sm" />
-                  <div className="bg-cyan-600 rounded-sm" />
+                  <div className="bg-[#3898D8] rounded-sm" />
                   <div className="bg-white rounded-sm" />
                   <div className="bg-black rounded-sm" />
 
                   <div className="bg-white rounded-sm" />
-                  <div className="bg-cyan-600 rounded-sm" />
+                  <div className="bg-[#3898D8] rounded-sm" />
                   <div className="bg-black rounded-sm" />
-                  <div className="bg-cyan-600 rounded-sm" />
+                  <div className="bg-[#3898D8] rounded-sm" />
                   <div className="bg-white rounded-sm" />
 
                   <div className="bg-black rounded-sm" />
                   <div className="bg-white rounded-sm" />
-                  <div className="bg-cyan-600 rounded-sm" />
+                  <div className="bg-[#3898D8] rounded-sm" />
                   <div className="bg-white rounded-sm" />
                   <div className="bg-black rounded-sm" />
 
@@ -297,8 +297,8 @@ export const NcmcDashboardPage = () => {
             </div>
 
             <div>
-              <div className="text-xs font-bold text-white font-mono">{activePass?.qrGateCode}</div>
-              <p className="text-[10px] text-slate-400 mt-1">
+              <div className="text-xs font-bold text-[#153B5B] font-mono">{activePass?.qrGateCode}</div>
+              <p className="text-[10px] text-[#64748B] mt-1">
                 Scan at optical gate reader on Metro Line 2A, 7 or BEST electric bus
               </p>
             </div>
@@ -306,7 +306,7 @@ export const NcmcDashboardPage = () => {
             <button
               type="button"
               onClick={() => setShowQrModal(false)}
-              className="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs"
+              className="w-full py-2.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs shadow-sm"
             >
               Close Pass
             </button>

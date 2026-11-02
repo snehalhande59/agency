@@ -263,16 +263,16 @@ export const TrainResultsPage = () => {
 
       {/* Route Schedule Modal */}
       {selectedScheduleModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/80 backdrop-blur-xl animate-in fade-in">
-          <div className="w-full max-w-2xl bg-navy-900 border border-electric-500/30 rounded-3xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col">
-            <div className="p-5 border-b border-slate-800 bg-navy-950/60 flex items-center justify-between">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in">
+          <div className="w-full max-w-2xl bg-white border border-[#E5EDF5] rounded-3xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col text-[#153B5B]">
+            <div className="p-5 border-b border-[#E5EDF5] bg-[#F8FAFC] flex items-center justify-between">
               <div>
-                <span className="text-xs font-mono font-bold text-electric-400">Train #{selectedScheduleModal.number}</span>
-                <h3 className="text-base font-bold text-white">{selectedScheduleModal.name}</h3>
+                <span className="text-xs font-mono font-bold text-[#3898D8]">Train #{selectedScheduleModal.number}</span>
+                <h3 className="text-base font-bold text-[#153B5B]">{selectedScheduleModal.name}</h3>
               </div>
               <button
                 onClick={() => setSelectedScheduleModal(null)}
-                className="text-xs px-3 py-1.5 rounded-lg bg-navy-800 text-slate-300 hover:text-white"
+                className="text-xs px-3.5 py-1.5 rounded-xl bg-[#EFF7FC] text-[#153B5B] hover:bg-[#DCEEFF] font-bold transition-colors"
               >
                 Close ✕
               </button>
@@ -281,24 +281,24 @@ export const TrainResultsPage = () => {
             <div className="p-6 overflow-y-auto space-y-4">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-800 text-slate-400 uppercase tracking-wider">
-                    <th className="py-2 px-3">Station</th>
-                    <th className="py-2 px-3">Arr.</th>
-                    <th className="py-2 px-3">Dep.</th>
-                    <th className="py-2 px-3">Halt</th>
-                    <th className="py-2 px-3">Distance</th>
+                  <tr className="border-b border-[#E5EDF5] text-[#64748B] uppercase tracking-wider text-[11px]">
+                    <th className="py-2.5 px-3">Station</th>
+                    <th className="py-2.5 px-3">Arr.</th>
+                    <th className="py-2.5 px-3">Dep.</th>
+                    <th className="py-2.5 px-3">Halt</th>
+                    <th className="py-2.5 px-3">Distance</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800 text-slate-200">
+                <tbody className="divide-y divide-[#E5EDF5] text-[#153B5B]">
                   {selectedScheduleModal.routeSchedule.map((st, i) => (
-                    <tr key={i} className="hover:bg-white/5">
-                      <td className="py-2.5 px-3 font-semibold text-white">
-                        {st.station} <span className="text-[10px] text-slate-400">({st.code})</span>
+                    <tr key={i} className="hover:bg-[#EFF7FC]/50 transition-colors">
+                      <td className="py-2.5 px-3 font-bold text-[#153B5B]">
+                        {st.station} <span className="text-[10px] text-[#64748B]">({st.code})</span>
                       </td>
-                      <td className="py-2.5 px-3 text-slate-300">{st.arrival}</td>
-                      <td className="py-2.5 px-3 text-slate-300 font-semibold">{st.departure}</td>
-                      <td className="py-2.5 px-3 text-slate-400">{st.halt}</td>
-                      <td className="py-2.5 px-3 font-mono">{st.distance} km</td>
+                      <td className="py-2.5 px-3 text-[#64748B]">{st.arrival}</td>
+                      <td className="py-2.5 px-3 text-[#153B5B] font-semibold">{st.departure}</td>
+                      <td className="py-2.5 px-3 text-[#64748B]">{st.halt}</td>
+                      <td className="py-2.5 px-3 font-mono text-[#64748B]">{st.distance} km</td>
                     </tr>
                   ))}
                 </tbody>

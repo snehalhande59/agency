@@ -118,36 +118,36 @@ export const CorporateEmployeePortal = () => {
           <div className="lg:col-span-7 space-y-6">
             
             {/* Stops Card */}
-            <div className="p-6 rounded-3xl bg-navy-900 border border-slate-800 shadow-xl space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">
+            <div className="p-6 rounded-3xl bg-white border border-[#E5EDF5] shadow-sm space-y-4 text-[#153B5B]">
+              <div className="flex items-center justify-between pb-3 border-b border-[#E5EDF5]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#3898D8] font-mono">
                   {currentEmployee.assignedRoute}
                 </span>
-                <span className="text-xs text-emerald-400 font-semibold">Active Roster</span>
+                <span className="text-xs text-[#19A89A] font-semibold bg-[#E6F7F5] px-2.5 py-0.5 rounded-full">Active Roster</span>
               </div>
 
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-cyan-600/20 text-cyan-400 flex items-center justify-center shrink-0 mt-0.5 border border-cyan-500/30">
+                  <div className="w-8 h-8 rounded-xl bg-[#DCEEFF] text-[#3898D8] flex items-center justify-center shrink-0 mt-0.5 border border-[#3898D8]/20">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-400 uppercase font-semibold">Morning Pickup Point</span>
-                    <div className="text-sm font-bold text-white">{currentEmployee.pickupAddress}</div>
-                    <div className="text-xs text-cyan-300 font-mono font-bold mt-0.5">
+                    <span className="text-[10px] text-[#64748B] uppercase font-semibold">Morning Pickup Point</span>
+                    <div className="text-sm font-bold text-[#153B5B]">{currentEmployee.pickupAddress}</div>
+                    <div className="text-xs text-[#3898D8] font-mono font-bold mt-0.5">
                       Scheduled Pickup: {currentEmployee.pickupTime}
                     </div>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/30">
+                  <div className="w-8 h-8 rounded-xl bg-[#E6F7F5] text-[#19A89A] flex items-center justify-center shrink-0 mt-0.5 border border-[#19A89A]/20">
                     <Building2 className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-400 uppercase font-semibold">Campus Drop Destination</span>
-                    <div className="text-sm font-bold text-white">{currentEmployee.dropAddress}</div>
-                    <div className="text-xs text-emerald-300 font-mono font-bold mt-0.5">
+                    <span className="text-[10px] text-[#64748B] uppercase font-semibold">Campus Drop Destination</span>
+                    <div className="text-sm font-bold text-[#153B5B]">{currentEmployee.dropAddress}</div>
+                    <div className="text-xs text-[#19A89A] font-mono font-bold mt-0.5">
                       Evening Return Pickup: {currentEmployee.dropTime}
                     </div>
                   </div>
@@ -156,10 +156,10 @@ export const CorporateEmployeePortal = () => {
             </div>
 
             {/* Safety & Telematics Notice */}
-            <div className="p-4 rounded-2xl bg-cyan-950/30 border border-cyan-500/30 text-xs text-slate-300 flex items-start gap-3">
-              <Info className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-              <div className="leading-relaxed text-[11px]">
-                <strong>Compliance Notice:</strong> Live GPS tracking on the employee app is simulated in demo mode. In enterprise production, vehicle telemetry updates every 3 seconds with automated SOS emergency response integration.
+            <div className="p-4 rounded-2xl bg-[#EFF7FC] border border-[#3898D8]/20 text-xs text-[#153B5B] flex items-start gap-3">
+              <Info className="w-4 h-4 text-[#3898D8] shrink-0 mt-0.5" />
+              <div className="leading-relaxed text-[11px] text-[#64748B]">
+                <strong className="text-[#153B5B]">Compliance Notice:</strong> Live GPS tracking on the employee app is simulated in demo mode. In enterprise production, vehicle telemetry updates every 3 seconds with automated SOS emergency response integration.
               </div>
             </div>
 
@@ -169,8 +169,8 @@ export const CorporateEmployeePortal = () => {
           <div className="lg:col-span-5 space-y-4">
             
             {/* Chauffeur Card */}
-            <div className="p-6 rounded-3xl bg-navy-900 border border-slate-800 shadow-xl space-y-4">
-              <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+            <div className="p-6 rounded-3xl bg-white border border-[#E5EDF5] shadow-sm space-y-4 text-[#153B5B]">
+              <span className="text-[10px] uppercase font-bold text-[#64748B] tracking-wider">
                 Assigned Dedicated Chauffeur
               </span>
 
@@ -178,25 +178,25 @@ export const CorporateEmployeePortal = () => {
                 <img
                   src={currentEmployee.assignedDriver.photo}
                   alt={currentEmployee.assignedDriver.name}
-                  className="w-14 h-14 rounded-2xl object-cover border border-cyan-400 shadow-md"
+                  className="w-14 h-14 rounded-2xl object-cover border border-[#3898D8] shadow-md"
                   onError={(e) => {
                     e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80';
                   }}
                 />
                 <div>
-                  <h4 className="text-base font-bold text-white">{currentEmployee.assignedDriver.name}</h4>
-                  <div className="text-xs text-amber-400 font-bold flex items-center gap-1">
+                  <h4 className="text-base font-bold text-[#153B5B]">{currentEmployee.assignedDriver.name}</h4>
+                  <div className="text-xs text-amber-500 font-bold flex items-center gap-1">
                     <span>★ {currentEmployee.assignedDriver.rating}</span>
-                    <span className="text-slate-400 font-normal">(1,840+ Completed Trips)</span>
+                    <span className="text-[#64748B] font-normal">(1,840+ Completed Trips)</span>
                   </div>
-                  <div className="text-[10px] text-emerald-400 font-semibold mt-0.5">✓ Police Cleared &amp; Verified</div>
+                  <div className="text-[10px] text-[#19A89A] font-semibold mt-0.5">✓ Police Cleared &amp; Verified</div>
                 </div>
               </div>
 
               <div className="pt-2">
                 <a
                   href={`tel:${currentEmployee.assignedDriver.phone}`}
-                  className="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-cyan-600/30 transition-all"
+                  className="w-full py-2.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>Call Chauffeur: {currentEmployee.assignedDriver.phone}</span>
@@ -205,11 +205,11 @@ export const CorporateEmployeePortal = () => {
             </div>
 
             {/* Vehicle Card */}
-            <div className="p-6 rounded-3xl bg-navy-900 border border-slate-800 shadow-xl space-y-2 text-xs">
-              <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Assigned Fleet Vehicle</span>
-              <div className="text-base font-bold text-white">{currentEmployee.assignedVehicle}</div>
-              <div className="text-slate-400">7-Seater Executive SUV • Dual Zone AC</div>
-              <div className="text-[11px] text-emerald-400 font-semibold pt-1">
+            <div className="p-6 rounded-3xl bg-white border border-[#E5EDF5] shadow-sm space-y-2 text-xs text-[#153B5B]">
+              <span className="text-[10px] uppercase font-bold text-[#64748B] tracking-wider">Assigned Fleet Vehicle</span>
+              <div className="text-base font-bold text-[#153B5B]">{currentEmployee.assignedVehicle}</div>
+              <div className="text-[#64748B]">7-Seater Executive SUV • Dual Zone AC</div>
+              <div className="text-[11px] text-[#19A89A] font-semibold pt-1">
                 Sanitized Daily • Speed-governed 80 km/h
               </div>
             </div>
@@ -222,26 +222,26 @@ export const CorporateEmployeePortal = () => {
       {/* TAB 2: SPECIAL TRANSPORT REQUEST FORM */}
       {activeTab === 'REQUEST' && (
         <div className="max-w-2xl mx-auto space-y-6">
-          <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 sm:p-8 shadow-xl space-y-5">
+          <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 sm:p-8 shadow-sm space-y-5 text-[#153B5B]">
             <div>
-              <h3 className="text-base font-bold text-white">Request Ad-Hoc Corporate Transport</h3>
-              <p className="text-xs text-slate-400">For late-night overtime drops, client meetings, or emergency airport transfers</p>
+              <h3 className="text-base font-bold text-[#153B5B]">Request Ad-Hoc Corporate Transport</h3>
+              <p className="text-xs text-[#64748B]">For late-night overtime drops, client meetings, or emergency airport transfers</p>
             </div>
 
             {requestSubmitted && (
-              <div className="p-4 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 text-xs flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+              <div className="p-4 rounded-2xl bg-[#E6F7F5] border border-[#19A89A]/30 text-[#19A89A] text-xs flex items-center gap-2 font-bold">
+                <CheckCircle2 className="w-5 h-5 text-[#19A89A] shrink-0" />
                 <span>Special cab request submitted successfully to your manager for approval.</span>
               </div>
             )}
 
             <form onSubmit={handleRequestSubmit} className="space-y-4 text-xs">
               <div>
-                <label className="block text-slate-400 mb-1 font-semibold">Service Type</label>
+                <label className="block text-[#153B5B] mb-1 font-bold">Service Type</label>
                 <select
                   value={requestServiceType}
                   onChange={(e) => setRequestServiceType(e.target.value)}
-                  className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white"
                 >
                   <option value="Late Night Office Drop (Past 09:00 PM)">Late Night Office Drop (Past 09:00 PM with Security Escort)</option>
                   <option value="Airport Pickup / Drop (Client Travel)">Airport Pickup / Drop (Client Travel)</option>
@@ -251,26 +251,26 @@ export const CorporateEmployeePortal = () => {
               </div>
 
               <div>
-                <label className="block text-slate-400 mb-1 font-semibold">Travel Date</label>
+                <label className="block text-[#153B5B] mb-1 font-bold">Travel Date</label>
                 <input
                   type="date"
                   value={requestDate}
                   min={new Date().toISOString().split('T')[0]}
                   onChange={(e) => setRequestDate(e.target.value)}
                   required
-                  className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500 font-mono"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white font-mono"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-400 mb-1 font-semibold">Business Justification &amp; Project Code</label>
+                <label className="block text-[#153B5B] mb-1 font-bold">Business Justification &amp; Project Code</label>
                 <textarea
                   rows="3"
                   value={requestReason}
                   onChange={(e) => setRequestReason(e.target.value)}
                   required
                   placeholder="Mention project sprint or client meeting purpose..."
-                  className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white"
                 />
               </div>
 

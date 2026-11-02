@@ -88,13 +88,13 @@ export const MaharashtraSTBusPage = () => {
           </Link>
         </div>
 
-        <div className="glass-panel p-6 rounded-3xl border border-electric-500/20">
-          <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+        <div className="bg-white p-6 rounded-3xl border border-[#E5EDF5] shadow-sm">
+          <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#E5EDF5]">
             <div className="flex items-center gap-2.5">
-              <Bus className="w-5 h-5 text-electric-400" />
-              <h3 className="text-base font-bold text-white">Live MSRTC Flagship Bus Schedules</h3>
+              <Bus className="w-5 h-5 text-[#3898D8]" />
+              <h3 className="text-base font-bold text-[#153B5B]">Live MSRTC Flagship Bus Schedules</h3>
             </div>
-            <span className="text-xs font-semibold text-electric-300 bg-electric-600/20 px-2.5 py-1 rounded-full border border-electric-500/30">
+            <span className="text-xs font-semibold text-[#3898D8] bg-[#DCEEFF] px-2.5 py-1 rounded-full border border-[#3898D8]/20">
               State Transport Network
             </span>
           </div>
@@ -102,7 +102,7 @@ export const MaharashtraSTBusPage = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b border-slate-800 text-slate-400 uppercase tracking-wider">
+                <tr className="border-b border-[#E5EDF5] text-[#64748B] uppercase tracking-wider text-[11px]">
                   <th className="py-3 px-4 font-semibold">Service Type</th>
                   <th className="py-3 px-4 font-semibold">Origin Point</th>
                   <th className="py-3 px-4 font-semibold">Destination Stand</th>
@@ -111,23 +111,23 @@ export const MaharashtraSTBusPage = () => {
                   <th className="py-3 px-4 font-semibold text-right">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60 text-slate-200">
+              <tbody className="divide-y divide-[#E5EDF5] text-[#153B5B]">
                 {msrtcRoutes.map((route, i) => (
-                  <tr key={i} className="hover:bg-white/5 transition-colors">
-                    <td className="py-3.5 px-4 font-bold text-white">
+                  <tr key={i} className="hover:bg-[#EFF7FC]/60 transition-colors">
+                    <td className="py-3.5 px-4 font-bold text-[#153B5B]">
                       <span className="inline-flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-electric-400"></span>
+                        <span className="w-2 h-2 rounded-full bg-[#3898D8]"></span>
                         {route.service}
                       </span>
                     </td>
-                    <td className="py-3.5 px-4">{route.from}</td>
-                    <td className="py-3.5 px-4 text-emerald-400 font-medium">{route.to}</td>
-                    <td className="py-3.5 px-4 text-slate-400">{route.freq}</td>
-                    <td className="py-3.5 px-4 font-extrabold text-white font-display">{route.fare}</td>
+                    <td className="py-3.5 px-4 text-[#64748B]">{route.from}</td>
+                    <td className="py-3.5 px-4 text-[#19A89A] font-semibold">{route.to}</td>
+                    <td className="py-3.5 px-4 text-[#64748B]">{route.freq}</td>
+                    <td className="py-3.5 px-4 font-extrabold text-[#153B5B] font-display">{route.fare}</td>
                     <td className="py-3.5 px-4 text-right">
                       <Link
                         to="/msrtc/results"
-                        className="inline-block px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold transition-all shadow-md shadow-red-600/30 text-xs"
+                        className="inline-block px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold transition-all shadow-sm text-xs"
                       >
                         Reserve Seat
                       </Link>

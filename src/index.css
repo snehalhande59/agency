@@ -80,28 +80,79 @@
   box-shadow: 0 4px 20px -2px rgba(21, 59, 91, 0.06);
 }
 
-/* Light Theme Contrast Protections for Cards & Panels */
+/* Light Theme Contrast Protections for Cards, Modals, Forms & Panels */
 .glass-panel h1, .glass-panel h2, .glass-panel h3, .glass-panel h4, .glass-panel h5,
-.glass-card h1, .glass-card h2, .glass-card h3, .glass-card h4, .glass-card h5 {
-  color: #153B5B;
+.glass-card h1, .glass-card h2, .glass-card h3, .glass-card h4, .glass-card h5,
+.bg-navy-900 h1, .bg-navy-900 h2, .bg-navy-900 h3, .bg-navy-900 h4, .bg-navy-900 h5, .bg-navy-900 h6,
+.bg-navy-950 h1, .bg-navy-950 h2, .bg-navy-950 h3, .bg-navy-950 h4, .bg-navy-950 h5, .bg-navy-950 h6,
+.bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6 {
+  color: #153B5B !important;
 }
 
+/* Modals & Dialogs Text Contrast */
+.fixed .bg-white,
+.fixed .bg-navy-900,
+.fixed .bg-navy-950 {
+  color: #153B5B !important;
+}
+
+.fixed .bg-white h1, .fixed .bg-white h2, .fixed .bg-white h3, .fixed .bg-white h4,
+.fixed .bg-navy-900 h1, .fixed .bg-navy-900 h2, .fixed .bg-navy-900 h3, .fixed .bg-navy-900 h4,
+.fixed .bg-navy-950 h1, .fixed .bg-navy-950 h2, .fixed .bg-navy-950 h3, .fixed .bg-navy-950 h4 {
+  color: #153B5B !important;
+}
+
+/* Override unintentional text-white on light cards, tables and dialogs */
+.bg-navy-900 td.text-white,
+.bg-navy-950 td.text-white,
+.bg-white td.text-white,
+.bg-navy-900 div.text-white:not([class*="bg-"]):not(button *):not(a *),
+.bg-navy-950 div.text-white:not([class*="bg-"]):not(button *):not(a *),
+.bg-white div.text-white:not([class*="bg-"]):not(button *):not(a *),
+.bg-navy-900 strong.text-white,
+.bg-navy-950 strong.text-white,
+.bg-white strong.text-white,
+.bg-navy-900 span.text-white:not([class*="bg-"]),
+.bg-navy-950 span.text-white:not([class*="bg-"]),
+.bg-white span.text-white:not([class*="bg-"]) {
+  color: #153B5B !important;
+}
+
+/* Ensure labels inside cards and modals are high contrast */
+.bg-navy-900 label,
+.bg-navy-950 label,
+.bg-white label {
+  color: #153B5B !important;
+}
+
+/* Ensure muted texts on light backgrounds are readable (#64748B) instead of invisible slate */
+.bg-navy-900 .text-slate-400, .bg-navy-900 .text-slate-300, .bg-navy-900 .text-slate-200,
+.bg-navy-950 .text-slate-400, .bg-navy-950 .text-slate-300, .bg-navy-950 .text-slate-200,
+.bg-white .text-slate-400, .bg-white .text-slate-300, .bg-white .text-slate-200,
 .glass-panel .text-slate-400, .glass-panel .text-slate-300,
 .glass-card .text-slate-400, .glass-card .text-slate-300 {
   color: #64748B;
 }
 
+/* Ensure borders on light cards do not use harsh dark borders */
+.bg-navy-900.border-slate-800, .bg-navy-900.border-slate-700,
+.bg-navy-950.border-slate-800, .bg-navy-950.border-slate-700 {
+  border-color: #E5EDF5 !important;
+}
+
 /* Ensure colored primary buttons always retain crisp white text */
 button[class*="bg-electric"], button[class*="bg-[#3898D8]"],
 button[class*="bg-cyan-600"], button[class*="bg-emerald-600"],
-button[class*="bg-purple-600"], button[class*="bg-red-600"],
-a[class*="bg-electric"], a[class*="bg-[#3898D8]"] {
+button[class*="bg-purple-600"], button[class*="bg-red-600"], button[class*="bg-rose-600"],
+a[class*="bg-electric"], a[class*="bg-[#3898D8]"],
+a[class*="bg-red-600"], a[class*="bg-rose-600"], a[class*="bg-emerald-600"] {
   color: #FFFFFF !important;
 }
 button[class*="bg-electric"] *, button[class*="bg-[#3898D8]"] *,
 button[class*="bg-cyan-600"] *, button[class*="bg-emerald-600"] *,
-button[class*="bg-purple-600"] *, button[class*="bg-red-600"] *,
-a[class*="bg-electric"] *, a[class*="bg-[#3898D8]"] * {
+button[class*="bg-purple-600"] *, button[class*="bg-red-600"] *, button[class*="bg-rose-600"] *,
+a[class*="bg-electric"] *, a[class*="bg-[#3898D8]"] *,
+a[class*="bg-red-600"] *, a[class*="bg-rose-600"] *, a[class*="bg-emerald-600"] * {
   color: #FFFFFF !important;
 }
 

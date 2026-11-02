@@ -704,14 +704,14 @@ export const CorporateAdminPortal = () => {
 
       {/* Onboard Employee Modal */}
       {isAddEmployeeModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150">
-          <div className="w-full max-w-lg rounded-3xl bg-navy-900 border border-slate-800 p-6 sm:p-8 space-y-5 shadow-2xl">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-              <h3 className="text-base font-bold text-white">Onboard Employee to Transit Roster</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-150">
+          <div className="w-full max-w-lg rounded-3xl bg-white border border-[#E5EDF5] p-6 sm:p-8 space-y-5 shadow-2xl text-[#153B5B]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#E5EDF5]">
+              <h3 className="text-base font-bold text-[#153B5B]">Onboard Employee to Transit Roster</h3>
               <button
                 type="button"
                 onClick={() => setIsAddEmployeeModalOpen(false)}
-                className="text-slate-400 hover:text-white"
+                className="text-[#64748B] hover:text-[#153B5B] p-1.5 rounded-lg hover:bg-[#EFF7FC]"
               >
                 ✕
               </button>
@@ -719,23 +719,23 @@ export const CorporateAdminPortal = () => {
 
             <form onSubmit={handleAddEmployeeSubmit} className="space-y-4 text-xs">
               <div>
-                <label className="block text-slate-400 mb-1 font-semibold">Employee Full Name</label>
+                <label className="block text-[#153B5B] mb-1 font-bold">Employee Full Name</label>
                 <input
                   type="text"
                   value={newEmpName}
                   onChange={(e) => setNewEmpName(e.target.value)}
                   required
                   placeholder="e.g. Vikas Salunkhe"
-                  className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-electric-500"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-400 mb-1 font-semibold">Department</label>
+                <label className="block text-[#153B5B] mb-1 font-bold">Department</label>
                 <select
                   value={newEmpDept}
                   onChange={(e) => setNewEmpDept(e.target.value)}
-                  className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-electric-500"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white"
                 >
                   <option value="Engineering">Engineering</option>
                   <option value="Product Management">Product Management</option>
@@ -746,39 +746,39 @@ export const CorporateAdminPortal = () => {
               </div>
 
               <div>
-                <label className="block text-slate-400 mb-1 font-semibold">Home Pickup Address</label>
+                <label className="block text-[#153B5B] mb-1 font-bold">Home Pickup Address</label>
                 <input
                   type="text"
                   value={newEmpPickup}
                   onChange={(e) => setNewEmpPickup(e.target.value)}
                   required
                   placeholder="e.g. R-City Mall, Ghatkopar West"
-                  className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-electric-500"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-400 mb-1 font-semibold">Phone Number</label>
+                <label className="block text-[#153B5B] mb-1 font-bold">Phone Number</label>
                 <input
                   type="tel"
                   value={newEmpPhone}
                   onChange={(e) => setNewEmpPhone(e.target.value)}
                   placeholder="+91 98200 XXXXX"
-                  className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-electric-500 font-mono"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] focus:bg-white font-mono"
                 />
               </div>
 
-              <div className="pt-3 border-t border-slate-800 flex justify-end gap-3">
+              <div className="pt-3 border-t border-[#E5EDF5] flex justify-end gap-3">
                 <button
                   type="button"
                   onClick={() => setIsAddEmployeeModalOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white"
+                  className="px-4 py-2 rounded-xl bg-[#EFF7FC] text-[#153B5B] hover:bg-[#DCEEFF] font-semibold"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 rounded-xl bg-electric-600 hover:bg-electric-500 text-white font-bold"
+                  className="px-6 py-2 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold shadow-sm"
                 >
                   Add to Roster
                 </button>
