@@ -19,69 +19,91 @@ import {
 export const HERO_SLIDES = [
   {
     id: 1,
-    tag: 'Mumbai Coastal Highway',
-    icon: MapPin,
-    title: 'Mumbai Coastal Highway & Bandra-Worli Sea Link',
-    subtitle: 'Chauffeured sedan and SUV transfers across Marine Drive, Nariman Point, and Bandra-Worli Sea Link in Maruti Dzire, Ertiga and Innova Crysta.',
-    image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Book Mumbai Cab', path: '/book?service=local-taxi' },
-    ctaSecondary: { label: 'Airport Transfers', path: '/services/airport-transfers' },
-    highlight: 'Executive chauffeur transfers with zero surge'
+    tag: 'Agra, Uttar Pradesh • UNESCO World Wonder',
+    icon: Sparkles,
+    title: 'Taj Mahal & Agra Heritage: Symbol of Eternal Love',
+    subtitle: 'Chauffeured sedan and luxury SUV packages from Delhi and Mumbai to the iconic Taj Mahal, Agra Fort, and Fatehpur Sikri with verified highway captains.',
+    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Agra Tour Cab', path: '/book?service=outstation-round-trip&drop=Agra' },
+    ctaSecondary: { label: 'Explore India Tours', path: '#popular-india-slideshow' },
+    highlight: 'Same-day expressway return with toll & tax transparency'
   },
   {
     id: 2,
-    tag: 'Sahyadri Mountain Expressway',
-    icon: Car,
-    title: 'Maharashtra Sahyadri Road: Mumbai–Pune Expressway',
-    subtitle: 'Travel through the misty Western Ghats, Kasara Ghat, and Lonavala with Tata Safari, Mahindra Scorpio-N, and Toyota Innova Hycross.',
-    image: 'https://images.unsplash.com/photo-1571501679680-de32f1e7a412?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Book Outstation Cab', path: '/book?service=outstation-one-way' },
-    ctaSecondary: { label: 'Explore Fleet', path: '#services-section' },
-    highlight: 'Mumbai ↔ Pune in 2h 45m with verified highway captains'
+    tag: 'Jaipur, Rajasthan • The Royal Pink City',
+    icon: MapPin,
+    title: 'Hawa Mahal & Amer Fort: Royal Palaces of Rajasthan',
+    subtitle: 'Experience royal Rajasthani hospitality. Intercity chauffeured cabs and Tempo Travellers for Hawa Mahal, City Palace, Jal Mahal, and Nahargarh sunset tours.',
+    image: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Jaipur Tour', path: '/book?service=outstation-round-trip&drop=Jaipur' },
+    ctaSecondary: { label: 'Browse Fleet', path: '#services-section' },
+    highlight: 'Delhi & Mumbai to Jaipur express corridor in premium Innova Crysta'
   },
   {
     id: 3,
-    tag: 'MSRTC State Transport',
-    icon: Bus,
-    title: 'MSRTC Shivneri Volvo & Intercity Highway Luxury Buses',
-    subtitle: 'Glide across Maharashtra and Goa in official MSRTC Shivneri Volvo AC buses, Shivshahi coaches, and multi-axle luxury tourist charters.',
-    image: 'https://images.unsplash.com/photo-1557223562-6c77ef16210f?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Book MSRTC Shivneri', path: '/msrtc' },
-    ctaSecondary: { label: 'Charter Luxury Coach', path: '/services/luxury-bus' },
-    highlight: 'Air-suspension glide with Wi-Fi, pushback recliners & GPS'
+    tag: 'Alleppey & Kumarakom, Kerala • God’s Own Country',
+    icon: Compass,
+    title: 'Kerala Backwaters & Houseboats: Tropical Serenity',
+    subtitle: 'Cruise through coconut-fringed palm lagoons, emerald canals, and serene backwater houseboats with Cochin airport pickup and drop.',
+    image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Kerala Transfer', path: '/book?service=outstation-one-way&drop=Kerala' },
+    ctaSecondary: { label: 'Flight + Cab Sync', path: '/flights' },
+    highlight: 'Complimentary airport pickup & drop with luggage assistance'
   },
   {
     id: 4,
-    tag: 'Indian Railways Fastlane',
-    icon: Train,
-    title: 'Vande Bharat Express Travelling Through Indian Scenery',
-    subtitle: 'Confirmed train berths, Vande Bharat, Rajdhani, Tejas and Shatabdi express schedules with live Tatkal seat telemetry.',
-    image: 'https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Search Train Tickets', path: '/railway' },
-    ctaSecondary: { label: 'Check PNR Status Demo', path: '/railway/pnr-status' },
-    highlight: '10,000+ Indian Railway routes with instant Tatkal assist'
+    tag: 'Srinagar & Gulmarg, Kashmir • Paradise on Earth',
+    icon: Sparkles,
+    title: 'Dal Lake & Snow Peaks: Heavenly Himalayan Escapes',
+    subtitle: 'Scenic Shikara rides on Dal Lake, Mughal Gardens, and snow gondola adventures in Gulmarg and Pahalgam with heated 4x4 SUVs.',
+    image: 'https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Kashmir Tour', path: '/book?service=outstation-round-trip&drop=Srinagar' },
+    ctaSecondary: { label: 'Flight Booking', path: '/flights' },
+    highlight: '4x4 Snow-ready fleet with verified local mountain captains'
   },
   {
     id: 5,
-    tag: 'Airport Terminal Concierge',
-    icon: Plane,
-    title: 'Air India & IndiGo Flight Transfer: Mumbai T2, Pune & Delhi',
-    subtitle: 'Synchronized with Air India, IndiGo and Akasa flights. Chauffeur meet & greet, luggage porter assistance and guaranteed fixed flat tariffs.',
-    image: 'https://images.unsplash.com/photo-1520437358207-323b43b50729?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Book Airport Transfer', path: '/book?service=airport-pickup' },
-    ctaSecondary: { label: 'Corporate Commute', path: '/corporate' },
-    highlight: 'Complimentary 45m flight delay buffer for domestic & intl arrivals'
+    tag: 'Varanasi, Uttar Pradesh • Spiritual Capital of India',
+    icon: MapPin,
+    title: 'Kashi Vishwanath & Sacred Ganga Aarti Ghats',
+    subtitle: 'Witness the divine evening Ganga Aarti at Dashashwamedh Ghat and early dawn boat rides along sacred riverfronts with private chauffeur transfers.',
+    image: 'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Kashi Pilgrimage', path: '/book?service=outstation-one-way&drop=Varanasi' },
+    ctaSecondary: { label: 'Confirmed Trains', path: '/railway' },
+    highlight: 'Vande Bharat train & airport transfer connectivity'
   },
   {
     id: 6,
-    tag: 'Goa Coastal Highway',
-    icon: MapPin,
-    title: 'Goa Coastal Roads, NH-66 Konkan & Tourist Vehicles',
-    subtitle: 'Cruise along sun-kissed beaches, heritage Latin quarters, and picturesque coastal palm avenues in comfortable air-conditioned cabs.',
+    tag: 'Goa Coastal Paradise • Golden Sand & Heritage',
+    icon: Car,
+    title: 'Goa Coastal Highways: Sun-Kissed Beaches & Latin Quarters',
+    subtitle: 'Cruise along Calangute, Baga, Palolem beaches and Old Goa Portuguese cathedrals in comfortable air-conditioned cabs with zero surge.',
     image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Book Goa Road Trip', path: '/book?service=outstation-round-trip' },
-    ctaSecondary: { label: 'Explore Destinations', path: '#destinations-section' },
-    highlight: 'Mumbai & Pune to Goa round-trips with scenic Konkan halts'
+    ctaPrimary: { label: 'Book Goa Road Trip', path: '/book?service=outstation-round-trip&drop=Goa' },
+    ctaSecondary: { label: 'MSRTC Bus Option', path: '/msrtc' },
+    highlight: 'Mumbai & Pune to Goa round-trips via NH-66 Konkan highway'
+  },
+  {
+    id: 7,
+    tag: 'Mumbai, Maharashtra • The City of Dreams',
+    icon: MapPin,
+    title: 'Marine Drive & Gateway of India: Coastal Metropolis',
+    subtitle: 'Travel along the Arabian Sea coast, Bandra-Worli Sea Link, and Mumbai Coastal Road in premium chauffeured sedans and electric cabs.',
+    image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Mumbai Cab', path: '/book?service=local-taxi' },
+    ctaSecondary: { label: 'NCMC Transit Card', path: '/ncmc' },
+    highlight: '24x7 Airport T2 and intercity expressway pickup'
+  },
+  {
+    id: 8,
+    tag: 'Pangong Tso & Leh, Ladakh • The Himalayan Crown',
+    icon: Compass,
+    title: 'Ladakh High Passes & Crystal Azure Pangong Lake',
+    subtitle: 'Conquer Khardung La, explore ancient Buddhist monasteries, and marvel at the changing hues of high-altitude Pangong Tso with rugged all-terrain SUVs.',
+    image: 'https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Ladakh Expedition', path: '/book?service=outstation-round-trip&drop=Ladakh' },
+    ctaSecondary: { label: 'Group Travellers', path: '/services/mini-bus' },
+    highlight: 'Oxygen-equipped touring SUVs with seasoned altitude experts'
   }
 ];
 

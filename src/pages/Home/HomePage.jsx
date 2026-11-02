@@ -28,6 +28,7 @@ import {
   Globe2
 } from 'lucide-react';
 import { HeroSlideshow } from '../../components/home/HeroSlideshow';
+import { IndiaDestinationsSlideshow } from '../../components/home/IndiaDestinationsSlideshow';
 import { BookingSearchPanel } from '../../components/common/BookingSearchPanel';
 import { VehicleCard } from '../../components/common/VehicleCard';
 import { servicesData, vehiclesData, destinationsData, testimonialsData, faqsData } from '../../data/mockData';
@@ -83,7 +84,10 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* 2. POPULAR MAHARASHTRA DESTINATIONS (Elevated directly below Hero Booking Bar for Prime Visibility) */}
+      {/* 2. INCREDIBLE INDIA - MOST POPULAR PLACES SLIDESHOW (AUTOPLAY + INTERACTIVE CAROUSEL) */}
+      <IndiaDestinationsSlideshow />
+
+      {/* 3. POPULAR MAHARASHTRA DESTINATIONS */}
       <section id="destinations-section" className="py-16 sm:py-20 bg-white border-b border-[#E5EDF5] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
