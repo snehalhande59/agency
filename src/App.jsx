@@ -17,6 +17,7 @@ import { GroupTravelPage } from './pages/Services/GroupTravelPage';
 import { TrainBookingPage } from './pages/Services/TrainBookingPage';
 import { MaharashtraSTBusPage } from './pages/Services/MaharashtraSTBusPage';
 import { NcmcTransitPage } from './pages/Services/NcmcTransitPage';
+import { FlightBookingPage } from './pages/Flight/FlightBookingPage';
 
 // Corporate Pages
 import { CorporateLayout } from './pages/Corporate/CorporateLayout';
@@ -142,6 +143,10 @@ export default function App() {
 
             {/* Complete 10-Service Booking Workflow Engine */}
             <Route path="/book" element={<BookingWorkflowPage />} />
+
+            {/* Flights Module */}
+            <Route path="/flights" element={<FlightBookingPage />} />
+            <Route path="/flight-booking" element={<FlightBookingPage />} />
 
             {/* Individual Service Pages */}
             <Route path="/services/local-taxi" element={<LocalTaxiPage />} />

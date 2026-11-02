@@ -49,6 +49,7 @@ export const HomePage = () => {
     switch (iconName) {
       case 'Car': return Car;
       case 'Compass': return Compass;
+      case 'Plane':
       case 'PlaneTakeoff': return Plane;
       case 'BusFront': return Bus;
       case 'Sparkles': return Sparkles;
@@ -66,11 +67,7 @@ export const HomePage = () => {
       drop: dest.name,
       serviceType: 'outstation-cabs'
     });
-    openBookingModal({
-      category: 'Executive SUV - Innova Crysta',
-      drop: dest.name,
-      pickup: 'Mumbai'
-    });
+    navigate(`/book?service=outstation-one-way&drop=${encodeURIComponent(dest.name)}`);
   };
 
   return (

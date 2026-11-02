@@ -50,6 +50,7 @@ export const Navbar = () => {
   }, [location.pathname]);
 
   const serviceLinks = [
+    { name: 'Flight Ticket Booking', path: '/flights', icon: Plane, desc: 'Air India, IndiGo, Vistara & Akasa' },
     { name: 'Local Taxi Services', path: '/services/local-taxi', icon: Car, desc: 'Point-to-point urban rides' },
     { name: 'Outstation Cabs', path: '/services/outstation-cabs', icon: Compass, desc: 'Intercity one-way & round trips' },
     { name: 'Airport Transfers', path: '/services/airport-transfers', icon: Plane, desc: 'Flight synced pickups & drops' },
@@ -179,6 +180,13 @@ export const Navbar = () => {
             </Link>
 
             <Link 
+              to="/flights" 
+              className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-colors ${isActive('/flights') ? 'text-[#3898D8] bg-[#DCEEFF]/70' : 'text-[#153B5B] hover:text-[#3898D8] hover:bg-[#EFF7FC]'}`}
+            >
+              Flights
+            </Link>
+
+            <Link 
               to="/services/luxury-bus" 
               className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-colors ${isActive('/services/luxury-bus') ? 'text-[#3898D8] bg-[#DCEEFF]/70' : 'text-[#153B5B] hover:text-[#3898D8] hover:bg-[#EFF7FC]'}`}
             >
@@ -209,6 +217,7 @@ export const Navbar = () => {
                         <Link
                           key={corp.path}
                           to={corp.path}
+                          onClick={() => setCorporateDropdown(false)}
                           className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#EFF7FC] transition-all group"
                         >
                           <div className="p-2 rounded-lg bg-[#DCEEFF] text-[#3898D8] group-hover:bg-[#3898D8] group-hover:text-white transition-colors shrink-0">
@@ -330,28 +339,33 @@ export const Navbar = () => {
           <div className="grid grid-cols-2 gap-2 pt-1 pb-3 border-b border-[#E5EDF5]">
             <Link
               to="/"
+              onClick={() => setIsOpen(false)}
               className={`p-2.5 rounded-xl text-sm font-semibold ${isActive('/') ? 'bg-[#3898D8] text-white' : 'bg-[#EFF7FC] text-[#153B5B]'}`}
             >
               Home
             </Link>
             <Link
               to="/corporate/admin"
+              onClick={() => setIsOpen(false)}
               className={`p-2.5 rounded-xl text-sm font-bold flex items-center gap-1.5 ${location.pathname.startsWith('/corporate') ? 'bg-[#3898D8] text-white' : 'bg-[#EFF7FC] text-[#3898D8]'}`}
             >
               <Building2 className="w-4 h-4" />
               Corporate Admin
             </Link>
             <Link
+              to="/flights"
+              onClick={() => setIsOpen(false)}
+              className={`p-2.5 rounded-xl text-sm font-bold flex items-center gap-1.5 ${isActive('/flights') ? 'bg-[#3898D8] text-white' : 'bg-[#EFF7FC] text-[#153B5B]'}`}
+            >
+              <Plane className="w-4 h-4 text-[#3898D8]" />
+              Flight Booking
+            </Link>
+            <Link
               to="/corporate/employee"
+              onClick={() => setIsOpen(false)}
               className="p-2.5 rounded-xl text-sm font-semibold bg-[#EFF7FC] text-[#153B5B]"
             >
               Employee App
-            </Link>
-            <Link
-              to="/corporate/driver"
-              className="p-2.5 rounded-xl text-sm font-semibold bg-[#EFF7FC] text-[#153B5B]"
-            >
-              Driver Console
             </Link>
           </div>
 
@@ -363,6 +377,7 @@ export const Navbar = () => {
                 <Link
                   key={service.path}
                   to={service.path}
+                  onClick={() => setIsOpen(false)}
                   className="flex items-center gap-3 p-2 rounded-xl hover:bg-[#EFF7FC] text-[#153B5B] transition-colors"
                 >
                   <div className="p-1.5 rounded-lg bg-[#DCEEFF] text-[#3898D8]">
@@ -388,6 +403,7 @@ export const Navbar = () => {
                   </div>
                   <Link
                     to="/dashboard"
+                    onClick={() => setIsOpen(false)}
                     className="text-xs bg-[#3898D8] text-white font-bold px-3 py-1.5 rounded-lg shadow-xs"
                   >
                     Dashboard →
@@ -397,12 +413,16 @@ export const Navbar = () => {
                 <div className="grid grid-cols-2 gap-2">
                   <Link
                     to="/admin"
+                    onClick={() => setIsOpen(false)}
                     className="text-center py-2 rounded-xl bg-white border border-[#E5EDF5] text-xs font-bold text-[#3898D8]"
                   >
                     Super Admin Console
                   </Link>
                   <button
-                    onClick={handleLogout}
+                    onClick={() => {
+                      setIsOpen(false);
+                      handleLogout();
+                    }}
                     className="flex items-center justify-center gap-1.5 text-center py-2 rounded-xl bg-rose-50 text-rose-700 border border-rose-200 text-xs font-bold"
                   >
                     <LogOut className="w-3.5 h-3.5" />
@@ -414,6 +434,7 @@ export const Navbar = () => {
               <div className="grid grid-cols-2 gap-2">
                 <Link
                   to="/login"
+                  onClick={() => setIsOpen(false)}
                   className="flex items-center justify-center gap-1.5 w-full text-center py-2.5 rounded-xl bg-[#EFF7FC] border border-[#DCEEFF] text-sm font-bold text-[#3898D8]"
                 >
                   <LogIn className="w-4 h-4" />
@@ -421,6 +442,7 @@ export const Navbar = () => {
                 </Link>
                 <Link
                   to="/signup"
+                  onClick={() => setIsOpen(false)}
                   className="w-full text-center py-2.5 rounded-xl bg-[#3898D8] text-sm font-bold text-white shadow-sm"
                 >
                   Register

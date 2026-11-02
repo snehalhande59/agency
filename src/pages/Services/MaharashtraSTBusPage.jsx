@@ -65,23 +65,23 @@ export const MaharashtraSTBusPage = () => {
       {/* MSRTC Schedule Table */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-6">
         {/* Launch Interactive MSRTC Engine Card */}
-        <div className="rounded-3xl bg-gradient-to-r from-red-950/80 via-navy-900 to-rose-950/60 border border-red-500/40 p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-2xl">
+        <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-300 text-xs font-semibold">
-              <ShieldAlert className="w-3.5 h-3.5 text-red-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold">
+              <ShieldAlert className="w-3.5 h-3.5 text-rose-600" />
               <span>{MSRTC_BANNER_TEXT}</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-black text-white font-display">
+            <h3 className="text-xl sm:text-2xl font-black text-[#153B5B] font-display">
               Launch Interactive MSRTC Booking Module
             </h3>
-            <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#64748B] max-w-2xl leading-relaxed">
               Experience the full Maharashtra State Transport digital reservation system with 2x2 interactive seat layouts, Mahila Samman &amp; Amrit Jyeshtha concessions, simulated digital bus pass generation, and instant refund tracking.
             </p>
           </div>
 
           <Link
             to="/msrtc"
-            className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-red-600/30 shrink-0 transition-all hover:scale-105"
+            className="px-6 py-3.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm shrink-0 transition-all"
           >
             <span>Open MSRTC Engine</span>
             <ArrowRight className="w-4 h-4" />

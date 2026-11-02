@@ -63,31 +63,31 @@ export const TrainBookingPage = () => {
 
       {/* Interactive Module Launch Banner */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-6 rounded-3xl bg-gradient-to-r from-electric-950 via-navy-900 to-navy-950 border border-electric-500/30 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-glow-sm">
+        <div className="p-6 rounded-3xl bg-white border border-[#E5EDF5] flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold text-electric-400 mb-1">
-              <Zap className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-xs font-bold text-[#3898D8] mb-1">
+              <Zap className="w-4 h-4 text-[#19A89A]" />
               <span>IRCTC-Style Railway Booking Module Available</span>
             </div>
-            <h3 className="text-xl font-bold text-white font-display">
-              Search Live Schedules, Berth Quotas & Demo Tickets
+            <h3 className="text-xl font-black text-[#153B5B] font-display">
+              Search Live Schedules, Berth Quotas &amp; Demo Tickets
             </h3>
-            <p className="text-xs text-slate-400 mt-1">
-              Experience the complete multi-step railway booking simulator with seat availability, berth selection & PNR tracking.
+            <p className="text-xs text-[#64748B] mt-1">
+              Experience the complete multi-step railway booking simulator with seat availability, berth selection &amp; PNR tracking.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
             <Link
               to="/railway"
-              className="px-5 py-2.5 rounded-xl bg-electric-600 hover:bg-electric-500 text-white font-bold text-xs shadow-glow-sm transition-all flex items-center gap-2 shrink-0"
+              className="px-5 py-2.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs shadow-sm transition-all flex items-center gap-2 shrink-0"
             >
               <span>Launch Railway Engine</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               to="/railway/pnr-status"
-              className="px-4 py-2.5 rounded-xl bg-navy-800 hover:bg-navy-700 text-slate-300 hover:text-white border border-slate-700 font-semibold text-xs transition-all flex items-center gap-1.5 shrink-0"
+              className="px-4 py-2.5 rounded-xl bg-[#EFF7FC] hover:bg-[#DCEEFF] text-[#3898D8] border border-[#E5EDF5] font-bold text-xs transition-all flex items-center gap-1.5 shrink-0"
             >
               <FileText className="w-3.5 h-3.5" />
               <span>PNR Tracker</span>
