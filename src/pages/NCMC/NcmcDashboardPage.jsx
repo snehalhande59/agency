@@ -12,29 +12,29 @@ export const NcmcDashboardPage = () => {
     <div className="space-y-8 pb-16">
       
       {/* Header & Card Selector */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#E5EDF5] gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white font-display flex items-center gap-2">
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] font-display flex items-center gap-2">
             <span>Cardholder Transit Dashboard</span>
-            <span className="text-[10px] font-bold uppercase tracking-wider bg-cyan-500/10 text-cyan-300 px-2.5 py-0.5 rounded-full border border-cyan-500/30">
+            <span className="text-[10px] font-bold uppercase tracking-wider bg-[#EFF7FC] text-[#3898D8] px-2.5 py-0.5 rounded-full border border-[#DCEEFF]">
               Active
             </span>
           </h2>
-          <p className="text-xs text-slate-400 mt-0.5">
+          <p className="text-xs text-[#64748B] mt-0.5">
             Manage your RuPay contactless smart card, monitor tap history, and inspect digital passes
           </p>
         </div>
 
         {cardsList.length > 1 && (
           <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-400 font-medium">Active Card:</span>
+            <span className="text-xs text-[#64748B] font-bold">Active Card:</span>
             <select
               value={activeCard.cardId}
               onChange={(e) => {
                 const found = cardsList.find((c) => c.cardId === e.target.value);
                 if (found) setActiveCard(found);
               }}
-              className="bg-navy-900 border border-slate-700 text-xs font-mono font-bold text-cyan-300 rounded-xl px-3 py-1.5 focus:outline-none focus:border-cyan-400"
+              className="bg-white border border-[#E5EDF5] text-xs font-mono font-bold text-[#153B5B] rounded-xl px-3 py-1.5 focus:outline-none focus:border-[#3898D8]"
             >
               {cardsList.map((c) => (
                 <option key={c.cardId} value={c.cardId}>
@@ -52,13 +52,13 @@ export const NcmcDashboardPage = () => {
         {/* Left: Card Visual */}
         <div className="lg:col-span-5 flex flex-col items-center">
           <NcmcCardVisual card={activeCard} />
-          <div className="mt-4 flex items-center gap-4 text-xs text-slate-400">
-            <span className="flex items-center gap-1 text-emerald-400">
+          <div className="mt-4 flex items-center gap-4 text-xs text-[#64748B]">
+            <span className="flex items-center gap-1 text-[#19A89A] font-bold">
               <Wifi className="w-3.5 h-3.5" />
               <span>NFC Tap &amp; Go Active</span>
             </span>
             <span>•</span>
-            <span>ID: <strong className="font-mono text-slate-200">{activeCard.cardId}</strong></span>
+            <span>ID: <strong className="font-mono text-[#153B5B]">{activeCard.cardId}</strong></span>
           </div>
         </div>
 
@@ -66,17 +66,17 @@ export const NcmcDashboardPage = () => {
         <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
           
           {/* Balance Widget */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-navy-900 to-slate-900 border border-slate-800 shadow-xl flex flex-col justify-between space-y-4">
+          <div className="p-6 rounded-3xl bg-white border border-[#E5EDF5] shadow-sm flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Demo Transit Balance</span>
-                <span className="text-[10px] bg-cyan-500/10 text-cyan-300 px-2 py-0.5 rounded font-mono">RuPay Stored</span>
+                <span className="text-xs font-bold text-[#64748B] uppercase tracking-wider">Demo Transit Balance</span>
+                <span className="text-[10px] bg-[#EFF7FC] text-[#3898D8] border border-[#DCEEFF] px-2 py-0.5 rounded font-mono font-bold">RuPay Stored</span>
               </div>
-              <div className="text-3xl font-black text-white font-mono mt-2 flex items-center gap-1">
-                <span className="text-cyan-400">₹</span>
+              <div className="text-3xl font-black text-[#153B5B] font-mono mt-2 flex items-center gap-1">
+                <span className="text-[#3898D8]">₹</span>
                 <span>{activeCard.walletBalance.toFixed(2)}</span>
               </div>
-              <p className="text-[11px] text-slate-400 mt-1">
+              <p className="text-[11px] text-[#64748B] mt-1">
                 Valid at all metro turnstiles &amp; BEST bus validator terminals
               </p>
             </div>
@@ -84,7 +84,7 @@ export const NcmcDashboardPage = () => {
             <div className="pt-2">
               <Link
                 to="/ncmc/recharge"
-                className="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-cyan-600/30 transition-all"
+                className="w-full py-2.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
               >
                 <Zap className="w-3.5 h-3.5" />
                 <span>Recharge Card Balance</span>
@@ -93,19 +93,19 @@ export const NcmcDashboardPage = () => {
           </div>
 
           {/* Active Pass Widget */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-navy-900 to-slate-900 border border-slate-800 shadow-xl flex flex-col justify-between space-y-4">
+          <div className="p-6 rounded-3xl bg-white border border-[#E5EDF5] shadow-sm flex flex-col justify-between space-y-4">
             {activePass ? (
               <>
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Active Pass</span>
-                    <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded font-bold">
+                    <span className="text-xs font-bold text-[#64748B] uppercase tracking-wider">Active Pass</span>
+                    <span className="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded font-bold">
                       {activePass.daysRemaining} Days Left
                     </span>
                   </div>
-                  <div className="text-base font-bold text-white mt-1.5 line-clamp-1">{activePass.title}</div>
-                  <div className="text-xs text-cyan-400 mt-0.5">{activePass.network}</div>
-                  <div className="text-[10px] text-slate-400 mt-2 font-mono">
+                  <div className="text-base font-bold text-[#153B5B] mt-1.5 line-clamp-1">{activePass.title}</div>
+                  <div className="text-xs text-[#3898D8] font-bold mt-0.5">{activePass.network}</div>
+                  <div className="text-[10px] text-[#64748B] mt-2 font-mono font-semibold">
                     Valid until: {activePass.validUntil}
                   </div>
                 </div>
@@ -114,15 +114,15 @@ export const NcmcDashboardPage = () => {
                   <button
                     type="button"
                     onClick={() => setShowQrModal(true)}
-                    className="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs flex items-center justify-center gap-1.5 border border-slate-700 transition-colors"
+                    className="flex-1 py-2.5 rounded-xl bg-[#EFF7FC] hover:bg-[#DCEEFF] text-[#3898D8] font-bold text-xs flex items-center justify-center gap-1.5 border border-[#DCEEFF] transition-colors"
                   >
-                    <QrCode className="w-3.5 h-3.5 text-cyan-400" />
+                    <QrCode className="w-3.5 h-3.5 text-[#3898D8]" />
                     <span>Show Gate QR</span>
                   </button>
 
                   <Link
                     to="/ncmc/passes"
-                    className="px-3 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-xs border border-slate-700"
+                    className="px-3 py-2.5 rounded-xl bg-[#F8FAFC] hover:bg-[#EFF7FC] text-[#64748B] hover:text-[#153B5B] text-xs border border-[#E5EDF5]"
                     title="Change Pass"
                   >
                     <ChevronRight className="w-4 h-4" />
@@ -131,11 +131,11 @@ export const NcmcDashboardPage = () => {
               </>
             ) : (
               <div className="text-center py-4">
-                <Ticket className="w-8 h-8 text-slate-600 mx-auto mb-2" />
-                <div className="text-xs font-bold text-white">No Active Unlimited Pass</div>
+                <Ticket className="w-8 h-8 text-[#94A3B8] mx-auto mb-2" />
+                <div className="text-xs font-bold text-[#153B5B]">No Active Unlimited Pass</div>
                 <Link
                   to="/ncmc/passes"
-                  className="mt-3 inline-block px-4 py-2 rounded-xl bg-cyan-600 text-white text-xs font-bold"
+                  className="mt-3 inline-block px-4 py-2 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white text-xs font-bold"
                 >
                   Buy Transit Pass
                 </Link>
@@ -151,51 +151,51 @@ export const NcmcDashboardPage = () => {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <Link
           to="/ncmc/recharge"
-          className="p-4 rounded-2xl bg-navy-900 border border-slate-800 hover:border-cyan-500/40 hover:bg-navy-850 text-center transition-all group"
+          className="p-4 rounded-2xl bg-white border border-[#E5EDF5] hover:border-[#3898D8] hover:shadow-md text-center transition-all group shadow-2xs"
         >
-          <Zap className="w-5 h-5 text-cyan-400 mx-auto mb-1.5 group-hover:scale-110 transition-transform" />
-          <div className="text-xs font-bold text-white">Instant Top-Up</div>
-          <div className="text-[10px] text-slate-400 mt-0.5">UPI &amp; Net Banking</div>
+          <Zap className="w-5 h-5 text-[#3898D8] mx-auto mb-1.5 group-hover:scale-110 transition-transform" />
+          <div className="text-xs font-bold text-[#153B5B]">Instant Top-Up</div>
+          <div className="text-[10px] text-[#64748B] mt-0.5">UPI &amp; Net Banking</div>
         </Link>
 
         <Link
           to="/ncmc/transactions"
-          className="p-4 rounded-2xl bg-navy-900 border border-slate-800 hover:border-cyan-500/40 hover:bg-navy-850 text-center transition-all group"
+          className="p-4 rounded-2xl bg-white border border-[#E5EDF5] hover:border-[#3898D8] hover:shadow-md text-center transition-all group shadow-2xs"
         >
-          <History className="w-5 h-5 text-blue-400 mx-auto mb-1.5 group-hover:scale-110 transition-transform" />
-          <div className="text-xs font-bold text-white">Tap History</div>
-          <div className="text-[10px] text-slate-400 mt-0.5">Metro &amp; Bus Ledger</div>
+          <History className="w-5 h-5 text-[#3898D8] mx-auto mb-1.5 group-hover:scale-110 transition-transform" />
+          <div className="text-xs font-bold text-[#153B5B]">Tap History</div>
+          <div className="text-[10px] text-[#64748B] mt-0.5">Metro &amp; Bus Ledger</div>
         </Link>
 
         <Link
           to="/ncmc/passes"
-          className="p-4 rounded-2xl bg-navy-900 border border-slate-800 hover:border-cyan-500/40 hover:bg-navy-850 text-center transition-all group"
+          className="p-4 rounded-2xl bg-white border border-[#E5EDF5] hover:border-[#3898D8] hover:shadow-md text-center transition-all group shadow-2xs"
         >
-          <Ticket className="w-5 h-5 text-purple-400 mx-auto mb-1.5 group-hover:scale-110 transition-transform" />
-          <div className="text-xs font-bold text-white">Transit Passes</div>
-          <div className="text-[10px] text-slate-400 mt-0.5">Daily, Weekly, Monthly</div>
+          <Ticket className="w-5 h-5 text-purple-600 mx-auto mb-1.5 group-hover:scale-110 transition-transform" />
+          <div className="text-xs font-bold text-[#153B5B]">Transit Passes</div>
+          <div className="text-[10px] text-[#64748B] mt-0.5">Daily, Weekly, Monthly</div>
         </Link>
 
         <Link
           to="/ncmc/lost-card"
-          className="p-4 rounded-2xl bg-navy-900 border border-slate-800 hover:border-rose-500/40 hover:bg-navy-850 text-center transition-all group"
+          className="p-4 rounded-2xl bg-white border border-[#E5EDF5] hover:border-rose-400 hover:shadow-md text-center transition-all group shadow-2xs"
         >
-          <AlertTriangle className="w-5 h-5 text-rose-400 mx-auto mb-1.5 group-hover:scale-110 transition-transform" />
-          <div className="text-xs font-bold text-white">Report Lost Card</div>
-          <div className="text-[10px] text-slate-400 mt-0.5">Instant Safe Block</div>
+          <AlertTriangle className="w-5 h-5 text-rose-500 mx-auto mb-1.5 group-hover:scale-110 transition-transform" />
+          <div className="text-xs font-bold text-[#153B5B]">Report Lost Card</div>
+          <div className="text-[10px] text-[#64748B] mt-0.5">Instant Safe Block</div>
         </Link>
       </div>
 
       {/* Recent Tap & Go Transactions Feed */}
-      <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 sm:p-8 shadow-xl">
-        <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+      <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 sm:p-8 shadow-sm">
+        <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#E5EDF5]">
           <div className="flex items-center gap-2.5">
-            <History className="w-5 h-5 text-cyan-400" />
-            <h3 className="text-sm sm:text-base font-bold text-white">Recent Tap &amp; Go Turnstile Logs</h3>
+            <History className="w-5 h-5 text-[#3898D8]" />
+            <h3 className="text-sm sm:text-base font-bold text-[#153B5B]">Recent Tap &amp; Go Turnstile Logs</h3>
           </div>
           <Link
             to="/ncmc/transactions"
-            className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
+            className="text-xs font-bold text-[#3898D8] hover:text-[#287DB8] flex items-center gap-1"
           >
             <span>View Full Ledger</span>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -210,31 +210,31 @@ export const NcmcDashboardPage = () => {
             return (
               <div
                 key={txn.id}
-                className="p-3.5 rounded-xl bg-navy-950 border border-slate-800/80 flex items-center justify-between text-xs"
+                className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E5EDF5] flex items-center justify-between text-xs"
               >
                 <div className="flex items-center gap-3">
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
                     isRecharge
-                      ? 'bg-emerald-600/20 text-emerald-400 border border-emerald-500/30'
+                      ? 'bg-emerald-50 text-emerald-600 border border-emerald-200'
                       : isEntry
-                      ? 'bg-blue-600/20 text-blue-400 border border-blue-500/30'
-                      : 'bg-cyan-600/20 text-cyan-400 border border-cyan-500/30'
+                      ? 'bg-[#EFF7FC] text-[#3898D8] border border-[#DCEEFF]'
+                      : 'bg-[#EFF7FC] text-[#3898D8] border border-[#DCEEFF]'
                   }`}>
                     {isRecharge ? <ArrowDownLeft className="w-4 h-4" /> : <ArrowUpRight className="w-4 h-4" />}
                   </div>
                   <div>
-                    <div className="font-bold text-white">{txn.location}</div>
-                    <div className="text-[10px] text-slate-400">
-                      {txn.timestamp} • <span className="text-slate-300">{txn.network}</span>
+                    <div className="font-bold text-[#153B5B]">{txn.location}</div>
+                    <div className="text-[10px] text-[#64748B]">
+                      {txn.timestamp} • <span className="text-[#153B5B] font-semibold">{txn.network}</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <div className={`font-mono font-bold ${isRecharge ? 'text-emerald-400' : 'text-white'}`}>
+                  <div className={`font-mono font-bold ${isRecharge ? 'text-emerald-600' : 'text-[#153B5B]'}`}>
                     {isRecharge ? `+₹${txn.amount.toFixed(2)}` : isEntry ? 'Check-in (₹0)' : `-₹${txn.amount.toFixed(2)}`}
                   </div>
-                  <span className="text-[10px] font-mono text-slate-500">{txn.status}</span>
+                  <span className="text-[10px] font-mono text-[#64748B] font-semibold">{txn.status}</span>
                 </div>
               </div>
             );

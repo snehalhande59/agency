@@ -9,7 +9,7 @@ export const servicesData = [
     icon: 'Car',
     badge: 'Instant & Scheduled',
     startingPrice: '₹14/km',
-    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=800&q=80',
     features: ['Instant 10-min pickup', 'Verified chauffeurs', 'Zero surge guarantee on rentals', 'Clean AC vehicles']
   },
   {
@@ -20,7 +20,7 @@ export const servicesData = [
     icon: 'Compass',
     badge: 'Popular',
     startingPrice: '₹11/km',
-    image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80',
     features: ['One-way & round trips', 'Toll & tax transparency', 'Doorstep pickup', 'No hidden driver charges']
   },
   {
@@ -42,7 +42,7 @@ export const servicesData = [
     icon: 'BusFront',
     badge: 'Group Choice',
     startingPrice: '₹24/km',
-    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80',
     features: ['Reclining pushback seats', 'Ample boot space', 'LED screens & sound system', 'Experienced highway captains']
   },
   {
@@ -53,7 +53,7 @@ export const servicesData = [
     icon: 'Sparkles',
     badge: 'Ultra Luxury',
     startingPrice: '₹48/km',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80',
     features: ['Air suspension glide', 'Individual charging points', 'On-board washroom options', 'Corporate event transit']
   },
   {
@@ -231,7 +231,7 @@ export const destinationsData = [
     duration: '2.5 hrs via Expressway',
     startingPrice: '₹2,199',
     popularFor: ['Hinjawadi IT Park', 'Sinhagad Historic Fort', 'Aga Khan Palace', 'Shaniwar Wada'],
-    image: 'https://images.unsplash.com/photo-1598890777032-bde835ba27c2?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Goa',
@@ -249,7 +249,7 @@ export const destinationsData = [
     duration: '5 hrs',
     startingPrice: '₹3,499',
     popularFor: ['Venna Lake', 'Arthur Seat Point', 'Mapro Garden', 'Panchgani Table Land'],
-    image: 'https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Shirdi',
@@ -258,7 +258,7 @@ export const destinationsData = [
     duration: '4.5 hrs via Samruddhi',
     startingPrice: '₹3,299',
     popularFor: ['Sai Baba Samadhi Temple', 'Shani Shingnapur', 'Samruddhi Mahamarg Drive'],
-    image: 'https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Nashik',
@@ -267,7 +267,7 @@ export const destinationsData = [
     duration: '3.5 hrs via Kasara Ghat',
     startingPrice: '₹2,499',
     popularFor: ['Sula Vineyards', 'Trimbakeshwar Jyotirlinga', 'Panchavati', 'Godavari Ghats'],
-    image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Lonavala & Khandala',
@@ -285,7 +285,7 @@ export const destinationsData = [
     duration: '5.5 hrs via Samruddhi',
     startingPrice: '₹4,199',
     popularFor: ['Ellora Caves', 'Ajanta Caves', 'Bibi Ka Maqbara', 'Daulatabad Fort'],
-    image: 'https://images.unsplash.com/photo-1600100397608-f010f4439c0d?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Alibaug & Kashid',
@@ -294,7 +294,7 @@ export const destinationsData = [
     duration: '2.5 hrs direct or 1 hr Mandwa Ro-Ro',
     startingPrice: '₹1,999',
     popularFor: ['Kolaba Sea Fort', 'Kashid White Sands', 'Nagaon Beach', 'Murud-Janjira Fort'],
-    image: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Kolhapur & Panhala',

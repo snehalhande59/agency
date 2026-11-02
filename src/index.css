@@ -81,28 +81,23 @@
 }
 
 /* Light Theme Contrast Protections for Cards, Modals, Forms & Panels */
-.glass-panel h1:not(.text-white):not([class*="!text-white"]), 
-.glass-panel h2:not(.text-white):not([class*="!text-white"]), 
-.glass-panel h3:not(.text-white):not([class*="!text-white"]), 
-.glass-panel h4:not(.text-white):not([class*="!text-white"]), 
-.glass-panel h5:not(.text-white):not([class*="!text-white"]),
-.glass-card h1:not(.text-white):not([class*="!text-white"]), 
-.glass-card h2:not(.text-white):not([class*="!text-white"]), 
-.glass-card h3:not(.text-white):not([class*="!text-white"]), 
-.glass-card h4:not(.text-white):not([class*="!text-white"]), 
-.glass-card h5:not(.text-white):not([class*="!text-white"]),
-.bg-white h1:not(.text-white):not([class*="!text-white"]):not(.destination-name-white), 
-.bg-white h2:not(.text-white):not([class*="!text-white"]), 
-.bg-white h3:not(.text-white):not([class*="!text-white"]):not(.destination-name-white), 
-.bg-white h4:not(.text-white):not([class*="!text-white"]), 
-.bg-white h5:not(.text-white):not([class*="!text-white"]), 
-.bg-white h6:not(.text-white):not([class*="!text-white"]) {
+.glass-panel h1, .glass-panel h2, .glass-panel h3, .glass-panel h4, .glass-panel h5,
+.glass-card h1, .glass-card h2, .glass-card h3, .glass-card h4, .glass-card h5,
+.bg-white h1:not(.destination-image-card *), 
+.bg-white h2:not(.destination-image-card *), 
+.bg-white h3:not(.destination-image-card *), 
+.bg-white h4:not(.destination-image-card *), 
+.bg-white h5:not(.destination-image-card *), 
+.bg-white h6:not(.destination-image-card *) {
   color: #153B5B !important;
 }
 
-/* Explicit destination card text protection against light parent containers */
+/* Explicit destination card text protection: must stay pure white on dark photo overlay */
 .destination-image-card,
+.destination-image-card h1,
+.destination-image-card h2,
 .destination-image-card h3,
+.destination-image-card h4,
 .destination-image-card p,
 .destination-image-card .destination-highlight-name,
 .destination-image-card .destination-name-white,
@@ -144,15 +139,24 @@ textarea::placeholder {
 .bg-navy-900 td.text-white,
 .bg-navy-950 td.text-white,
 .bg-white td.text-white,
-.bg-navy-900 div.text-white:not([class*="bg-"]):not(button *):not(a *),
-.bg-navy-950 div.text-white:not([class*="bg-"]):not(button *):not(a *),
-.bg-white div.text-white:not([class*="bg-"]):not(button *):not(a *),
+.bg-navy-900 div.text-white:not([class*="bg-"]):not(button[class*="bg-"] *):not(a[class*="bg-"] *),
+.bg-navy-950 div.text-white:not([class*="bg-"]):not(button[class*="bg-"] *):not(a[class*="bg-"] *),
+.bg-white div.text-white:not([class*="bg-"]):not(button[class*="bg-"] *):not(a[class*="bg-"] *),
 .bg-navy-900 strong.text-white,
 .bg-navy-950 strong.text-white,
 .bg-white strong.text-white,
 .bg-navy-900 span.text-white:not([class*="bg-"]),
 .bg-navy-950 span.text-white:not([class*="bg-"]),
-.bg-white span.text-white:not([class*="bg-"]) {
+.bg-white span.text-white:not([class*="bg-"]),
+button:not([class*="bg-red"]):not([class*="bg-rose"]):not([class*="bg-electric"]):not([class*="bg-cyan"]):not([class*="bg-emerald"]):not([class*="bg-blue"]):not([class*="bg-[#3898D8]"]):not([class*="bg-slate-900"]):not([class*="bg-black"]) .text-white,
+button:not([class*="bg-red"]):not([class*="bg-rose"]):not([class*="bg-electric"]):not([class*="bg-cyan"]):not([class*="bg-emerald"]):not([class*="bg-blue"]):not([class*="bg-[#3898D8]"]):not([class*="bg-slate-900"]):not([class*="bg-black"]) .text-slate-300,
+button:not([class*="bg-red"]):not([class*="bg-rose"]):not([class*="bg-electric"]):not([class*="bg-cyan"]):not([class*="bg-emerald"]):not([class*="bg-blue"]):not([class*="bg-[#3898D8]"]):not([class*="bg-slate-900"]):not([class*="bg-black"]) .text-slate-400 {
+  color: #153B5B !important;
+}
+
+/* Ensure background of legacy navy-950 and navy-900 are light cards */
+.bg-navy-950, .bg-navy-900 {
+  background-color: #FFFFFF !important;
   color: #153B5B !important;
 }
 

@@ -50,58 +50,58 @@ export const NcmcSupportPage = () => {
     <div className="max-w-4xl mx-auto space-y-10 pb-16">
       
       {/* Top Header */}
-      <div className="flex items-center gap-3 pb-4 border-b border-slate-800">
+      <div className="flex items-center gap-3 pb-4 border-b border-[#E5EDF5]">
         <Link
           to="/ncmc/dashboard"
-          className="p-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+          className="p-2.5 rounded-xl bg-[#EFF7FC] border border-[#E5EDF5] text-[#153B5B] hover:text-[#3898D8] hover:bg-[#DCEEFF] transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-5 h-5" />
         </Link>
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white font-display flex items-center gap-2">
-            <LifeBuoy className="w-6 h-6 text-cyan-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] font-display flex items-center gap-2">
+            <LifeBuoy className="w-6 h-6 text-[#3898D8]" />
             <span>NCMC Cardholder Support &amp; Grievance Desk</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-0.5">
+          <p className="text-xs text-[#64748B] mt-0.5">
             Log turnstile tap disputes, report double deductions, or inquire about card sync
           </p>
         </div>
       </div>
 
       {ticketResult && (
-        <div className="p-6 rounded-3xl bg-emerald-950/50 border border-emerald-500/40 text-emerald-200 space-y-2 shadow-xl">
+        <div className="p-6 rounded-3xl bg-[#E6F7F5] border border-[#19A89A]/30 text-[#153B5B] space-y-2 shadow-xs">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 font-bold text-sm text-emerald-300">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+            <div className="flex items-center gap-2 font-bold text-sm text-[#148377]">
+              <CheckCircle2 className="w-5 h-5 text-[#19A89A]" />
               <span>Grievance Ticket Registered in Demo Sandbox</span>
             </div>
-            <span className="font-mono text-xs text-emerald-400 bg-emerald-500/20 px-2 py-0.5 rounded">
+            <span className="font-mono text-xs text-[#148377] bg-white border border-[#19A89A]/30 px-2 py-0.5 rounded font-bold">
               {ticketResult.ticketNumber}
             </span>
           </div>
-          <p className="text-xs text-slate-300 leading-relaxed">
+          <p className="text-xs text-[#64748B] leading-relaxed">
             {ticketResult.message}
           </p>
         </div>
       )}
 
       {/* Ticket Submission Form */}
-      <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 sm:p-8 shadow-xl">
-        <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-5 flex items-center gap-2">
-          <Send className="w-4 h-4 text-cyan-400" />
+      <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 sm:p-8 shadow-sm">
+        <h3 className="text-sm font-bold text-[#153B5B] uppercase tracking-wider mb-5 flex items-center gap-2">
+          <Send className="w-4 h-4 text-[#3898D8]" />
           <span>Raise a New Support Ticket</span>
         </h3>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-400 mb-1.5">
+              <label className="block text-xs font-bold text-[#153B5B] mb-1.5">
                 Issue Category
               </label>
               <select
                 value={issueType}
                 onChange={(e) => setIssueType(e.target.value)}
-                className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-500"
+                className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] font-bold focus:outline-none focus:border-[#3898D8] focus:bg-white"
               >
                 <option value="Gate Tap Double Deduction">Gate Tap Double Deduction</option>
                 <option value="Card Not Read at Turnstile">Card Not Read at Turnstile</option>
@@ -112,7 +112,7 @@ export const NcmcSupportPage = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-400 mb-1.5">
+              <label className="block text-xs font-bold text-[#153B5B] mb-1.5">
                 Registered Contact Email
               </label>
               <input
@@ -120,13 +120,13 @@ export const NcmcSupportPage = () => {
                 value={contactEmail}
                 onChange={(e) => setContactEmail(e.target.value)}
                 required
-                className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-500"
+                className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] font-bold focus:outline-none focus:border-[#3898D8] focus:bg-white"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-400 mb-1.5">
+            <label className="block text-xs font-bold text-[#153B5B] mb-1.5">
               Incident Details (Station Gate / Bus Number / Timing)
             </label>
             <textarea
@@ -135,7 +135,7 @@ export const NcmcSupportPage = () => {
               onChange={(e) => setDescription(e.target.value)}
               placeholder="e.g. Gundavali Metro Gate 2 charged ₹30 twice at 09:14 AM today..."
               required
-              className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-500 placeholder:text-slate-500"
+              className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] font-bold focus:outline-none focus:border-[#3898D8] focus:bg-white placeholder:text-[#94A3B8]"
             />
           </div>
 
@@ -143,7 +143,7 @@ export const NcmcSupportPage = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-cyan-600/30 transition-all"
+              className="px-8 py-3 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] disabled:opacity-50 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-sm transition-all"
             >
               <Send className="w-4 h-4" />
               <span>{isSubmitting ? 'Logging Ticket...' : 'Submit Support Ticket'}</span>
@@ -154,26 +154,26 @@ export const NcmcSupportPage = () => {
 
       {/* Support History */}
       <div className="space-y-4">
-        <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-          <FileText className="w-4 h-4 text-cyan-400" />
+        <h3 className="text-sm font-bold text-[#153B5B] uppercase tracking-wider flex items-center gap-2">
+          <FileText className="w-4 h-4 text-[#3898D8]" />
           <span>My Support Tickets</span>
         </h3>
 
         <div className="space-y-3">
           {supportTickets.map((tkt) => (
-            <div key={tkt.ticketNumber} className="p-4 rounded-2xl bg-navy-900 border border-slate-800 text-xs space-y-2">
+            <div key={tkt.ticketNumber} className="p-4 rounded-2xl bg-white border border-[#E5EDF5] text-xs space-y-2 shadow-2xs">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono font-bold text-cyan-300">{tkt.ticketNumber}</span>
-                  <span className="font-semibold text-white">• {tkt.issueType}</span>
+                  <span className="font-mono font-bold text-[#3898D8]">{tkt.ticketNumber}</span>
+                  <span className="font-bold text-[#153B5B]">• {tkt.issueType}</span>
                 </div>
-                <span className="text-[10px] bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded font-mono font-bold">
+                <span className="text-[10px] bg-[#EFF7FC] text-[#3898D8] border border-[#DCEEFF] px-2 py-0.5 rounded font-mono font-bold">
                   {tkt.status}
                 </span>
               </div>
-              <p className="text-slate-400 text-[11px]">{tkt.description}</p>
+              <p className="text-[#64748B] text-[11px]">{tkt.description}</p>
               {tkt.resolution && (
-                <div className="p-2.5 rounded-lg bg-navy-950 text-emerald-400 text-[11px] border border-emerald-500/20">
+                <div className="p-2.5 rounded-lg bg-[#E6F7F5] text-[#148377] text-[11px] border border-[#19A89A]/20 font-medium">
                   <strong>Resolution:</strong> {tkt.resolution}
                 </div>
               )}
@@ -183,9 +183,9 @@ export const NcmcSupportPage = () => {
       </div>
 
       {/* Common AFC Turnstile FAQs */}
-      <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 sm:p-8 space-y-4">
-        <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-          <HelpCircle className="w-4 h-4 text-cyan-400" />
+      <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 sm:p-8 space-y-4 shadow-sm">
+        <h3 className="text-sm font-bold text-[#153B5B] uppercase tracking-wider flex items-center gap-2">
+          <HelpCircle className="w-4 h-4 text-[#3898D8]" />
           <span>Turnstile &amp; Contactless Tap FAQs</span>
         </h3>
 
@@ -193,17 +193,17 @@ export const NcmcSupportPage = () => {
           {supportFaqs.map((faq, i) => {
             const isOpen = openFaq === i;
             return (
-              <div key={i} className="rounded-xl bg-navy-950 border border-slate-800 overflow-hidden text-xs">
+              <div key={i} className="rounded-xl bg-[#F8FAFC] border border-[#E5EDF5] overflow-hidden text-xs">
                 <button
                   type="button"
                   onClick={() => setOpenFaq(isOpen ? null : i)}
-                  className="w-full p-4 text-left font-bold text-white flex items-center justify-between hover:text-cyan-300 transition-colors"
+                  className="w-full p-4 text-left font-bold text-[#153B5B] flex items-center justify-between hover:text-[#3898D8] transition-colors"
                 >
                   <span>{faq.q}</span>
-                  {isOpen ? <ChevronUp className="w-4 h-4 text-cyan-400 shrink-0 ml-2" /> : <ChevronDown className="w-4 h-4 text-slate-500 shrink-0 ml-2" />}
+                  {isOpen ? <ChevronUp className="w-4 h-4 text-[#3898D8] shrink-0 ml-2" /> : <ChevronDown className="w-4 h-4 text-[#64748B] shrink-0 ml-2" />}
                 </button>
                 {isOpen && (
-                  <div className="px-4 pb-4 text-slate-400 text-[11px] leading-relaxed border-t border-slate-800/80 pt-3">
+                  <div className="px-4 pb-4 text-[#64748B] text-[11px] leading-relaxed border-t border-[#E5EDF5] pt-3 font-medium">
                     {faq.a}
                   </div>
                 )}

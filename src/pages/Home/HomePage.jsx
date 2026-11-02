@@ -118,7 +118,7 @@ export const HomePage = () => {
                 <div className="relative z-10 space-y-2.5">
                   <div className="flex items-center justify-between">
                     <span 
-                      className="text-xs font-bold px-3 py-1 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/30 shadow-sm"
+                      className="text-xs font-bold px-3 py-1 rounded-xl bg-slate-950/85 backdrop-blur-md border border-white/30 shadow-sm"
                       style={{ color: '#FFFFFF' }}
                     >
                       {dest.duration}
@@ -132,25 +132,27 @@ export const HomePage = () => {
                   </div>
 
                   {/* Prominently Highlighted Destination Title */}
-                  <div className="flex items-center gap-2 pt-1">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#19A89A] shrink-0 animate-pulse shadow-md shadow-[#19A89A]" />
-                    <h3 
-                      className="destination-name-white text-2xl font-black tracking-tight font-display transition-colors"
-                      style={{ color: '#FFFFFF', textShadow: '0 2px 10px rgba(0,0,0,0.95), 0 0 20px rgba(0,0,0,0.8)' }}
-                    >
-                      {dest.name}
-                    </h3>
+                  <div className="pt-1">
+                    <div className="inline-flex items-center gap-2 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 rounded-2xl border border-white/20 shadow-lg">
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#19A89A] shrink-0 animate-pulse shadow-sm shadow-[#19A89A]" />
+                      <span 
+                        className="text-xl sm:text-2xl font-black tracking-wide font-display"
+                        style={{ color: '#FFFFFF' }}
+                      >
+                        {dest.name}
+                      </span>
+                    </div>
                   </div>
 
                   <p 
-                    className="destination-text-white text-xs font-medium line-clamp-1"
-                    style={{ color: '#F1F5F9', textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}
+                    className="text-xs font-semibold bg-slate-950/75 backdrop-blur-xs px-3 py-1.5 rounded-xl border border-white/10 line-clamp-1"
+                    style={{ color: '#F1F5F9' }}
                   >
                     {dest.tagline}
                   </p>
 
-                  <div className="pt-2.5 flex items-center justify-between text-xs border-t border-white/25 font-bold">
-                    <span className="flex items-center gap-1.5" style={{ color: '#FFFFFF', textShadow: '0 1px 4px rgba(0,0,0,0.9)' }}>
+                  <div className="pt-2 flex items-center justify-between text-xs border-t border-white/25 font-bold">
+                    <span className="flex items-center gap-1.5 bg-slate-950/75 backdrop-blur-xs px-2.5 py-1 rounded-lg" style={{ color: '#FFFFFF' }}>
                       <MapPin className="w-3.5 h-3.5 text-[#19A89A]" />
                       <span style={{ color: '#FFFFFF' }}>{dest.distance}</span>
                     </span>
@@ -205,7 +207,8 @@ export const HomePage = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                       onError={(e) => {
-                        e.target.src = 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80';
+                        e.target.onerror = null;
+                        e.target.src = 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=800&q=80';
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
