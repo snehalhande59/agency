@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Car, 
   Menu, 
@@ -14,16 +14,25 @@ import {
   User, 
   ShieldCheck,
   CalendarCheck,
-  CreditCard
+  CreditCard,
+  LogOut,
+  LogIn,
+  Users,
+  Truck,
+  Briefcase,
+  Layers,
+  Sparkles
 } from 'lucide-react';
 import { useBooking } from '../../context/BookingContext';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
+  const [corporateDropdown, setCorporateDropdown] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { user, openBookingModal } = useBooking();
+  const navigate = useNavigate();
+  const { user, logoutUser } = useBooking();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +46,7 @@ export const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
     setServicesDropdown(false);
+    setCorporateDropdown(false);
   }, [location.pathname]);
 
   const serviceLinks = [
@@ -51,7 +61,23 @@ export const Navbar = () => {
     { name: 'NCMC Transit Smart Card', path: '/ncmc', icon: CreditCard, desc: 'Contactless Metro & BEST pass' },
   ];
 
+  const corporateLinks = [
+    { name: 'HR Admin Dashboard', path: '/corporate/admin', icon: Building2, desc: 'Roster approvals & company fleet' },
+    { name: 'Employee Commute', path: '/corporate/employee', icon: Users, desc: 'Daily pickup, drop & live tracking' },
+    { name: 'Transport Dispatch Ops', path: '/corporate/transport-manager', icon: Truck, desc: 'Route planning & driver dispatch' },
+    { name: 'Chauffeur / Driver App', path: '/corporate/driver', icon: Car, desc: 'Assigned duty roster & trip OTP' },
+    { name: 'Vendor Fleet Partner', path: '/corporate/vendor', icon: Briefcase, desc: 'Partner contracts & cab inventory' },
+    { name: 'Finance & Invoicing', path: '/corporate/finance', icon: CreditCard, desc: 'Consolidated B2B monthly billing' },
+    { name: 'Multi-Role Login Portal', path: '/corporate/login', icon: LogIn, desc: 'Quick demo sign-in for all roles' },
+    { name: 'Corporate Overview', path: '/corporate', icon: Layers, desc: 'Enterprise mobility solutions & RFP' }
+  ];
+
   const isActive = (path) => location.pathname === path;
+
+  const handleLogout = () => {
+    logoutUser();
+    navigate('/login');
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -59,7 +85,7 @@ export const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
           
-          {/* Brand Logo - Reliable Click Redirection to Home with Smooth Scroll to Top */}
+          {/* Brand Logo */}
           <Link 
             to="/" 
             onClick={() => { 
@@ -110,7 +136,6 @@ export const Navbar = () => {
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesDropdown ? 'rotate-180 text-[#3898D8]' : ''}`} />
               </button>
 
-              {/* Dropdown Menu */}
               {servicesDropdown && (
                 <div className="absolute top-full left-0 w-[540px] pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                   <div className="bg-white p-4 rounded-2xl shadow-xl border border-[#E5EDF5] grid grid-cols-2 gap-2">
@@ -160,13 +185,48 @@ export const Navbar = () => {
               Bus &amp; Train
             </Link>
 
-            <Link 
-              to="/corporate" 
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${location.pathname.startsWith('/corporate') ? 'text-white bg-[#3898D8] shadow-sm' : 'text-[#153B5B] hover:text-[#3898D8] hover:bg-[#EFF7FC]'}`}
+            {/* Corporate Portal Interactive Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setCorporateDropdown(true)}
+              onMouseLeave={() => setCorporateDropdown(false)}
             >
-              <Building2 className="w-4 h-4" />
-              <span>Corporate</span>
-            </Link>
+              <Link 
+                to="/corporate/admin" 
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${location.pathname.startsWith('/corporate') ? 'text-white bg-[#3898D8] shadow-sm font-bold' : 'text-[#153B5B] hover:text-[#3898D8] hover:bg-[#EFF7FC]'}`}
+              >
+                <Building2 className="w-4 h-4" />
+                <span>Corporate Hub</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${corporateDropdown ? 'rotate-180' : ''}`} />
+              </Link>
+
+              {corporateDropdown && (
+                <div className="absolute top-full left-0 w-[580px] pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="bg-white p-4 rounded-2xl shadow-xl border border-[#E5EDF5] grid grid-cols-2 gap-2">
+                    {corporateLinks.map((corp) => {
+                      const Icon = corp.icon;
+                      return (
+                        <Link
+                          key={corp.path}
+                          to={corp.path}
+                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#EFF7FC] transition-all group"
+                        >
+                          <div className="p-2 rounded-lg bg-[#DCEEFF] text-[#3898D8] group-hover:bg-[#3898D8] group-hover:text-white transition-colors shrink-0">
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-bold text-[#153B5B] group-hover:text-[#3898D8] transition-colors">
+                              {corp.name}
+                            </div>
+                            <div className="text-[11px] text-[#64748B] line-clamp-1">{corp.desc}</div>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
 
             <Link 
               to="/about" 
@@ -183,8 +243,8 @@ export const Navbar = () => {
             </Link>
           </nav>
 
-          {/* Action CTAs & Auth */}
-          <div className="hidden lg:flex items-center gap-2.5">
+          {/* Action CTAs & Auth - Clear Login & Logout Options */}
+          <div className="hidden lg:flex items-center gap-2">
             {user ? (
               <div className="flex items-center gap-2">
                 <Link
@@ -195,26 +255,46 @@ export const Navbar = () => {
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Admin Console</span>
                 </Link>
+
                 <Link
                   to="/dashboard"
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#EFF7FC] border border-[#E5EDF5] hover:border-[#3898D8]/50 text-[#153B5B] hover:text-[#3898D8] transition-all text-sm font-semibold"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#EFF7FC] border border-[#E5EDF5] hover:border-[#3898D8]/50 text-[#153B5B] hover:text-[#3898D8] transition-all text-xs font-bold"
                 >
                   <img src={user.avatar} alt={user.name} className="w-6 h-6 rounded-full object-cover border border-[#3898D8]" />
-                  <span className="font-bold truncate max-w-[130px]">{user.name}</span>
+                  <span className="truncate max-w-[110px]">{user.name}</span>
                 </Link>
+
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition-all shadow-xs"
+                  title="Sign out of account"
+                >
+                  <LogOut className="w-3.5 h-3.5" />
+                  <span>Logout</span>
+                </button>
               </div>
             ) : (
-              <Link 
-                to="/login"
-                className="text-sm font-bold text-[#153B5B] hover:text-[#3898D8] px-3 py-1.5 transition-colors"
-              >
-                Sign In
-              </Link>
+              <div className="flex items-center gap-2">
+                <Link 
+                  to="/login"
+                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#EFF7FC] hover:bg-[#DCEEFF] text-[#3898D8] border border-[#DCEEFF] text-xs font-bold transition-all shadow-xs"
+                >
+                  <LogIn className="w-3.5 h-3.5" />
+                  <span>Login</span>
+                </Link>
+
+                <Link 
+                  to="/signup"
+                  className="text-xs font-bold text-[#153B5B] hover:text-[#3898D8] px-2 py-1.5 transition-colors"
+                >
+                  Register
+                </Link>
+              </div>
             )}
 
             <Link
               to="/book"
-              className="px-4 py-2 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-sm shadow-md shadow-[#3898D8]/30 transition-all flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+              className="px-4 py-2 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs sm:text-sm shadow-md shadow-[#3898D8]/30 transition-all flex items-center gap-1.5 hover:scale-[1.02] active:scale-[0.98]"
             >
               <CalendarCheck className="w-4 h-4" />
               <span>Book Ride</span>
@@ -255,23 +335,23 @@ export const Navbar = () => {
               Home
             </Link>
             <Link
-              to="/corporate"
-              className={`p-2.5 rounded-xl text-sm font-semibold flex items-center gap-1.5 ${location.pathname.startsWith('/corporate') ? 'bg-[#3898D8] text-white' : 'bg-[#EFF7FC] text-[#3898D8]'}`}
+              to="/corporate/admin"
+              className={`p-2.5 rounded-xl text-sm font-bold flex items-center gap-1.5 ${location.pathname.startsWith('/corporate') ? 'bg-[#3898D8] text-white' : 'bg-[#EFF7FC] text-[#3898D8]'}`}
             >
               <Building2 className="w-4 h-4" />
-              Corporate
+              Corporate Admin
             </Link>
             <Link
-              to="/about"
-              className={`p-2.5 rounded-xl text-sm font-semibold ${isActive('/about') ? 'bg-[#3898D8] text-white' : 'bg-[#EFF7FC] text-[#153B5B]'}`}
+              to="/corporate/employee"
+              className="p-2.5 rounded-xl text-sm font-semibold bg-[#EFF7FC] text-[#153B5B]"
             >
-              About Us
+              Employee App
             </Link>
             <Link
-              to="/contact"
-              className={`p-2.5 rounded-xl text-sm font-semibold ${isActive('/contact') ? 'bg-[#3898D8] text-white' : 'bg-[#EFF7FC] text-[#153B5B]'}`}
+              to="/corporate/driver"
+              className="p-2.5 rounded-xl text-sm font-semibold bg-[#EFF7FC] text-[#153B5B]"
             >
-              Contact Us
+              Driver Console
             </Link>
           </div>
 
@@ -294,25 +374,50 @@ export const Navbar = () => {
             })}
           </div>
 
+          {/* User Auth Controls for Mobile */}
           <div className="pt-3 border-t border-[#E5EDF5] flex flex-col gap-2">
             {user ? (
-              <Link
-                to="/dashboard"
-                className="flex items-center justify-between p-3 rounded-xl bg-[#EFF7FC] border border-[#E5EDF5] text-[#153B5B]"
-              >
-                <div className="flex items-center gap-2">
-                  <img src={user.avatar} alt={user.name} className="w-7 h-7 rounded-full" />
-                  <span className="text-sm font-bold">{user.name}</span>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-[#EFF7FC] border border-[#E5EDF5] text-[#153B5B]">
+                  <div className="flex items-center gap-2">
+                    <img src={user.avatar} alt={user.name} className="w-8 h-8 rounded-full border border-[#3898D8]" />
+                    <div>
+                      <div className="text-sm font-bold">{user.name}</div>
+                      <div className="text-[11px] text-[#64748B]">{user.email}</div>
+                    </div>
+                  </div>
+                  <Link
+                    to="/dashboard"
+                    className="text-xs bg-[#3898D8] text-white font-bold px-3 py-1.5 rounded-lg shadow-xs"
+                  >
+                    Dashboard →
+                  </Link>
                 </div>
-                <span className="text-xs bg-[#DCEEFF] text-[#3898D8] font-bold px-2 py-0.5 rounded">Dashboard →</span>
-              </Link>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <Link
+                    to="/admin"
+                    className="text-center py-2 rounded-xl bg-white border border-[#E5EDF5] text-xs font-bold text-[#3898D8]"
+                  >
+                    Super Admin Console
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center justify-center gap-1.5 text-center py-2 rounded-xl bg-rose-50 text-rose-700 border border-rose-200 text-xs font-bold"
+                  >
+                    <LogOut className="w-3.5 h-3.5" />
+                    <span>Logout</span>
+                  </button>
+                </div>
+              </div>
             ) : (
               <div className="grid grid-cols-2 gap-2">
                 <Link
                   to="/login"
-                  className="w-full text-center py-2.5 rounded-xl bg-[#EFF7FC] border border-[#E5EDF5] text-sm font-bold text-[#153B5B]"
+                  className="flex items-center justify-center gap-1.5 w-full text-center py-2.5 rounded-xl bg-[#EFF7FC] border border-[#DCEEFF] text-sm font-bold text-[#3898D8]"
                 >
-                  Sign In
+                  <LogIn className="w-4 h-4" />
+                  <span>Login</span>
                 </Link>
                 <Link
                   to="/signup"

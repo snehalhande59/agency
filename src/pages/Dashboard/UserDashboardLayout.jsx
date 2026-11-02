@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet, NavLink, Link, useLocation } from 'react-router-dom';
+import { Outlet, NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, 
   CalendarCheck, 
@@ -23,9 +23,15 @@ import {
 import { useBooking } from '../../context/BookingContext';
 
 export const UserDashboardLayout = () => {
-  const { user, openBookingModal } = useBooking();
+  const { user, openBookingModal, logoutUser } = useBooking();
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logoutUser();
+    navigate('/login');
+  };
 
   const navItems = [
     { label: 'Overview', path: '/dashboard', icon: LayoutDashboard, exact: true },
@@ -72,7 +78,7 @@ export const UserDashboardLayout = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 self-start sm:self-auto">
+          <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
             <Link
               to="/book"
               className="px-4 py-2 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs shadow-md shadow-[#3898D8]/20 transition-all flex items-center gap-1.5"
@@ -87,8 +93,17 @@ export const UserDashboardLayout = () => {
               title="Super Admin Dashboard"
             >
               <ShieldCheck className="w-3.5 h-3.5 text-[#3898D8]" />
-              <span className="hidden sm:inline">Super Admin Console</span>
+              <span className="hidden sm:inline">Admin Console</span>
             </Link>
+
+            <button
+              onClick={handleLogout}
+              className="px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs"
+              title="Logout from Account"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span>Logout</span>
+            </button>
           </div>
         </div>
       </div>
@@ -122,6 +137,17 @@ export const UserDashboardLayout = () => {
                 </NavLink>
               );
             })}
+
+            {/* Logout Action in Sidebar */}
+            <div className="pt-3 border-t border-[#E5EDF5] mt-2">
+              <button
+                onClick={handleLogout}
+                className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold text-rose-700 hover:bg-rose-50 transition-all"
+              >
+                <LogOut className="w-4 h-4 shrink-0" />
+                <span>Logout (साइन आउट)</span>
+              </button>
+            </div>
           </aside>
 
           {/* Mobile Navigation Scrollbar */}
@@ -146,6 +172,13 @@ export const UserDashboardLayout = () => {
                 </NavLink>
               );
             })}
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-rose-50 text-rose-700 border border-rose-200"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span>Logout</span>
+            </button>
           </div>
 
           {/* Sub-Page Content Outlet */}
