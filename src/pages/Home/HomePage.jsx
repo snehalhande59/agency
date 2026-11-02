@@ -105,7 +105,7 @@ export const HomePage = () => {
               <div
                 key={dest.name}
                 onClick={() => handleDestinationClick(dest)}
-                className="group relative rounded-3xl overflow-hidden bg-slate-900 cursor-pointer border border-[#E5EDF5] hover:border-[#3898D8] shadow-md hover:shadow-2xl transition-all duration-300 h-84 flex flex-col justify-end p-5"
+                className="destination-image-card group relative rounded-3xl overflow-hidden bg-slate-900 cursor-pointer border border-[#E5EDF5] hover:border-[#3898D8] shadow-md hover:shadow-2xl transition-all duration-300 h-84 flex flex-col justify-end p-5"
               >
                 <img
                   src={dest.image}
@@ -116,11 +116,11 @@ export const HomePage = () => {
                     e.target.src = 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80';
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/60 to-black/20 group-hover:via-slate-900/40 transition-colors"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-slate-950/75 to-black/25 group-hover:via-slate-950/60 transition-colors"></div>
 
                 <div className="relative z-10 space-y-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold !text-white bg-slate-950/70 backdrop-blur-md px-3 py-1 rounded-xl border border-white/25 shadow-sm">
+                    <span className="text-xs font-bold !text-white bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-xl border border-white/25 shadow-sm">
                       {dest.duration}
                     </span>
                     <span className="text-xs font-black !text-white bg-[#3898D8] px-3 py-1 rounded-xl shadow-md shadow-[#3898D8]/40">
@@ -131,21 +131,21 @@ export const HomePage = () => {
                   {/* Prominently Highlighted Destination Title */}
                   <div className="flex items-center gap-2 pt-1">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#19A89A] shrink-0 animate-pulse shadow-md shadow-[#19A89A]" />
-                    <h3 className="destination-highlight-name text-2xl font-black !text-white tracking-tight font-display group-hover:text-[#3898D8] transition-colors">
+                    <h3 className="destination-name-white text-2xl font-black !text-white tracking-tight font-display drop-shadow-[0_2px_10px_rgba(0,0,0,1)] group-hover:text-[#3898D8] transition-colors">
                       {dest.name}
                     </h3>
                   </div>
 
-                  <p className="text-xs !text-slate-100 font-medium line-clamp-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                  <p className="destination-text-white text-xs !text-white/95 font-medium line-clamp-1 drop-shadow-[0_2px_6px_rgba(0,0,0,1)]">
                     {dest.tagline}
                   </p>
 
-                  <div className="pt-2.5 flex items-center justify-between text-xs !text-slate-100 border-t border-white/20 font-semibold drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
-                    <span className="flex items-center gap-1.5">
+                  <div className="pt-2.5 flex items-center justify-between text-xs !text-white border-t border-white/20 font-bold drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                    <span className="flex items-center gap-1.5 !text-white">
                       <MapPin className="w-3.5 h-3.5 text-[#19A89A]" />
-                      <span>{dest.distance}</span>
+                      <span className="!text-white">{dest.distance}</span>
                     </span>
-                    <span className="!text-[#3898D8] bg-white/10 hover:bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/20 font-bold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                    <span className="!text-white bg-[#3898D8] hover:bg-[#287DB8] px-3 py-1 rounded-lg font-bold flex items-center gap-1 shadow-md group-hover:translate-x-1 transition-all">
                       Book Route →
                     </span>
                   </div>

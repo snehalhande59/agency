@@ -20,68 +20,68 @@ export const ProfilePage = () => {
   return (
     <div className="max-w-2xl mx-auto space-y-6">
       
-      <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6">
+      <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#E5EDF5] shadow-xs space-y-6">
         <div>
-          <h2 className="text-xl font-bold text-white font-display">Profile & Corporate Identity</h2>
-          <p className="text-xs text-slate-400">Update your contact details for booking SMS, voucher delivery, and GST invoicing</p>
+          <h2 className="text-xl font-bold text-[#153B5B] font-display">Profile & Corporate Identity</h2>
+          <p className="text-xs text-[#64748B]">Update your contact details for booking SMS, voucher delivery, and GST invoicing</p>
         </div>
 
         {saved && (
-          <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 text-xs font-semibold flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4" />
+          <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700 text-xs font-bold flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
             <span>Profile details updated successfully!</span>
           </div>
         )}
 
         <form onSubmit={handleSave} className="space-y-4">
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1">Full Name</label>
+            <label className="block text-xs font-bold text-[#153B5B] mb-1">Full Name</label>
             <div className="relative">
-              <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+              <User className="w-4 h-4 text-[#3898D8] absolute left-3 top-3" />
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full bg-navy-950 border border-slate-700 rounded-xl py-2.5 pl-9 pr-3 text-sm text-white focus:outline-none focus:border-electric-500"
+                className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl py-2.5 pl-9 pr-3 text-sm font-semibold text-[#153B5B] focus:outline-none focus:border-[#3898D8] focus:bg-white"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1">Official Work Email</label>
+            <label className="block text-xs font-bold text-[#153B5B] mb-1">Official Work Email</label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+              <Mail className="w-4 h-4 text-[#3898D8] absolute left-3 top-3" />
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-navy-950 border border-slate-700 rounded-xl py-2.5 pl-9 pr-3 text-sm text-white focus:outline-none focus:border-electric-500"
+                className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl py-2.5 pl-9 pr-3 text-sm font-semibold text-[#153B5B] focus:outline-none focus:border-[#3898D8] focus:bg-white"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1">Mobile / WhatsApp Number</label>
+            <label className="block text-xs font-bold text-[#153B5B] mb-1">Mobile / WhatsApp Number</label>
             <div className="relative">
-              <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+              <Phone className="w-4 h-4 text-[#3898D8] absolute left-3 top-3" />
               <input
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full bg-navy-950 border border-slate-700 rounded-xl py-2.5 pl-9 pr-3 text-sm text-white focus:outline-none focus:border-electric-500"
+                className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl py-2.5 pl-9 pr-3 text-sm font-semibold text-[#153B5B] focus:outline-none focus:border-[#3898D8] focus:bg-white"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1">Company / Organization</label>
+            <label className="block text-xs font-bold text-[#153B5B] mb-1">Company / Organization</label>
             <div className="relative">
-              <Building2 className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+              <Building2 className="w-4 h-4 text-[#3898D8] absolute left-3 top-3" />
               <input
                 type="text"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                className="w-full bg-navy-950 border border-slate-700 rounded-xl py-2.5 pl-9 pr-3 text-sm text-white focus:outline-none focus:border-electric-500"
+                className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl py-2.5 pl-9 pr-3 text-sm font-semibold text-[#153B5B] focus:outline-none focus:border-[#3898D8] focus:bg-white"
               />
             </div>
           </div>
@@ -89,7 +89,7 @@ export const ProfilePage = () => {
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full py-3 rounded-xl bg-electric-600 hover:bg-electric-500 text-white font-bold text-xs shadow-glow-sm transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2"
             >
               <Save className="w-4 h-4" />
               <span>Save Profile Changes</span>

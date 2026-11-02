@@ -54,18 +54,18 @@ export const CustomerRailwayTicketsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Train className="w-6 h-6 text-emerald-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Train className="w-6 h-6 text-emerald-600" />
             <span>Railway Reservations</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             IRCTC simulated booking archive, berth allocation and journey passes.
           </p>
         </div>
 
         <Link
           to="/railway"
-          className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-glow-sm"
+          className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-xs"
         >
           <Plus className="w-4 h-4" />
           <span>Book Train Ticket</span>
@@ -73,26 +73,26 @@ export const CustomerRailwayTicketsPage = () => {
       </div>
 
       {/* Demo Banner */}
-      <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-start gap-3 text-xs text-amber-200">
-        <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+      <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex items-start gap-3 text-xs text-amber-900">
+        <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
         <div>
           <span className="font-bold">DEMO MODE – IRCTC integration pending authorization.</span>
-          <p className="text-[11px] text-amber-200/80 mt-0.5">
+          <p className="text-[11px] text-amber-800 mt-0.5">
             Reservations below are simulated using standard Indian Railways timetable datasets. No actual railway tickets or official PNRs are generated.
           </p>
         </div>
       </div>
 
       {/* Controls */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-navy-900/60 p-3 rounded-2xl border border-slate-800">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-3 rounded-2xl border border-[#E5EDF5] shadow-xs">
         <div className="relative w-full sm:w-72">
-          <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
+          <Search className="w-4 h-4 absolute left-3 top-3 text-[#94A3B8]" />
           <input
             type="text"
             placeholder="Search train or demo ref..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-navy-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+            className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl pl-9 pr-4 py-2 text-xs text-[#153B5B] placeholder-[#94A3B8] focus:outline-none focus:border-emerald-500 focus:bg-white font-semibold"
           />
         </div>
 
@@ -103,8 +103,8 @@ export const CustomerRailwayTicketsPage = () => {
               onClick={() => setFilter(tab)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 filter === tab 
-                  ? 'bg-emerald-600/20 text-emerald-300 border border-emerald-500/40' 
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold' 
+                  : 'text-[#64748B] hover:text-[#153B5B] hover:bg-[#F8FAFC]'
               }`}
             >
               {tab === 'ALL' ? 'All Tickets' : 'Confirmed'}
@@ -116,10 +116,10 @@ export const CustomerRailwayTicketsPage = () => {
       {/* Ticket Cards */}
       <div className="space-y-4">
         {filteredBookings.length === 0 ? (
-          <div className="text-center py-12 bg-navy-900/40 rounded-3xl border border-slate-800">
-            <Train className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-            <h3 className="text-sm font-bold text-white">No railway reservations found</h3>
-            <p className="text-xs text-slate-400 mt-1">Ready to plan your next train journey?</p>
+          <div className="text-center py-12 bg-white rounded-3xl border border-[#E5EDF5] shadow-xs">
+            <Train className="w-12 h-12 text-[#94A3B8] mx-auto mb-3" />
+            <h3 className="text-sm font-bold text-[#153B5B]">No railway reservations found</h3>
+            <p className="text-xs text-[#64748B] mt-1">Ready to plan your next train journey?</p>
             <Link
               to="/railway"
               className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs"
@@ -131,51 +131,51 @@ export const CustomerRailwayTicketsPage = () => {
           filteredBookings.map((ticket) => (
             <div
               key={ticket.demoBookingRef}
-              className="p-5 rounded-2xl bg-navy-900/80 border border-slate-800 hover:border-emerald-500/40 transition-all shadow-lg space-y-4"
+              className="p-5 rounded-2xl bg-white border border-[#E5EDF5] hover:border-emerald-500/40 transition-all shadow-xs space-y-4"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E5EDF5] pb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-sm border border-emerald-200">
                     {ticket.travelClass}
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="font-bold text-white text-sm">
+                      <h3 className="font-extrabold text-[#153B5B] text-sm">
                         {ticket.trainNumber} - {ticket.trainName}
                       </h3>
-                      <span className="text-[10px] font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                      <span className="text-[10px] font-bold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-200">
                         {ticket.status}
                       </span>
                     </div>
-                    <span className="text-[11px] font-mono text-slate-400">
-                      Demo Ref: <span className="text-emerald-400 font-semibold">{ticket.demoBookingRef}</span>
+                    <span className="text-[11px] font-mono text-[#64748B]">
+                      Demo Ref: <span className="text-emerald-700 font-bold">{ticket.demoBookingRef}</span>
                     </span>
                   </div>
                 </div>
 
                 <div className="text-left sm:text-right">
-                  <div className="text-base font-black text-white">₹{ticket.totalFare}</div>
-                  <span className="text-[10px] text-slate-400">{ticket.passengers?.length || 1} Passenger(s) • Quota: {ticket.quota}</span>
+                  <div className="text-base font-black text-[#3898D8]">₹{ticket.totalFare}</div>
+                  <span className="text-[10px] text-[#64748B]">{ticket.passengers?.length || 1} Passenger(s) • Quota: {ticket.quota}</span>
                 </div>
               </div>
 
               {/* Station Route Details */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                 <div>
-                  <span className="text-[10px] text-slate-500 uppercase font-semibold">Origin</span>
-                  <p className="font-bold text-white mt-0.5">{ticket.fromName}</p>
-                  <p className="text-[11px] text-emerald-400 font-mono">{ticket.departureTime} • {ticket.journeyDate}</p>
+                  <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Origin</span>
+                  <p className="font-bold text-[#153B5B] mt-0.5">{ticket.fromName}</p>
+                  <p className="text-[11px] text-emerald-700 font-mono mt-0.5">{ticket.departureTime} • {ticket.journeyDate}</p>
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-500 uppercase font-semibold">Destination</span>
-                  <p className="font-bold text-white mt-0.5">{ticket.toName}</p>
-                  <p className="text-[11px] text-slate-300 font-mono">{ticket.arrivalTime} • {ticket.journeyDate}</p>
+                  <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Destination</span>
+                  <p className="font-bold text-[#153B5B] mt-0.5">{ticket.toName}</p>
+                  <p className="text-[11px] text-[#64748B] font-mono mt-0.5">{ticket.arrivalTime} • {ticket.journeyDate}</p>
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-500 uppercase font-semibold">Allocated Berths (Simulated)</span>
+                  <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Allocated Berths (Simulated)</span>
                   <div className="mt-1 flex flex-wrap gap-1.5">
                     {ticket.passengers?.map((p, idx) => (
-                      <span key={idx} className="bg-navy-950 px-2 py-0.5 rounded text-[11px] border border-slate-700 text-slate-300">
+                      <span key={idx} className="bg-[#F8FAFC] px-2 py-0.5 rounded text-[11px] border border-[#E5EDF5] text-[#153B5B] font-semibold">
                         {p.name} ({ticket.travelClass}-B{idx + 1}-{24 + idx})
                       </span>
                     ))}
@@ -184,27 +184,27 @@ export const CustomerRailwayTicketsPage = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs">
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#E5EDF5] text-xs">
                 <div className="flex items-center gap-2">
                   <Link
                     to={`/railway/ticket/${ticket.demoBookingRef}`}
-                    className="px-3 py-1.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 font-semibold border border-emerald-500/30 transition-all flex items-center gap-1.5"
+                    className="px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold border border-emerald-200 transition-all flex items-center gap-1.5"
                   >
                     <Ticket className="w-3.5 h-3.5" />
                     <span>View Demo Ticket</span>
                   </Link>
                   <Link
                     to="/railway/pnr-status"
-                    className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition-all flex items-center gap-1.5"
+                    className="px-3 py-1.5 rounded-lg bg-[#EFF7FC] hover:bg-[#DCEEFF] text-[#153B5B] font-bold border border-[#E5EDF5] transition-all flex items-center gap-1.5"
                   >
-                    <Search className="w-3.5 h-3.5" />
+                    <Search className="w-3.5 h-3.5 text-[#3898D8]" />
                     <span>Check PNR Demo</span>
                   </Link>
                 </div>
 
                 <Link
                   to="/railway/cancel"
-                  className="text-xs text-rose-400 hover:text-rose-300 transition-colors flex items-center gap-1"
+                  className="text-xs text-rose-600 hover:text-rose-700 font-bold transition-colors flex items-center gap-1"
                 >
                   <RefreshCw className="w-3 h-3" />
                   <span>Request Cancellation</span>
@@ -219,28 +219,27 @@ export const CustomerRailwayTicketsPage = () => {
 };
 
 // =========================================================================
-// 2. CUSTOMER MSRTC BUS TICKETS PAGE
+// 2. CUSTOMER MSRTC BUS TICKETS PAGE (SCREENSHOT 4 MSRTC CARDS FIX)
 // =========================================================================
 export const CustomerMsrtcTicketsPage = () => {
   const { confirmedBookings } = useMsrtcStore();
-  const [filter, setFilter] = useState('ALL');
 
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Bus className="w-6 h-6 text-rose-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Bus className="w-6 h-6 text-rose-600" />
             <span>MSRTC ST Bus Passes</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Maharashtra State Road Transport Corporation e-tickets and state concessions.
           </p>
         </div>
 
         <Link
           to="/msrtc"
-          className="px-4 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-glow-sm"
+          className="px-4 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-xs"
         >
           <Plus className="w-4 h-4" />
           <span>Book MSRTC Bus</span>
@@ -248,11 +247,11 @@ export const CustomerMsrtcTicketsPage = () => {
       </div>
 
       {/* Demo Banner */}
-      <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-start gap-3 text-xs text-amber-200">
-        <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+      <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex items-start gap-3 text-xs text-amber-900">
+        <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
         <div>
           <span className="font-bold">MSRTC Provider Integration Pending.</span>
-          <p className="text-[11px] text-amber-200/80 mt-0.5">
+          <p className="text-[11px] text-amber-800 mt-0.5">
             These tickets operate on verified state depot timetables and official concession criteria. Not an official state transport document.
           </p>
         </div>
@@ -261,10 +260,10 @@ export const CustomerMsrtcTicketsPage = () => {
       {/* Ticket List */}
       <div className="space-y-4">
         {confirmedBookings.length === 0 ? (
-          <div className="text-center py-12 bg-navy-900/40 rounded-3xl border border-slate-800">
-            <Bus className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-            <h3 className="text-sm font-bold text-white">No MSRTC bus passes found</h3>
-            <p className="text-xs text-slate-400 mt-1">Explore Shivneri Volvo AC, Shivshahi and Ordinary schedules.</p>
+          <div className="text-center py-12 bg-white rounded-3xl border border-[#E5EDF5] shadow-xs">
+            <Bus className="w-12 h-12 text-[#94A3B8] mx-auto mb-3" />
+            <h3 className="text-sm font-bold text-[#153B5B]">No MSRTC bus passes found</h3>
+            <p className="text-xs text-[#64748B] mt-1">Explore Shivneri Volvo AC, Shivshahi and Ordinary schedules.</p>
             <Link
               to="/msrtc"
               className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-rose-600 text-white font-bold text-xs"
@@ -276,31 +275,31 @@ export const CustomerMsrtcTicketsPage = () => {
           confirmedBookings.map((ticket) => (
             <div
               key={ticket.demoTicketRef}
-              className="p-5 rounded-2xl bg-navy-900/80 border border-slate-800 hover:border-rose-500/40 transition-all shadow-lg space-y-4"
+              className="p-5 rounded-2xl bg-white border border-[#E5EDF5] hover:border-rose-300 transition-all shadow-xs space-y-4"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E5EDF5] pb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-sm">
+                  <div className="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-black text-sm border border-rose-200">
                     ST
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="font-bold text-white text-sm">
+                      <h3 className="font-extrabold text-[#153B5B] text-sm">
                         {ticket.serviceType} • {ticket.busNumber}
                       </h3>
-                      <span className="text-[10px] font-bold bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full border border-rose-500/30">
+                      <span className="text-[10px] font-bold bg-rose-50 text-rose-700 px-2 py-0.5 rounded-full border border-rose-200">
                         {ticket.status}
                       </span>
                     </div>
-                    <span className="text-[11px] font-mono text-slate-400">
-                      E-Ticket Ref: <span className="text-rose-400 font-semibold">{ticket.demoTicketRef}</span>
+                    <span className="text-[11px] font-mono text-[#64748B]">
+                      E-Ticket Ref: <span className="text-rose-700 font-bold">{ticket.demoTicketRef}</span>
                     </span>
                   </div>
                 </div>
 
                 <div className="text-left sm:text-right">
-                  <div className="text-base font-black text-white">₹{ticket.totalFare}</div>
-                  <span className="text-[10px] text-emerald-400 font-semibold">
+                  <div className="text-base font-black text-[#3898D8]">₹{ticket.totalFare}</div>
+                  <span className="text-[10px] text-emerald-700 font-bold">
                     {ticket.concessionApplied ? 'Concession Applied' : 'Standard Fare'}
                   </span>
                 </div>
@@ -309,31 +308,31 @@ export const CustomerMsrtcTicketsPage = () => {
               {/* Depots */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                 <div>
-                  <span className="text-[10px] text-slate-500 uppercase font-semibold">Boarding Stand</span>
-                  <p className="font-bold text-white mt-0.5">{ticket.originDepot}</p>
-                  <p className="text-[11px] text-rose-400 font-mono">{ticket.departureTime} • {ticket.journeyDate}</p>
+                  <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Boarding Stand</span>
+                  <p className="font-bold text-[#153B5B] mt-0.5">{ticket.originDepot}</p>
+                  <p className="text-[11px] text-rose-700 font-mono mt-0.5">{ticket.departureTime} • {ticket.journeyDate}</p>
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-500 uppercase font-semibold">Destination Depot</span>
-                  <p className="font-bold text-white mt-0.5">{ticket.destDepot}</p>
-                  <p className="text-[11px] text-slate-300 font-mono">{ticket.arrivalTime}</p>
+                  <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Destination Depot</span>
+                  <p className="font-bold text-[#153B5B] mt-0.5">{ticket.destDepot}</p>
+                  <p className="text-[11px] text-[#64748B] font-mono mt-0.5">{ticket.arrivalTime}</p>
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-500 uppercase font-semibold">Seats & Passengers</span>
-                  <p className="font-mono text-slate-200 mt-0.5">
+                  <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Seats & Passengers</span>
+                  <p className="font-mono text-[#153B5B] font-bold mt-0.5">
                     Seats: {ticket.selectedSeats?.join(', ') || '11, 12'}
                   </p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">
+                  <p className="text-[11px] text-[#64748B] mt-0.5">
                     {ticket.passengers?.map(p => p.name).join(', ') || 'Sanjay Patil, Sunita Patil'}
                   </p>
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs">
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#E5EDF5] text-xs">
                 <Link
                   to={`/msrtc/ticket/${ticket.demoTicketRef}`}
-                  className="px-3 py-1.5 rounded-lg bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 font-semibold border border-rose-500/30 transition-all flex items-center gap-1.5"
+                  className="px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold border border-rose-200 transition-all flex items-center gap-1.5"
                 >
                   <Ticket className="w-3.5 h-3.5" />
                   <span>View MSRTC E-Pass</span>
@@ -341,7 +340,7 @@ export const CustomerMsrtcTicketsPage = () => {
 
                 <Link
                   to="/msrtc/cancel"
-                  className="text-xs text-rose-400 hover:text-rose-300 transition-colors flex items-center gap-1"
+                  className="text-xs text-rose-600 hover:text-rose-700 font-bold transition-colors flex items-center gap-1"
                 >
                   <RefreshCw className="w-3 h-3" />
                   <span>Cancel ST Ticket</span>
@@ -360,7 +359,6 @@ export const CustomerMsrtcTicketsPage = () => {
 // =========================================================================
 export const CustomerCabBookingsPage = () => {
   const { bookings } = useBooking();
-  // Filter for cab bookings (exclude rail/bus charter if applicable)
   const cabBookings = bookings.filter(b => 
     !b.service?.toLowerCase().includes('rail') && 
     !b.service?.toLowerCase().includes('bus')
@@ -370,18 +368,18 @@ export const CustomerCabBookingsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Car className="w-6 h-6 text-electric-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Car className="w-6 h-6 text-[#3898D8]" />
             <span>Cab & Chauffeur Bookings</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Local point-to-point taxis, outstation cabs, hourly rentals and airport transfers.
           </p>
         </div>
 
         <Link
           to="/book"
-          className="px-4 py-2.5 rounded-xl bg-electric-600 hover:bg-electric-500 text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-glow-sm"
+          className="px-4 py-2.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-xs"
         >
           <Plus className="w-4 h-4" />
           <span>Book New Cab</span>
@@ -390,13 +388,13 @@ export const CustomerCabBookingsPage = () => {
 
       <div className="space-y-4">
         {cabBookings.length === 0 ? (
-          <div className="text-center py-12 bg-navy-900/40 rounded-3xl border border-slate-800">
-            <Car className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-            <h3 className="text-sm font-bold text-white">No active cab bookings</h3>
-            <p className="text-xs text-slate-400 mt-1">Book an executive sedan or SUV with vetted chauffeurs.</p>
+          <div className="text-center py-12 bg-white rounded-3xl border border-[#E5EDF5] shadow-xs">
+            <Car className="w-12 h-12 text-[#94A3B8] mx-auto mb-3" />
+            <h3 className="text-sm font-bold text-[#153B5B]">No active cab bookings</h3>
+            <p className="text-xs text-[#64748B] mt-1">Book an executive sedan or SUV with vetted chauffeurs.</p>
             <Link
               to="/book"
-              className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-electric-600 text-white font-bold text-xs"
+              className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#3898D8] text-white font-bold text-xs"
             >
               Book Cab
             </Link>
@@ -405,62 +403,62 @@ export const CustomerCabBookingsPage = () => {
           cabBookings.map((booking) => (
             <div
               key={booking.id}
-              className="p-5 rounded-2xl bg-navy-900/80 border border-slate-800 hover:border-electric-500/40 transition-all shadow-lg space-y-4"
+              className="p-5 rounded-2xl bg-white border border-[#E5EDF5] hover:border-[#3898D8] transition-all shadow-xs space-y-4"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E5EDF5] pb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-electric-500/20 text-electric-400 flex items-center justify-center font-bold text-sm">
+                  <div className="w-10 h-10 rounded-xl bg-[#DCEEFF] text-[#3898D8] flex items-center justify-center font-bold text-sm">
                     <Car className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="font-bold text-white text-sm">
+                      <h3 className="font-extrabold text-[#153B5B] text-sm">
                         {booking.service}
                       </h3>
-                      <span className="text-[10px] font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                      <span className="text-[10px] font-bold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-200">
                         {booking.status || 'CONFIRMED'}
                       </span>
                     </div>
-                    <span className="text-[11px] font-mono text-slate-400">
-                      Booking Ref: <span className="text-electric-400 font-semibold">{booking.id}</span>
+                    <span className="text-[11px] font-mono text-[#64748B]">
+                      Booking Ref: <span className="text-[#3898D8] font-bold">{booking.id}</span>
                     </span>
                   </div>
                 </div>
 
                 <div className="text-left sm:text-right">
-                  <div className="text-base font-black text-white">{booking.estimatedPrice || '₹2,450'}</div>
-                  <span className="text-[10px] text-slate-400">All-Inclusive Fixed Fare</span>
+                  <div className="text-base font-black text-[#3898D8]">{booking.estimatedPrice || '₹2,450'}</div>
+                  <span className="text-[10px] text-[#64748B]">All-Inclusive Fixed Fare</span>
                 </div>
               </div>
 
               {/* Route */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                 <div>
-                  <span className="text-[10px] text-slate-500 uppercase font-semibold">Pickup</span>
-                  <p className="font-bold text-white mt-0.5">{booking.pickupLocation || 'Bandra Kurla Complex (BKC), Mumbai'}</p>
-                  <p className="text-[11px] text-electric-400 font-mono">{booking.date} • {booking.time || '10:00 AM'}</p>
+                  <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Pickup</span>
+                  <p className="font-bold text-[#153B5B] mt-0.5">{booking.pickupLocation || 'Bandra Kurla Complex (BKC), Mumbai'}</p>
+                  <p className="text-[11px] text-[#3898D8] font-mono mt-0.5">{booking.date} • {booking.time || '10:00 AM'}</p>
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-500 uppercase font-semibold">Drop</span>
-                  <p className="font-bold text-white mt-0.5">{booking.destination || 'Chhatrapati Shivaji Maharaj Airport T2'}</p>
-                  <p className="text-[11px] text-slate-400">Est. Distance: ~14.5 km</p>
+                  <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Drop</span>
+                  <p className="font-bold text-[#153B5B] mt-0.5">{booking.destination || 'Chhatrapati Shivaji Maharaj Airport T2'}</p>
+                  <p className="text-[11px] text-[#64748B] mt-0.5">Est. Distance: ~14.5 km</p>
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-500 uppercase font-semibold">Vehicle & Driver (Demo)</span>
-                  <p className="font-bold text-slate-200 mt-0.5">Toyota Innova Crysta (MH 02 EE 9840)</p>
-                  <p className="text-[11px] text-slate-400">Driver: Rajesh Ghadge (4.9★)</p>
+                  <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Vehicle & Driver (Demo)</span>
+                  <p className="font-bold text-[#153B5B] mt-0.5">Toyota Innova Crysta (MH 02 EE 9840)</p>
+                  <p className="text-[11px] text-[#64748B] mt-0.5">Driver: Rajesh Ghadge (4.9★)</p>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs">
+              <div className="flex items-center justify-between pt-3 border-t border-[#E5EDF5] text-xs">
                 <Link
                   to={`/dashboard/bookings/${booking.id}`}
-                  className="px-3 py-1.5 rounded-lg bg-electric-600/20 hover:bg-electric-600/30 text-electric-300 font-semibold border border-electric-500/30 transition-all flex items-center gap-1.5"
+                  className="px-3 py-1.5 rounded-lg bg-[#EFF7FC] hover:bg-[#DCEEFF] text-[#153B5B] font-bold border border-[#E5EDF5] transition-all flex items-center gap-1.5"
                 >
                   <span>Trip Telemetry & Receipt</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#3898D8]" />
                 </Link>
-                <span className="text-[10px] text-slate-500 font-mono">Simulated Chauffeur Tracking</span>
+                <span className="text-[10px] text-[#64748B] font-mono">Simulated Chauffeur Tracking</span>
               </div>
             </div>
           ))
@@ -478,18 +476,18 @@ export const CustomerBusBookingsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Ticket className="w-6 h-6 text-purple-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Ticket className="w-6 h-6 text-[#3898D8]" />
             <span>Bus & Coach Charters</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Private 17-seater Tempo Travellers, 45-seater luxury Volvo coaches and wedding group charters.
           </p>
         </div>
 
         <Link
           to="/services/luxury-bus"
-          className="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-glow-sm"
+          className="px-4 py-2.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-xs"
         >
           <Plus className="w-4 h-4" />
           <span>Charter A Coach</span>
@@ -497,57 +495,57 @@ export const CustomerBusBookingsPage = () => {
       </div>
 
       <div className="space-y-4">
-        <div className="p-5 rounded-2xl bg-navy-900/80 border border-slate-800 hover:border-purple-500/40 transition-all shadow-lg space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+        <div className="p-5 rounded-2xl bg-white border border-[#E5EDF5] hover:border-[#3898D8] transition-all shadow-xs space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E5EDF5] pb-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm">
+              <div className="w-10 h-10 rounded-xl bg-[#DCEEFF] text-[#3898D8] flex items-center justify-center font-bold text-sm">
                 <Ticket className="w-5 h-5" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-bold text-white text-sm">
+                  <h3 className="font-extrabold text-[#153B5B] text-sm">
                     Volvo 9600 Multi-Axle Luxury Coach (45-Seater)
                   </h3>
-                  <span className="text-[10px] font-bold bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full border border-purple-500/30">
+                  <span className="text-[10px] font-bold bg-[#DCEEFF] text-[#3898D8] px-2 py-0.5 rounded-full border border-[#3898D8]/30">
                     CHARTER_CONFIRMED
                   </span>
                 </div>
-                <span className="text-[11px] font-mono text-slate-400">
-                  Charter ID: <span className="text-purple-400 font-semibold">CHTR-VOL-2026-88</span>
+                <span className="text-[11px] font-mono text-[#64748B]">
+                  Charter ID: <span className="text-[#3898D8] font-bold">CHTR-VOL-2026-88</span>
                 </span>
               </div>
             </div>
 
             <div className="text-left sm:text-right">
-              <div className="text-base font-black text-white">₹38,500</div>
-              <span className="text-[10px] text-slate-400">3-Day Corporate Offsite Package</span>
+              <div className="text-base font-black text-[#3898D8]">₹38,500</div>
+              <span className="text-[10px] text-[#64748B]">3-Day Corporate Offsite Package</span>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
             <div>
-              <span className="text-[10px] text-slate-500 uppercase font-semibold">Pickup Depot</span>
-              <p className="font-bold text-white mt-0.5">Nexus Tech Hub, Airoli, Navi Mumbai</p>
-              <p className="text-[11px] text-purple-400 font-mono">06:00 AM • 14 Nov 2026</p>
+              <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Pickup Depot</span>
+              <p className="font-bold text-[#153B5B] mt-0.5">Nexus Tech Hub, Airoli, Navi Mumbai</p>
+              <p className="text-[11px] text-[#3898D8] font-mono mt-0.5">06:00 AM • 14 Nov 2026</p>
             </div>
             <div>
-              <span className="text-[10px] text-slate-500 uppercase font-semibold">Destination</span>
-              <p className="font-bold text-white mt-0.5">Della Resorts, Lonavala</p>
-              <p className="text-[11px] text-slate-400">Round Trip with 3 Days Local Standby</p>
+              <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Destination</span>
+              <p className="font-bold text-[#153B5B] mt-0.5">Della Resorts, Lonavala</p>
+              <p className="text-[11px] text-[#64748B] mt-0.5">Round Trip with 3 Days Local Standby</p>
             </div>
             <div>
-              <span className="text-[10px] text-slate-500 uppercase font-semibold">Amenities Included</span>
-              <p className="text-slate-300 mt-0.5">Air Suspension, Wi-Fi 6, Reclining Leather, Cold Storage</p>
+              <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Amenities Included</span>
+              <p className="text-[#153B5B] font-semibold mt-0.5">Air Suspension, Wi-Fi 6, Reclining Leather, Cold Storage</p>
             </div>
           </div>
 
-          <div className="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs">
-            <span className="text-[11px] text-slate-400">Chauffeur: Anil Kadam & Relief Driver Assigned</span>
+          <div className="flex items-center justify-between pt-3 border-t border-[#E5EDF5] text-xs">
+            <span className="text-[11px] text-[#64748B]">Chauffeur: Anil Kadam & Relief Driver Assigned</span>
             <button
               onClick={() => alert('Demo Charter Agreement downloaded (Simulated PDF).')}
-              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold flex items-center gap-1.5 transition-all"
+              className="px-3 py-1.5 rounded-lg bg-[#EFF7FC] hover:bg-[#DCEEFF] text-[#153B5B] font-bold flex items-center gap-1.5 transition-all border border-[#E5EDF5]"
             >
-              <Download className="w-3.5 h-3.5" />
+              <Download className="w-3.5 h-3.5 text-[#3898D8]" />
               <span>Charter Contract (PDF)</span>
             </button>
           </div>
@@ -561,17 +559,17 @@ export const CustomerBusBookingsPage = () => {
 // 5. CUSTOMER NCMC TRANSIT CARDS PAGE
 // =========================================================================
 export const CustomerNcmcCardsPage = () => {
-  const { cardsList, activePass, transactions } = useNcmcStore();
+  const { cardsList, activePass } = useNcmcStore();
 
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <CreditCard className="w-6 h-6 text-cyan-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <CreditCard className="w-6 h-6 text-[#3898D8]" />
             <span>NCMC Smart Mobility Cards</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             National Common Mobility Card (One Nation One Card) wallet balance and metro turnstile passes.
           </p>
         </div>
@@ -579,14 +577,14 @@ export const CustomerNcmcCardsPage = () => {
         <div className="flex items-center gap-2 self-start sm:self-auto">
           <Link
             to="/ncmc/register"
-            className="px-3.5 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-glow-sm"
+            className="px-3.5 py-2 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Apply New Card</span>
           </Link>
           <Link
             to="/ncmc/recharge"
-            className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-1.5 transition-all"
+            className="px-3.5 py-2 rounded-xl bg-[#EFF7FC] hover:bg-[#DCEEFF] text-[#153B5B] font-bold text-xs flex items-center gap-1.5 transition-all border border-[#E5EDF5]"
           >
             <span>Top-up Wallet</span>
           </Link>
@@ -594,11 +592,11 @@ export const CustomerNcmcCardsPage = () => {
       </div>
 
       {/* Demo Banner */}
-      <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-start gap-3 text-xs text-amber-200">
-        <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+      <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex items-start gap-3 text-xs text-amber-900">
+        <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
         <div>
           <span className="font-bold">DEMO MODE – NCMC issuer integration pending.</span>
-          <p className="text-[11px] text-amber-200/80 mt-0.5">
+          <p className="text-[11px] text-amber-800 mt-0.5">
             Card balances and contactless tap passes shown here are simulated for transit testing.
           </p>
         </div>
@@ -609,49 +607,49 @@ export const CustomerNcmcCardsPage = () => {
         {cardsList.map((card) => (
           <div
             key={card.cardId}
-            className="relative p-6 rounded-3xl bg-gradient-to-br from-navy-900 via-slate-900 to-navy-950 border border-cyan-500/30 shadow-2xl overflow-hidden space-y-6"
+            className="relative p-6 rounded-3xl bg-white border border-[#E5EDF5] shadow-md overflow-hidden space-y-6"
           >
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#3898D8]">
                   {card.scheme || 'RuPay NCMC'}
                 </span>
-                <h3 className="text-sm font-bold text-white">{card.issuerBank}</h3>
+                <h3 className="text-sm font-bold text-[#153B5B]">{card.issuerBank}</h3>
               </div>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#DCEEFF] text-[#3898D8] border border-[#3898D8]/30">
                 {card.cardStatus}
               </span>
             </div>
 
             <div className="py-2">
-              <span className="text-[10px] text-slate-400 uppercase font-semibold">Masked Card Number</span>
-              <p className="text-lg font-mono font-bold text-white tracking-widest mt-0.5">
+              <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Masked Card Number</span>
+              <p className="text-lg font-mono font-black text-[#153B5B] tracking-widest mt-0.5">
                 {card.maskedCardNumber}
               </p>
             </div>
 
-            <div className="flex items-center justify-between pt-3 border-t border-slate-800">
+            <div className="flex items-center justify-between pt-3 border-t border-[#E5EDF5]">
               <div>
-                <span className="text-[10px] text-slate-400 uppercase font-semibold">Prepaid Balance</span>
-                <p className="text-xl font-black text-cyan-300">₹{card.walletBalance?.toFixed(2)}</p>
+                <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Prepaid Balance</span>
+                <p className="text-xl font-black text-[#3898D8]">₹{card.walletBalance?.toFixed(2)}</p>
               </div>
 
               <div className="text-right">
-                <span className="text-[10px] text-slate-400 uppercase font-semibold">Valid Thru</span>
-                <p className="text-xs font-mono text-slate-200 mt-0.5">{card.expiryDate}</p>
+                <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Valid Thru</span>
+                <p className="text-xs font-mono text-[#153B5B] font-bold mt-0.5">{card.expiryDate}</p>
               </div>
             </div>
 
             <div className="flex items-center gap-2 pt-2">
               <Link
                 to="/ncmc/recharge"
-                className="flex-1 py-2 text-center rounded-xl bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 font-bold text-xs border border-cyan-500/30 transition-all"
+                className="flex-1 py-2 text-center rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs shadow-xs transition-all"
               >
                 Top-Up (Demo)
               </Link>
               <Link
                 to="/ncmc/transactions"
-                className="flex-1 py-2 text-center rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-all"
+                className="flex-1 py-2 text-center rounded-xl bg-[#EFF7FC] hover:bg-[#DCEEFF] text-[#153B5B] font-bold text-xs transition-all border border-[#E5EDF5]"
               >
                 Statement
               </Link>
@@ -662,19 +660,19 @@ export const CustomerNcmcCardsPage = () => {
 
       {/* Active Transit Pass Highlight */}
       {activePass && (
-        <div className="p-5 rounded-2xl bg-navy-900/60 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-5 rounded-2xl bg-white border border-[#E5EDF5] flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold">
+            <div className="w-12 h-12 rounded-2xl bg-[#DCEEFF] text-[#3898D8] flex items-center justify-center font-bold">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h4 className="font-bold text-white text-sm">{activePass.title}</h4>
-                <span className="text-[10px] font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full">
+                <h4 className="font-bold text-[#153B5B] text-sm">{activePass.title}</h4>
+                <span className="text-[10px] font-bold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-200">
                   {activePass.status}
                 </span>
               </div>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-[#64748B] mt-0.5">
                 {activePass.network} • {activePass.daysRemaining} Days Remaining
               </p>
             </div>
@@ -682,10 +680,10 @@ export const CustomerNcmcCardsPage = () => {
 
           <Link
             to="/ncmc/passes"
-            className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs flex items-center gap-1.5 self-start sm:self-auto transition-all"
+            className="px-4 py-2 rounded-xl bg-[#EFF7FC] hover:bg-[#DCEEFF] text-[#153B5B] font-bold text-xs flex items-center gap-1.5 self-start sm:self-auto transition-all border border-[#E5EDF5]"
           >
             <span>Turnstile QR & Renew</span>
-            <ChevronRight className="w-3.5 h-3.5" />
+            <ChevronRight className="w-3.5 h-3.5 text-[#3898D8]" />
           </Link>
         </div>
       )}
@@ -709,29 +707,29 @@ export const CustomerPaymentHistoryPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Receipt className="w-6 h-6 text-emerald-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Receipt className="w-6 h-6 text-emerald-600" />
             <span>Payment History & Invoices</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Consolidated ledger of all demo transactions across cabs, trains, state buses and NCMC smart cards.
           </p>
         </div>
 
         <button
           onClick={() => alert('Consolidated GST tax invoice statement simulated.')}
-          className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs flex items-center gap-1.5 self-start sm:self-auto transition-all"
+          className="px-4 py-2 rounded-xl bg-white hover:bg-[#EFF7FC] text-[#153B5B] font-bold text-xs flex items-center gap-1.5 self-start sm:self-auto transition-all border border-[#E5EDF5] shadow-xs"
         >
-          <Download className="w-3.5 h-3.5" />
+          <Download className="w-3.5 h-3.5 text-[#3898D8]" />
           <span>Export Statement</span>
         </button>
       </div>
 
       {/* Ledger Table */}
-      <div className="bg-navy-900/80 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div className="bg-white rounded-2xl border border-[#E5EDF5] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-navy-950 text-slate-400 uppercase font-semibold text-[10px] tracking-wider border-b border-slate-800">
+            <thead className="bg-[#F8FAFC] text-[#64748B] uppercase font-bold text-[10px] tracking-wider border-b border-[#E5EDF5]">
               <tr>
                 <th className="py-3.5 px-4">Transaction ID</th>
                 <th className="py-3.5 px-4">Service Category</th>
@@ -742,23 +740,23 @@ export const CustomerPaymentHistoryPage = () => {
                 <th className="py-3.5 px-4 text-right">Invoice</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-slate-300">
+            <tbody className="divide-y divide-[#E5EDF5] text-[#153B5B]">
               {transactions.map((tx) => (
-                <tr key={tx.id} className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3.5 px-4 font-mono font-bold text-white">{tx.id}</td>
-                  <td className="py-3.5 px-4 font-semibold text-slate-200">{tx.service}</td>
-                  <td className="py-3.5 px-4 text-slate-400">{tx.date}</td>
-                  <td className="py-3.5 px-4 text-slate-300">{tx.mode}</td>
-                  <td className="py-3.5 px-4 font-bold text-white">₹{tx.amount.toLocaleString()}</td>
+                <tr key={tx.id} className="hover:bg-[#F8FAFC] transition-colors">
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#153B5B]">{tx.id}</td>
+                  <td className="py-3.5 px-4 font-bold text-[#153B5B]">{tx.service}</td>
+                  <td className="py-3.5 px-4 text-[#64748B]">{tx.date}</td>
+                  <td className="py-3.5 px-4 text-[#64748B]">{tx.mode}</td>
+                  <td className="py-3.5 px-4 font-black text-[#3898D8]">₹{tx.amount.toLocaleString()}</td>
                   <td className="py-3.5 px-4">
-                    <span className="text-[10px] font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                    <span className="text-[10px] font-bold bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full border border-emerald-200">
                       {tx.status}
                     </span>
                   </td>
                   <td className="py-3.5 px-4 text-right">
                     <button
                       onClick={() => alert(`Simulated Invoice for ${tx.id} downloaded.`)}
-                      className="text-electric-400 hover:text-white font-semibold text-xs flex items-center gap-1 justify-end"
+                      className="text-[#3898D8] hover:text-[#287DB8] font-bold text-xs flex items-center gap-1 justify-end"
                     >
                       <Download className="w-3 h-3" />
                       <span>PDF</span>
@@ -833,18 +831,18 @@ export const CustomerRefundRequestsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <RefreshCw className="w-6 h-6 text-amber-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <RefreshCw className="w-6 h-6 text-amber-600" />
             <span>Refund Requests & Claims</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Track refund status for cancelled train tickets, state bus bookings or cab schedule amendments.
           </p>
         </div>
 
         <button
           onClick={() => setShowModal(true)}
-          className="px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-glow-sm"
+          className="px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-xs"
         >
           <Plus className="w-4 h-4" />
           <span>New Refund Request</span>
@@ -856,33 +854,33 @@ export const CustomerRefundRequestsPage = () => {
         {refunds.map((refund) => (
           <div
             key={refund.id}
-            className="p-5 rounded-2xl bg-navy-900/80 border border-slate-800 space-y-3"
+            className="p-5 rounded-2xl bg-white border border-[#E5EDF5] space-y-3 shadow-xs"
           >
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E5EDF5] pb-3">
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-bold text-white text-sm">{refund.service}</h3>
+                  <h3 className="font-bold text-[#153B5B] text-sm">{refund.service}</h3>
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                     refund.status === 'PENDING_APPROVAL' 
-                      ? 'bg-amber-500/20 text-amber-300 border-amber-500/30' 
-                      : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                      ? 'bg-amber-50 text-amber-700 border-amber-200' 
+                      : 'bg-emerald-50 text-emerald-700 border-emerald-200'
                   }`}>
                     {refund.status}
                   </span>
                 </div>
-                <span className="text-[11px] font-mono text-slate-400">
-                  Refund ID: <span className="text-amber-400 font-semibold">{refund.id}</span> • Booking Ref: {refund.bookingRef}
+                <span className="text-[11px] font-mono text-[#64748B]">
+                  Refund ID: <span className="text-amber-700 font-bold">{refund.id}</span> • Booking Ref: {refund.bookingRef}
                 </span>
               </div>
 
               <div className="text-left sm:text-right">
-                <div className="text-base font-black text-white">₹{refund.amount}</div>
-                <span className="text-[10px] text-slate-400">Cancellation Deduction: ₹{refund.deduction}</span>
+                <div className="text-base font-black text-[#3898D8]">₹{refund.amount}</div>
+                <span className="text-[10px] text-rose-700 font-semibold">Cancellation Deduction: ₹{refund.deduction}</span>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-400">
-              <p>Reason: <span className="text-slate-200">{refund.reason}</span></p>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-[#64748B]">
+              <p>Reason: <span className="text-[#153B5B] font-semibold">{refund.reason}</span></p>
               <span className="text-[11px] font-mono">Initiated: {refund.date}</span>
             </div>
           </div>
@@ -1003,18 +1001,18 @@ export const CustomerNotificationsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Bell className="w-6 h-6 text-electric-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Bell className="w-6 h-6 text-[#3898D8]" />
             <span>Travel Alerts & Notifications</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Realtime dispatch alerts, platform allocation notifications and concession reminders.
           </p>
         </div>
 
         <button
           onClick={() => alert('All notifications marked as read.')}
-          className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs self-start sm:self-auto transition-all"
+          className="px-3.5 py-2 rounded-xl bg-white hover:bg-[#EFF7FC] text-[#153B5B] border border-[#E5EDF5] font-bold text-xs self-start sm:self-auto transition-all shadow-xs"
         >
           Mark all as read
         </button>
@@ -1026,17 +1024,17 @@ export const CustomerNotificationsPage = () => {
             key={item.id}
             className={`p-4 rounded-2xl border transition-all flex items-start gap-3 ${
               item.unread
-                ? 'bg-navy-900/90 border-electric-500/40'
-                : 'bg-navy-900/50 border-slate-800'
+                ? 'bg-white border-[#3898D8]/50 shadow-xs'
+                : 'bg-[#F8FAFC] border-[#E5EDF5]'
             }`}
           >
-            <div className="w-2 h-2 rounded-full bg-electric-400 mt-2 shrink-0"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-[#3898D8] mt-1.5 shrink-0"></div>
             <div className="flex-1">
               <div className="flex items-center justify-between gap-2">
-                <h4 className="font-bold text-white text-xs">{item.title}</h4>
-                <span className="text-[10px] text-slate-400 font-mono">{item.time}</span>
+                <h4 className="font-extrabold text-[#153B5B] text-xs">{item.title}</h4>
+                <span className="text-[10px] text-[#64748B] font-mono">{item.time}</span>
               </div>
-              <p className="text-xs text-slate-300 mt-1">{item.description}</p>
+              <p className="text-xs text-[#64748B] mt-1">{item.description}</p>
             </div>
           </div>
         ))}
@@ -1093,18 +1091,18 @@ export const CustomerSupportTicketsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <LifeBuoy className="w-6 h-6 text-cyan-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <LifeBuoy className="w-6 h-6 text-[#3898D8]" />
             <span>Support & Grievances</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             24x7 passenger grievance resolution, chauffeur feedback and billing inquiries.
           </p>
         </div>
 
         <button
           onClick={() => setShowModal(true)}
-          className="px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-glow-sm"
+          className="px-4 py-2.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs flex items-center gap-2 self-start sm:self-auto transition-all shadow-xs"
         >
           <Plus className="w-4 h-4" />
           <span>Raise New Grievance</span>
@@ -1115,33 +1113,33 @@ export const CustomerSupportTicketsPage = () => {
         {tickets.map((t) => (
           <div
             key={t.id}
-            className="p-5 rounded-2xl bg-navy-900/80 border border-slate-800 space-y-3"
+            className="p-5 rounded-2xl bg-white border border-[#E5EDF5] space-y-3 shadow-xs"
           >
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E5EDF5] pb-3">
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-bold text-white text-sm">{t.subject}</h3>
+                  <h3 className="font-bold text-[#153B5B] text-sm">{t.subject}</h3>
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                     t.status === 'OPEN'
-                      ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30'
-                      : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                      ? 'bg-amber-50 text-amber-700 border-amber-200'
+                      : 'bg-emerald-50 text-emerald-700 border-emerald-200'
                   }`}>
                     {t.status}
                   </span>
                 </div>
-                <span className="text-[11px] font-mono text-slate-400">
-                  Ticket ID: <span className="text-cyan-400 font-semibold">{t.id}</span> • Category: {t.category}
+                <span className="text-[11px] font-mono text-[#64748B]">
+                  Ticket ID: <span className="text-[#3898D8] font-bold">{t.id}</span> • Category: {t.category}
                 </span>
               </div>
 
-              <span className="text-xs text-slate-400 font-mono">{t.date}</span>
+              <span className="text-xs text-[#64748B] font-mono">{t.date}</span>
             </div>
 
             <div className="flex items-center justify-between text-xs">
-              <span className="text-slate-400">Priority: <strong className="text-white">{t.priority}</strong></span>
+              <span className="text-[#64748B]">Priority: <strong className="text-[#153B5B]">{t.priority}</strong></span>
               <button
                 onClick={() => alert(`Support agent response: We have logged ${t.id} for investigation.`)}
-                className="text-cyan-400 hover:text-white font-semibold flex items-center gap-1"
+                className="text-[#3898D8] hover:text-[#287DB8] font-bold flex items-center gap-1"
               >
                 <span>View Timeline</span>
                 <ChevronRight className="w-3.5 h-3.5" />

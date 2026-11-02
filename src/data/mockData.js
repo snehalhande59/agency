@@ -220,7 +220,7 @@ export const destinationsData = [
     duration: '2.5 hrs via Expressway',
     startingPrice: '₹2,199',
     popularFor: ['Hinjawadi IT Park', 'Sinhagad Historic Fort', 'Aga Khan Palace', 'Shaniwar Wada'],
-    image: 'https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1598890777032-bde835ba27c2?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Goa',
@@ -238,7 +238,7 @@ export const destinationsData = [
     duration: '5 hrs',
     startingPrice: '₹3,499',
     popularFor: ['Venna Lake', 'Arthur Seat Point', 'Mapro Garden', 'Panchgani Table Land'],
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Shirdi',
@@ -247,7 +247,7 @@ export const destinationsData = [
     duration: '4.5 hrs via Samruddhi',
     startingPrice: '₹3,299',
     popularFor: ['Sai Baba Samadhi Temple', 'Shani Shingnapur', 'Samruddhi Mahamarg Drive'],
-    image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Nashik',
@@ -256,7 +256,7 @@ export const destinationsData = [
     duration: '3.5 hrs via Kasara Ghat',
     startingPrice: '₹2,499',
     popularFor: ['Sula Vineyards', 'Trimbakeshwar Jyotirlinga', 'Panchavati', 'Godavari Ghats'],
-    image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Lonavala & Khandala',
@@ -274,7 +274,7 @@ export const destinationsData = [
     duration: '5.5 hrs via Samruddhi',
     startingPrice: '₹4,199',
     popularFor: ['Ellora Caves', 'Ajanta Caves', 'Bibi Ka Maqbara', 'Daulatabad Fort'],
-    image: 'https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1600100397608-f010f4439c0d?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Alibaug & Kashid',
@@ -283,7 +283,7 @@ export const destinationsData = [
     duration: '2.5 hrs direct or 1 hr Mandwa Ro-Ro',
     startingPrice: '₹1,999',
     popularFor: ['Kolaba Sea Fort', 'Kashid White Sands', 'Nagaon Beach', 'Murud-Janjira Fort'],
-    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Kolhapur & Panhala',
@@ -292,7 +292,7 @@ export const destinationsData = [
     duration: '5.5 hrs via NH-48 Expressway',
     startingPrice: '₹3,999',
     popularFor: ['Shri Mahalaxmi Ambabai Temple', 'Panhala Hill Fort', 'Rankala Lake', 'New Palace Museum'],
-    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1626014303757-658c2a93b482?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Panchgani & Wai',

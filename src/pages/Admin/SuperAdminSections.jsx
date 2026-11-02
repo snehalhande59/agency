@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { 
   Users, 
   CalendarCheck, 
@@ -8,28 +7,23 @@ import {
   CreditCard, 
   Car, 
   Truck, 
+  UserCheck, 
   Building2, 
   Receipt, 
   RefreshCw, 
   BarChart3, 
   LifeBuoy, 
-  Settings, 
-  Search, 
-  Filter, 
-  CheckCircle2, 
-  XCircle, 
-  AlertTriangle, 
-  ChevronRight, 
-  UserCheck, 
-  ShieldCheck, 
-  Download, 
-  SlidersHorizontal,
-  ChevronLeft,
-  ChevronDown,
-  Info,
-  DollarSign,
-  Plus,
-  Trash2
+  Settings,
+  Search,
+  Download,
+  Filter,
+  CheckCircle2,
+  XCircle,
+  AlertTriangle,
+  ExternalLink,
+  ChevronRight,
+  ShieldCheck,
+  Clock
 } from 'lucide-react';
 import { useSuperAdminStore } from '../../store/useSuperAdminStore';
 import { TRAINS_DATA } from '../../services/railway/railwayService';
@@ -55,34 +49,34 @@ export const SuperAdminUsersPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Users className="w-6 h-6 text-cyan-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Users className="w-6 h-6 text-[#3898D8]" />
             <span>Platform User Management</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Browse registered passengers, corporate leads, driver logins and account status.
           </p>
         </div>
 
         <button 
           onClick={() => alert('Simulated export of user directory.')}
-          className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center gap-1.5 self-start sm:self-auto transition-all"
+          className="px-4 py-2 rounded-xl bg-white hover:bg-[#EFF7FC] text-[#153B5B] border border-[#E5EDF5] text-xs font-bold flex items-center gap-1.5 self-start sm:self-auto transition-all shadow-xs"
         >
-          <Download className="w-3.5 h-3.5" />
+          <Download className="w-3.5 h-3.5 text-[#3898D8]" />
           <span>Export User Directory</span>
         </button>
       </div>
 
       {/* Filters */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-navy-900/60 p-3 rounded-2xl border border-slate-800">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-3 rounded-2xl border border-[#E5EDF5] shadow-xs">
         <div className="relative w-full sm:w-80">
-          <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
+          <Search className="w-4 h-4 absolute left-3 top-3 text-[#94A3B8]" />
           <input
             type="text"
             placeholder="Search by name, email or ID..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-navy-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+            className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl pl-9 pr-4 py-2 text-xs text-[#153B5B] placeholder-[#94A3B8] focus:outline-none focus:border-[#3898D8] focus:bg-white"
           />
         </div>
 
@@ -93,8 +87,8 @@ export const SuperAdminUsersPage = () => {
               onClick={() => setRoleFilter(tab)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 roleFilter === tab 
-                  ? 'bg-cyan-600/20 text-cyan-300 border border-cyan-500/40' 
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-[#DCEEFF] text-[#3898D8] border border-[#3898D8]/40 font-bold' 
+                  : 'text-[#64748B] hover:text-[#153B5B] hover:bg-[#F8FAFC]'
               }`}
             >
               {tab}
@@ -104,10 +98,10 @@ export const SuperAdminUsersPage = () => {
       </div>
 
       {/* Users Table */}
-      <div className="bg-navy-900/80 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div className="bg-white rounded-2xl border border-[#E5EDF5] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-navy-950 text-slate-400 uppercase font-semibold text-[10px] tracking-wider border-b border-slate-800">
+            <thead className="bg-[#F8FAFC] text-[#64748B] uppercase font-bold text-[10px] tracking-wider border-b border-[#E5EDF5]">
               <tr>
                 <th className="py-3 px-4">User ID</th>
                 <th className="py-3 px-4">Name & Email</th>
@@ -118,26 +112,26 @@ export const SuperAdminUsersPage = () => {
                 <th className="py-3 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-slate-300">
+            <tbody className="divide-y divide-[#E5EDF5] text-[#153B5B]">
               {filtered.map((u) => (
-                <tr key={u.id} className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3.5 px-4 font-mono font-bold text-white">{u.id}</td>
+                <tr key={u.id} className="hover:bg-[#F8FAFC] transition-colors">
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#153B5B]">{u.id}</td>
                   <td className="py-3.5 px-4">
-                    <div className="font-bold text-white">{u.name}</div>
-                    <div className="text-[11px] text-slate-400">{u.email}</div>
+                    <div className="font-bold text-[#153B5B]">{u.name}</div>
+                    <div className="text-[11px] text-[#64748B]">{u.email}</div>
                   </td>
-                  <td className="py-3.5 px-4 text-slate-300">{u.phone}</td>
+                  <td className="py-3.5 px-4 text-[#64748B] font-mono">{u.phone}</td>
                   <td className="py-3.5 px-4">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-navy-950 text-slate-300 border border-slate-700">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#EFF7FC] text-[#3898D8] border border-[#DCEEFF]">
                       {u.role}
                     </span>
                   </td>
-                  <td className="py-3.5 px-4 font-bold text-white">{u.totalTrips}</td>
+                  <td className="py-3.5 px-4 font-bold text-[#153B5B]">{u.totalTrips}</td>
                   <td className="py-3.5 px-4">
-                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${
                       u.status === 'ACTIVE' 
-                        ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' 
-                        : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
+                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200' 
+                        : 'bg-rose-50 text-rose-700 border-rose-200'
                     }`}>
                       {u.status}
                     </span>
@@ -147,8 +141,8 @@ export const SuperAdminUsersPage = () => {
                       onClick={() => toggleUserStatus(u.id)}
                       className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all ${
                         u.status === 'ACTIVE'
-                          ? 'bg-rose-600/20 text-rose-300 hover:bg-rose-600/30 border border-rose-500/30'
-                          : 'bg-emerald-600/20 text-emerald-300 hover:bg-emerald-600/30 border border-emerald-500/30'
+                          ? 'bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200'
+                          : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200'
                       }`}
                     >
                       {u.status === 'ACTIVE' ? 'Suspend' : 'Activate'}
@@ -192,33 +186,33 @@ export const SuperAdminBookingsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <CalendarCheck className="w-6 h-6 text-purple-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <CalendarCheck className="w-6 h-6 text-[#3898D8]" />
             <span>Unified Platform Bookings</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Global ledger combining Cabs, IRCTC Trains, MSRTC ST Buses, Charters and NCMC Passes.
           </p>
         </div>
 
         <button 
           onClick={() => alert('Simulated export of unified bookings ledger.')}
-          className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center gap-1.5 self-start sm:self-auto transition-all"
+          className="px-4 py-2 rounded-xl bg-white hover:bg-[#EFF7FC] text-[#153B5B] border border-[#E5EDF5] text-xs font-bold flex items-center gap-1.5 self-start sm:self-auto transition-all shadow-xs"
         >
-          <Download className="w-3.5 h-3.5" />
+          <Download className="w-3.5 h-3.5 text-[#3898D8]" />
           <span>Export All Bookings</span>
         </button>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-navy-900/60 p-3 rounded-2xl border border-slate-800">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-3 rounded-2xl border border-[#E5EDF5] shadow-xs">
         <div className="relative w-full sm:w-80">
-          <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
+          <Search className="w-4 h-4 absolute left-3 top-3 text-[#94A3B8]" />
           <input
             type="text"
             placeholder="Search booking ref, service or passenger..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-navy-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500"
+            className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl pl-9 pr-4 py-2 text-xs text-[#153B5B] placeholder-[#94A3B8] focus:outline-none focus:border-[#3898D8] focus:bg-white"
           />
         </div>
 
@@ -229,8 +223,8 @@ export const SuperAdminBookingsPage = () => {
               onClick={() => setFilter(tab)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 filter === tab 
-                  ? 'bg-purple-600/20 text-purple-300 border border-purple-500/40' 
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-[#DCEEFF] text-[#3898D8] border border-[#3898D8]/40 font-bold' 
+                  : 'text-[#64748B] hover:text-[#153B5B] hover:bg-[#F8FAFC]'
               }`}
             >
               {tab}
@@ -239,10 +233,10 @@ export const SuperAdminBookingsPage = () => {
         </div>
       </div>
 
-      <div className="bg-navy-900/80 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div className="bg-white rounded-2xl border border-[#E5EDF5] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-navy-950 text-slate-400 uppercase font-semibold text-[10px] tracking-wider border-b border-slate-800">
+            <thead className="bg-[#F8FAFC] text-[#64748B] uppercase font-bold text-[10px] tracking-wider border-b border-[#E5EDF5]">
               <tr>
                 <th className="py-3 px-4">Booking Ref</th>
                 <th className="py-3 px-4">Vertical</th>
@@ -253,21 +247,21 @@ export const SuperAdminBookingsPage = () => {
                 <th className="py-3 px-4">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-slate-300">
+            <tbody className="divide-y divide-[#E5EDF5] text-[#153B5B]">
               {filtered.map((b) => (
-                <tr key={b.id} className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3.5 px-4 font-mono font-bold text-white">{b.id}</td>
+                <tr key={b.id} className="hover:bg-[#F8FAFC] transition-colors">
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#153B5B]">{b.id}</td>
                   <td className="py-3.5 px-4">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-navy-950 text-purple-300 border border-purple-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#EFF7FC] text-[#3898D8] border border-[#DCEEFF]">
                       {b.mode}
                     </span>
                   </td>
-                  <td className="py-3.5 px-4 font-semibold text-slate-200">{b.service}</td>
-                  <td className="py-3.5 px-4 text-slate-300">{b.customer}</td>
-                  <td className="py-3.5 px-4 text-slate-400 font-mono">{b.date}</td>
-                  <td className="py-3.5 px-4 font-bold text-white">{b.amount}</td>
+                  <td className="py-3.5 px-4 font-semibold text-[#153B5B]">{b.service}</td>
+                  <td className="py-3.5 px-4 text-[#64748B]">{b.customer}</td>
+                  <td className="py-3.5 px-4 text-[#64748B] font-mono">{b.date}</td>
+                  <td className="py-3.5 px-4 font-black text-[#3898D8]">{b.amount}</td>
                   <td className="py-3.5 px-4">
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                       {b.status}
                     </span>
                   </td>
@@ -289,47 +283,47 @@ export const SuperAdminRailwayServicesPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Train className="w-6 h-6 text-emerald-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Train className="w-6 h-6 text-emerald-600" />
             <span>Railway Services & Timetable Schema</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Indian Railways express trains, Vande Bharat, Tejas and Deccan Queen timetable cache.
           </p>
         </div>
 
-        <div className="px-3 py-1.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-bold">
+        <div className="px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold">
           Pending IRCTC Official B2C Agreement
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {TRAINS_DATA.map((t) => (
-          <div key={t.trainNumber} className="p-5 rounded-2xl bg-navy-900/80 border border-slate-800 space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div key={t.trainNumber} className="p-5 rounded-2xl bg-white border border-[#E5EDF5] space-y-3 shadow-xs">
+            <div className="flex items-center justify-between border-b border-[#E5EDF5] pb-2">
               <div className="flex items-center gap-2">
-                <span className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 font-bold text-xs flex items-center justify-center">
+                <span className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 font-black text-xs flex items-center justify-center">
                   IR
                 </span>
                 <div>
-                  <h3 className="font-bold text-white text-sm">{t.trainNumber} - {t.trainName}</h3>
-                  <span className="text-[10px] text-emerald-400 font-semibold">{t.trainType}</span>
+                  <h3 className="font-bold text-[#153B5B] text-sm">{t.trainNumber} - {t.trainName}</h3>
+                  <span className="text-[10px] text-emerald-600 font-semibold">{t.trainType}</span>
                 </div>
               </div>
-              <span className="text-xs font-mono text-slate-400">{t.duration}</span>
+              <span className="text-xs font-mono font-bold text-[#3898D8]">{t.duration}</span>
             </div>
 
             <div className="grid grid-cols-2 gap-2 text-xs">
               <div>
-                <span className="text-[10px] text-slate-500 uppercase">Route</span>
-                <p className="text-slate-200 mt-0.5">{t.fromStation.code} → {t.toStation.code}</p>
-                <p className="text-[10px] text-slate-400">{t.departureTime} dep / {t.arrivalTime} arr</p>
+                <span className="text-[10px] text-[#64748B] uppercase font-bold">Route</span>
+                <p className="text-[#153B5B] font-semibold mt-0.5">{t.fromStation.code} → {t.toStation.code}</p>
+                <p className="text-[11px] text-[#64748B]">{t.departureTime} dep / {t.arrivalTime} arr</p>
               </div>
               <div>
-                <span className="text-[10px] text-slate-500 uppercase">Classes Configured</span>
+                <span className="text-[10px] text-[#64748B] uppercase font-bold">Classes Configured</span>
                 <div className="flex flex-wrap gap-1 mt-0.5">
                   {t.classes.map(c => (
-                    <span key={c} className="px-1.5 py-0.5 rounded bg-navy-950 text-[10px] font-mono text-slate-300 border border-slate-700">
+                    <span key={c} className="px-1.5 py-0.5 rounded bg-[#F8FAFC] text-[10px] font-mono text-[#153B5B] border border-[#E5EDF5] font-semibold">
                       {c}
                     </span>
                   ))}
@@ -337,7 +331,7 @@ export const SuperAdminRailwayServicesPage = () => {
               </div>
             </div>
 
-            <div className="text-[11px] text-slate-400 font-mono">
+            <div className="text-[11px] text-[#64748B] font-mono pt-1 border-t border-[#E5EDF5]">
               Running Days: {t.runsOn?.join(', ') || 'Daily (Mon-Sun)'}
             </div>
           </div>
@@ -348,53 +342,53 @@ export const SuperAdminRailwayServicesPage = () => {
 };
 
 // =========================================================================
-// 4. SUPER ADMIN MSRTC SERVICES PAGE
+// 4. SUPER ADMIN MSRTC SERVICES PAGE (SCREENSHOT 4 EXACT FIX)
 // =========================================================================
 export const SuperAdminMsrtcServicesPage = () => {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Bus className="w-6 h-6 text-rose-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Bus className="w-6 h-6 text-rose-600" />
             <span>MSRTC Fleet & Depot Schedules</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             State transport service types, depot dispatch rosters and government concession engine.
           </p>
         </div>
 
-        <div className="px-3 py-1.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-bold">
+        <div className="px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold">
           Pending MSRTC ITMS Access Protocol
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {MSRTC_BUSES_DATA.map((b) => (
-          <div key={b.busNumber} className="p-5 rounded-2xl bg-navy-900/80 border border-slate-800 space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-              <div className="flex items-center gap-2">
-                <span className="w-8 h-8 rounded-xl bg-rose-500/20 text-rose-400 font-bold text-xs flex items-center justify-center">
+          <div key={b.busNumber} className="p-5 rounded-2xl bg-white border border-[#E5EDF5] space-y-3 shadow-xs hover:border-[#3898D8] transition-colors">
+            <div className="flex items-center justify-between border-b border-[#E5EDF5] pb-2.5">
+              <div className="flex items-center gap-2.5">
+                <span className="w-8 h-8 rounded-xl bg-rose-100 text-rose-700 font-black text-xs flex items-center justify-center shadow-xs">
                   ST
                 </span>
                 <div>
-                  <h3 className="font-bold text-white text-sm">{b.busNumber} • {b.serviceType}</h3>
-                  <span className="text-[10px] text-rose-400 font-semibold">{b.depot}</span>
+                  <h3 className="font-extrabold text-[#153B5B] text-sm">{b.busNumber} • {b.serviceType}</h3>
+                  <span className="text-[11px] text-rose-700 font-bold">{b.depot}</span>
                 </div>
               </div>
-              <span className="text-xs font-bold text-white">₹{b.baseFare}</span>
+              <span className="text-sm font-black text-[#3898D8]">₹{b.baseFare}</span>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="grid grid-cols-2 gap-3 text-xs">
               <div>
-                <span className="text-[10px] text-slate-500 uppercase">Route Corridor</span>
-                <p className="text-slate-200 mt-0.5">{b.originDepot} → {b.destDepot}</p>
-                <p className="text-[10px] text-slate-400">{b.departureTime} → {b.arrivalTime}</p>
+                <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Route Corridor</span>
+                <p className="text-[#153B5B] font-bold mt-0.5">{b.originDepot} → {b.destDepot}</p>
+                <p className="text-[11px] text-[#64748B] font-mono mt-0.5">{b.departureTime} → {b.arrivalTime}</p>
               </div>
               <div>
-                <span className="text-[10px] text-slate-500 uppercase">Seating Capacity</span>
-                <p className="text-slate-200 mt-0.5">{b.totalSeats} Seats ({b.layoutType})</p>
-                <p className="text-[10px] text-emerald-400">{b.availableSeats} Seats Available</p>
+                <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Seating Capacity</span>
+                <p className="text-[#153B5B] font-bold mt-0.5">{b.totalSeats} Seats ({b.layoutType})</p>
+                <p className="text-[11px] text-emerald-600 font-extrabold mt-0.5">{b.availableSeats} Seats Available</p>
               </div>
             </div>
           </div>
@@ -419,24 +413,24 @@ export const SuperAdminNcmcServicesPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <CreditCard className="w-6 h-6 text-cyan-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <CreditCard className="w-6 h-6 text-[#3898D8]" />
             <span>NCMC Validators & Transit Gateways</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             RuPay contactless terminal nodes, turnstile fare deduction formulas and pass models.
           </p>
         </div>
 
-        <div className="px-3 py-1.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-bold">
+        <div className="px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold">
           Pending NPCI CCH Acquirer Agreement
         </div>
       </div>
 
-      <div className="bg-navy-900/80 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div className="bg-white rounded-2xl border border-[#E5EDF5] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-navy-950 text-slate-400 uppercase font-semibold text-[10px] tracking-wider border-b border-slate-800">
+            <thead className="bg-[#F8FAFC] text-[#64748B] uppercase font-bold text-[10px] tracking-wider border-b border-[#E5EDF5]">
               <tr>
                 <th className="py-3 px-4">Terminal Node ID</th>
                 <th className="py-3 px-4">Transit Station / Fleet</th>
@@ -445,15 +439,15 @@ export const SuperAdminNcmcServicesPage = () => {
                 <th className="py-3 px-4">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-slate-300">
+            <tbody className="divide-y divide-[#E5EDF5] text-[#153B5B]">
               {terminals.map((t) => (
-                <tr key={t.id} className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3.5 px-4 font-mono font-bold text-white">{t.id}</td>
-                  <td className="py-3.5 px-4 font-semibold text-slate-200">{t.station}</td>
-                  <td className="py-3.5 px-4 text-slate-300">{t.gates} Turnstiles</td>
-                  <td className="py-3.5 px-4 font-mono text-cyan-400">{t.validatorFirmware}</td>
+                <tr key={t.id} className="hover:bg-[#F8FAFC] transition-colors">
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#153B5B]">{t.id}</td>
+                  <td className="py-3.5 px-4 font-bold text-[#153B5B]">{t.station}</td>
+                  <td className="py-3.5 px-4 text-[#64748B]">{t.gates} Turnstiles</td>
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#3898D8]">{t.validatorFirmware}</td>
                   <td className="py-3.5 px-4">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                    <span className="px-2.5 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
                       {t.status}
                     </span>
                   </td>
@@ -477,11 +471,11 @@ export const SuperAdminCabOperatorsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Car className="w-6 h-6 text-electric-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Car className="w-6 h-6 text-[#3898D8]" />
             <span>Cab Operator Alliances</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Registered fleet vendors, chauffeur compliance audits and SLA verification.
           </p>
         </div>
@@ -489,35 +483,35 @@ export const SuperAdminCabOperatorsPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {cabOperators.map((op) => (
-          <div key={op.id} className="p-5 rounded-2xl bg-navy-900/80 border border-slate-800 space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div key={op.id} className="p-5 rounded-2xl bg-white border border-[#E5EDF5] space-y-4 shadow-xs">
+            <div className="flex items-center justify-between border-b border-[#E5EDF5] pb-3">
               <div>
-                <span className="text-[10px] font-bold uppercase text-slate-500">{op.id}</span>
-                <h3 className="font-bold text-white text-sm">{op.name}</h3>
+                <span className="text-[10px] font-bold uppercase text-[#64748B]">{op.id}</span>
+                <h3 className="font-bold text-[#153B5B] text-sm">{op.name}</h3>
               </div>
-              <span className="text-xs font-bold text-amber-400">{op.rating} ★</span>
+              <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">{op.rating} ★</span>
             </div>
 
-            <div className="space-y-1.5 text-xs text-slate-300">
+            <div className="space-y-1.5 text-xs text-[#64748B]">
               <div className="flex justify-between">
-                <span className="text-slate-400">Operating City:</span>
-                <span className="text-white font-semibold">{op.city}</span>
+                <span>Operating City:</span>
+                <span className="text-[#153B5B] font-semibold">{op.city}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Total Fleet:</span>
-                <span className="text-white font-semibold">{op.vehiclesCount} Cabs</span>
+                <span>Total Fleet:</span>
+                <span className="text-[#153B5B] font-semibold">{op.vehiclesCount} Cabs</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Active Drivers:</span>
-                <span className="text-white font-semibold">{op.activeDrivers} Drivers</span>
+                <span>Active Drivers:</span>
+                <span className="text-[#153B5B] font-semibold">{op.activeDrivers} Drivers</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Compliance:</span>
-                <span className="text-emerald-400 font-bold">{op.complianceStatus}</span>
+                <span>Compliance:</span>
+                <span className="text-emerald-600 font-bold">{op.complianceStatus}</span>
               </div>
             </div>
 
-            <div className="pt-2 border-t border-slate-800/80 text-[11px] text-slate-400">
+            <div className="pt-2 border-t border-[#E5EDF5] text-[11px] text-[#64748B]">
               Contact: {op.contactPerson}
             </div>
           </div>
@@ -537,11 +531,11 @@ export const SuperAdminBusOperatorsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Truck className="w-6 h-6 text-purple-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Truck className="w-6 h-6 text-[#3898D8]" />
             <span>Bus & Coach Fleet Operators</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Private luxury multi-axle coaches, sleeper buses and corporate intercity charters.
           </p>
         </div>
@@ -549,31 +543,31 @@ export const SuperAdminBusOperatorsPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {busOperators.map((op) => (
-          <div key={op.id} className="p-5 rounded-2xl bg-navy-900/80 border border-slate-800 space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div key={op.id} className="p-5 rounded-2xl bg-white border border-[#E5EDF5] space-y-4 shadow-xs">
+            <div className="flex items-center justify-between border-b border-[#E5EDF5] pb-3">
               <div>
-                <span className="text-[10px] font-bold uppercase text-slate-500">{op.id}</span>
-                <h3 className="font-bold text-white text-sm">{op.name}</h3>
+                <span className="text-[10px] font-bold uppercase text-[#64748B]">{op.id}</span>
+                <h3 className="font-bold text-[#153B5B] text-sm">{op.name}</h3>
               </div>
-              <span className="text-xs font-bold text-amber-400">{op.rating} ★</span>
+              <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">{op.rating} ★</span>
             </div>
 
-            <div className="space-y-1.5 text-xs text-slate-300">
+            <div className="space-y-1.5 text-xs text-[#64748B]">
               <div className="flex justify-between">
-                <span className="text-slate-400">Headquarters:</span>
-                <span className="text-white font-semibold">{op.headquarters}</span>
+                <span>Headquarters:</span>
+                <span className="text-[#153B5B] font-semibold">{op.headquarters}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Routes Managed:</span>
-                <span className="text-white font-semibold">{op.routesCount} Express Routes</span>
+                <span>Routes Managed:</span>
+                <span className="text-[#153B5B] font-semibold">{op.routesCount} Express Routes</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Total Coaches:</span>
-                <span className="text-white font-semibold">{op.busesCount} Luxury Coaches</span>
+                <span>Total Coaches:</span>
+                <span className="text-[#153B5B] font-semibold">{op.busesCount} Luxury Coaches</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Partner Status:</span>
-                <span className="text-emerald-400 font-bold">{op.status}</span>
+                <span>Partner Status:</span>
+                <span className="text-emerald-600 font-bold">{op.status}</span>
               </div>
             </div>
           </div>
@@ -599,20 +593,20 @@ export const SuperAdminVehiclesPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Car className="w-6 h-6 text-purple-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Car className="w-6 h-6 text-[#3898D8]" />
             <span>Fleet Vehicles Master Registry</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Certified vehicles, fitness validity, GPS telemetry link and service status.
           </p>
         </div>
       </div>
 
-      <div className="bg-navy-900/80 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div className="bg-white rounded-2xl border border-[#E5EDF5] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-navy-950 text-slate-400 uppercase font-semibold text-[10px] tracking-wider border-b border-slate-800">
+            <thead className="bg-[#F8FAFC] text-[#64748B] uppercase font-bold text-[10px] tracking-wider border-b border-[#E5EDF5]">
               <tr>
                 <th className="py-3 px-4">License Plate</th>
                 <th className="py-3 px-4">Make & Model</th>
@@ -621,15 +615,15 @@ export const SuperAdminVehiclesPage = () => {
                 <th className="py-3 px-4">Operational Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-slate-300">
+            <tbody className="divide-y divide-[#E5EDF5] text-[#153B5B]">
               {vehicles.map((v) => (
-                <tr key={v.plate} className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3.5 px-4 font-mono font-bold text-white">{v.plate}</td>
-                  <td className="py-3.5 px-4 font-semibold text-slate-200">{v.model}</td>
-                  <td className="py-3.5 px-4 text-slate-300">{v.type}</td>
-                  <td className="py-3.5 px-4 font-mono text-slate-400">Valid to {v.fitnessValidUntil}</td>
+                <tr key={v.plate} className="hover:bg-[#F8FAFC] transition-colors">
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#153B5B]">{v.plate}</td>
+                  <td className="py-3.5 px-4 font-bold text-[#153B5B]">{v.model}</td>
+                  <td className="py-3.5 px-4 text-[#64748B]">{v.type}</td>
+                  <td className="py-3.5 px-4 font-mono text-[#64748B]">Valid to {v.fitnessValidUntil}</td>
                   <td className="py-3.5 px-4">
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                       {v.status}
                     </span>
                   </td>
@@ -658,20 +652,20 @@ export const SuperAdminDriversPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <UserCheck className="w-6 h-6 text-emerald-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <UserCheck className="w-6 h-6 text-emerald-600" />
             <span>Chauffeurs & Commercial Drivers</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Police verification records, passenger safety ratings and assigned fleet allocations.
           </p>
         </div>
       </div>
 
-      <div className="bg-navy-900/80 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div className="bg-white rounded-2xl border border-[#E5EDF5] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-navy-950 text-slate-400 uppercase font-semibold text-[10px] tracking-wider border-b border-slate-800">
+            <thead className="bg-[#F8FAFC] text-[#64748B] uppercase font-bold text-[10px] tracking-wider border-b border-[#E5EDF5]">
               <tr>
                 <th className="py-3 px-4">Driver ID</th>
                 <th className="py-3 px-4">Chauffeur Name</th>
@@ -681,19 +675,19 @@ export const SuperAdminDriversPage = () => {
                 <th className="py-3 px-4">Assigned Vehicle</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-slate-300">
+            <tbody className="divide-y divide-[#E5EDF5] text-[#153B5B]">
               {drivers.map((d) => (
-                <tr key={d.id} className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3.5 px-4 font-mono font-bold text-white">{d.id}</td>
-                  <td className="py-3.5 px-4 font-bold text-white">{d.name}</td>
-                  <td className="py-3.5 px-4 text-slate-300">{d.phone}</td>
-                  <td className="py-3.5 px-4 font-bold text-amber-400">{d.rating}</td>
+                <tr key={d.id} className="hover:bg-[#F8FAFC] transition-colors">
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#153B5B]">{d.id}</td>
+                  <td className="py-3.5 px-4 font-bold text-[#153B5B]">{d.name}</td>
+                  <td className="py-3.5 px-4 text-[#64748B] font-mono">{d.phone}</td>
+                  <td className="py-3.5 px-4 font-bold text-amber-600">{d.rating}</td>
                   <td className="py-3.5 px-4">
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                       {d.policeVerification}
                     </span>
                   </td>
-                  <td className="py-3.5 px-4 font-mono text-cyan-400">{d.assignedVehicle}</td>
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#3898D8]">{d.assignedVehicle}</td>
                 </tr>
               ))}
             </tbody>
@@ -714,11 +708,11 @@ export const SuperAdminCorporateClientsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Building2 className="w-6 h-6 text-amber-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Building2 className="w-6 h-6 text-[#3898D8]" />
             <span>Corporate Enterprise Accounts</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             B2B employee commute contracts, monthly invoicing terms and dedicated fleet allocation.
           </p>
         </div>
@@ -726,33 +720,33 @@ export const SuperAdminCorporateClientsPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {corporateClients.map((client) => (
-          <div key={client.id} className="p-6 rounded-3xl bg-navy-900/80 border border-slate-800 space-y-4">
-            <div className="flex items-start justify-between border-b border-slate-800 pb-3">
+          <div key={client.id} className="p-6 rounded-3xl bg-white border border-[#E5EDF5] space-y-4 shadow-xs">
+            <div className="flex items-start justify-between border-b border-[#E5EDF5] pb-3">
               <div>
-                <span className="text-[10px] font-bold uppercase text-amber-400">{client.contractTier}</span>
-                <h3 className="font-bold text-white text-base mt-0.5">{client.name}</h3>
+                <span className="text-[10px] font-bold uppercase text-[#3898D8] bg-[#DCEEFF] px-2 py-0.5 rounded">{client.contractTier}</span>
+                <h3 className="font-extrabold text-[#153B5B] text-base mt-1">{client.name}</h3>
               </div>
-              <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300">
+              <span className="px-2.5 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                 {client.status}
               </span>
             </div>
 
             <div className="space-y-2 text-xs">
               <div className="flex justify-between">
-                <span className="text-slate-400">Contracted Employees:</span>
-                <span className="text-white font-bold">{client.employeesCount.toLocaleString()}</span>
+                <span className="text-[#64748B]">Contracted Employees:</span>
+                <span className="text-[#153B5B] font-bold">{client.employeesCount.toLocaleString()}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Dedicated Fleet:</span>
-                <span className="text-white font-bold">{client.activeVehicles} Cabs</span>
+                <span className="text-[#64748B]">Dedicated Fleet:</span>
+                <span className="text-[#153B5B] font-bold">{client.activeVehicles} Cabs</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Monthly Contract Value:</span>
-                <span className="text-emerald-400 font-bold">₹{(client.monthlySpend / 100000).toFixed(2)} Lakhs</span>
+                <span className="text-[#64748B]">Monthly Contract Value:</span>
+                <span className="text-emerald-700 font-bold">₹{(client.monthlySpend / 100000).toFixed(2)} Lakhs</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Invoicing Terms:</span>
-                <span className="text-slate-200 font-mono">{client.creditTerms}</span>
+                <span className="text-[#64748B]">Invoicing Terms:</span>
+                <span className="text-[#153B5B] font-mono font-bold">{client.creditTerms}</span>
               </div>
             </div>
           </div>
@@ -777,25 +771,25 @@ export const SuperAdminPaymentsDemoPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Receipt className="w-6 h-6 text-emerald-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Receipt className="w-6 h-6 text-emerald-600" />
             <span>Payments Demo Settlement Ledger</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Simulated payment transactions, UPI authorization stubs and zero-charge validation records.
           </p>
         </div>
 
-        <div className="p-3 rounded-2xl bg-navy-900 border border-slate-800 text-xs">
-          <span className="text-slate-400">Payment Gateway Status: </span>
-          <span className="font-bold text-amber-400">Not Configured (Demo Sandbox Mode)</span>
+        <div className="p-3 rounded-2xl bg-white border border-[#E5EDF5] text-xs shadow-xs">
+          <span className="text-[#64748B]">Payment Gateway Status: </span>
+          <span className="font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Demo Sandbox Mode</span>
         </div>
       </div>
 
-      <div className="bg-navy-900/80 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div className="bg-white rounded-2xl border border-[#E5EDF5] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-navy-950 text-slate-400 uppercase font-semibold text-[10px] tracking-wider border-b border-slate-800">
+            <thead className="bg-[#F8FAFC] text-[#64748B] uppercase font-bold text-[10px] tracking-wider border-b border-[#E5EDF5]">
               <tr>
                 <th className="py-3 px-4">Payment ID</th>
                 <th className="py-3 px-4">Booking Ref</th>
@@ -806,17 +800,17 @@ export const SuperAdminPaymentsDemoPage = () => {
                 <th className="py-3 px-4">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-slate-300">
+            <tbody className="divide-y divide-[#E5EDF5] text-[#153B5B]">
               {transactions.map((tx) => (
-                <tr key={tx.id} className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3.5 px-4 font-mono font-bold text-white">{tx.id}</td>
-                  <td className="py-3.5 px-4 font-mono text-cyan-400">{tx.bookingRef}</td>
-                  <td className="py-3.5 px-4 text-slate-200">{tx.customer}</td>
-                  <td className="py-3.5 px-4 text-slate-300">{tx.mode}</td>
-                  <td className="py-3.5 px-4 font-bold text-white">₹{tx.amount.toLocaleString()}</td>
-                  <td className="py-3.5 px-4 font-mono text-slate-400">{tx.date}</td>
+                <tr key={tx.id} className="hover:bg-[#F8FAFC] transition-colors">
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#153B5B]">{tx.id}</td>
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#3898D8]">{tx.bookingRef}</td>
+                  <td className="py-3.5 px-4 text-[#153B5B] font-semibold">{tx.customer}</td>
+                  <td className="py-3.5 px-4 text-[#64748B]">{tx.mode}</td>
+                  <td className="py-3.5 px-4 font-black text-[#3898D8]">₹{tx.amount.toLocaleString()}</td>
+                  <td className="py-3.5 px-4 font-mono text-[#64748B]">{tx.date}</td>
                   <td className="py-3.5 px-4">
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                       {tx.status}
                     </span>
                   </td>
@@ -836,7 +830,7 @@ export const SuperAdminPaymentsDemoPage = () => {
 export const SuperAdminRefundManagementPage = () => {
   const { refundRequests, approveRefund, rejectRefund } = useSuperAdminStore();
   const [selectedRefund, setSelectedRefund] = useState(null);
-  const [actionType, setActionType] = useState(null); // 'APPROVE' or 'REJECT'
+  const [actionType, setActionType] = useState(null);
 
   const handleConfirmAction = () => {
     if (!selectedRefund || !actionType) return;
@@ -853,20 +847,20 @@ export const SuperAdminRefundManagementPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <RefreshCw className="w-6 h-6 text-rose-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <RefreshCw className="w-6 h-6 text-rose-600" />
             <span>Refund Management Demo Queue</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Review and adjudicate customer cancellation claims across rail, bus and cab verticals.
           </p>
         </div>
       </div>
 
-      <div className="bg-navy-900/80 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div className="bg-white rounded-2xl border border-[#E5EDF5] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-navy-950 text-slate-400 uppercase font-semibold text-[10px] tracking-wider border-b border-slate-800">
+            <thead className="bg-[#F8FAFC] text-[#64748B] uppercase font-bold text-[10px] tracking-wider border-b border-[#E5EDF5]">
               <tr>
                 <th className="py-3 px-4">Claim ID</th>
                 <th className="py-3 px-4">Service & Booking Ref</th>
@@ -879,26 +873,26 @@ export const SuperAdminRefundManagementPage = () => {
                 <th className="py-3 px-4 text-right">Adjudicate</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-slate-300">
+            <tbody className="divide-y divide-[#E5EDF5] text-[#153B5B]">
               {refundRequests.map((r) => (
-                <tr key={r.id} className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3.5 px-4 font-mono font-bold text-white">{r.id}</td>
+                <tr key={r.id} className="hover:bg-[#F8FAFC] transition-colors">
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#153B5B]">{r.id}</td>
                   <td className="py-3.5 px-4">
-                    <div className="font-semibold text-slate-200">{r.service}</div>
-                    <div className="text-[11px] font-mono text-cyan-400">{r.bookingRef}</div>
+                    <div className="font-bold text-[#153B5B]">{r.service}</div>
+                    <div className="text-[11px] font-mono text-[#3898D8] font-bold">{r.bookingRef}</div>
                   </td>
-                  <td className="py-3.5 px-4 text-slate-200">{r.customerName}</td>
-                  <td className="py-3.5 px-4 font-mono">₹{r.originalAmount}</td>
-                  <td className="py-3.5 px-4 font-mono text-rose-400">₹{r.deduction}</td>
-                  <td className="py-3.5 px-4 font-bold text-emerald-400">₹{r.refundAmount}</td>
-                  <td className="py-3.5 px-4 text-slate-400">{r.reason}</td>
+                  <td className="py-3.5 px-4 text-[#153B5B] font-semibold">{r.customerName}</td>
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#153B5B]">₹{r.originalAmount}</td>
+                  <td className="py-3.5 px-4 font-mono text-rose-700 font-bold">₹{r.deduction}</td>
+                  <td className="py-3.5 px-4 font-black text-emerald-700">₹{r.refundAmount}</td>
+                  <td className="py-3.5 px-4 text-[#64748B]">{r.reason}</td>
                   <td className="py-3.5 px-4">
-                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${
                       r.status === 'PENDING_APPROVAL'
-                        ? 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                        ? 'bg-amber-50 text-amber-700 border-amber-200'
                         : r.status === 'PROCESSED'
-                        ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
-                        : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
+                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                        : 'bg-rose-50 text-rose-700 border-rose-200'
                     }`}>
                       {r.status}
                     </span>
@@ -908,19 +902,19 @@ export const SuperAdminRefundManagementPage = () => {
                       <div className="flex items-center justify-end gap-2">
                         <button
                           onClick={() => { setSelectedRefund(r); setActionType('APPROVE'); }}
-                          className="px-2.5 py-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 font-semibold"
+                          className="px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs"
                         >
                           Approve
                         </button>
                         <button
                           onClick={() => { setSelectedRefund(r); setActionType('REJECT'); }}
-                          className="px-2.5 py-1 rounded-lg bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-500/30 font-semibold"
+                          className="px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold text-xs"
                         >
                           Reject
                         </button>
                       </div>
                     ) : (
-                      <span className="text-slate-500 font-mono text-[11px]">Decided</span>
+                      <span className="text-[#64748B] font-mono text-[11px]">Decided</span>
                     )}
                   </td>
                 </tr>
@@ -977,18 +971,18 @@ export const SuperAdminReportsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <BarChart3 className="w-6 h-6 text-purple-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <BarChart3 className="w-6 h-6 text-[#3898D8]" />
             <span>Platform Reports & Mobility Analytics</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Aggregated passenger traffic corridors, peak depot departures and route density reports.
           </p>
         </div>
 
         <button
           onClick={() => alert('Simulated export of Q4 2026 Maharashtra Mobility Report (PDF).')}
-          className="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs flex items-center gap-1.5 self-start sm:self-auto transition-all shadow-glow-sm"
+          className="px-4 py-2 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs flex items-center gap-1.5 self-start sm:self-auto transition-all shadow-xs"
         >
           <Download className="w-3.5 h-3.5" />
           <span>Export Executive Dossier</span>
@@ -996,26 +990,26 @@ export const SuperAdminReportsPage = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-6 rounded-3xl bg-navy-900/80 border border-slate-800 space-y-3">
-          <span className="text-[10px] font-bold uppercase text-slate-500">Top Corridor</span>
-          <h3 className="text-lg font-bold text-white">Mumbai ↔ Pune Expressway</h3>
-          <p className="text-xs text-slate-400">
+        <div className="p-6 rounded-3xl bg-white border border-[#E5EDF5] space-y-3 shadow-xs">
+          <span className="text-[10px] font-bold uppercase text-[#64748B]">Top Corridor</span>
+          <h3 className="text-lg font-bold text-[#153B5B]">Mumbai ↔ Pune Expressway</h3>
+          <p className="text-xs text-[#64748B]">
             6,420 trips this month across Cabs (52%), Shivneri (36%) & Vande Bharat (12%).
           </p>
         </div>
 
-        <div className="p-6 rounded-3xl bg-navy-900/80 border border-slate-800 space-y-3">
-          <span className="text-[10px] font-bold uppercase text-slate-500">Customer Satisfaction</span>
-          <h3 className="text-lg font-bold text-emerald-400">4.89 / 5.00 ★</h3>
-          <p className="text-xs text-slate-400">
+        <div className="p-6 rounded-3xl bg-white border border-[#E5EDF5] space-y-3 shadow-xs">
+          <span className="text-[10px] font-bold uppercase text-[#64748B]">Customer Satisfaction</span>
+          <h3 className="text-lg font-bold text-emerald-700">4.89 / 5.00 ★</h3>
+          <p className="text-xs text-[#64748B]">
             Based on 3,420 verified post-journey ratings across all four transport verticals.
           </p>
         </div>
 
-        <div className="p-6 rounded-3xl bg-navy-900/80 border border-slate-800 space-y-3">
-          <span className="text-[10px] font-bold uppercase text-slate-500">Peak Boarding Hour</span>
-          <h3 className="text-lg font-bold text-electric-400">07:30 AM – 09:15 AM</h3>
-          <p className="text-xs text-slate-400">
+        <div className="p-6 rounded-3xl bg-white border border-[#E5EDF5] space-y-3 shadow-xs">
+          <span className="text-[10px] font-bold uppercase text-[#64748B]">Peak Boarding Hour</span>
+          <h3 className="text-lg font-bold text-[#3898D8]">07:30 AM – 09:15 AM</h3>
+          <p className="text-xs text-[#64748B]">
             Accounting for 34% of morning corporate commuter movements in the Mumbai MMR.
           </p>
         </div>
@@ -1034,20 +1028,20 @@ export const SuperAdminSupportPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <LifeBuoy className="w-6 h-6 text-cyan-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <LifeBuoy className="w-6 h-6 text-[#3898D8]" />
             <span>Support & Grievances Console</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Resolve passenger turnstile double-tap inquiries, chauffeur disputes and itinerary assistance.
           </p>
         </div>
       </div>
 
-      <div className="bg-navy-900/80 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div className="bg-white rounded-2xl border border-[#E5EDF5] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-navy-950 text-slate-400 uppercase font-semibold text-[10px] tracking-wider border-b border-slate-800">
+            <thead className="bg-[#F8FAFC] text-[#64748B] uppercase font-bold text-[10px] tracking-wider border-b border-[#E5EDF5]">
               <tr>
                 <th className="py-3 px-4">Ticket ID</th>
                 <th className="py-3 px-4">Customer</th>
@@ -1058,25 +1052,25 @@ export const SuperAdminSupportPage = () => {
                 <th className="py-3 px-4 text-right">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-slate-300">
+            <tbody className="divide-y divide-[#E5EDF5] text-[#153B5B]">
               {supportTickets.map((t) => (
-                <tr key={t.id} className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3.5 px-4 font-mono font-bold text-white">{t.id}</td>
-                  <td className="py-3.5 px-4 text-slate-200">{t.user}</td>
-                  <td className="py-3.5 px-4 font-semibold text-white">{t.subject}</td>
-                  <td className="py-3.5 px-4 text-slate-400">{t.category}</td>
+                <tr key={t.id} className="hover:bg-[#F8FAFC] transition-colors">
+                  <td className="py-3.5 px-4 font-mono font-bold text-[#153B5B]">{t.id}</td>
+                  <td className="py-3.5 px-4 text-[#153B5B] font-semibold">{t.user}</td>
+                  <td className="py-3.5 px-4 font-bold text-[#153B5B]">{t.subject}</td>
+                  <td className="py-3.5 px-4 text-[#64748B]">{t.category}</td>
                   <td className="py-3.5 px-4">
-                    <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                      t.priority === 'HIGH' ? 'bg-rose-500/20 text-rose-300' : 'bg-slate-800 text-slate-300'
+                    <span className={`px-2.5 py-0.5 rounded text-[10px] font-bold ${
+                      t.priority === 'HIGH' ? 'bg-rose-50 text-rose-700 border border-rose-200' : 'bg-[#F8FAFC] text-[#64748B] border border-[#E5EDF5]'
                     }`}>
                       {t.priority}
                     </span>
                   </td>
                   <td className="py-3.5 px-4">
-                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${
                       t.status === 'OPEN'
-                        ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30'
-                        : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                        ? 'bg-amber-50 text-amber-700 border-amber-200'
+                        : 'bg-emerald-50 text-emerald-700 border-emerald-200'
                     }`}>
                       {t.status}
                     </span>
@@ -1085,12 +1079,12 @@ export const SuperAdminSupportPage = () => {
                     {t.status === 'OPEN' ? (
                       <button
                         onClick={() => resolveSupportTicket(t.id)}
-                        className="px-2.5 py-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 font-semibold"
+                        className="px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold"
                       >
                         Resolve
                       </button>
                     ) : (
-                      <span className="text-slate-500 font-mono text-[11px]">Resolved</span>
+                      <span className="text-[#64748B] font-mono text-[11px]">Resolved</span>
                     )}
                   </td>
                 </tr>
@@ -1111,43 +1105,43 @@ export const SuperAdminSettingsPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <Settings className="w-6 h-6 text-slate-400" />
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
+            <Settings className="w-6 h-6 text-[#64748B]" />
             <span>Platform System Settings</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#64748B] mt-1">
             Global governance rules, audit retention intervals, sandbox toggles and RBAC policies.
           </p>
         </div>
       </div>
 
-      <div className="p-6 rounded-3xl bg-navy-900/80 border border-slate-800 space-y-4 max-w-2xl text-xs">
-        <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+      <div className="p-6 rounded-3xl bg-white border border-[#E5EDF5] space-y-4 max-w-2xl text-xs shadow-xs">
+        <div className="flex items-center justify-between pb-3 border-b border-[#E5EDF5]">
           <div>
-            <div className="font-bold text-white">Strict Sandbox Isolation Mode</div>
-            <p className="text-slate-400 text-[11px] mt-0.5">Enforce zero-live calls for all third-party endpoints</p>
+            <div className="font-bold text-[#153B5B]">Strict Sandbox Isolation Mode</div>
+            <p className="text-[#64748B] text-[11px] mt-0.5">Enforce zero-live calls for all third-party endpoints</p>
           </div>
-          <span className="px-2.5 py-0.5 rounded-full font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          <span className="px-2.5 py-0.5 rounded-full font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
             ENFORCED
           </span>
         </div>
 
-        <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div className="flex items-center justify-between pb-3 border-b border-[#E5EDF5]">
           <div>
-            <div className="font-bold text-white">Simulated Financial Deduction</div>
-            <p className="text-slate-400 text-[11px] mt-0.5">Generate mock settlement references without real fund movements</p>
+            <div className="font-bold text-[#153B5B]">Simulated Financial Deduction</div>
+            <p className="text-[#64748B] text-[11px] mt-0.5">Generate mock settlement references without real fund movements</p>
           </div>
-          <span className="px-2.5 py-0.5 rounded-full font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          <span className="px-2.5 py-0.5 rounded-full font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
             ACTIVE
           </span>
         </div>
 
-        <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div className="flex items-center justify-between pb-3 border-b border-[#E5EDF5]">
           <div>
-            <div className="font-bold text-white">Zero Secrets Policy Check</div>
-            <p className="text-slate-400 text-[11px] mt-0.5">No client-side exposure of production API keys or tokens</p>
+            <div className="font-bold text-[#153B5B]">Zero Secrets Policy Check</div>
+            <p className="text-[#64748B] text-[11px] mt-0.5">No client-side exposure of production API keys or tokens</p>
           </div>
-          <span className="px-2.5 py-0.5 rounded-full font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          <span className="px-2.5 py-0.5 rounded-full font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
             PASSING (100%)
           </span>
         </div>
