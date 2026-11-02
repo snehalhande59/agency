@@ -81,7 +81,7 @@ export const HomePage = () => {
         <HeroSlideshow />
 
         {/* Floating Booking Search Panel Overlapping Hero */}
-        <div className="relative z-20 -mt-16 sm:-mt-24 px-2 sm:px-4">
+        <div className="relative z-20 -mt-14 sm:-mt-20 px-2 sm:px-4">
           <BookingSearchPanel />
         </div>
       </section>

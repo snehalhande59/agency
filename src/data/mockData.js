@@ -277,40 +277,40 @@ export const destinationsData = [
     image: 'https://images.unsplash.com/photo-1600100397608-f010f443834a?auto=format&fit=crop&w=800&q=80'
   },
   {
-    name: 'Jaipur',
-    tagline: 'The Pink City of Palaces & Royal Grandeur',
-    distance: 'North India Circuit',
-    duration: 'Golden Triangle Hub',
-    startingPrice: '₹4,999',
-    popularFor: ['Hawa Mahal', 'Amer Fort', 'City Palace', 'Jantar Mantar'],
-    image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=80'
+    name: 'Alibaug & Kashid',
+    tagline: 'Coastal Sea Forts, Golden Sands & Water Sports',
+    distance: '95 km via Ro-Ro / Highway',
+    duration: '2.5 hrs direct or 1 hr Mandwa Ro-Ro',
+    startingPrice: '₹1,999',
+    popularFor: ['Kolaba Sea Fort', 'Kashid White Sands', 'Nagaon Beach', 'Murud-Janjira Fort'],
+    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80'
   },
   {
-    name: 'Varanasi',
-    tagline: 'Ancient Ghats & Spiritual Heart of India',
-    distance: 'Eastern Heritage Circuit',
-    duration: 'Ganga Riverside Hub',
-    startingPrice: '₹3,899',
-    popularFor: ['Dashashwamedh Ghat', 'Kashi Vishwanath', 'Evening Ganga Aarti', 'Sarnath'],
-    image: 'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80'
+    name: 'Kolhapur & Panhala',
+    tagline: 'Historic Forts, Mahalaxmi Temple & Royal Heritage',
+    distance: '375 km from Mumbai / 230 km from Pune',
+    duration: '5.5 hrs via NH-48 Expressway',
+    startingPrice: '₹3,999',
+    popularFor: ['Shri Mahalaxmi Ambabai Temple', 'Panhala Hill Fort', 'Rankala Lake', 'New Palace Museum'],
+    image: 'https://images.unsplash.com/photo-1627894006066-b4561952e429?auto=format&fit=crop&w=800&q=80'
   },
   {
-    name: 'Agra',
-    tagline: 'Home to the World Wonder Taj Mahal',
-    distance: '210 km from Delhi',
-    duration: 'Yamuna Expressway 3 hrs',
-    startingPrice: '₹2,799',
-    popularFor: ['Taj Mahal', 'Agra Fort', 'Fatehpur Sikri', 'Mehtab Bagh'],
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80'
+    name: 'Panchgani & Wai',
+    tagline: 'Table Land Plateaus & Scenic Krishna Valley',
+    distance: '240 km from Mumbai / 100 km from Pune',
+    duration: '4.5 hrs scenic drive',
+    startingPrice: '₹2,999',
+    popularFor: ['Table Land Plateau', 'Sydney Point', 'Dhom Dam Boating', 'Wai Ghat Temples'],
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'
   },
   {
-    name: 'Munnar & Alleppey',
-    tagline: 'God’s Own Country: Tea Hills & Backwaters',
-    distance: 'South India Circuit',
-    duration: 'Scenic Kerala Highway',
-    startingPrice: '₹5,999',
-    popularFor: ['Munnar Tea Gardens', 'Alleppey Houseboats', 'Vembanad Lake', 'Periyar Wildlife'],
-    image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80'
+    name: 'Ratnagiri & Ganpatipule',
+    tagline: 'Pristine Konkan Coast, Alphonsos & Sea-Facing Shrine',
+    distance: '340 km via NH-66 Konkan Expressway',
+    duration: '6.5 hrs scenic Konkan route',
+    startingPrice: '₹4,799',
+    popularFor: ['Swayambhu Ganpatipule Temple', 'Aare Ware Sea Highway', 'Jaigad Fort & Light House', 'Bhatye Beach'],
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
