@@ -1,48 +1,91 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
+export const DEMO_PROFILES = {
+  CUSTOMER: {
+    id: 'CUST-7721',
+    name: 'Snehal Hande',
+    email: 'snehal.traveler@gmail.com',
+    phone: '+91 98202 88410',
+    role: 'CUSTOMER',
+    roleTitle: 'Passenger / Retail Customer',
+    roleDescription: 'Personal travel: Cabs, Flights, Train tickets, MSRTC State Buses, NCMC Metro Card',
+    dashboardPath: '/dashboard',
+    memberSince: 'January 2024',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
+  },
+  CORPORATE: {
+    id: 'CORP-VP-9021',
+    name: 'Snehal Hande',
+    email: 'snehal.hande@nexus-enterprise.in',
+    phone: '+91 98202 88410',
+    company: 'Nexus Global Technologies India Pvt. Ltd.',
+    designation: 'VP of Human Resources & Corporate Mobility',
+    department: 'People Operations & Corporate Mobility Desk',
+    location: 'Phase 3, Hinjewadi Rajiv Gandhi Infotech Park, Pune',
+    role: 'CORPORATE',
+    roleTitle: 'Corporate VP HR Admin',
+    roleDescription: 'Enterprise transport: Employee shift rosters, cab dispatch, B2B monthly billing & ESG carbon reports',
+    dashboardPath: '/corporate/admin',
+    memberSince: 'March 2024',
+    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80'
+  },
+  ADMIN: {
+    id: 'ADMIN-001',
+    name: 'AeroVoyage Ops Admin',
+    email: 'admin@aerovoyageluxe.com',
+    phone: '+91 22 6123 4567',
+    company: 'AeroVoyage Luxe Mobility HQ',
+    designation: 'Platform Operations Director',
+    role: 'ADMIN',
+    roleTitle: 'Super Admin Operations Desk',
+    roleDescription: 'Platform governance: Live vehicle telematics, third-party API gateways (MSRTC/IRCTC/NPCI) and support desk',
+    dashboardPath: '/admin',
+    memberSince: 'Platform Genesis',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
+  }
+};
+
 export const useAuthStore = create(
   persist(
     (set) => ({
-      user: {
-        id: 'USR-9021',
-        name: 'Snehal Hande',
-        email: 'snehal.hande@nexus-enterprise.in',
-        phone: '+91 98202 88410',
-        company: 'Nexus Global Technologies India Pvt Ltd',
-        designation: 'VP of Human Resources & Corporate Mobility',
-        department: 'People Operations & Mobility Desk',
-        role: 'Corporate Administrator & Executive Client',
-        memberSince: 'March 2024',
-        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
-      },
+      // Default initial state: Customer (passenger) logged in
+      user: DEMO_PROFILES.CUSTOMER,
       isAuthenticated: true,
 
-      login: (email, password) => {
+      loginAsRole: (roleKey) => {
+        const profile = DEMO_PROFILES[roleKey] || DEMO_PROFILES.CUSTOMER;
+        set({ user: profile, isAuthenticated: true });
+        return profile;
+      },
+
+      login: (email, password, roleType = 'CUSTOMER') => {
+        let baseProfile = DEMO_PROFILES[roleType] || DEMO_PROFILES.CUSTOMER;
+        if (email && email.includes('@nexus')) {
+          baseProfile = DEMO_PROFILES.CORPORATE;
+        } else if (email && email.includes('@aerovoyage')) {
+          baseProfile = DEMO_PROFILES.ADMIN;
+        }
+
         const loggedUser = {
-          id: 'USR-8820',
-          name: email.includes('@') ? email.split('@')[0].replace('.', ' ').toUpperCase() : 'SNEHAL HANDE',
-          email: email,
-          phone: '+91 98202 88410',
-          company: 'Nexus Global Technologies India Pvt Ltd',
-          designation: 'Corporate Executive Member',
-          role: 'Corporate Client',
-          memberSince: 'Today',
-          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
+          ...baseProfile,
+          email: email || baseProfile.email,
+          name: email ? (email.split('@')[0].replace('.', ' ').toUpperCase()) : baseProfile.name
         };
+
         set({ user: loggedUser, isAuthenticated: true });
-        return true;
+        return loggedUser;
       },
 
       logout: () => set({ user: null, isAuthenticated: false }),
 
       updateProfile: (updatedData) =>
         set((state) => ({
-          user: { ...state.user, ...updatedData }
+          user: state.user ? { ...state.user, ...updatedData } : null
         }))
     }),
     {
-      name: 'aerovoyage_auth_storage',
+      name: 'aerovoyage_auth_storage_v2',
       storage: createJSONStorage(() => localStorage)
     }
   )

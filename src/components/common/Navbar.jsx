@@ -29,7 +29,6 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [corporateDropdown, setCorporateDropdown] = useState(false);
-  const [userDropdown, setUserDropdown] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -253,117 +252,36 @@ export const Navbar = () => {
             </Link>
           </nav>
 
-          {/* Action CTAs & Auth - Clear Login & Multi-Role Dashboard Switcher */}
+          {/* Action CTAs & Auth - Clear Login & Logout Options */}
           <div className="hidden lg:flex items-center gap-2">
             {user ? (
               <div className="flex items-center gap-2">
-                
-                {/* User Profile & Multi-Dashboard Dropdown */}
-                <div 
-                  className="relative"
-                  onMouseEnter={() => setUserDropdown(true)}
-                  onMouseLeave={() => setUserDropdown(false)}
+                <Link
+                  to={user.dashboardPath || '/dashboard'}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#EFF7FC] border border-[#E5EDF5] hover:border-[#3898D8]/50 text-[#153B5B] hover:text-[#3898D8] transition-all text-xs font-bold shadow-2xs"
+                  title={`Logged in as ${user.name} (${user.roleTitle || 'Passenger'})`}
                 >
-                  <button
-                    onClick={() => setUserDropdown(!userDropdown)}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#EFF7FC] border border-[#E5EDF5] hover:border-[#3898D8] text-[#153B5B] hover:text-[#3898D8] transition-all text-xs font-bold shadow-2xs"
-                  >
-                    <img 
-                      src={user.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'} 
-                      alt={user.name} 
-                      className="w-6 h-6 rounded-full object-cover border border-[#3898D8]" 
-                    />
-                    <div className="text-left">
-                      <span className="block truncate max-w-[100px] leading-tight font-extrabold">{user.name}</span>
-                      <span className="text-[9px] text-[#3898D8] font-bold block leading-none">
-                        {user.role?.includes('Corporate') ? 'Corporate VP' : user.role?.includes('Admin') ? 'Super Admin' : 'Customer'}
-                      </span>
+                  <img src={user.avatar} alt={user.name} className="w-6 h-6 rounded-full object-cover border border-[#3898D8]" />
+                  <div className="text-left">
+                    <div className="truncate max-w-[100px] leading-tight">{user.name}</div>
+                    <div className="text-[9px] text-[#3898D8] uppercase tracking-wider font-black">
+                      {user.roleTitle ? user.roleTitle.split(' ')[0] : 'Passenger'}
                     </div>
-                    <ChevronDown className={`w-3.5 h-3.5 text-[#64748B] transition-transform ${userDropdown ? 'rotate-180 text-[#3898D8]' : ''}`} />
-                  </button>
+                  </div>
+                </Link>
 
-                  {userDropdown && (
-                    <div className="absolute top-full right-0 w-72 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                      <div className="bg-white p-3 rounded-2xl shadow-xl border border-[#E5EDF5] space-y-1.5 text-xs">
-                        
-                        {/* Active Identity Summary */}
-                        <div className="p-2.5 rounded-xl bg-[#F8FAFC] border border-[#E5EDF5] space-y-1 mb-2">
-                          <div className="text-[10px] font-bold uppercase text-[#64748B] tracking-wider">Signed In As</div>
-                          <div className="font-extrabold text-[#153B5B] text-sm">{user.name}</div>
-                          <div className="text-[11px] text-[#3898D8] font-medium truncate">{user.email}</div>
-                          <div className="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold border border-emerald-200 inline-block mt-1">
-                            {user.role || 'Active Commuter'}
-                          </div>
-                        </div>
+                <Link
+                  to="/login"
+                  className="px-2.5 py-1.5 rounded-xl bg-white border border-[#E5EDF5] text-[#64748B] hover:text-[#153B5B] text-xs font-bold transition-all shadow-2xs"
+                  title="Switch between Customer, Corporate or Admin"
+                >
+                  Switch Role
+                </Link>
 
-                        {/* 1. Customer Dashboard */}
-                        <Link
-                          to="/dashboard"
-                          onClick={() => setUserDropdown(false)}
-                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#EFF7FC] text-[#153B5B] transition-colors group"
-                        >
-                          <div className="w-8 h-8 rounded-lg bg-[#DCEEFF] text-[#3898D8] flex items-center justify-center group-hover:bg-[#3898D8] group-hover:text-white transition-colors">
-                            <User className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <div className="font-bold text-[#153B5B] group-hover:text-[#3898D8]">Customer Dashboard</div>
-                            <div className="text-[10px] text-[#64748B]">Personal rides, MSRTC &amp; flights</div>
-                          </div>
-                        </Link>
-
-                        {/* 2. Corporate HR & Enterprise Portal */}
-                        <Link
-                          to="/corporate/admin"
-                          onClick={() => setUserDropdown(false)}
-                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-amber-50 text-[#153B5B] transition-colors group"
-                        >
-                          <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition-colors">
-                            <Building2 className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <div className="font-bold text-[#153B5B] group-hover:text-amber-700">Corporate Mobility Portal</div>
-                            <div className="text-[10px] text-[#64748B]">Nexus Global Tech fleet &amp; billing</div>
-                          </div>
-                        </Link>
-
-                        {/* 3. Platform Super Admin Console */}
-                        <Link
-                          to="/admin"
-                          onClick={() => setUserDropdown(false)}
-                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-purple-50 text-[#153B5B] transition-colors group"
-                        >
-                          <div className="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                            <ShieldCheck className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <div className="font-bold text-[#153B5B] group-hover:text-purple-700">Super Admin Console</div>
-                            <div className="text-[10px] text-[#64748B]">Fleet telemetry &amp; ITMS sync</div>
-                          </div>
-                        </Link>
-
-                        <div className="pt-2 border-t border-[#E5EDF5]">
-                          <button
-                            onClick={() => {
-                              setUserDropdown(false);
-                              handleLogout();
-                            }}
-                            className="w-full flex items-center justify-center gap-2 p-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold transition-colors border border-rose-200"
-                          >
-                            <LogOut className="w-3.5 h-3.5" />
-                            <span>Sign Out (लॉगआउट)</span>
-                          </button>
-                        </div>
-
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Instant 1-Click Logout Button */}
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition-all shadow-2xs"
-                  title="Sign out of account (लॉगआउट)"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition-all shadow-xs"
+                  title="Sign out of account"
                 >
                   <LogOut className="w-3.5 h-3.5" />
                   <span>Logout</span>
@@ -482,28 +400,29 @@ export const Navbar = () => {
               <div className="space-y-2">
                 <div className="flex items-center justify-between p-3 rounded-xl bg-[#EFF7FC] border border-[#E5EDF5] text-[#153B5B]">
                   <div className="flex items-center gap-2">
-                    <img src={user.avatar} alt={user.name} className="w-8 h-8 rounded-full border border-[#3898D8]" />
+                    <img src={user.avatar} alt={user.name} className="w-9 h-9 rounded-full border border-[#3898D8] object-cover" />
                     <div>
                       <div className="text-sm font-bold">{user.name}</div>
+                      <div className="text-[10px] text-[#3898D8] font-bold uppercase tracking-wider">{user.roleTitle || 'Passenger'}</div>
                       <div className="text-[11px] text-[#64748B]">{user.email}</div>
                     </div>
                   </div>
                   <Link
-                    to="/dashboard"
+                    to={user.dashboardPath || '/dashboard'}
                     onClick={() => setIsOpen(false)}
-                    className="text-xs bg-[#3898D8] text-white font-bold px-3 py-1.5 rounded-lg shadow-xs"
+                    className="text-xs bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold px-3 py-1.5 rounded-lg shadow-xs"
                   >
-                    Dashboard →
+                    Open Dashboard →
                   </Link>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
                   <Link
-                    to="/admin"
+                    to="/login"
                     onClick={() => setIsOpen(false)}
-                    className="text-center py-2 rounded-xl bg-white border border-[#E5EDF5] text-xs font-bold text-[#3898D8]"
+                    className="text-center py-2 rounded-xl bg-white border border-[#E5EDF5] text-xs font-bold text-[#153B5B]"
                   >
-                    Super Admin Console
+                    Switch User Role
                   </Link>
                   <button
                     onClick={() => {
