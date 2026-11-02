@@ -62,8 +62,8 @@ export const CorporateSidebar = ({ isOpen, onClose }) => {
             <Building2 className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-sm font-black text-[#153B5B] font-display">TRAVELNEX B2B</h3>
-            <span className="text-[10px] text-[#3898D8] font-bold uppercase tracking-wider block">Enterprise Mobility</span>
+            <h3 className="text-sm font-black text-[#153B5B] font-display">AEROVOYAGE LUXE</h3>
+            <span className="text-[10px] text-[#3898D8] font-bold uppercase tracking-wider block">Enterprise B2B Mobility</span>
           </div>
         </div>
 

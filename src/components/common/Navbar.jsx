@@ -76,14 +76,14 @@ export const Navbar = () => {
             <div className="flex flex-col">
               <div className="flex items-center gap-1 sm:gap-1.5">
                 <span className="text-lg sm:text-xl font-black tracking-tight text-[#153B5B] font-display">
-                  TRAVEL<span className="text-[#3898D8]">NEX</span>
+                  Aero<span className="text-[#3898D8]">Voyage</span>
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded bg-[#DCEEFF] text-[#3898D8] border border-[#3898D8]/20">
-                  INDIA
+                <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest px-1.5 py-0.5 rounded bg-[#DCEEFF] text-[#3898D8] border border-[#3898D8]/20">
+                  LUXE
                 </span>
               </div>
               <p className="text-[9px] text-[#64748B] tracking-wider font-semibold">
-                TOURS &amp; TRAVELS
+                PREMIUM MOBILITY &amp; TOURS
               </p>
             </div>
           </Link>
