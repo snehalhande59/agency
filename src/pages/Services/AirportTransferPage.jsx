@@ -12,7 +12,7 @@ export const AirportTransferPage = () => {
       tagline="Touchdown to Doorstep Seamlessly"
       badge="Flight Sync Telematics"
       serviceKey="airport-transfers"
-      heroImage="https://images.unsplash.com/photo-1520437358207-323b43b50729?auto=format&fit=crop&w=1200&q=80"
+      heroImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80"
       description="Never fret about finding a cab after a tiring flight. Our chauffeurs track your flight in real-time, adjust automatically for landing delays, and receive you at the arrival terminal with a personalized name card and luggage assistance."
       pickupPlaceholder="e.g. Mumbai Airport T2 / Pune Airport"
       dropPlaceholder="e.g. Hotel / Office / Residential Address"

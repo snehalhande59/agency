@@ -66,23 +66,25 @@ export const Navbar = () => {
               window.scrollTo({ top: 0, behavior: 'smooth' }); 
               setIsOpen(false); 
             }} 
-            className="flex items-center gap-2.5 group cursor-pointer"
+            className="flex items-center gap-2 sm:gap-2.5 group cursor-pointer shrink-0"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3898D8] to-[#19A89A] p-0.5 shadow-sm group-hover:shadow-md transition-all">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#3898D8] to-[#19A89A] p-0.5 shadow-sm group-hover:shadow-md transition-all shrink-0">
               <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
-                <Car className="w-5 h-5 text-[#3898D8] group-hover:scale-110 transition-transform" />
+                <Car className="w-4 h-4 sm:w-5 sm:h-5 text-[#3898D8] group-hover:scale-110 transition-transform" />
               </div>
             </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-xl font-extrabold tracking-tight text-[#153B5B] font-display">
-                  Aero<span className="text-[#3898D8]">Voyage</span>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-1 sm:gap-1.5">
+                <span className="text-lg sm:text-xl font-black tracking-tight text-[#153B5B] font-display">
+                  TRAVEL<span className="text-[#3898D8]">NEX</span>
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded bg-[#DCEEFF] text-[#3898D8] border border-[#3898D8]/20">
-                  TRAVEL
+                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded bg-[#DCEEFF] text-[#3898D8] border border-[#3898D8]/20">
+                  INDIA
                 </span>
               </div>
-              <p className="text-[10px] text-[#64748B] hidden sm:block tracking-wider font-medium">PREMIUM MOBILITY &amp; TOURS</p>
+              <p className="text-[9px] text-[#64748B] tracking-wider font-semibold">
+                TOURS &amp; TRAVELS
+              </p>
             </div>
           </Link>
 

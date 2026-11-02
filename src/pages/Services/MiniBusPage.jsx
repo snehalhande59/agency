@@ -12,7 +12,7 @@ export const MiniBusPage = () => {
       tagline="Travel Together in Comfort"
       badge="Spacious Executive Fleet"
       serviceKey="mini-bus"
-      heroImage="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1200&q=80"
+      heroImage="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80"
       description="Enjoy the journey together without splitting into multiple small cabs. Our Force Urbania and Maharaja Tempo Travellers feature plush pushback 2x1 leather seating, individual AC vents, smart LED screens, microphone sound systems, and dedicated luggage racks."
       pickupPlaceholder="e.g. Pune / Mumbai / Thane Assembly Point"
       dropPlaceholder="e.g. Shirdi / Mahabaleshwar / Goa / Nashik"

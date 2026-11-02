@@ -18,7 +18,7 @@ export const NcmcTransitPage = () => {
         tagline="Seamless Contactless Commuting"
         badge="NCMC RuPay Smart Transit"
         serviceKey="ncmc-card"
-        heroImage="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80"
+        heroImage="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80"
         description="Experience the convenience of One Nation One Card (NCMC). Tap and enter any metro gate, urban bus fleet, or coastal ferry across Maharashtra. Top up your digital balance instantly with zero convenience fees, track ride history, and link your corporate transit allowance seamlessly."
         pickupPlaceholder="Select Transit Corridor (e.g. Metro Line 2A & 7 / Line 3 Aqua)"
         dropPlaceholder="Select Pass Plan (e.g. 30-Day Monthly Unlimited)"

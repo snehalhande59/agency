@@ -85,7 +85,7 @@ export const Footer = () => {
                   <Car className="w-5 h-5 text-[#3898D8]" />
                 </div>
               </div>
-              <span className="text-xl font-black text-[#153B5B] font-display">Aero<span className="text-[#3898D8]">Voyage</span> <span className="text-xs text-[#3898D8] font-bold px-1.5 py-0.5 bg-[#DCEEFF] rounded border border-[#3898D8]/20">TRAVEL</span></span>
+              <span className="text-xl font-black text-[#153B5B] font-display">TRAVEL<span className="text-[#3898D8]">NEX</span> <span className="text-xs text-[#3898D8] font-bold px-1.5 py-0.5 bg-[#DCEEFF] rounded border border-[#3898D8]/20">INDIA</span></span>
             </Link>
             <p className="text-sm text-[#64748B] leading-relaxed max-w-sm">
               India's premier unified transport & corporate travel tech ecosystem. Providing executive cabs, luxury buses, outstation transit, airport transfers, and state-wide group logistics.

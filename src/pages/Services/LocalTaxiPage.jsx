@@ -12,7 +12,7 @@ export const LocalTaxiPage = () => {
       tagline="City Mobility Without Surges"
       badge="Instant & Scheduled Urban Cabs"
       serviceKey="local-taxi"
-      heroImage="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=80"
+      heroImage="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80"
       description="Navigate Mumbai, Pune, Thane, and Navi Mumbai with ease. Whether attending back-to-back corporate meetings at BKC, shopping across town, or visiting relatives, our chauffeurs navigate traffic while you relax in air-conditioned comfort."
       pickupPlaceholder="e.g. Bandra Kurla Complex (BKC), Mumbai"
       dropPlaceholder="e.g. Marine Drive / Multiple City Stops"

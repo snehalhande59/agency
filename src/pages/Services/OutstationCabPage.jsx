@@ -12,7 +12,7 @@ export const OutstationCabPage = () => {
       tagline="Intercity Travel Redefined"
       badge="Top Rated Intercity Fleet"
       serviceKey="outstation-cabs"
-      heroImage="https://images.unsplash.com/photo-1571501679680-de32f1e7a412?auto=format&fit=crop&w=1200&q=80"
+      heroImage="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80"
       description="Enjoy peaceful highway journeys across Maharashtra, Goa, and neighbouring states. From the Mumbai-Pune Expressway to the Samruddhi Mahamarg and coastal konkan drives, our verified chauffeurs are experienced with mountain ghats and night highway journeys."
       pickupPlaceholder="e.g. Mumbai (Any locality or Airport)"
       dropPlaceholder="e.g. Pune / Mahabaleshwar / Goa / Nashik"
