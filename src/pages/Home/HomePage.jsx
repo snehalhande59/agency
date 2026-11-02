@@ -116,14 +116,20 @@ export const HomePage = () => {
                     e.target.src = 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80';
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-slate-950/75 to-black/25 group-hover:via-slate-950/60 transition-colors"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-slate-950/20 group-hover:via-slate-950/50 transition-colors"></div>
 
                 <div className="relative z-10 space-y-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold !text-white bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-xl border border-white/25 shadow-sm">
+                    <span 
+                      className="text-xs font-bold px-3 py-1 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/30 shadow-sm"
+                      style={{ color: '#FFFFFF' }}
+                    >
                       {dest.duration}
                     </span>
-                    <span className="text-xs font-black !text-white bg-[#3898D8] px-3 py-1 rounded-xl shadow-md shadow-[#3898D8]/40">
+                    <span 
+                      className="text-xs font-black px-3 py-1 rounded-xl bg-[#3898D8] shadow-md shadow-[#3898D8]/40"
+                      style={{ color: '#FFFFFF' }}
+                    >
                       From {dest.startingPrice}
                     </span>
                   </div>
@@ -131,21 +137,30 @@ export const HomePage = () => {
                   {/* Prominently Highlighted Destination Title */}
                   <div className="flex items-center gap-2 pt-1">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#19A89A] shrink-0 animate-pulse shadow-md shadow-[#19A89A]" />
-                    <h3 className="destination-name-white text-2xl font-black !text-white tracking-tight font-display drop-shadow-[0_2px_10px_rgba(0,0,0,1)] group-hover:text-[#3898D8] transition-colors">
+                    <h3 
+                      className="destination-name-white text-2xl font-black tracking-tight font-display transition-colors"
+                      style={{ color: '#FFFFFF', textShadow: '0 2px 10px rgba(0,0,0,0.95), 0 0 20px rgba(0,0,0,0.8)' }}
+                    >
                       {dest.name}
                     </h3>
                   </div>
 
-                  <p className="destination-text-white text-xs !text-white/95 font-medium line-clamp-1 drop-shadow-[0_2px_6px_rgba(0,0,0,1)]">
+                  <p 
+                    className="destination-text-white text-xs font-medium line-clamp-1"
+                    style={{ color: '#F1F5F9', textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}
+                  >
                     {dest.tagline}
                   </p>
 
-                  <div className="pt-2.5 flex items-center justify-between text-xs !text-white border-t border-white/20 font-bold drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
-                    <span className="flex items-center gap-1.5 !text-white">
+                  <div className="pt-2.5 flex items-center justify-between text-xs border-t border-white/25 font-bold">
+                    <span className="flex items-center gap-1.5" style={{ color: '#FFFFFF', textShadow: '0 1px 4px rgba(0,0,0,0.9)' }}>
                       <MapPin className="w-3.5 h-3.5 text-[#19A89A]" />
-                      <span className="!text-white">{dest.distance}</span>
+                      <span style={{ color: '#FFFFFF' }}>{dest.distance}</span>
                     </span>
-                    <span className="!text-white bg-[#3898D8] hover:bg-[#287DB8] px-3 py-1 rounded-lg font-bold flex items-center gap-1 shadow-md group-hover:translate-x-1 transition-all">
+                    <span 
+                      className="px-3 py-1 rounded-lg font-bold flex items-center gap-1 shadow-md group-hover:translate-x-1 transition-all"
+                      style={{ backgroundColor: '#3898D8', color: '#FFFFFF' }}
+                    >
                       Book Route →
                     </span>
                   </div>
@@ -193,7 +208,7 @@ export const HomePage = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                       onError={(e) => {
-                        e.target.src = 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80';
+                        e.target.src = 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80';
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>

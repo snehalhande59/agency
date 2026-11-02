@@ -9,7 +9,7 @@ export const servicesData = [
     icon: 'Car',
     badge: 'Instant & Scheduled',
     startingPrice: '₹14/km',
-    image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80',
     features: ['Instant 10-min pickup', 'Verified chauffeurs', 'Zero surge guarantee on rentals', 'Clean AC vehicles']
   },
   {
@@ -20,7 +20,7 @@ export const servicesData = [
     icon: 'Compass',
     badge: 'Popular',
     startingPrice: '₹11/km',
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80',
     features: ['One-way & round trips', 'Toll & tax transparency', 'Doorstep pickup', 'No hidden driver charges']
   },
   {
@@ -42,7 +42,7 @@ export const servicesData = [
     icon: 'BusFront',
     badge: 'Group Choice',
     startingPrice: '₹24/km',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80',
     features: ['Reclining pushback seats', 'Ample boot space', 'LED screens & sound system', 'Experienced highway captains']
   },
   {
@@ -53,7 +53,7 @@ export const servicesData = [
     icon: 'Sparkles',
     badge: 'Ultra Luxury',
     startingPrice: '₹48/km',
-    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80',
     features: ['Air suspension glide', 'Individual charging points', 'On-board washroom options', 'Corporate event transit']
   },
   {
@@ -64,7 +64,7 @@ export const servicesData = [
     icon: 'Users',
     badge: 'Custom Logistics',
     startingPrice: 'Custom Quote',
-    image: 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80',
     features: ['Dedicated convoy coordinator', 'Fleet tracking dashboard', 'Luggage support vans', 'Multi-day itinerary planning']
   },
   {
@@ -97,7 +97,7 @@ export const servicesData = [
     icon: 'CreditCard',
     badge: 'One Nation One Card',
     startingPrice: 'Instant Digital Pass',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80',
     features: ['Tap & go Metro gates', 'BEST AC bus sync', 'Automated fast recharge', 'Simulated demo credentials']
   }
 ];

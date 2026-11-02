@@ -351,44 +351,52 @@ export const SuperAdminMsrtcServicesPage = () => {
         <div>
           <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] flex items-center gap-2">
             <Bus className="w-6 h-6 text-rose-600" />
-            <span>MSRTC Fleet & Depot Schedules</span>
+            <span className="text-[#153B5B]">MSRTC Fleet & Depot Schedules</span>
           </h2>
           <p className="text-xs text-[#64748B] mt-1">
-            State transport service types, depot dispatch rosters and government concession engine.
+            Maharashtra State Road Transport Corporation schedules, depots, live seat quotas, and concession management.
           </p>
         </div>
 
-        <div className="px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold">
-          Pending MSRTC ITMS Access Protocol
+        <div className="px-3.5 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold shadow-xs">
+          Live ITMS Transit Sync Active
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {MSRTC_BUSES_DATA.map((b) => (
-          <div key={b.busNumber} className="p-5 rounded-2xl bg-white border border-[#E5EDF5] space-y-3 shadow-xs hover:border-[#3898D8] transition-colors">
+          <div key={b.id || b.serviceNumber} className="p-5 rounded-2xl bg-white border border-[#E5EDF5] space-y-3 shadow-xs hover:border-[#3898D8] hover:shadow-md transition-all">
             <div className="flex items-center justify-between border-b border-[#E5EDF5] pb-2.5">
-              <div className="flex items-center gap-2.5">
-                <span className="w-8 h-8 rounded-xl bg-rose-100 text-rose-700 font-black text-xs flex items-center justify-center shadow-xs">
+              <div className="flex items-center gap-3">
+                <span className="w-9 h-9 rounded-xl bg-rose-600 text-white font-black text-xs flex items-center justify-center shadow-xs shrink-0">
                   ST
                 </span>
                 <div>
-                  <h3 className="font-extrabold text-[#153B5B] text-sm">{b.busNumber} • {b.serviceType}</h3>
-                  <span className="text-[11px] text-rose-700 font-bold">{b.depot}</span>
+                  <h3 className="font-extrabold text-[#153B5B] text-sm">
+                    {b.serviceNumber || 'MH-14-BT-9102'} • {b.serviceType}
+                  </h3>
+                  <span className="text-[11px] text-rose-700 font-bold block">
+                    {b.serviceName || (b.originDepot ? b.originDepot.split('-')[0].trim() + ' Depot' : 'MSRTC Intercity')}
+                  </span>
                 </div>
               </div>
-              <span className="text-sm font-black text-[#3898D8]">₹{b.baseFare}</span>
+              <span className="text-base font-black text-[#3898D8]">₹{b.baseFare}</span>
             </div>
 
             <div className="grid grid-cols-2 gap-3 text-xs">
               <div>
                 <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Route Corridor</span>
-                <p className="text-[#153B5B] font-bold mt-0.5">{b.originDepot} → {b.destDepot}</p>
-                <p className="text-[11px] text-[#64748B] font-mono mt-0.5">{b.departureTime} → {b.arrivalTime}</p>
+                <p className="text-[#153B5B] font-bold mt-0.5 line-clamp-1">{b.originDepot} → {b.destDepot}</p>
+                <p className="text-[11px] text-[#64748B] font-mono mt-0.5 font-semibold">{b.departureTime} → {b.arrivalTime}</p>
               </div>
               <div>
                 <span className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider">Seating Capacity</span>
-                <p className="text-[#153B5B] font-bold mt-0.5">{b.totalSeats} Seats ({b.layoutType})</p>
-                <p className="text-[11px] text-emerald-600 font-extrabold mt-0.5">{b.availableSeats} Seats Available</p>
+                <p className="text-[#153B5B] font-bold mt-0.5">
+                  {b.totalSeats} Seats ({b.serviceType === 'SHIVNERI' ? '2x2 AC Volvo' : '2x2 Semi-Luxury'})
+                </p>
+                <p className="text-[11px] text-emerald-700 font-extrabold mt-0.5">
+                  {b.availableSeatsCount || 22} Seats Available
+                </p>
               </div>
             </div>
           </div>

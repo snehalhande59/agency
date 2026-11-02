@@ -1,5 +1,5 @@
 /**
- * TRAVELNEX – Central Indian Travel Asset Manifest
+ * AEROVOYAGE LUXE – Central Indian Travel Asset Manifest
  * Structured catalogue of verified Indian locations, vehicles, state transport buses, railways, and aviation assets.
  * All photographs represent genuine Indian locations, authentic automobile models, and verified transit systems.
  */

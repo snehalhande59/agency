@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { 
   Building2, 
   Users, 
@@ -19,10 +19,19 @@ import {
   ShieldAlert,
   BarChart3,
   LogIn,
+  LogOut,
   FileSpreadsheet
 } from 'lucide-react';
+import { useCorporateStore } from '../../store/useCorporateStore';
 
 export const CorporateSidebar = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
+  const { currentDemoUser, companyProfile } = useCorporateStore();
+
+  const handleLogout = () => {
+    if (onClose) onClose();
+    navigate('/corporate/login');
+  };
   const rolePortals = [
     { name: 'HR Admin Console', path: '/corporate/admin', icon: LayoutDashboard },
     { name: 'Transport Dispatch', path: '/corporate/transport-manager', icon: Truck },
@@ -165,22 +174,38 @@ export const CorporateSidebar = ({ isOpen, onClose }) => {
         </div>
       </div>
 
-      {/* Enterprise SLA Info Box */}
-      <div className="p-4 rounded-2xl bg-[#EFF7FC] border border-[#E5EDF5] text-xs space-y-2 mt-6">
-        <div className="flex items-center gap-2 text-[#19A89A] font-bold">
-          <ShieldCheck className="w-4 h-4" />
-          <span>ISO 27001 &amp; POSH Compliant</span>
-        </div>
-        <p className="text-[11px] text-[#64748B] leading-relaxed">
-          Guaranteed 99.4% SLA punctuality with automated CO2 emission sustainability tracking.
-        </p>
-        <div className="pt-1">
-          <a
-            href="tel:18002098899"
-            className="text-[11px] text-[#3898D8] font-semibold hover:underline block"
+      {/* Active Corporate User Profile & Sign Out */}
+      <div className="mt-6 pt-4 border-t border-[#E5EDF5] space-y-3">
+        <div className="p-3 rounded-2xl bg-[#EFF7FC] border border-[#E5EDF5] flex items-center justify-between">
+          <div className="flex items-center gap-2.5 overflow-hidden">
+            <img 
+              src={currentDemoUser?.avatar || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80'} 
+              alt={currentDemoUser?.name}
+              className="w-8 h-8 rounded-full border border-[#3898D8] object-cover shrink-0" 
+            />
+            <div className="truncate">
+              <p className="text-xs font-bold text-[#153B5B] truncate">{currentDemoUser?.name || 'Snehal Hande'}</p>
+              <p className="text-[10px] text-[#64748B] truncate">{companyProfile?.companyName || 'Nexus Global Technologies'}</p>
+            </div>
+          </div>
+          <button
+            onClick={handleLogout}
+            className="p-1.5 rounded-lg bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 transition-colors shadow-2xs shrink-0"
+            title="Sign out of Corporate Mobility"
           >
-            Direct Enterprise Desk: 1800-209-8899 →
-          </a>
+            <LogOut className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Enterprise SLA Info Box */}
+        <div className="p-3 rounded-2xl bg-white border border-[#E5EDF5] text-xs space-y-1.5">
+          <div className="flex items-center gap-2 text-[#19A89A] font-bold text-[11px]">
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span>ISO 27001 &amp; POSH Compliant</span>
+          </div>
+          <p className="text-[10px] text-[#64748B] leading-relaxed">
+            Direct Enterprise Desk: 1800-209-8899
+          </p>
         </div>
       </div>
     </aside>

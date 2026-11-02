@@ -26,6 +26,10 @@ export const MyBookingsPage = () => {
     switch (status) {
       case 'Confirmed':
         return 'bg-emerald-50 text-emerald-700 border-emerald-200';
+      case 'Pending Approval':
+      case 'Pending HR Approval':
+      case 'PENDING_APPROVAL':
+        return 'bg-amber-50 text-amber-700 border-amber-200';
       case 'Completed':
         return 'bg-[#DCEEFF] text-[#3898D8] border-[#3898D8]/30';
       case 'Cancelled':
