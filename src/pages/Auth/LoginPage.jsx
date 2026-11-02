@@ -7,7 +7,7 @@ export const LoginPage = () => {
   const navigate = useNavigate();
   const { loginUser } = useBooking();
 
-  const [email, setEmail] = useState('snehal.hande@apexmobility.io');
+  const [email, setEmail] = useState('snehal.hande@nexus-enterprise.in');
   const [password, setPassword] = useState('••••••••••••');
   const [isLoading, setIsLoading] = useState(false);
 

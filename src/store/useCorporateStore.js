@@ -11,10 +11,11 @@ export const useCorporateStore = create(
       // Active demo user identity for each role
       currentDemoUser: {
         role: 'hr_admin',
-        name: 'Sunita Deshmukh',
-        title: 'Lead HR & Employee Experience Director',
-        email: 'hr.admin@nexus-enterprise.in',
-        phone: '+91 98201 55901',
+        name: 'Snehal Hande',
+        title: 'VP of HR & Corporate Mobility Director',
+        company: 'Nexus Global Technologies India Pvt Ltd',
+        email: 'snehal.hande@nexus-enterprise.in',
+        phone: '+91 98202 88410',
         avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80'
       },
 
@@ -22,10 +23,11 @@ export const useCorporateStore = create(
         const users = {
           hr_admin: {
             role: 'hr_admin',
-            name: 'Sunita Deshmukh',
-            title: 'Lead HR & Employee Experience Director',
-            email: 'hr.admin@nexus-enterprise.in',
-            phone: '+91 98201 55901',
+            name: 'Snehal Hande',
+            title: 'VP of HR & Corporate Mobility Director',
+            company: 'Nexus Global Technologies India Pvt Ltd',
+            email: 'snehal.hande@nexus-enterprise.in',
+            phone: '+91 98202 88410',
             avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80'
           },
           transport_manager: {
@@ -822,7 +824,7 @@ export const useCorporateStore = create(
           recipientRole: 'transport_manager',
           title: 'HR Approval Granted',
           timestamp: '25 mins ago',
-          message: 'Rohit Kulkarni (CORP-BK-1082) approved by Sunita Deshmukh. Pending vehicle allocation.',
+          message: 'Rohit Kulkarni (CORP-BK-1082) approved by Snehal Hande (VP HR & Mobility). Pending vehicle allocation.',
           type: 'HR_APPROVED'
         },
         {

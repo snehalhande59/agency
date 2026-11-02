@@ -31,7 +31,7 @@ export const useRailwayStore = create(
       // Contact details
       contactDetails: {
         mobile: '9820288410',
-        email: 'snehal.hande@apexmobility.io',
+        email: 'snehal.hande@nexus-enterprise.in',
         irctcUsername: 'snehal_h26'
       },
 

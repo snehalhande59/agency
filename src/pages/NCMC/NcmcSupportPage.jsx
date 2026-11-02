@@ -8,7 +8,7 @@ export const NcmcSupportPage = () => {
 
   const [issueType, setIssueType] = useState('Gate Tap Double Deduction');
   const [description, setDescription] = useState('');
-  const [contactEmail, setContactEmail] = useState('snehal.hande@apexmobility.io');
+  const [contactEmail, setContactEmail] = useState('snehal.hande@nexus-enterprise.in');
   const [ticketResult, setTicketResult] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);

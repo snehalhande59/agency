@@ -24,16 +24,16 @@ export const CorporateLoginPage = () => {
   const { setDemoUserRole } = useCorporateStore();
 
   const [selectedRole, setSelectedRole] = useState('hr_admin');
-  const [email, setEmail] = useState('hr.admin@nexus-enterprise.in');
+  const [email, setEmail] = useState('snehal.hande@nexus-enterprise.in');
   const [password, setPassword] = useState('••••••••');
   const [loading, setLoading] = useState(false);
 
   const roles = [
     {
       id: 'hr_admin',
-      title: 'Company HR / Admin',
-      desc: 'Employee management, shift rosters, and trip approvals',
-      email: 'hr.admin@nexus-enterprise.in',
+      title: 'Company HR / Admin (Snehal Hande)',
+      desc: 'Employee management, shift rosters, and trip approvals (Nexus Global Technologies)',
+      email: 'snehal.hande@nexus-enterprise.in',
       icon: Building2,
       badge: 'Admin Console',
       redirect: '/corporate/admin',

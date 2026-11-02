@@ -3,9 +3,9 @@ import { Send, CheckCircle2, Building2, User, Mail, Phone, MapPin, Users, Shield
 
 export const CorporateDemoPage = () => {
   const [formData, setFormData] = useState({
-    company: 'Apex Digital Labs',
+    company: 'Nexus Global Technologies India Pvt Ltd',
     name: 'Snehal Hande',
-    email: 'snehal.hande@apexmobility.io',
+    email: 'snehal.hande@nexus-enterprise.in',
     phone: '+91 98202 88410',
     employeeCount: '250 - 500 Employees',
     city: 'Mumbai & Pune (Both Hubs)',

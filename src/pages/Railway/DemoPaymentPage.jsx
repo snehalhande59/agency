@@ -148,7 +148,7 @@ export const DemoPaymentPage = () => {
           {paymentMethod === 'NET30_SIMULATED' && (
             <div className="p-3 bg-navy-950 rounded-xl border border-slate-800 text-xs text-slate-300">
               <span className="text-emerald-400 font-bold block mb-1">✓ Corporate Account Approved</span>
-              <span>Invoiced on monthly consolidated billing under Apex Digital Labs.</span>
+              <span>Invoiced on monthly consolidated billing under Nexus Global Technologies India Pvt Ltd.</span>
             </div>
           )}
 

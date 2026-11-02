@@ -73,7 +73,7 @@ export const BookingWorkflowPage = () => {
   // Passenger state
   const [passengerName, setPassengerName] = useState('Snehal Hande');
   const [passengerPhone, setPassengerPhone] = useState('+91 98202 88410');
-  const [passengerEmail, setPassengerEmail] = useState('snehal.hande@apexmobility.io');
+  const [passengerEmail, setPassengerEmail] = useState('snehal.hande@nexus-enterprise.in');
   const [landmarkNotes, setLandmarkNotes] = useState('Near Gate 3 Main Entrance');
 
   // Selected Vehicle state

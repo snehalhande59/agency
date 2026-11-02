@@ -85,7 +85,7 @@ export const useSuperAdminStore = create(
         {
           id: 'USR-1001',
           name: 'Snehal Hande',
-          email: 'snehal.hande@apexmobility.io',
+          email: 'snehal.hande@nexus-enterprise.in',
           phone: '+91 98202 88410',
           role: 'Super Administrator & Corporate Lead',
           totalTrips: 34,

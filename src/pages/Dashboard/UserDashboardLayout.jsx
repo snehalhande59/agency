@@ -73,7 +73,7 @@ export const UserDashboardLayout = () => {
                 </span>
               </div>
               <p className="text-xs text-[#64748B] mt-0.5">
-                {user?.email || 'snehal.hande@apexmobility.io'} • +91 98202 88410
+                {user?.email || 'snehal.hande@nexus-enterprise.in'} • {user?.company || 'Nexus Global Technologies'} • +91 98202 88410
               </p>
             </div>
           </div>

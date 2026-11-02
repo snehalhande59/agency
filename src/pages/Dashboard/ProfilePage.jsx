@@ -6,9 +6,9 @@ export const ProfilePage = () => {
   const { user } = useBooking();
 
   const [name, setName] = useState(user?.name || 'Snehal Hande');
-  const [email, setEmail] = useState(user?.email || 'snehal.hande@apexmobility.io');
+  const [email, setEmail] = useState(user?.email || 'snehal.hande@nexus-enterprise.in');
   const [phone, setPhone] = useState(user?.phone || '+91 98202 88410');
-  const [company, setCompany] = useState(user?.company || 'Apex Digital Labs');
+  const [company, setCompany] = useState(user?.company || 'Nexus Global Technologies India Pvt Ltd');
   const [saved, setSaved] = useState(false);
 
   const handleSave = (e) => {

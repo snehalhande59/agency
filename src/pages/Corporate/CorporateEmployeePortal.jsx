@@ -78,7 +78,7 @@ export const CorporateEmployeePortal = () => {
       specialInstructions
     });
 
-    setFormSuccessMessage(`Commute request ${created.id} submitted! Routing to HR Admin Sunita Deshmukh for approval.`);
+    setFormSuccessMessage(`Commute request ${created.id} submitted! Routing to Corporate HR Admin Snehal Hande for approval.`);
     setTimeout(() => {
       setFormSuccessMessage('');
       setShowBookingModal(false);
