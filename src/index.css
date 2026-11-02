@@ -81,12 +81,29 @@
 }
 
 /* Light Theme Contrast Protections for Cards, Modals, Forms & Panels */
-.glass-panel h1, .glass-panel h2, .glass-panel h3, .glass-panel h4, .glass-panel h5,
-.glass-card h1, .glass-card h2, .glass-card h3, .glass-card h4, .glass-card h5,
-.bg-navy-900 h1, .bg-navy-900 h2, .bg-navy-900 h3, .bg-navy-900 h4, .bg-navy-900 h5, .bg-navy-900 h6,
-.bg-navy-950 h1, .bg-navy-950 h2, .bg-navy-950 h3, .bg-navy-950 h4, .bg-navy-950 h5, .bg-navy-950 h6,
-.bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6 {
+.glass-panel h1:not(.text-white):not([class*="!text-white"]), 
+.glass-panel h2:not(.text-white):not([class*="!text-white"]), 
+.glass-panel h3:not(.text-white):not([class*="!text-white"]), 
+.glass-panel h4:not(.text-white):not([class*="!text-white"]), 
+.glass-panel h5:not(.text-white):not([class*="!text-white"]),
+.glass-card h1:not(.text-white):not([class*="!text-white"]), 
+.glass-card h2:not(.text-white):not([class*="!text-white"]), 
+.glass-card h3:not(.text-white):not([class*="!text-white"]), 
+.glass-card h4:not(.text-white):not([class*="!text-white"]), 
+.glass-card h5:not(.text-white):not([class*="!text-white"]),
+.bg-white h1:not(.text-white):not([class*="!text-white"]), 
+.bg-white h2:not(.text-white):not([class*="!text-white"]), 
+.bg-white h3:not(.text-white):not([class*="!text-white"]), 
+.bg-white h4:not(.text-white):not([class*="!text-white"]), 
+.bg-white h5:not(.text-white):not([class*="!text-white"]), 
+.bg-white h6:not(.text-white):not([class*="!text-white"]) {
   color: #153B5B !important;
+}
+
+/* Explicit destination highlight class */
+.destination-highlight-name {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
 /* Modals & Dialogs Text Contrast */

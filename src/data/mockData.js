@@ -206,25 +206,25 @@ export const vehiclesData = [
 export const destinationsData = [
   {
     name: 'Mumbai',
-    tagline: 'The City of Dreams & Coastal Gateway',
+    tagline: 'The City of Dreams, Marine Drive & Gateway of India',
     distance: 'Direct Hub',
     duration: 'Airport / Terminal Direct',
     startingPrice: '₹1,499',
-    popularFor: ['Marine Drive', 'Gateway of India', 'Corporate Hubs', 'Bandra-Worli Sea Link'],
+    popularFor: ['Marine Drive', 'Gateway of India', 'Corporate BKC', 'Bandra-Worli Sea Link'],
     image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Pune',
-    tagline: 'Oxford of the East & IT Metropolis',
+    tagline: 'Oxford of the East, Sinhagad Fort & IT Metropolis',
     distance: '150 km from Mumbai',
     duration: '2.5 hrs via Expressway',
     startingPrice: '₹2,199',
-    popularFor: ['Hinjawadi IT Park', 'Sinhagad Fort', 'Aga Khan Palace', 'Shaniwar Wada'],
-    image: 'https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=800&q=80'
+    popularFor: ['Hinjawadi IT Park', 'Sinhagad Historic Fort', 'Aga Khan Palace', 'Shaniwar Wada'],
+    image: 'https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Goa',
-    tagline: 'Sun, Sand, Heritage & Coastal Highways',
+    tagline: 'Sun-Kissed Beaches, Palolem, Heritage & Coastal Roads',
     distance: '580 km',
     duration: '9.5 hrs Scenic Drive',
     startingPrice: '₹7,499',
@@ -233,16 +233,16 @@ export const destinationsData = [
   },
   {
     name: 'Mahabaleshwar',
-    tagline: 'Strawberry Valleys & Misty Western Ghats',
+    tagline: 'Strawberry Valleys, Venna Lake & Misty Western Ghats',
     distance: '260 km',
     duration: '5 hrs',
     startingPrice: '₹3,499',
     popularFor: ['Venna Lake', 'Arthur Seat Point', 'Mapro Garden', 'Panchgani Table Land'],
-    image: 'https://images.unsplash.com/photo-1626014303757-6564477577f1?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Shirdi',
-    tagline: 'Sacred Pilgrimage & Spiritual Serenity',
+    tagline: 'Sacred Sai Baba Samadhi Mandir & Spiritual Pilgrimage',
     distance: '240 km',
     duration: '4.5 hrs via Samruddhi',
     startingPrice: '₹3,299',
@@ -251,30 +251,30 @@ export const destinationsData = [
   },
   {
     name: 'Nashik',
-    tagline: 'Wine Capital of India & Kumbh Mela City',
+    tagline: 'Wine Capital of India, Sula Vineyards & Trimbakeshwar',
     distance: '165 km',
     duration: '3.5 hrs via Kasara Ghat',
     startingPrice: '₹2,499',
-    popularFor: ['Sula Vineyards', 'Trimbakeshwar Temple', 'Panchavati', 'Godavari Ghats'],
-    image: 'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=800&q=80'
+    popularFor: ['Sula Vineyards', 'Trimbakeshwar Jyotirlinga', 'Panchavati', 'Godavari Ghats'],
+    image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Lonavala & Khandala',
-    tagline: 'Waterfalls, Forts & Weekend Escapes',
+    tagline: 'Sahyadri Waterfalls, Tiger Point & Misty Mountain Escapes',
     distance: '85 km',
     duration: '1.5 hrs',
     startingPrice: '₹1,699',
     popularFor: ['Tiger Point', 'Bhushi Dam', 'Karla Caves', 'Famous Chikki Outlets'],
-    image: 'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Chhatrapati Sambhajinagar',
-    tagline: 'UNESCO World Heritage Caves & Heritage',
+    tagline: 'UNESCO World Heritage Ajanta & Ellora Rock-Cut Caves',
     distance: '335 km',
     duration: '5.5 hrs via Samruddhi',
     startingPrice: '₹4,199',
     popularFor: ['Ellora Caves', 'Ajanta Caves', 'Bibi Ka Maqbara', 'Daulatabad Fort'],
-    image: 'https://images.unsplash.com/photo-1600100397608-f010f443834a?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Alibaug & Kashid',
@@ -292,7 +292,7 @@ export const destinationsData = [
     duration: '5.5 hrs via NH-48 Expressway',
     startingPrice: '₹3,999',
     popularFor: ['Shri Mahalaxmi Ambabai Temple', 'Panhala Hill Fort', 'Rankala Lake', 'New Palace Museum'],
-    image: 'https://images.unsplash.com/photo-1627894006066-b4561952e429?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Panchgani & Wai',
@@ -301,7 +301,7 @@ export const destinationsData = [
     duration: '4.5 hrs scenic drive',
     startingPrice: '₹2,999',
     popularFor: ['Table Land Plateau', 'Sydney Point', 'Dhom Dam Boating', 'Wai Ghat Temples'],
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=80'
   },
   {
     name: 'Ratnagiri & Ganpatipule',
