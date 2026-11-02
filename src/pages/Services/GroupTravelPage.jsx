@@ -12,8 +12,8 @@ export const GroupTravelPage = () => {
       tagline="Flawless Large-Scale Mobility"
       badge="Custom Event Transport Management"
       serviceKey="group-travel"
-      heroImage="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80"
-      description="Moving 50 to 5,000 guests requires military-grade operational precision. AeroVoyage provides dedicated on-ground transport coordinators, real-time convoy tracking dashboards, emergency backup vehicles on standby, and coordinated luggage management vans."
+      heroImage="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80"
+      description="Moving 50 to 5,000 guests requires military-grade operational precision. TRAVELNEX provides dedicated on-ground transport coordinators, real-time convoy tracking dashboards, emergency backup vehicles on standby, and coordinated luggage management vans."
       pickupPlaceholder="e.g. Airport Terminals / Partner Hotels"
       dropPlaceholder="e.g. Wedding Destination / Convention Center"
       vehicles={groupVehicles}

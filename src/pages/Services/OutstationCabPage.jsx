@@ -12,7 +12,7 @@ export const OutstationCabPage = () => {
       tagline="Intercity Travel Redefined"
       badge="Top Rated Intercity Fleet"
       serviceKey="outstation-cabs"
-      heroImage="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80"
+      heroImage="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1200&q=80"
       description="Enjoy peaceful highway journeys across Maharashtra, Goa, and neighbouring states. From the Mumbai-Pune Expressway to the Samruddhi Mahamarg and coastal konkan drives, our verified chauffeurs are experienced with mountain ghats and night highway journeys."
       pickupPlaceholder="e.g. Mumbai (Any locality or Airport)"
       dropPlaceholder="e.g. Pune / Mahabaleshwar / Goa / Nashik"
@@ -28,19 +28,19 @@ export const OutstationCabPage = () => {
           desc: 'Expressway direct drop between any location in Mumbai and Pune.',
           price: '₹2,199',
           popular: true,
-          features: ['Prime Sedan (4 Seats)', 'Tolls & Fastag included', 'Door-to-door drop', 'No driver allowance extra']
+          features: ['Maruti Suzuki Dzire (4 Seats)', 'Tolls & Fastag included', 'Door-to-door drop', 'No driver allowance extra']
         },
         {
           name: 'Round Trip Weekend Escape',
           desc: 'Mumbai/Pune to Lonavala, Mahabaleshwar, or Alibaug for 2-3 days.',
           price: '₹5,499',
-          features: ['Innova Crysta SUV', '250 km/day running included', 'Driver night stay included', 'Sightseeing flexibility']
+          features: ['Toyota Innova Crysta SUV', '250 km/day running included', 'Driver night stay included', 'Sightseeing flexibility']
         },
         {
           name: 'Long Haul Scenic (Mumbai -> Goa)',
           desc: 'Deluxe highway drive via NH66 or Kolhapur bypass with luggage space.',
           price: '₹8,999',
-          features: ['Luxury Sedan / Innova', 'Dual Driver option on request', 'Complimentary bottled refreshments', 'All State tax assistance']
+          features: ['Toyota Innova Crysta / Fortuner', 'Dual Driver option on request', 'Complimentary bottled refreshments', 'All State tax assistance']
         }
       ]}
       faqs={[

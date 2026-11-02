@@ -27,20 +27,20 @@ export const LocalTaxiPage = () => {
           name: '4 Hours / 40 KM Package',
           desc: 'Perfect for quick errands, medical visits, or airport drop with intermediate meeting.',
           price: '₹1,299',
-          features: ['Sedan (Dzire/Etios)', 'AC Climate Control', 'Driver Allowance Included', 'Extra km @ ₹14/km']
+          features: ['Maruti Suzuki Dzire Sedan', 'AC Climate Control', 'Driver Allowance Included', 'Extra km @ ₹14/km']
         },
         {
           name: '8 Hours / 80 KM Executive',
           desc: 'Our most requested full-day package for business meetings, audits, and city tours.',
           price: '₹2,399',
           popular: true,
-          features: ['Executive Sedan or SUV', 'Multiple Intercity Stops', 'Zero Peak Surge', 'Extra km @ ₹16/km']
+          features: ['Maruti Suzuki Ertiga / Dzire', 'Multiple Intercity Stops', 'Zero Peak Surge', 'Extra km @ ₹16/km']
         },
         {
           name: '12 Hours / 120 KM VIP Day',
-          desc: 'Comprehensive full-day luxury mobility for weddings, VIP delegates, or film crews.',
+          desc: 'Comprehensive full-day luxury mobility for weddings, VIP delegates, or corporate trips.',
           price: '₹3,799',
-          features: ['Luxury Sedan / Innova Crysta', 'Chauffeur in Formal Attire', 'Toll calculation included', 'Extra km @ ₹20/km']
+          features: ['Toyota Innova Crysta / Fortuner', 'Chauffeur in Formal Attire', 'Toll calculation included', 'Extra km @ ₹20/km']
         }
       ]}
       faqs={[

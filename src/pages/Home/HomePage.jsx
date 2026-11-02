@@ -248,7 +248,7 @@ export const HomePage = () => {
       </section>
 
       {/* 4. FEATURED VEHICLES FLEET */}
-      <section className="py-20 sm:py-24 bg-[#F8FAFC] relative">
+      <section id="fleet-section" className="py-20 sm:py-24 bg-[#F8FAFC] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
@@ -287,7 +287,7 @@ export const HomePage = () => {
       </section>
 
       {/* 5. POPULAR MAHARASHTRA DESTINATIONS */}
-      <section className="py-20 sm:py-24 bg-white border-t border-[#E5EDF5] relative">
+      <section id="destinations-section" className="py-20 sm:py-24 bg-white border-t border-[#E5EDF5] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">

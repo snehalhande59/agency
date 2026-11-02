@@ -20,58 +20,69 @@ import {
 export const HERO_SLIDES = [
   {
     id: 1,
-    tag: 'Executive Chauffeur Fleet',
+    tag: 'Mumbai–Pune Expressway & Intercity',
     icon: Car,
-    title: 'Experience Grand Road Journeys with Executive Chauffeurs',
-    subtitle: 'Curated Mercedes, Audi & Innova Crysta cabs for scenic Maharashtra expressways with verified highway captains.',
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=85',
+    title: 'Experience Grand Road Journeys on Indian Expressways',
+    subtitle: 'Chauffeur-driven Toyota Innova Crysta & Maruti Suzuki Ertiga on the scenic Mumbai–Pune Expressway with verified highway captains.',
+    image: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=2200&q=85',
     ctaPrimary: { label: 'Book Outstation Cab', path: '/book?service=outstation-one-way' },
     ctaSecondary: { label: 'Explore Fleet', path: '#services-section' },
     highlight: 'Mumbai ↔ Pune in 2h 45m with zero surge'
   },
   {
     id: 2,
-    tag: 'Luxury Intercity Coaches',
+    tag: 'Western Ghats & Hill Escapes',
+    icon: MapPin,
+    title: 'Discover Western Ghats: Mahabaleshwar & Lonavala',
+    subtitle: 'Misty mountain valleys, Bhushi Dam waterfalls, and strawberry farms with experienced hill-driving chauffeurs and custom stops.',
+    image: 'https://images.unsplash.com/photo-1626014303757-6564477577f1?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Explore Hill Getaways', path: '/book?service=outstation-round-trip' },
+    ctaSecondary: { label: 'View Destinations', path: '#destinations-section' },
+    highlight: 'Curated weekend escapes & scenic ghat viewpoints'
+  },
+  {
+    id: 3,
+    tag: 'Indian Railways & Vande Bharat',
+    icon: Train,
+    title: 'Scenic Railway Journeys: Vande Bharat & Tatkal Fastlane',
+    subtitle: 'Confirmed train berths, Vande Bharat Express reservations on CSMT–Jalna and Mumbai–Goa with live timetable telemetry.',
+    image: 'https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Search Train Tickets', path: '/railway' },
+    ctaSecondary: { label: 'Check PNR Status Demo', path: '/railway/pnr-status' },
+    highlight: '10,000+ Indian routes with Tatkal assistance'
+  },
+  {
+    id: 4,
+    tag: 'MSRTC Shivneri & Luxury Coaches',
     icon: Bus,
-    title: 'Glide in Comfort: Luxury Volvo Coaches & Mini Buses',
-    subtitle: 'Multi-axle Volvo 9600 and 17-seater executive Tempo Travellers for corporate delegations, family events and weddings.',
+    title: 'Glide in Comfort: Luxury Volvo 9600 & MSRTC Shivneri',
+    subtitle: 'Multi-axle Volvo coaches and executive Force Urbania 17-seaters for corporate delegations, family events and temple pilgrimages.',
     image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=2200&q=85',
     ctaPrimary: { label: 'Charter a Luxury Coach', path: '/services/luxury-bus' },
     ctaSecondary: { label: 'MSRTC Shivneri Bus', path: '/msrtc' },
     highlight: 'Air-suspension glide with Wi-Fi & recliners'
   },
   {
-    id: 3,
-    tag: 'Confirmed Rail Reservations',
-    icon: Train,
-    title: 'Scenic Railway Journeys: Vande Bharat & Tatkal Fastlane',
-    subtitle: 'Confirmed train berths, Vande Bharat Express reservations, live timetable telemetry and guaranteed refund assistance.',
-    image: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Search Train Tickets', path: '/railway' },
-    ctaSecondary: { label: 'Check PNR Status Demo', path: '/railway/pnr-status' },
-    highlight: '10,000+ routes with instant Tatkal queue assist'
-  },
-  {
-    id: 4,
-    tag: 'Punctual Airport Concierge',
-    icon: Plane,
-    title: 'Zero-Wait Airport Transfers: Mumbai T2 & Pune Hub',
-    subtitle: 'Chauffeur meet & greet, automated flight delay tracking, luggage porter assistance, and guaranteed fixed flat tariffs.',
-    image: 'https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Book Airport Transfer', path: '/book?service=airport-pickup' },
-    ctaSecondary: { label: 'Corporate Commute', path: '/corporate' },
-    highlight: 'Complimentary 45m flight delay buffer'
-  },
-  {
     id: 5,
-    tag: 'Maharashtra Tourism Specials',
+    tag: 'Indian Airport Transfers',
+    icon: Plane,
+    title: 'Zero-Wait Airport Pickups: Mumbai CSMIA T2 & Pune PNQ',
+    subtitle: 'Flight-synced chauffeur meet & greet for Air India, IndiGo and Akasa Air arrivals with 45 minutes complimentary wait time.',
+    image: 'https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Airport Transfer', path: '/book?service=airport-pickup' },
+    ctaSecondary: { label: 'Corporate Fleet', path: '/corporate' },
+    highlight: 'Live flight delay radar tracking at Terminal 2'
+  },
+  {
+    id: 6,
+    tag: 'Coastal Goa & Kerala Escapes',
     icon: MapPin,
-    title: 'Discover Maharashtra: Western Ghats, Lonavala & Goa',
-    subtitle: 'Scenic holiday packages to Mahabaleshwar, Shirdi, Matheran and Goa with experienced hill captains and customizable halts.',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Explore Holiday Trips', path: '/book?service=outstation-round-trip' },
+    title: 'Sun, Sand & Coastal Highways: Discover Goa & Kerala',
+    subtitle: 'Scenic coastal road trips from Mumbai & Pune along Konkan NH 66 with verified chauffeurs, beach villa drops, and ferry coordination.',
+    image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Explore Coastal Trips', path: '/book?service=outstation-round-trip' },
     ctaSecondary: { label: 'NCMC Transit Card', path: '/ncmc' },
-    highlight: 'Curated weekend escapes & temple pilgrimage circuits'
+    highlight: 'Direct drops to Calangute, Old Goa & South Goa resorts'
   }
 ];
 

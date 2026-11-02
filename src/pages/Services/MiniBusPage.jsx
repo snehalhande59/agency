@@ -46,7 +46,7 @@ export const MiniBusPage = () => {
       faqs={[
         { q: 'Is luggage space sufficient for 17 passengers?', a: 'Yes! Our Urbania and Tempo Travellers have spacious rear luggage compartments as well as top-carrier options with waterproof tarpaulins for heavy baggage.' },
         { q: 'Can we hire a mini bus for a multi-day tour (e.g., 5 days in Konkan or Goa)?', a: 'Yes, multi-day bookings are our specialty. The vehicle stays with your group throughout the itinerary with fixed transparent daily driver allowances.' },
-        { q: 'Are all state taxes and permits handled by AeroVoyage?', a: 'Yes, all our commercial mini buses carry valid All-India Tourist Permits (AITP) and our team handles border taxes and state permits seamlessly.' }
+        { q: 'Are all state taxes and permits handled by TRAVELNEX?', a: 'Yes, all our commercial mini buses carry valid All-India Tourist Permits (AITP) and our team handles border taxes and state permits seamlessly.' }
       ]}
     />
   );

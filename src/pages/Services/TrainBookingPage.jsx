@@ -24,7 +24,7 @@ export const TrainBookingPage = () => {
         tagline="Seamless Rail Reservations"
         badge="IRCTC Partner Booking Interface"
         serviceKey="train-tickets"
-        heroImage="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1200&q=80"
+        heroImage="https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=1200&q=80"
         description="Skip the confusion of waitlisted tickets and IRCTC server crashes. Our specialized rail ticketing concierge helps you book confirmed seats on premium trains including Vande Bharat, Rajdhani, Shatabdi, Tejas, and Superfast express trains with free cancellation refund assurance."
         pickupPlaceholder="From Station (e.g. Mumbai CSMT / LTT / Pune Junction)"
         dropPlaceholder="To Station (e.g. New Delhi / Ahmedabad / Madgaon Goa)"
@@ -55,8 +55,8 @@ export const TrainBookingPage = () => {
           }
         ]}
         faqs={[
-          { q: 'What is the Tatkal success rate with AeroVoyage?', a: 'Our automated system has an industry-leading 98.4% success rate for securing confirmed berths within the first 60 seconds of Tatkal window opening.' },
-          { q: 'How do I receive my confirmed railway ticket?', a: 'Your official IRCTC E-Ticket with PNR number, coach, and berth details is delivered instantly via WhatsApp, email, and accessible in your AeroVoyage Dashboard.' },
+          { q: 'What is the Tatkal success rate with TRAVELNEX?', a: 'Our automated system has an industry-leading 98.4% success rate for securing confirmed berths within the first 60 seconds of Tatkal window opening.' },
+          { q: 'How do I receive my confirmed railway ticket?', a: 'Your official IRCTC E-Ticket with PNR number, coach, and berth details is delivered instantly via WhatsApp, email, and accessible in your TRAVELNEX Dashboard.' },
           { q: 'Can I combine train booking with station cab pickup?', a: 'Yes! That is the core advantage of our unified platform: your taxi will be synchronized with your train arrival time at the destination railway station.' }
         ]}
       />
