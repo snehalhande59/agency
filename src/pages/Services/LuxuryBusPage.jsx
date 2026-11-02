@@ -12,7 +12,7 @@ export const LuxuryBusPage = () => {
       tagline="Flagship Highway Hospitality"
       badge="Multi-Axle Air Suspension"
       serviceKey="luxury-bus"
-      heroImage="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80"
+      heroImage="https://images.unsplash.com/photo-1557223562-6c77ef16210f?auto=format&fit=crop&w=1200&q=80"
       description="Experience the ultimate in ground travel luxury. Our multi-axle Volvo and Scania coaches offer true gliding comfort with electronically controlled air suspension, whisper-quiet sound insulation, premium semi-sleeper/sleeper berths, on-board washroom amenities, and dual-driver safety protocols."
       pickupPlaceholder="e.g. Corporate Campus / Hotel Lobby / Station"
       dropPlaceholder="e.g. Resort / Convention Center / Intercity Route"

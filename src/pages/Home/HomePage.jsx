@@ -122,7 +122,7 @@ export const HomePage = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                       onError={(e) => {
-                        e.target.src = 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80';
+                        e.target.src = 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80';
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -248,7 +248,7 @@ export const HomePage = () => {
       </section>
 
       {/* 4. FEATURED VEHICLES FLEET */}
-      <section id="fleet-section" className="py-20 sm:py-24 bg-[#F8FAFC] relative">
+      <section className="py-20 sm:py-24 bg-[#F8FAFC] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
@@ -287,7 +287,7 @@ export const HomePage = () => {
       </section>
 
       {/* 5. POPULAR MAHARASHTRA DESTINATIONS */}
-      <section id="destinations-section" className="py-20 sm:py-24 bg-white border-t border-[#E5EDF5] relative">
+      <section className="py-20 sm:py-24 bg-white border-t border-[#E5EDF5] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
@@ -313,7 +313,7 @@ export const HomePage = () => {
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                   onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80';
+                    e.target.src = 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80';
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>

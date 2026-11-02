@@ -25,7 +25,7 @@ export const MaharashtraSTBusPage = () => {
         tagline="State Pride & Dependable Highway Connectivity"
         badge="Maharashtra State Transport (MSRTC) Connect"
         serviceKey="maharashtra-st-bus"
-        heroImage="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80"
+        heroImage="https://images.unsplash.com/photo-1557223562-6c77ef16210f?auto=format&fit=crop&w=1200&q=80"
         description="Book your trusted red, green, and luxury blue Maharashtra ST buses seamlessly. As the lifeline of Maharashtra's public transport, MSRTC connects every town and remote village from Sahyadri ghats to Marathwada and Vidarbha. Travel safely on the Mumbai-Pune Expressway with high-frequency Shivneri Volvo buses running every 15 minutes."
         pickupPlaceholder="e.g. Mumbai (Dadar / Borivali / Thane)"
         dropPlaceholder="e.g. Pune (Swargate / Station) or Nashik / Kolhapur"

@@ -20,69 +20,91 @@ import {
 export const HERO_SLIDES = [
   {
     id: 1,
-    tag: 'Mumbai–Pune Expressway & Intercity',
-    icon: Car,
-    title: 'Experience Grand Road Journeys on Indian Expressways',
-    subtitle: 'Chauffeur-driven Toyota Innova Crysta & Maruti Suzuki Ertiga on the scenic Mumbai–Pune Expressway with verified highway captains.',
-    image: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Book Outstation Cab', path: '/book?service=outstation-one-way' },
-    ctaSecondary: { label: 'Explore Fleet', path: '#services-section' },
-    highlight: 'Mumbai ↔ Pune in 2h 45m with zero surge'
+    tag: 'Mumbai Coastal Gateway',
+    icon: MapPin,
+    title: 'Mumbai City Skyline & Bandra-Worli Sea Link',
+    subtitle: 'Experience seamless transfers across Mumbai, Marine Drive, Nariman Point and Bandra-Worli Sea Link with dedicated executive chauffeurs.',
+    image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Mumbai Cab', path: '/book?service=local-taxi' },
+    ctaSecondary: { label: 'Airport Transfers', path: '/services/airport-transfers' },
+    highlight: 'Chauffeur pickup across Mumbai & Navi Mumbai with zero surge'
   },
   {
     id: 2,
-    tag: 'Western Ghats & Hill Escapes',
-    icon: MapPin,
-    title: 'Discover Western Ghats: Mahabaleshwar & Lonavala',
-    subtitle: 'Misty mountain valleys, Bhushi Dam waterfalls, and strawberry farms with experienced hill-driving chauffeurs and custom stops.',
-    image: 'https://images.unsplash.com/photo-1626014303757-6564477577f1?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Explore Hill Getaways', path: '/book?service=outstation-round-trip' },
-    ctaSecondary: { label: 'View Destinations', path: '#destinations-section' },
-    highlight: 'Curated weekend escapes & scenic ghat viewpoints'
+    tag: 'Expressway Chauffeurs',
+    icon: Car,
+    title: 'Tata & Mahindra Fleet on Mumbai–Pune Expressway',
+    subtitle: 'Tata Nexon, Mahindra XUV700, Scorpio-N and Toyota Innova Crysta with verified highway captains on Maharashtra’s premier expressways.',
+    image: 'https://images.unsplash.com/photo-1571501679680-de32f1e7a412?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Outstation Cab', path: '/book?service=outstation-one-way' },
+    ctaSecondary: { label: 'Explore Fleet', path: '#services-section' },
+    highlight: 'Mumbai ↔ Pune via Expressway in 2h 45m with zero surge'
   },
   {
     id: 3,
-    tag: 'Indian Railways & Vande Bharat',
+    tag: 'Confirmed Rail Reservations',
     icon: Train,
-    title: 'Scenic Railway Journeys: Vande Bharat & Tatkal Fastlane',
-    subtitle: 'Confirmed train berths, Vande Bharat Express reservations on CSMT–Jalna and Mumbai–Goa with live timetable telemetry.',
+    title: 'Vande Bharat Express & Indian Railways Fastlane',
+    subtitle: 'Confirmed train berths, Vande Bharat, Rajdhani, Tejas and Shatabdi express schedules with live Tatkal seat telemetry.',
     image: 'https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=2200&q=85',
     ctaPrimary: { label: 'Search Train Tickets', path: '/railway' },
     ctaSecondary: { label: 'Check PNR Status Demo', path: '/railway/pnr-status' },
-    highlight: '10,000+ Indian routes with Tatkal assistance'
+    highlight: '10,000+ Indian Railway routes with instant Tatkal assist'
   },
   {
     id: 4,
-    tag: 'MSRTC Shivneri & Luxury Coaches',
+    tag: 'MSRTC State Transport',
     icon: Bus,
-    title: 'Glide in Comfort: Luxury Volvo 9600 & MSRTC Shivneri',
-    subtitle: 'Multi-axle Volvo coaches and executive Force Urbania 17-seaters for corporate delegations, family events and temple pilgrimages.',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Charter a Luxury Coach', path: '/services/luxury-bus' },
-    ctaSecondary: { label: 'MSRTC Shivneri Bus', path: '/msrtc' },
-    highlight: 'Air-suspension glide with Wi-Fi & recliners'
+    title: 'MSRTC Shivneri Volvo & Intercity Luxury Buses',
+    subtitle: 'Glide across Maharashtra and Goa in official MSRTC Shivneri Volvo AC buses, Shivshahi coaches, and multi-axle luxury tourist charters.',
+    image: 'https://images.unsplash.com/photo-1557223562-6c77ef16210f?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book MSRTC Shivneri', path: '/msrtc' },
+    ctaSecondary: { label: 'Charter Luxury Coach', path: '/services/luxury-bus' },
+    highlight: 'Air-suspension glide with Wi-Fi, pushback recliners & GPS'
   },
   {
     id: 5,
-    tag: 'Indian Airport Transfers',
-    icon: Plane,
-    title: 'Zero-Wait Airport Pickups: Mumbai CSMIA T2 & Pune PNQ',
-    subtitle: 'Flight-synced chauffeur meet & greet for Air India, IndiGo and Akasa Air arrivals with 45 minutes complimentary wait time.',
-    image: 'https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Book Airport Transfer', path: '/book?service=airport-pickup' },
-    ctaSecondary: { label: 'Corporate Fleet', path: '/corporate' },
-    highlight: 'Live flight delay radar tracking at Terminal 2'
+    tag: 'Goa Coastal Highway',
+    icon: MapPin,
+    title: 'Scenic Goa Coastal Roads & NH-66 Konkan Drives',
+    subtitle: 'Cruise along sun-kissed beaches, heritage Latin quarters, and picturesque coastal coconut avenues in comfortable air-conditioned cabs.',
+    image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Goa Road Trip', path: '/book?service=outstation-round-trip' },
+    ctaSecondary: { label: 'Explore Destinations', path: '#destinations-section' },
+    highlight: 'Mumbai & Pune to Goa round-trips with scenic Konkan halts'
   },
   {
     id: 6,
-    tag: 'Coastal Goa & Kerala Escapes',
+    tag: 'Western Ghats Escapes',
     icon: MapPin,
-    title: 'Sun, Sand & Coastal Highways: Discover Goa & Kerala',
-    subtitle: 'Scenic coastal road trips from Mumbai & Pune along Konkan NH 66 with verified chauffeurs, beach villa drops, and ferry coordination.',
-    image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=2200&q=85',
-    ctaPrimary: { label: 'Explore Coastal Trips', path: '/book?service=outstation-round-trip' },
+    title: 'Misty Western Ghats: Mahabaleshwar, Panchgani & Lonavala',
+    subtitle: 'Experience Tiger Point, Arthur Seat panoramas, strawberry valleys, and tranquil Western Ghat hill stations with hill-certified drivers.',
+    image: 'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Explore Hill Station Trips', path: '/book?service=outstation-round-trip' },
+    ctaSecondary: { label: 'View Destinations', path: '#destinations-section' },
+    highlight: 'Weekend getaways to Mahabaleshwar, Panchgani & Lonavala'
+  },
+  {
+    id: 7,
+    tag: 'Royal Rajasthan Heritage',
+    icon: MapPin,
+    title: 'Rajasthan Heritage: Jaipur, Udaipur & Jodhpur',
+    subtitle: 'Journey through the majestic palaces of Jaipur, Lake Pichola in Udaipur, and Mehrangarh Fort with curated royal heritage itineraries.',
+    image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Book Heritage Tour', path: '/book?service=outstation-round-trip' },
+    ctaSecondary: { label: 'Group Transportation', path: '/services/group-travel' },
+    highlight: 'Golden Triangle & royal Rajasthani palace tours'
+  },
+  {
+    id: 8,
+    tag: 'God’s Own Country',
+    icon: MapPin,
+    title: 'Kerala Scenic Roads, Munnar Tea Valleys & Backwaters',
+    subtitle: 'Traverse the mist-laden tea plantations of Munnar, serene Alleppey backwaters, and pristine coastal Malabar routes in luxury.',
+    image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=2200&q=85',
+    ctaPrimary: { label: 'Explore Kerala Packages', path: '/book?service=outstation-round-trip' },
     ctaSecondary: { label: 'NCMC Transit Card', path: '/ncmc' },
-    highlight: 'Direct drops to Calangute, Old Goa & South Goa resorts'
+    highlight: 'Munnar hill drives, Alleppey houseboats & Kochi airport sync'
   }
 ];
 
@@ -136,7 +158,7 @@ export const HeroSlideshow = () => {
             alt={slide.title}
             className="w-full h-full object-cover object-center animate-kenburns"
             onError={(e) => {
-              e.target.src = 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=85';
+              e.target.src = 'https://images.unsplash.com/photo-1571501679680-de32f1e7a412?auto=format&fit=crop&w=2200&q=85';
             }}
           />
 

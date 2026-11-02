@@ -55,8 +55,8 @@ export const TrainBookingPage = () => {
           }
         ]}
         faqs={[
-          { q: 'What is the Tatkal success rate with TRAVELNEX?', a: 'Our automated system has an industry-leading 98.4% success rate for securing confirmed berths within the first 60 seconds of Tatkal window opening.' },
-          { q: 'How do I receive my confirmed railway ticket?', a: 'Your official IRCTC E-Ticket with PNR number, coach, and berth details is delivered instantly via WhatsApp, email, and accessible in your TRAVELNEX Dashboard.' },
+          { q: 'What is the Tatkal success rate with AeroVoyage?', a: 'Our automated system has an industry-leading 98.4% success rate for securing confirmed berths within the first 60 seconds of Tatkal window opening.' },
+          { q: 'How do I receive my confirmed railway ticket?', a: 'Your official IRCTC E-Ticket with PNR number, coach, and berth details is delivered instantly via WhatsApp, email, and accessible in your AeroVoyage Dashboard.' },
           { q: 'Can I combine train booking with station cab pickup?', a: 'Yes! That is the core advantage of our unified platform: your taxi will be synchronized with your train arrival time at the destination railway station.' }
         ]}
       />

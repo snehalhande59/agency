@@ -12,7 +12,7 @@ export const MiniBusPage = () => {
       tagline="Travel Together in Comfort"
       badge="Spacious Executive Fleet"
       serviceKey="mini-bus"
-      heroImage="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80"
+      heroImage="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1200&q=80"
       description="Enjoy the journey together without splitting into multiple small cabs. Our Force Urbania and Maharaja Tempo Travellers feature plush pushback 2x1 leather seating, individual AC vents, smart LED screens, microphone sound systems, and dedicated luggage racks."
       pickupPlaceholder="e.g. Pune / Mumbai / Thane Assembly Point"
       dropPlaceholder="e.g. Shirdi / Mahabaleshwar / Goa / Nashik"
@@ -46,7 +46,7 @@ export const MiniBusPage = () => {
       faqs={[
         { q: 'Is luggage space sufficient for 17 passengers?', a: 'Yes! Our Urbania and Tempo Travellers have spacious rear luggage compartments as well as top-carrier options with waterproof tarpaulins for heavy baggage.' },
         { q: 'Can we hire a mini bus for a multi-day tour (e.g., 5 days in Konkan or Goa)?', a: 'Yes, multi-day bookings are our specialty. The vehicle stays with your group throughout the itinerary with fixed transparent daily driver allowances.' },
-        { q: 'Are all state taxes and permits handled by TRAVELNEX?', a: 'Yes, all our commercial mini buses carry valid All-India Tourist Permits (AITP) and our team handles border taxes and state permits seamlessly.' }
+        { q: 'Are all state taxes and permits handled by AeroVoyage?', a: 'Yes, all our commercial mini buses carry valid All-India Tourist Permits (AITP) and our team handles border taxes and state permits seamlessly.' }
       ]}
     />
   );

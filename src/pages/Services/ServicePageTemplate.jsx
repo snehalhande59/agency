@@ -244,7 +244,7 @@ export const ServicePageTemplate = ({
                   alt={title} 
                   className="w-full h-[400px] object-cover" 
                   onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80';
+                    e.target.src = 'https://images.unsplash.com/photo-1571501679680-de32f1e7a412?auto=format&fit=crop&w=1200&q=80';
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#153B5B]/80 via-transparent to-transparent"></div>

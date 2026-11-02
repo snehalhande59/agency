@@ -12,7 +12,7 @@ export const AirportTransferPage = () => {
       tagline="Touchdown to Doorstep Seamlessly"
       badge="Flight Sync Telematics"
       serviceKey="airport-transfers"
-      heroImage="https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&w=1200&q=80"
+      heroImage="https://images.unsplash.com/photo-1520437358207-323b43b50729?auto=format&fit=crop&w=1200&q=80"
       description="Never fret about finding a cab after a tiring flight. Our chauffeurs track your flight in real-time, adjust automatically for landing delays, and receive you at the arrival terminal with a personalized name card and luggage assistance."
       pickupPlaceholder="e.g. Mumbai Airport T2 / Pune Airport"
       dropPlaceholder="e.g. Hotel / Office / Residential Address"
@@ -27,20 +27,20 @@ export const AirportTransferPage = () => {
           name: 'City Airport Drop (Sedan)',
           desc: 'Reliable doorstep pickup to airport departure gates across Mumbai & Pune.',
           price: '₹799 Flat',
-          features: ['Maruti Suzuki Dzire', 'On-time guarantee (or 50% refund)', 'Clean luggage boot', 'Zero midnight extra']
+          features: ['Sedan (Dzire / Etios)', 'On-time guarantee (or 50% refund)', 'Clean luggage boot', 'Zero midnight extra']
         },
         {
           name: 'Executive SUV Airport Arrival',
           desc: 'High comfort pickup with luggage room for international & family flights.',
           price: '₹1,599',
           popular: true,
-          features: ['Toyota Innova Crysta SUV', 'Flight tracking included', '45m free terminal waiting', 'Meet & Greet with placard']
+          features: ['Innova Crysta SUV', 'Flight tracking included', '45m free terminal waiting', 'Meet & Greet with placard']
         },
         {
-          name: 'Premium VIP Welcome (Toyota Fortuner)',
+          name: 'VIP Prestige Welcome (Mercedes/BMW)',
           desc: 'First-class luxury pickup for visiting executives, delegacy, and VIP guests.',
-          price: '₹3,499',
-          features: ['Toyota Fortuner 4x4 / Luxury Fleet', 'Suited executive chauffeur', 'Chilled water & magazines', 'VIP curb parking access']
+          price: '₹3,999',
+          features: ['Mercedes E-Class / BMW 5', 'Suited executive chauffeur', 'Chilled water & magazines', 'VIP curb parking access']
         }
       ]}
       faqs={[
