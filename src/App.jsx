@@ -30,6 +30,15 @@ import { BusinessTravelPage } from './pages/Corporate/BusinessTravelPage';
 import { CorporatePricingPage } from './pages/Corporate/CorporatePricingPage';
 import { CorporateDemoPage } from './pages/Corporate/CorporateDemoPage';
 import { CorporateDashboardPage } from './pages/Corporate/CorporateDashboardPage';
+import { TransportOperationsPage } from './pages/Corporate/TransportOperationsPage';
+import { DriverPortalPage } from './pages/Corporate/DriverPortalPage';
+import { VendorPortalPage } from './pages/Corporate/VendorPortalPage';
+import { FinanceBillingPage } from './pages/Corporate/FinanceBillingPage';
+import { CorporateReportsPage } from './pages/Corporate/CorporateReportsPage';
+import { CorporateBusShuttlePage } from './pages/Corporate/CorporateBusShuttlePage';
+import { CorporateSafetyPage } from './pages/Corporate/CorporateSafetyPage';
+import { CorporateQuotePage } from './pages/Corporate/CorporateQuotePage';
+import { CorporateLoginPage } from './pages/Corporate/CorporateLoginPage';
 
 // User Dashboard Pages
 import { UserDashboardLayout } from './pages/Dashboard/UserDashboardLayout';
@@ -188,15 +197,25 @@ export default function App() {
             <Route path="/corporate" element={<CorporateLayout />}>
               <Route index element={<CorporateOverviewPage />} />
               <Route path="admin" element={<CorporateAdminPortal />} />
+              <Route path="transport-manager" element={<TransportOperationsPage />} />
               <Route path="employee" element={<CorporateEmployeePortal />} />
+              <Route path="driver" element={<DriverPortalPage />} />
+              <Route path="vendor" element={<VendorPortalPage />} />
+              <Route path="finance" element={<FinanceBillingPage />} />
+              <Route path="reports" element={<CorporateReportsPage />} />
               <Route path="employee-transport" element={<EmployeeTransportPage />} />
               <Route path="daily-pickup" element={<DailyPickupDropPage />} />
+              <Route path="bus-shuttle" element={<CorporateBusShuttlePage />} />
               <Route path="monthly-contracts" element={<MonthlyContractsPage />} />
               <Route path="business-travel" element={<BusinessTravelPage />} />
+              <Route path="safety" element={<CorporateSafetyPage />} />
               <Route path="pricing" element={<CorporatePricingPage />} />
+              <Route path="quote" element={<CorporateQuotePage />} />
               <Route path="demo" element={<CorporateDemoPage />} />
+              <Route path="login" element={<CorporateLoginPage />} />
               <Route path="dashboard" element={<CorporateAdminPortal />} />
             </Route>
+            <Route path="/corporate-login" element={<CorporateLoginPage />} />
 
             {/* User Dashboard Section */}
             <Route path="/dashboard" element={<UserDashboardLayout />}>

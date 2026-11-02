@@ -59,8 +59,15 @@ export const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
           
-          {/* Brand Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
+          {/* Brand Logo - Reliable Click Redirection to Home with Smooth Scroll to Top */}
+          <Link 
+            to="/" 
+            onClick={() => { 
+              window.scrollTo({ top: 0, behavior: 'smooth' }); 
+              setIsOpen(false); 
+            }} 
+            className="flex items-center gap-2.5 group cursor-pointer"
+          >
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3898D8] to-[#19A89A] p-0.5 shadow-sm group-hover:shadow-md transition-all">
               <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
                 <Car className="w-5 h-5 text-[#3898D8] group-hover:scale-110 transition-transform" />

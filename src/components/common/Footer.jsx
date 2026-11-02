@@ -79,7 +79,7 @@ export const Footer = () => {
           
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="flex items-center gap-2.5">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5 cursor-pointer">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3898D8] to-[#19A89A] p-0.5 shadow-sm">
                 <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
                   <Car className="w-5 h-5 text-[#3898D8]" />

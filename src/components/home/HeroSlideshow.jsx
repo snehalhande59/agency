@@ -140,9 +140,9 @@ export const HeroSlideshow = () => {
             }}
           />
 
-          {/* Cinematic Light Gradient & Dark Translucent Readability Scrim */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0F2844]/85 via-[#0F2844]/65 to-black/30 backdrop-blur-[1px]"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0F2844]/90 via-transparent to-transparent"></div>
+          {/* Cinematic Light Gradient & Balanced Readability Scrim (Allows Indian photography to shine while keeping text crisp) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0C2238]/85 via-[#0C2238]/50 to-black/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0C2238]/90 via-transparent to-black/20"></div>
         </motion.div>
       </AnimatePresence>
 
@@ -156,25 +156,27 @@ export const HeroSlideshow = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-bold shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-bold shadow-md"
           >
-            <IconComponent className="w-3.5 h-3.5 text-[#3898D8]" />
-            <span>{slide.tag}</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#19A89A] animate-pulse"></span>
+            <div className="w-5 h-5 rounded-full bg-[#3898D8] flex items-center justify-center text-white">
+              <IconComponent className="w-3 h-3" />
+            </div>
+            <span className="tracking-wide">{slide.tag}</span>
+            <span className="w-2 h-2 rounded-full bg-[#19A89A] animate-pulse"></span>
           </motion.div>
 
           <button
             onClick={() => setIsPaused(!isPaused)}
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/30 hover:bg-black/50 text-white/80 hover:text-white text-[11px] font-medium backdrop-blur-md transition-colors"
+            className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/40 hover:bg-black/60 text-white/90 hover:text-white text-xs font-semibold backdrop-blur-md border border-white/20 transition-all"
             title={isPaused ? "Resume Autoplay" : "Pause Slideshow"}
           >
-            {isPaused ? <Play className="w-3 h-3 text-[#3898D8]" /> : <Pause className="w-3 h-3 text-slate-300" />}
-            <span>{isPaused ? "Paused" : "Auto (5s)"}</span>
+            {isPaused ? <Play className="w-3.5 h-3.5 text-[#3898D8]" /> : <Pause className="w-3.5 h-3.5 text-[#19A89A]" />}
+            <span>{isPaused ? "Resume Auto" : "Auto (5s)"}</span>
           </button>
         </div>
 
-        {/* Center Main Text */}
-        <div className="max-w-3xl space-y-4 my-auto">
+        {/* Center Main Text with Translucent Theme Glass Plate for maximum contrast */}
+        <div className="max-w-3xl my-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={`content-${slide.id}`}
@@ -182,25 +184,26 @@ export const HeroSlideshow = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
-              className="space-y-4"
+              className="p-6 sm:p-8 rounded-3xl bg-[#0C2238]/50 backdrop-blur-md border border-white/20 shadow-2xl space-y-4"
             >
-              <span className="inline-block px-3 py-1 rounded-lg bg-[#3898D8]/30 text-[#DCEEFF] text-xs font-semibold tracking-wide border border-[#3898D8]/40">
-                ✦ {slide.highlight}
-              </span>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#19A89A]/30 text-[#DCEEFF] text-xs font-bold tracking-wide border border-[#19A89A]/40 shadow-sm">
+                <span className="text-[#19A89A]">✦</span>
+                <span>{slide.highlight}</span>
+              </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1] font-display">
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-black text-white tracking-tight leading-[1.15] font-display drop-shadow-md">
                 {slide.title}
               </h1>
 
-              <p className="text-sm sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
+              <p className="text-sm sm:text-base text-[#DCEEFF] leading-relaxed font-normal max-w-2xl drop-shadow">
                 {slide.subtitle}
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-3">
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <Link
                   to={slide.ctaPrimary.path}
-                  className="px-6 py-3.5 rounded-2xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-sm shadow-lg shadow-[#3898D8]/40 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 group"
+                  className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#3898D8] to-[#19A89A] hover:from-[#287DB8] hover:to-[#0F8B7D] text-white font-bold text-sm shadow-lg shadow-[#3898D8]/40 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 group"
                 >
                   <span>{slide.ctaPrimary.label}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -208,7 +211,7 @@ export const HeroSlideshow = () => {
 
                 <Link
                   to={slide.ctaSecondary.path}
-                  className="px-6 py-3.5 rounded-2xl bg-white/15 hover:bg-white/25 text-white font-bold text-sm backdrop-blur-md border border-white/30 transition-all flex items-center gap-2"
+                  className="px-6 py-3.5 rounded-2xl bg-white/20 hover:bg-white/30 text-white font-bold text-sm backdrop-blur-md border border-white/30 transition-all flex items-center gap-2 hover:border-white/50"
                 >
                   <span>{slide.ctaSecondary.label}</span>
                 </Link>

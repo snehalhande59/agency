@@ -26,7 +26,9 @@ import {
   Layers,
   Phone,
   BarChart3,
-  PieChart
+  PieChart,
+  ShieldAlert,
+  Upload
 } from 'lucide-react';
 import { useCorporateStore } from '../../store/useCorporateStore';
 
@@ -39,17 +41,20 @@ export const CorporateAdminPortal = () => {
     vehicles, 
     routes, 
     monthlyContracts, 
-    travelRequests, 
+    corporateBookings, 
     invoices, 
-    approveTravelRequest, 
-    rejectTravelRequest, 
-    addEmployee 
+    safetyAlerts,
+    hrApproveBooking, 
+    hrRejectBooking, 
+    addEmployee,
+    resolveEmergencyAlert
   } = useCorporateStore();
 
   const [activeTab, setActiveTab] = useState('DASHBOARD');
   const [employeeSearch, setEmployeeSearch] = useState('');
   const [employeeDeptFilter, setEmployeeDeptFilter] = useState('ALL');
   const [isAddEmployeeModalOpen, setIsAddEmployeeModalOpen] = useState(false);
+  const [approvalRemarks, setApprovalRemarks] = useState('Approved per Q4 mobility guidelines');
 
   // New Employee Modal state
   const [newEmpName, setNewEmpName] = useState('');
@@ -86,6 +91,21 @@ export const CorporateAdminPortal = () => {
     return matchesDept && matchesSearch;
   });
 
+  const pendingBookings = corporateBookings.filter(b => b.status === 'PENDING_HR_APPROVAL');
+
+  const exportEmployeeCsv = () => {
+    const headers = ['Employee ID', 'Name', 'Department', 'Pickup Point', 'Shift', 'Phone'];
+    const rows = filteredEmployees.map(e => [e.id, `"${e.name}"`, e.department, `"${e.pickupPoint}"`, `"${e.shift}"`, e.phone]);
+    const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', `Nexus_Employees_Roster_${new Date().toISOString().split('T')[0]}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="space-y-8 pb-16 bg-[#F8FAFC] text-[#153B5B]">
       
@@ -110,22 +130,50 @@ export const CorporateAdminPortal = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <button
             onClick={() => setIsAddEmployeeModalOpen(true)}
-            className="px-4 py-2.5 rounded-xl bg-[#3898D8] hover:bg-[#2b82bd] text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all"
+            className="px-4 py-2.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all"
           >
             <Plus className="w-4 h-4" />
             <span>Onboard Employee</span>
           </button>
+          <button
+            onClick={exportEmployeeCsv}
+            className="px-4 py-2.5 rounded-xl bg-[#EFF7FC] hover:bg-[#DCEEFF] text-[#153B5B] border border-[#E5EDF5] font-bold text-xs flex items-center gap-2 transition-all"
+          >
+            <Download className="w-4 h-4 text-[#3898D8]" />
+            <span>Export Roster CSV</span>
+          </button>
         </div>
       </div>
 
-      {/* 2. Top 6 KPI Widgets Required by Prompt */}
+      {/* Safety Alert Warning Banner if unhandled alerts exist */}
+      {safetyAlerts && safetyAlerts.some(a => a.status === 'TRIGGERED' || a.status === 'OPEN') && (
+        <div className="p-5 rounded-3xl bg-rose-50 border border-rose-200 text-rose-900 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+              <ShieldAlert className="w-6 h-6 animate-pulse" />
+            </div>
+            <div>
+              <h4 className="text-sm font-bold">Active Safety Telemetry Alert Detected</h4>
+              <p className="text-xs text-rose-700 mt-0.5">
+                {safetyAlerts.find(a => a.status === 'TRIGGERED' || a.status === 'OPEN')?.message || 'Simulated Emergency SOS triggered by commuter.'}
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => resolveEmergencyAlert(safetyAlerts[0]?.id || 'ALERT-01')}
+            className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs self-start sm:self-auto shrink-0 shadow-sm"
+          >
+            Acknowledge &amp; Mark Resolved
+          </button>
+        </div>
+      )}
+
+      {/* 2. Top 6 KPI Widgets */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
-        
-        {/* Total Employees */}
-        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-sm">
+        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-xs">
           <div className="flex items-center justify-between text-[#64748B] text-xs mb-1">
             <span>Total Employees</span>
             <Users className="w-4 h-4 text-[#3898D8]" />
@@ -134,8 +182,7 @@ export const CorporateAdminPortal = () => {
           <span className="text-[10px] text-[#19A89A] font-medium">+14 new this month</span>
         </div>
 
-        {/* Active Vehicles */}
-        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-sm">
+        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-xs">
           <div className="flex items-center justify-between text-[#64748B] text-xs mb-1">
             <span>Active Vehicles</span>
             <Car className="w-4 h-4 text-[#3898D8]" />
@@ -144,8 +191,7 @@ export const CorporateAdminPortal = () => {
           <span className="text-[10px] text-[#64748B] font-medium">Across 4 campuses</span>
         </div>
 
-        {/* Today's Trips */}
-        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-sm">
+        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-xs">
           <div className="flex items-center justify-between text-[#64748B] text-xs mb-1">
             <span>Today's Trips</span>
             <Activity className="w-4 h-4 text-amber-500" />
@@ -154,8 +200,7 @@ export const CorporateAdminPortal = () => {
           <span className="text-[10px] text-[#3898D8] font-medium">3 shifts operational</span>
         </div>
 
-        {/* Completed Trips */}
-        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-sm">
+        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-xs">
           <div className="flex items-center justify-between text-[#64748B] text-xs mb-1">
             <span>Completed Trips</span>
             <CheckCircle2 className="w-4 h-4 text-[#19A89A]" />
@@ -164,18 +209,16 @@ export const CorporateAdminPortal = () => {
           <span className="text-[10px] text-[#19A89A] font-medium">99.4% On-Time SLA</span>
         </div>
 
-        {/* Pending Trips */}
-        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-sm">
+        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-xs">
           <div className="flex items-center justify-between text-[#64748B] text-xs mb-1">
-            <span>Pending Trips</span>
+            <span>Pending Approvals</span>
             <Clock className="w-4 h-4 text-purple-500" />
           </div>
-          <div className="text-2xl font-black text-purple-600 font-display">{stats.pendingTrips}</div>
-          <span className="text-[10px] text-[#64748B] font-medium">Night shift &amp; drops</span>
+          <div className="text-2xl font-black text-purple-600 font-display">{pendingBookings.length}</div>
+          <span className="text-[10px] text-[#64748B] font-medium">Commute requests</span>
         </div>
 
-        {/* Monthly Expenses */}
-        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-sm">
+        <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] shadow-xs">
           <div className="flex items-center justify-between text-[#64748B] text-xs mb-1">
             <span>Monthly Expenses</span>
             <DollarSign className="w-4 h-4 text-[#19A89A]" />
@@ -183,19 +226,18 @@ export const CorporateAdminPortal = () => {
           <div className="text-xl sm:text-2xl font-black text-[#153B5B] font-display">₹28.45L</div>
           <span className="text-[10px] text-[#19A89A] font-medium">Within budget (88%)</span>
         </div>
-
       </div>
 
       {/* 3. Navigation Sub-Tabs */}
       <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar border-b border-[#E5EDF5]">
         {[
           { id: 'DASHBOARD', label: 'Analytics & Command' },
+          { id: 'REQUESTS', label: `Commute Approvals (${pendingBookings.length})` },
           { id: 'EMPLOYEES', label: 'Employee Roster' },
           { id: 'DRIVERS', label: 'Drivers & Verification' },
           { id: 'VEHICLES', label: 'Fleet & Vehicles' },
           { id: 'ROUTES', label: 'Routes & Halts' },
           { id: 'CONTRACTS', label: 'Monthly Contracts' },
-          { id: 'REQUESTS', label: 'Travel Requests' },
           { id: 'INVOICES', label: 'Invoices & Expenses' },
           { id: 'COMPANY', label: 'Company Profile' }
         ].map((tab) => (
@@ -217,26 +259,23 @@ export const CorporateAdminPortal = () => {
       {/* TAB 1: ANALYTICS & FLEET COMMAND */}
       {activeTab === 'DASHBOARD' && (
         <div className="space-y-6">
-          
-          {/* Charts Row */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
-            {/* Monthly Spend Bar Chart Mockup */}
-            <div className="lg:col-span-7 rounded-3xl bg-navy-900 border border-slate-800 p-6 shadow-xl space-y-4">
+            {/* Monthly Spend Bar Chart */}
+            <div className="lg:col-span-7 rounded-3xl bg-white border border-[#E5EDF5] p-6 shadow-sm space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-base font-bold text-white flex items-center gap-2">
-                    <BarChart3 className="w-4 h-4 text-electric-400" />
+                  <h3 className="text-base font-bold text-[#153B5B] flex items-center gap-2">
+                    <BarChart3 className="w-4 h-4 text-[#3898D8]" />
                     <span>Monthly Corporate Mobility Expenditure (₹ Lakhs)</span>
                   </h3>
-                  <p className="text-xs text-slate-400">Monthly budget utilization with zero surge billing</p>
+                  <p className="text-xs text-[#64748B]">Monthly budget utilization with zero surge billing</p>
                 </div>
-                <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/30">
+                <span className="text-xs font-mono font-bold text-[#19A89A] bg-[#E6F7F5] px-2.5 py-0.5 rounded border border-[#19A89A]/30">
                   -4.2% Cost Optimized
                 </span>
               </div>
 
-              {/* Bar Visualizer */}
               <div className="h-48 pt-6 flex items-end justify-between gap-4 px-2">
                 {[
                   { month: 'Jun', amount: 24.2, height: '65%' },
@@ -247,179 +286,175 @@ export const CorporateAdminPortal = () => {
                   { month: 'Nov (Est)', amount: 27.5, height: '82%' }
                 ].map((b, i) => (
                   <div key={i} className="flex-1 flex flex-col items-center gap-2 h-full justify-end">
-                    <span className="text-[10px] font-mono font-bold text-slate-300">₹{b.amount}L</span>
+                    <span className="text-[10px] font-mono font-bold text-[#153B5B]">₹{b.amount}L</span>
                     <div 
-                      className="w-full max-w-[42px] rounded-t-xl bg-gradient-to-t from-blue-700 via-electric-600 to-cyan-400 hover:brightness-125 transition-all shadow-glow-sm"
+                      className="w-full bg-[#3898D8] rounded-t-xl transition-all duration-500 hover:bg-[#287DB8]" 
                       style={{ height: b.height }}
                     />
-                    <span className="text-xs text-slate-400 font-semibold">{b.month}</span>
+                    <span className="text-[10px] font-medium text-[#64748B]">{b.month}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Department Split Pie/Bar Representation */}
-            <div className="lg:col-span-5 rounded-3xl bg-navy-900 border border-slate-800 p-6 shadow-xl space-y-4 flex flex-col justify-between">
-              <div>
-                <h3 className="text-base font-bold text-white flex items-center gap-2">
-                  <PieChart className="w-4 h-4 text-cyan-400" />
-                  <span>Fleet Utilization by Department</span>
-                </h3>
-                <p className="text-xs text-slate-400">Shift allocation and dedicated cab distribution</p>
-              </div>
-
-              <div className="space-y-3 text-xs">
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-slate-300">Engineering &amp; Tech (584 Staff)</span>
-                    <strong className="text-white font-mono">48%</strong>
+            {/* Department Breakdown */}
+            <div className="lg:col-span-5 rounded-3xl bg-white border border-[#E5EDF5] p-6 shadow-sm space-y-4">
+              <h3 className="text-base font-bold text-[#153B5B] flex items-center gap-2">
+                <PieChart className="w-4 h-4 text-[#19A89A]" />
+                <span>Department Fleet Usage Share</span>
+              </h3>
+              <div className="space-y-3 pt-2">
+                {[
+                  { name: 'Engineering & Tech', pct: 45, color: 'bg-[#3898D8]' },
+                  { name: 'Customer Operations & Support', pct: 25, color: 'bg-[#19A89A]' },
+                  { name: 'Sales & Client Relations', pct: 18, color: 'bg-indigo-500' },
+                  { name: 'Executive Leadership', pct: 12, color: 'bg-amber-500' }
+                ].map((dept, i) => (
+                  <div key={i} className="space-y-1">
+                    <div className="flex justify-between text-xs">
+                      <span className="text-[#153B5B] font-medium">{dept.name}</span>
+                      <span className="font-bold text-[#153B5B] font-mono">{dept.pct}%</span>
+                    </div>
+                    <div className="w-full bg-[#E5EDF5] h-2 rounded-full overflow-hidden">
+                      <div className={`${dept.color} h-full rounded-full`} style={{ width: `${dept.pct}%` }} />
+                    </div>
                   </div>
-                  <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
-                    <div className="h-full bg-electric-500 rounded-full" style={{ width: '48%' }} />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-slate-300">Data Analytics &amp; Product (320 Staff)</span>
-                    <strong className="text-white font-mono">26%</strong>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
-                    <div className="h-full bg-cyan-400 rounded-full" style={{ width: '26%' }} />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-slate-300">Enterprise Sales &amp; Client Visits (180 Staff)</span>
-                    <strong className="text-white font-mono">16%</strong>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
-                    <div className="h-full bg-purple-500 rounded-full" style={{ width: '16%' }} />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-slate-300">Finance, HR &amp; Corporate (196 Staff)</span>
-                    <strong className="text-white font-mono">10%</strong>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
-                    <div className="h-full bg-emerald-400 rounded-full" style={{ width: '10%' }} />
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-3 rounded-xl bg-navy-950 border border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
-                <span>Total Transit Footprint:</span>
-                <strong className="text-emerald-400 font-mono">14,200 KG CO2 Offset</strong>
+                ))}
               </div>
             </div>
 
           </div>
-
-          {/* Today's Shifts & Active Routes */}
-          <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 shadow-xl space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-base font-bold text-white">Live Shift Schedules &amp; Transit Corridors</h3>
-              <span className="text-xs text-slate-400">4 Active Major Corridors</span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {routes.map((r) => (
-                <div key={r.id} className="p-4 rounded-2xl bg-navy-950 border border-slate-800 space-y-2 text-xs">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-cyan-400 font-bold">{r.id}</span>
-                    <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded font-bold">
-                      {r.status}
-                    </span>
-                  </div>
-                  <div className="font-bold text-white text-sm truncate">{r.name}</div>
-                  <div className="text-[11px] text-slate-400">{r.shiftTiming}</div>
-                  <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-300">
-                    <span>Assigned:</span>
-                    <strong className="text-white">{r.allocatedEmployees}/{r.maxCapacity} Seats</strong>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
         </div>
       )}
 
-      {/* TAB 2: EMPLOYEE MANAGEMENT */}
-      {activeTab === 'EMPLOYEES' && (
-        <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 shadow-xl space-y-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      {/* TAB 2: COMMUTE APPROVALS (INTERCONNECTED WORKFLOW) */}
+      {activeTab === 'REQUESTS' && (
+        <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 shadow-sm space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#E5EDF5] gap-3">
             <div>
-              <h3 className="text-base font-bold text-white">Employee Transit Roster</h3>
-              <p className="text-xs text-slate-400">Manage daily assigned cabs, pickup stages, and department shifts</p>
+              <h3 className="text-base font-bold text-[#153B5B]">Employee Commute Approval Queue</h3>
+              <p className="text-xs text-[#64748B]">Review incoming requests and route to Transport Operations for cab dispatch</p>
+            </div>
+            <span className="text-xs font-bold text-[#3898D8] bg-[#EFF7FC] border border-[#DCEEFF] px-3 py-1 rounded-xl">
+              {corporateBookings.length} Total Bookings in System
+            </span>
+          </div>
+
+          <div className="space-y-3">
+            {corporateBookings.map((b) => (
+              <div key={b.id} className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E5EDF5] flex flex-col lg:flex-row lg:items-center justify-between gap-4 text-xs">
+                <div className="space-y-1.5 flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono font-bold text-[#3898D8] text-sm">{b.id}</span>
+                    <strong className="text-[#153B5B] text-sm">{b.employeeName}</strong>
+                    <span className="text-[#64748B]">({b.department} • {b.designation})</span>
+                  </div>
+                  <div className="text-[#153B5B] font-semibold flex items-center gap-2">
+                    <span>{b.serviceType}</span>
+                    <span className="text-[#64748B]">•</span>
+                    <span className="text-[#19A89A]">{b.shift}</span>
+                  </div>
+                  <div className="text-[#64748B] text-[11px] flex flex-wrap items-center gap-3">
+                    <span>Pickup: <strong className="text-[#153B5B]">{b.pickupLocation}</strong></span>
+                    <span>→</span>
+                    <span>Drop: <strong className="text-[#153B5B]">{b.dropLocation}</strong></span>
+                  </div>
+                  <div className="text-[10px] text-[#64748B] font-mono flex items-center gap-3">
+                    <span>Date: <strong className="text-[#153B5B]">{b.travelDate}</strong></span>
+                    <span>Est: <strong className="text-[#153B5B]">₹{b.costEst}</strong></span>
+                    <span>Cost Centre: <strong className="text-[#3898D8]">{b.costCentre}</strong></span>
+                    <span>Boarding OTP: <strong className="text-[#19A89A] font-bold">{b.boardingOtp}</strong></span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  {b.status === 'PENDING_HR_APPROVAL' ? (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => hrApproveBooking(b.id, approvalRemarks, b.costCentre)}
+                        className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm"
+                      >
+                        <Check className="w-3.5 h-3.5" />
+                        <span>Approve &amp; Dispatch</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => hrRejectBooking(b.id, 'Exceeds monthly department limit')}
+                        className="px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 font-bold text-xs flex items-center gap-1.5"
+                      >
+                        <X className="w-3.5 h-3.5" />
+                        <span>Reject</span>
+                      </button>
+                    </>
+                  ) : (
+                    <span className="px-3 py-1.5 rounded-full text-xs font-bold bg-[#EFF7FC] text-[#3898D8] border border-[#DCEEFF]">
+                      {b.status.replace(/_/g, ' ')}
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* TAB 3: EMPLOYEES */}
+      {activeTab === 'EMPLOYEES' && (
+        <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 shadow-sm space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#E5EDF5]">
+            <div className="relative flex-1 max-w-sm">
+              <Search className="w-4 h-4 text-[#64748B] absolute left-3 top-2.5" />
+              <input
+                type="text"
+                placeholder="Search employee by name, ID or pickup..."
+                value={employeeSearch}
+                onChange={(e) => setEmployeeSearch(e.target.value)}
+                className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl pl-9 pr-3 py-2 text-xs text-[#153B5B] placeholder-[#94A3B8] focus:outline-none focus:border-[#3898D8] focus:bg-white"
+              />
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="relative">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
-                <input
-                  type="text"
-                  value={employeeSearch}
-                  onChange={(e) => setEmployeeSearch(e.target.value)}
-                  placeholder="Search name, emp ID or stop..."
-                  className="bg-navy-950 border border-slate-700 rounded-xl pl-9 pr-4 py-2 text-xs text-white focus:outline-none focus:border-electric-500"
-                />
-              </div>
-
+            <div className="flex items-center gap-2">
               <select
                 value={employeeDeptFilter}
                 onChange={(e) => setEmployeeDeptFilter(e.target.value)}
-                className="bg-navy-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-electric-500"
+                className="bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-3 py-2 text-xs text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8]"
               >
                 <option value="ALL">All Departments</option>
                 <option value="Engineering">Engineering</option>
                 <option value="Product Management">Product Management</option>
                 <option value="Data & Analytics">Data &amp; Analytics</option>
                 <option value="Enterprise Sales">Enterprise Sales</option>
-                <option value="Finance & Legal">Finance &amp; Legal</option>
+                <option value="Operations & Support">Operations &amp; Support</option>
               </select>
             </div>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-400 uppercase tracking-wider text-[10px]">
-                  <th className="py-3 px-4">Employee Details</th>
-                  <th className="py-3 px-4">Department &amp; Shift</th>
-                  <th className="py-3 px-4">Pickup Point</th>
-                  <th className="py-3 px-4">Assigned Cab &amp; Route</th>
-                  <th className="py-3 px-4 text-right">Status</th>
+              <thead className="bg-[#F8FAFC] text-[#64748B] font-bold border-b border-[#E5EDF5]">
+                <tr>
+                  <th className="py-3 px-4">Employee ID</th>
+                  <th className="py-3 px-4">Name &amp; Role</th>
+                  <th className="py-3 px-4">Department</th>
+                  <th className="py-3 px-4">Home Pickup Point</th>
+                  <th className="py-3 px-4">Assigned Route</th>
+                  <th className="py-3 px-4">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60 text-slate-200">
+              <tbody className="divide-y divide-[#E5EDF5]">
                 {filteredEmployees.map((emp) => (
-                  <tr key={emp.id} className="hover:bg-white/5 transition-colors">
-                    <td className="py-3.5 px-4">
-                      <div className="font-bold text-white">{emp.name}</div>
-                      <div className="text-[10px] text-slate-400 font-mono">{emp.id} • {emp.phone}</div>
+                  <tr key={emp.id} className="hover:bg-[#F8FAFC] transition-colors">
+                    <td className="py-3 px-4 font-mono font-bold text-[#3898D8]">{emp.id}</td>
+                    <td className="py-3 px-4">
+                      <strong className="text-[#153B5B] block">{emp.name}</strong>
+                      <span className="text-[11px] text-[#64748B]">{emp.designation || 'Specialist'}</span>
                     </td>
-                    <td className="py-3.5 px-4">
-                      <div className="text-slate-300 font-medium">{emp.department}</div>
-                      <div className="text-[10px] text-slate-500">{emp.shift}</div>
-                    </td>
-                    <td className="py-3.5 px-4">
-                      <div className="text-white">{emp.pickupPoint}</div>
-                      <div className="text-[10px] text-slate-500">Destination: {emp.dropPoint}</div>
-                    </td>
-                    <td className="py-3.5 px-4">
-                      <div className="text-cyan-400 font-semibold">{emp.assignedCab}</div>
-                      <div className="text-[10px] text-slate-400">{emp.assignedRoute}</div>
-                    </td>
-                    <td className="py-3.5 px-4 text-right">
-                      <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
-                        emp.status === 'ACTIVE' 
-                          ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
-                          : 'bg-amber-500/10 text-amber-300 border border-amber-500/30'
-                      }`}>
+                    <td className="py-3 px-4 text-[#153B5B] font-medium">{emp.department}</td>
+                    <td className="py-3 px-4 text-[#64748B] max-w-xs truncate">{emp.pickupPoint}</td>
+                    <td className="py-3 px-4 text-[#19A89A] font-medium">{emp.assignedRoute || 'Route #12'}</td>
+                    <td className="py-3 px-4">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                         {emp.status}
                       </span>
                     </td>
@@ -431,73 +466,76 @@ export const CorporateAdminPortal = () => {
         </div>
       )}
 
-      {/* TAB 3: DRIVER MANAGEMENT */}
+      {/* TAB 4: DRIVERS */}
       {activeTab === 'DRIVERS' && (
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-base font-bold text-white">Dedicated Chauffeurs &amp; Police Verification</h3>
-            <span className="text-xs text-emerald-400">100% Police Verified Fleet</span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {drivers.map((d) => (
-              <div key={d.id} className="p-5 rounded-2xl bg-navy-900 border border-slate-800 space-y-3 text-xs">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-cyan-400 font-bold">{d.id}</span>
-                  <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded font-bold">
-                    {d.status}
-                  </span>
-                </div>
-
-                <div>
-                  <div className="text-sm font-bold text-white">{d.name}</div>
-                  <div className="text-cyan-300 font-mono text-[11px] mt-0.5">{d.phone}</div>
-                </div>
-
-                <div className="p-3 rounded-xl bg-navy-950 border border-slate-800 space-y-1 text-[11px]">
-                  <div>Vehicle: <strong className="text-slate-200">{d.assignedVehicle}</strong></div>
-                  <div>Rating: <strong className="text-amber-400">★ {d.rating}</strong> ({d.totalTrips} trips)</div>
-                  <div className="text-emerald-400 font-semibold">✓ {d.policeVerification}</div>
-                </div>
-              </div>
-            ))}
+        <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 shadow-sm space-y-4">
+          <h3 className="text-base font-bold text-[#153B5B]">Dedicated Enterprise Chauffeur Roster</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs">
+              <thead className="bg-[#F8FAFC] text-[#64748B] font-bold border-b border-[#E5EDF5]">
+                <tr>
+                  <th className="py-3 px-4">Driver Name</th>
+                  <th className="py-3 px-4">Commercial Badge</th>
+                  <th className="py-3 px-4">Police Clearance</th>
+                  <th className="py-3 px-4">Assigned Vehicle</th>
+                  <th className="py-3 px-4">Rating</th>
+                  <th className="py-3 px-4">Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#E5EDF5]">
+                {drivers.map((d) => (
+                  <tr key={d.id} className="hover:bg-[#F8FAFC] transition-colors">
+                    <td className="py-3 px-4">
+                      <strong className="text-[#153B5B] block">{d.name}</strong>
+                      <span className="text-[11px] text-[#64748B] font-mono">{d.phone}</span>
+                    </td>
+                    <td className="py-3 px-4 font-mono font-bold text-[#153B5B]">{d.badgeNumber}</td>
+                    <td className="py-3 px-4">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                        {d.policeClearance}
+                      </span>
+                    </td>
+                    <td className="py-3 px-4 font-mono text-[#3898D8] font-bold">{d.assignedVehicle}</td>
+                    <td className="py-3 px-4 text-amber-500 font-bold">★ {d.rating}</td>
+                    <td className="py-3 px-4">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                        {d.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       )}
 
-      {/* TAB 4: VEHICLES */}
+      {/* TAB 5: VEHICLES */}
       {activeTab === 'VEHICLES' && (
-        <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 shadow-xl space-y-4">
-          <h3 className="text-base font-bold text-white">Active Corporate Fleet Inventory</h3>
-
+        <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 shadow-sm space-y-4">
+          <h3 className="text-base font-bold text-[#153B5B]">Corporate Dedicated Fleet Inventory</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-400 uppercase text-[10px]">
-                  <th className="py-3 px-4">Registration</th>
-                  <th className="py-3 px-4">Model &amp; Category</th>
-                  <th className="py-3 px-4">Seats</th>
-                  <th className="py-3 px-4">Fuel &amp; Compliance</th>
-                  <th className="py-3 px-4">Assigned Chauffeur</th>
-                  <th className="py-3 px-4 text-right">Status</th>
+              <thead className="bg-[#F8FAFC] text-[#64748B] font-bold border-b border-[#E5EDF5]">
+                <tr>
+                  <th className="py-3 px-4">License Plate</th>
+                  <th className="py-3 px-4">Vehicle Model</th>
+                  <th className="py-3 px-4">Category &amp; Fuel</th>
+                  <th className="py-3 px-4">Assigned Driver</th>
+                  <th className="py-3 px-4">Fitness &amp; PUC</th>
+                  <th className="py-3 px-4">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60 text-slate-200">
+              <tbody className="divide-y divide-[#E5EDF5]">
                 {vehicles.map((v) => (
-                  <tr key={v.id} className="hover:bg-white/5 transition-colors">
-                    <td className="py-3.5 px-4 font-mono font-bold text-white">{v.plateNumber}</td>
-                    <td className="py-3.5 px-4">
-                      <div className="font-semibold text-white">{v.model}</div>
-                      <div className="text-[10px] text-cyan-400">{v.category}</div>
-                    </td>
-                    <td className="py-3.5 px-4 font-mono">{v.seats} Seats</td>
-                    <td className="py-3.5 px-4">
-                      <div>{v.fuelType}</div>
-                      <div className="text-[10px] text-slate-500">Fitness: {v.fitnessExpiry}</div>
-                    </td>
-                    <td className="py-3.5 px-4 font-medium text-slate-300">{v.assignedDriver}</td>
-                    <td className="py-3.5 px-4 text-right">
-                      <span className="text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded">
+                  <tr key={v.id} className="hover:bg-[#F8FAFC] transition-colors">
+                    <td className="py-3 px-4 font-mono font-bold text-[#153B5B]">{v.plateNumber}</td>
+                    <td className="py-3 px-4 text-[#153B5B] font-semibold">{v.model}</td>
+                    <td className="py-3 px-4 text-[#64748B]">{v.category} • {v.fuelType}</td>
+                    <td className="py-3 px-4 text-[#19A89A] font-medium">{v.assignedDriver}</td>
+                    <td className="py-3 px-4 text-[#64748B] font-mono text-[11px]">Valid till {v.fitnessExpiry}</td>
+                    <td className="py-3 px-4">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                         {v.status}
                       </span>
                     </td>
@@ -509,72 +547,62 @@ export const CorporateAdminPortal = () => {
         </div>
       )}
 
-      {/* TAB 5: ROUTES */}
+      {/* TAB 6: ROUTES */}
       {activeTab === 'ROUTES' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {routes.map((r) => (
-            <div key={r.id} className="p-6 rounded-3xl bg-navy-900 border border-slate-800 space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                <span className="font-mono text-cyan-400 font-bold text-sm">{r.id}</span>
-                <span className="text-xs text-slate-400">{r.distanceKm} KM • {r.avgDuration}</span>
+            <div key={r.id} className="p-6 rounded-3xl bg-white border border-[#E5EDF5] shadow-sm space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-[#E5EDF5]">
+                <span className="font-mono text-[#3898D8] font-bold text-sm">{r.id}</span>
+                <span className="text-xs text-[#64748B]">{r.city} • Regular Corridor</span>
               </div>
-
-              <div>
-                <h4 className="text-base font-bold text-white">{r.name}</h4>
-                <div className="text-xs text-cyan-400 mt-1">{r.shiftTiming}</div>
-              </div>
-
-              <div className="space-y-2 text-xs text-slate-300 p-3 bg-navy-950 rounded-xl border border-slate-800">
+              <h4 className="text-base font-bold text-[#153B5B]">{r.name}</h4>
+              <div className="space-y-2 text-xs text-[#64748B] p-3 bg-[#F8FAFC] rounded-xl border border-[#E5EDF5]">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Start: {r.origin}</span>
+                  <MapPin className="w-3.5 h-3.5 text-[#3898D8]" />
+                  <span>Origin: <strong className="text-[#153B5B]">{r.origin}</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>End: {r.destination}</span>
+                  <MapPin className="w-3.5 h-3.5 text-[#19A89A]" />
+                  <span>Destination: <strong className="text-[#153B5B]">{r.destination}</strong></span>
                 </div>
-              </div>
-
-              <div className="flex items-center justify-between text-xs pt-1">
-                <span className="text-slate-400">Vehicle: {r.assignedVehicle}</span>
-                <span className="font-bold text-emerald-400">{r.allocatedEmployees}/{r.maxCapacity} Seats Occupied</span>
               </div>
             </div>
           ))}
         </div>
       )}
 
-      {/* TAB 6: MONTHLY CAB CONTRACTS */}
+      {/* TAB 7: CONTRACTS */}
       {activeTab === 'CONTRACTS' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-base font-bold text-white">Enterprise Retainer &amp; Monthly Contracts</h3>
-            <span className="text-xs text-cyan-400">Fixed Tariff Guarantees</span>
+            <h3 className="text-base font-bold text-[#153B5B]">Enterprise Retainer &amp; Monthly Contracts</h3>
+            <span className="text-xs text-[#3898D8] font-bold">Fixed Tariff Guarantees</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {monthlyContracts.map((c) => (
-              <div key={c.id} className="p-6 rounded-3xl bg-navy-900 border border-slate-800 space-y-4 flex flex-col justify-between">
+              <div key={c.id} className="p-6 rounded-3xl bg-white border border-[#E5EDF5] shadow-sm space-y-4 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-cyan-400 font-bold text-xs">{c.id}</span>
-                    <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded font-bold">
+                    <span className="font-mono text-[#3898D8] font-bold text-xs">{c.id}</span>
+                    <span className="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded font-bold">
                       {c.status}
                     </span>
                   </div>
-                  <h4 className="text-base font-bold text-white">{c.department}</h4>
-                  <div className="text-xs text-slate-400 mt-1">{c.vehicleCategory} ({c.vehiclesCount} Cabs)</div>
+                  <h4 className="text-base font-bold text-[#153B5B]">{c.department}</h4>
+                  <div className="text-xs text-[#64748B] mt-1">{c.vehicleCategory} ({c.vehiclesCount} Cabs)</div>
 
-                  <div className="p-4 rounded-xl bg-navy-950 border border-slate-800 my-4 space-y-2 text-xs">
-                    <div>Commitment: <strong className="text-white">{c.monthlyCommitment}</strong></div>
-                    <div>Chauffeurs: <strong className="text-slate-300">{c.driverType}</strong></div>
-                    <div className="text-cyan-400 font-semibold">Renewal: {c.renewalDate}</div>
+                  <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E5EDF5] my-4 space-y-2 text-xs text-[#64748B]">
+                    <div>Commitment: <strong className="text-[#153B5B]">{c.monthlyCommitment}</strong></div>
+                    <div>Chauffeurs: <strong className="text-[#153B5B]">{c.driverType}</strong></div>
+                    <div className="text-[#3898D8] font-semibold">Renewal: {c.renewalDate}</div>
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-slate-800 flex items-center justify-between">
-                  <span className="text-xs text-slate-400">Monthly Billing:</span>
-                  <span className="text-lg font-black text-white font-mono">₹{c.monthlyBilling.toLocaleString()}</span>
+                <div className="pt-3 border-t border-[#E5EDF5] flex items-center justify-between">
+                  <span className="text-xs text-[#64748B]">Monthly Billing:</span>
+                  <span className="text-lg font-black text-[#153B5B] font-mono">₹{c.monthlyBilling.toLocaleString()}</span>
                 </div>
               </div>
             ))}
@@ -582,94 +610,42 @@ export const CorporateAdminPortal = () => {
         </div>
       )}
 
-      {/* TAB 7: TRAVEL REQUESTS (APPROVAL WORKFLOW) */}
-      {activeTab === 'REQUESTS' && (
-        <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 shadow-xl space-y-4">
-          <h3 className="text-base font-bold text-white">Employee Corporate Travel Approval Queue</h3>
-
-          <div className="space-y-3">
-            {travelRequests.map((req) => (
-              <div key={req.id} className="p-5 rounded-2xl bg-navy-950 border border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-4 text-xs">
-                <div className="space-y-1.5 flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold text-cyan-300">{req.id}</span>
-                    <strong className="text-white text-sm">{req.employeeName}</strong>
-                    <span className="text-slate-400">({req.department})</span>
-                  </div>
-                  <div className="text-white font-medium">{req.serviceType}</div>
-                  <p className="text-slate-400 text-[11px]">{req.businessJustification}</p>
-                  <div className="text-[10px] text-cyan-400 font-mono">
-                    Date: {req.travelDate} • Vehicle: {req.vehicleRequested} • Est: ₹{req.estCost}
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2 shrink-0">
-                  {req.status === 'PENDING_APPROVAL' ? (
-                    <>
-                      <button
-                        type="button"
-                        onClick={() => approveTravelRequest(req.id)}
-                        className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-md shadow-emerald-600/30"
-                      >
-                        <Check className="w-3.5 h-3.5" />
-                        <span>Approve</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => rejectTravelRequest(req.id)}
-                        className="px-4 py-2 rounded-xl bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-500/30 font-bold text-xs flex items-center gap-1.5"
-                      >
-                        <X className="w-3.5 h-3.5" />
-                        <span>Reject</span>
-                      </button>
-                    </>
-                  ) : (
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                      req.status === 'APPROVED' 
-                        ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
-                        : 'bg-rose-500/10 text-rose-400 border border-rose-500/30'
-                    }`}>
-                      {req.status}
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* TAB 8: INVOICES & EXPENSES */}
+      {/* TAB 8: INVOICES */}
       {activeTab === 'INVOICES' && (
-        <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 shadow-xl space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-base font-bold text-white">Monthly Consolidated Corporate Invoices</h3>
-            <span className="text-xs text-slate-400">Net-30 Enterprise Credit Terms</span>
+        <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 shadow-sm space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#E5EDF5]">
+            <div>
+              <h3 className="text-base font-bold text-[#153B5B]">Monthly Consolidated Corporate Invoices</h3>
+              <p className="text-xs text-[#64748B]">Net-30 Enterprise Credit Terms with GST credit statement</p>
+            </div>
+            <span className="text-xs text-[#19A89A] font-bold">GST 18% Input Credit Allowed</span>
           </div>
 
           <div className="space-y-3">
             {invoices.map((inv) => (
-              <div key={inv.invoiceNumber} className="p-5 rounded-2xl bg-navy-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
+              <div key={inv.invoiceNumber} className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E5EDF5] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold text-white">{inv.invoiceNumber}</span>
-                    <strong className="text-cyan-300 font-display text-sm">{inv.month}</strong>
+                    <span className="font-mono font-bold text-[#153B5B] text-sm">{inv.invoiceNumber}</span>
+                    <strong className="text-[#3898D8] text-sm">{inv.month}</strong>
                   </div>
-                  <div className="text-[11px] text-slate-400 mt-1">
+                  <div className="text-[11px] text-[#64748B] mt-1">
                     {inv.tripsCount.toLocaleString()} Trips • {inv.totalKilometers.toLocaleString()} KM logged • Due: {inv.dueDate}
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <div className="text-right">
-                    <div className="text-base font-black text-white font-mono">₹{inv.netPayable.toLocaleString()}</div>
-                    <span className="text-[10px] text-emerald-400 font-bold">{inv.status}</span>
+                    <div className="text-base font-black text-[#153B5B] font-mono">₹{inv.netPayable.toLocaleString()}</div>
+                    <span className="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                      {inv.status}
+                    </span>
                   </div>
 
                   <button
                     type="button"
                     onClick={() => alert(`Downloading simulated PDF voucher for ${inv.invoiceNumber}...`)}
-                    className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700"
+                    className="p-2.5 rounded-xl bg-white hover:bg-[#EFF7FC] text-[#3898D8] border border-[#E5EDF5] shadow-xs"
                     title="Download Invoice PDF"
                   >
                     <Download className="w-4 h-4" />
@@ -683,20 +659,20 @@ export const CorporateAdminPortal = () => {
 
       {/* TAB 9: COMPANY PROFILE */}
       {activeTab === 'COMPANY' && (
-        <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 sm:p-8 space-y-6">
-          <h3 className="text-base font-bold text-white">Enterprise Profile &amp; Billing Specifications</h3>
+        <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 sm:p-8 space-y-6 shadow-sm">
+          <h3 className="text-base font-bold text-[#153B5B]">Enterprise Profile &amp; Billing Specifications</h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-            <div className="p-4 rounded-xl bg-navy-950 border border-slate-800 space-y-1">
-              <span className="text-[10px] text-slate-500 uppercase font-semibold">Registered Entity</span>
-              <div className="text-sm font-bold text-white">{companyProfile.companyName}</div>
-              <div className="text-slate-400">Headquarters: {companyProfile.headquarters}</div>
+            <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E5EDF5] space-y-1">
+              <span className="text-[10px] text-[#64748B] uppercase font-semibold">Registered Entity</span>
+              <div className="text-sm font-bold text-[#153B5B]">{companyProfile.companyName}</div>
+              <div className="text-[#64748B]">Headquarters: {companyProfile.headquarters}</div>
             </div>
 
-            <div className="p-4 rounded-xl bg-navy-950 border border-slate-800 space-y-1">
-              <span className="text-[10px] text-slate-500 uppercase font-semibold">Account Manager</span>
-              <div className="text-sm font-bold text-white">{companyProfile.accountManager}</div>
-              <div className="text-cyan-400">{companyProfile.billingCycle}</div>
+            <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E5EDF5] space-y-1">
+              <span className="text-[10px] text-[#64748B] uppercase font-semibold">Account Manager</span>
+              <div className="text-sm font-bold text-[#153B5B]">{companyProfile.accountManager}</div>
+              <div className="text-[#3898D8]">{companyProfile.billingCycle}</div>
             </div>
           </div>
         </div>
