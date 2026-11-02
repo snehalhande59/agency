@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { BookingProvider } from './context/BookingContext';
 import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
@@ -221,6 +221,10 @@ export default function App() {
               <Route path="dashboard" element={<CorporateAdminPortal />} />
             </Route>
             <Route path="/corporate-login" element={<CorporateLoginPage />} />
+            <Route path="/corporate-admin" element={<Navigate to="/corporate/admin" replace />} />
+            <Route path="/corporate-dashboard" element={<Navigate to="/corporate/admin" replace />} />
+            <Route path="/admin/corporate" element={<Navigate to="/corporate/admin" replace />} />
+            <Route path="/corporate/portal" element={<Navigate to="/corporate/admin" replace />} />
 
             {/* User Dashboard Section */}
             <Route path="/dashboard" element={<UserDashboardLayout />}>

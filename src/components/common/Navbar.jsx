@@ -63,7 +63,7 @@ export const Navbar = () => {
   ];
 
   const corporateLinks = [
-    { name: 'HR Admin Dashboard', path: '/corporate/admin', icon: Building2, desc: 'Roster approvals & company fleet' },
+    { name: 'Corporate Admin Portal', path: '/corporate/admin', icon: Building2, desc: 'HR Admin roster, cab allocations & approvals' },
     { name: 'Employee Commute', path: '/corporate/employee', icon: Users, desc: 'Daily pickup, drop & live tracking' },
     { name: 'Transport Dispatch Ops', path: '/corporate/transport-manager', icon: Truck, desc: 'Route planning & driver dispatch' },
     { name: 'Chauffeur / Driver App', path: '/corporate/driver', icon: Car, desc: 'Assigned duty roster & trip OTP' },
@@ -201,10 +201,11 @@ export const Navbar = () => {
             >
               <Link 
                 to="/corporate/admin" 
+                onClick={() => setCorporateDropdown(false)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${location.pathname.startsWith('/corporate') ? 'text-white bg-[#3898D8] shadow-sm font-bold' : 'text-[#153B5B] hover:text-[#3898D8] hover:bg-[#EFF7FC]'}`}
               >
                 <Building2 className="w-4 h-4" />
-                <span>Corporate Hub</span>
+                <span>Corporate Admin</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${corporateDropdown ? 'rotate-180' : ''}`} />
               </Link>
 
