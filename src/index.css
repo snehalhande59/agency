@@ -27,9 +27,26 @@
     color: #153B5B;
   }
 
-  /* Universal input focus styling */
-  input, select, textarea {
-    color: #153B5B;
+  /* Universal input focus styling & contrast enforcement */
+  input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    background-color: #F8FAFC !important;
+    color: #153B5B !important;
+    border-color: #E5EDF5 !important;
+  }
+
+  input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):focus,
+  select:focus,
+  textarea:focus {
+    background-color: #FFFFFF !important;
+    color: #153B5B !important;
+    border-color: #3898D8 !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #94A3B8 !important;
   }
 }
 

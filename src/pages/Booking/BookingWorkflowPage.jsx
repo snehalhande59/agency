@@ -267,21 +267,21 @@ export const BookingWorkflowPage = () => {
             
             {/* Left Column: Booking Form Fields */}
             <form onSubmit={handleProceedToVehicles} className="lg:col-span-7 space-y-6">
-              <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 sm:p-8 shadow-xl space-y-5">
-                <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+              <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 sm:p-8 shadow-sm space-y-5">
+                <div className="flex items-center justify-between pb-3 border-b border-[#E5EDF5]">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#3898D8]">
                       Step 1 • Service Parameters
                     </span>
-                    <span className="text-xs font-bold text-white">— {currentWorkflow.name}</span>
+                    <span className="text-xs font-bold text-[#153B5B]">— {currentWorkflow.name}</span>
                   </div>
-                  <span className="text-[11px] text-slate-400">{currentWorkflow.tagline}</span>
+                  <span className="text-[11px] text-[#64748B]">{currentWorkflow.tagline}</span>
                 </div>
 
                 {/* Pickup Location */}
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+                  <label className="block text-xs font-semibold text-[#153B5B] mb-1.5 flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#3898D8]" />
                     <span>Pickup Address / Landmark</span>
                   </label>
                   <input
@@ -290,15 +290,15 @@ export const BookingWorkflowPage = () => {
                     onChange={(e) => setPickup(e.target.value)}
                     required
                     placeholder="Enter pickup address, hotel, or station..."
-                    className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400 font-medium"
+                    className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-3 text-sm text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8]"
                   />
                 </div>
 
                 {/* Drop Location / Package Selector */}
                 {currentWorkflow.supportsHourlyPackages ? (
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-amber-400" />
+                    <label className="block text-xs font-semibold text-[#153B5B] mb-1.5 flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-amber-500" />
                       <span>Select Hourly Rental Package</span>
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -309,20 +309,20 @@ export const BookingWorkflowPage = () => {
                           onClick={() => setSelectedHourlyPackage(pkg)}
                           className={`p-3 rounded-xl border text-left transition-all ${
                             selectedHourlyPackage.id === pkg.id
-                              ? 'bg-cyan-600/20 border-cyan-400 text-white shadow-md'
-                              : 'bg-navy-950 border-slate-800 text-slate-300 hover:border-slate-700'
+                              ? 'bg-[#DCEEFF] border-[#3898D8] text-[#153B5B] shadow-sm'
+                              : 'bg-[#F8FAFC] border-[#E5EDF5] text-[#64748B] hover:border-[#3898D8]'
                           }`}
                         >
-                          <div className="font-bold text-xs text-white">{pkg.name}</div>
-                          <div className="text-[10px] text-slate-400 mt-0.5">Unlimited City Stops</div>
+                          <div className="font-bold text-xs text-[#153B5B]">{pkg.name}</div>
+                          <div className="text-[10px] text-[#64748B] mt-0.5">Unlimited City Stops</div>
                         </button>
                       ))}
                     </div>
                   </div>
                 ) : (
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-pink-400" />
+                    <label className="block text-xs font-semibold text-[#153B5B] mb-1.5 flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#19A89A]" />
                       <span>Drop Destination / Airport Terminal</span>
                     </label>
                     <input
@@ -331,7 +331,7 @@ export const BookingWorkflowPage = () => {
                       onChange={(e) => setDrop(e.target.value)}
                       required
                       placeholder="Enter destination city, hotel, or airport terminal..."
-                      className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400 font-medium"
+                      className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-3 text-sm text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8]"
                     />
                   </div>
                 )}
@@ -339,8 +339,8 @@ export const BookingWorkflowPage = () => {
                 {/* Dates & Pickup Time */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+                    <label className="block text-xs font-semibold text-[#153B5B] mb-1.5 flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-[#3898D8]" />
                       <span>Journey Date</span>
                     </label>
                     <input
@@ -349,14 +349,14 @@ export const BookingWorkflowPage = () => {
                       min={new Date().toISOString().split('T')[0]}
                       onChange={(e) => setJourneyDate(e.target.value)}
                       required
-                      className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-400 font-mono"
+                      className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] font-mono [color-scheme:light]"
                     />
                   </div>
 
                   {currentWorkflow.requiresReturnDate ? (
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                        <RefreshCw className="w-3.5 h-3.5 text-emerald-400" />
+                      <label className="block text-xs font-semibold text-[#153B5B] mb-1.5 flex items-center gap-1.5">
+                        <RefreshCw className="w-3.5 h-3.5 text-[#19A89A]" />
                         <span>Return Journey Date</span>
                       </label>
                       <input
@@ -365,13 +365,13 @@ export const BookingWorkflowPage = () => {
                         min={journeyDate}
                         onChange={(e) => setReturnDate(e.target.value)}
                         required
-                        className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-400 font-mono"
+                        className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] font-mono [color-scheme:light]"
                       />
                     </div>
                   ) : (
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                        <Clock className="w-3.5 h-3.5 text-amber-400" />
+                      <label className="block text-xs font-semibold text-[#153B5B] mb-1.5 flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5 text-amber-500" />
                         <span>Pickup Time</span>
                       </label>
                       <input
@@ -379,7 +379,7 @@ export const BookingWorkflowPage = () => {
                         value={pickupTime}
                         onChange={(e) => setPickupTime(e.target.value)}
                         required
-                        className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-400 font-mono"
+                        className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] font-mono"
                       />
                     </div>
                   )}
@@ -388,25 +388,25 @@ export const BookingWorkflowPage = () => {
                 {/* Capacity & Luggage */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                      <Users className="w-3.5 h-3.5 text-cyan-400" />
+                    <label className="block text-xs font-semibold text-[#153B5B] mb-1.5 flex items-center gap-1.5">
+                      <Users className="w-3.5 h-3.5 text-[#3898D8]" />
                       <span>Passenger Count</span>
                     </label>
-                    <div className="flex items-center bg-navy-950 border border-slate-700 rounded-xl px-3 py-1.5">
+                    <div className="flex items-center bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-3 py-1.5">
                       <button
                         type="button"
                         onClick={() => setPassengerCount(Math.max(1, passengerCount - 1))}
-                        className="w-8 h-8 rounded-lg bg-slate-800 text-white font-bold text-sm hover:bg-slate-700"
+                        className="w-8 h-8 rounded-lg bg-[#EFF7FC] text-[#153B5B] font-bold text-sm hover:bg-[#DCEEFF] transition-colors"
                       >
                         -
                       </button>
-                      <span className="flex-1 text-center font-bold font-mono text-white text-sm">
+                      <span className="flex-1 text-center font-bold font-mono text-[#153B5B] text-sm">
                         {passengerCount} Passengers
                       </span>
                       <button
                         type="button"
                         onClick={() => setPassengerCount(Math.min(50, passengerCount + 1))}
-                        className="w-8 h-8 rounded-lg bg-slate-800 text-white font-bold text-sm hover:bg-slate-700"
+                        className="w-8 h-8 rounded-lg bg-[#EFF7FC] text-[#153B5B] font-bold text-sm hover:bg-[#DCEEFF] transition-colors"
                       >
                         +
                       </button>
@@ -414,25 +414,25 @@ export const BookingWorkflowPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                      <Briefcase className="w-3.5 h-3.5 text-amber-400" />
+                    <label className="block text-xs font-semibold text-[#153B5B] mb-1.5 flex items-center gap-1.5">
+                      <Briefcase className="w-3.5 h-3.5 text-amber-500" />
                       <span>Luggage Requirements</span>
                     </label>
-                    <div className="flex items-center bg-navy-950 border border-slate-700 rounded-xl px-3 py-1.5">
+                    <div className="flex items-center bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-3 py-1.5">
                       <button
                         type="button"
                         onClick={() => setLuggageCount(Math.max(0, luggageCount - 1))}
-                        className="w-8 h-8 rounded-lg bg-slate-800 text-white font-bold text-sm hover:bg-slate-700"
+                        className="w-8 h-8 rounded-lg bg-[#EFF7FC] text-[#153B5B] font-bold text-sm hover:bg-[#DCEEFF] transition-colors"
                       >
                         -
                       </button>
-                      <span className="flex-1 text-center font-bold font-mono text-white text-sm">
+                      <span className="flex-1 text-center font-bold font-mono text-[#153B5B] text-sm">
                         {luggageCount} Suitcases
                       </span>
                       <button
                         type="button"
                         onClick={() => setLuggageCount(Math.min(45, luggageCount + 1))}
-                        className="w-8 h-8 rounded-lg bg-slate-800 text-white font-bold text-sm hover:bg-slate-700"
+                        className="w-8 h-8 rounded-lg bg-[#EFF7FC] text-[#153B5B] font-bold text-sm hover:bg-[#DCEEFF] transition-colors"
                       >
                         +
                       </button>
@@ -442,9 +442,9 @@ export const BookingWorkflowPage = () => {
 
                 {/* Flight Number for Airport Workflows */}
                 {currentWorkflow.requiresFlightNumber && (
-                  <div className="p-4 rounded-2xl bg-cyan-950/30 border border-cyan-500/30 space-y-2">
-                    <label className="block text-xs font-semibold text-cyan-300 flex items-center gap-1.5">
-                      <Plane className="w-4 h-4 text-cyan-400" />
+                  <div className="p-4 rounded-2xl bg-[#EFF7FC] border border-[#DCEEFF] space-y-2">
+                    <label className="block text-xs font-semibold text-[#153B5B] flex items-center gap-1.5">
+                      <Plane className="w-4 h-4 text-[#3898D8]" />
                       <span>Flight Number (for Automated Delay Tracking)</span>
                     </label>
                     <input
@@ -453,22 +453,22 @@ export const BookingWorkflowPage = () => {
                       onChange={(e) => setFlightNumber(e.target.value)}
                       placeholder="e.g. 6E-5321 or AI-882"
                       required
-                      className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-400 font-mono"
+                      className="w-full bg-white border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] font-mono"
                     />
-                    <span className="text-[10px] text-slate-400">
+                    <span className="text-[10px] text-[#64748B]">
                       Chauffeur timing automatically adjusts if your flight is delayed. Zero wait surcharge.
                     </span>
                   </div>
                 )}
 
                 {/* Submit Step 1 Button */}
-                <div className="pt-4 border-t border-slate-800 flex justify-end">
+                <div className="pt-4 border-t border-[#E5EDF5] flex justify-end">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-600/30 transition-all"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer"
                   >
                     <span>View Available Vehicles</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 text-white" />
                   </button>
                 </div>
 
@@ -486,9 +486,9 @@ export const BookingWorkflowPage = () => {
                 isRoundTrip={currentWorkflow.requiresReturnDate}
               />
 
-              <div className="p-4 rounded-2xl bg-navy-900 border border-slate-800 text-xs text-slate-400 space-y-2">
-                <div className="flex items-center gap-2 text-white font-bold">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <div className="p-4 rounded-2xl bg-white border border-[#E5EDF5] text-xs text-[#64748B] space-y-2 shadow-sm">
+                <div className="flex items-center gap-2 text-[#153B5B] font-bold">
+                  <ShieldCheck className="w-4 h-4 text-[#19A89A]" />
                   <span>Guaranteed Upfront Pricing</span>
                 </div>
                 <p className="text-[11px] leading-relaxed">
@@ -503,27 +503,27 @@ export const BookingWorkflowPage = () => {
         {/* STEP 2: VEHICLE SELECTION */}
         {currentStep === 2 && (
           <div className="space-y-6">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <div className="flex items-center justify-between pb-4 border-b border-[#E5EDF5]">
               <div className="flex items-center gap-3">
                 <button
                   type="button"
                   onClick={() => setCurrentStep(1)}
-                  className="p-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white"
+                  className="p-2 rounded-xl bg-[#EFF7FC] text-[#153B5B] hover:bg-[#DCEEFF] transition-colors"
                 >
                   <ArrowLeft className="w-4 h-4" />
                 </button>
                 <div>
-                  <h2 className="text-xl font-bold text-white font-display">
+                  <h2 className="text-xl font-bold text-[#153B5B] font-display">
                     Select Your Vehicle
                   </h2>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-[#64748B]">
                     {availableVehicles.length} vehicle categories available for {currentWorkflow.name}
                   </p>
                 </div>
               </div>
 
-              <div className="text-xs text-slate-400 hidden sm:block">
-                Route: <strong className="text-white">{routeEstimate.distanceKm} KM</strong> • {routeEstimate.duration}
+              <div className="text-xs text-[#64748B] hidden sm:block">
+                Route: <strong className="text-[#153B5B]">{routeEstimate.distanceKm} KM</strong> • {routeEstimate.duration}
               </div>
             </div>
 
@@ -543,15 +543,15 @@ export const BookingWorkflowPage = () => {
                 return (
                   <div
                     key={veh.id}
-                    className={`rounded-3xl bg-navy-900 border overflow-hidden flex flex-col justify-between transition-all ${
+                    className={`rounded-3xl bg-white border overflow-hidden flex flex-col justify-between transition-all ${
                       isSelected
-                        ? 'border-cyan-400 shadow-xl shadow-cyan-500/10 scale-[1.01]'
-                        : 'border-slate-800 hover:border-slate-700'
+                        ? 'border-[#3898D8] shadow-xl shadow-[#3898D8]/10 scale-[1.01]'
+                        : 'border-[#E5EDF5] hover:border-[#3898D8]'
                     }`}
                   >
                     <div>
                       {/* Vehicle Image */}
-                      <div className="relative h-44 w-full overflow-hidden bg-slate-900">
+                      <div className="relative h-44 w-full overflow-hidden bg-[#EFF7FC]">
                         <img
                           src={veh.image}
                           alt={veh.name}
@@ -560,41 +560,41 @@ export const BookingWorkflowPage = () => {
                             e.target.src = 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80';
                           }}
                         />
-                        <span className="absolute top-3 left-3 bg-navy-950/90 text-cyan-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-cyan-500/30">
+                        <span className="absolute top-3 left-3 bg-[#3898D8] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
                           {veh.category}
                         </span>
-                        <span className="absolute top-3 right-3 bg-slate-900/90 text-slate-300 text-[10px] font-mono px-2 py-0.5 rounded">
+                        <span className="absolute top-3 right-3 bg-white/90 text-[#153B5B] text-[10px] font-mono px-2 py-0.5 rounded border border-[#E5EDF5]">
                           {veh.pricePerKm}
                         </span>
                       </div>
 
                       <div className="p-6 space-y-4">
                         <div>
-                          <h3 className="text-lg font-bold text-white">{veh.name}</h3>
-                          <div className="text-xs text-slate-400 mt-0.5">{veh.models}</div>
+                          <h3 className="text-lg font-bold text-[#153B5B]">{veh.name}</h3>
+                          <div className="text-xs text-[#64748B] mt-0.5">{veh.models}</div>
                         </div>
 
                         {/* Capacities */}
-                        <div className="flex items-center gap-4 text-xs text-slate-300 pt-1">
+                        <div className="flex items-center gap-4 text-xs text-[#153B5B] pt-1 font-semibold">
                           <span className="flex items-center gap-1.5">
-                            <Users className="w-3.5 h-3.5 text-cyan-400" />
+                            <Users className="w-3.5 h-3.5 text-[#3898D8]" />
                             <span>{veh.passengers} Seats</span>
                           </span>
                           <span>•</span>
                           <span className="flex items-center gap-1.5">
-                            <Briefcase className="w-3.5 h-3.5 text-amber-400" />
+                            <Briefcase className="w-3.5 h-3.5 text-amber-500" />
                             <span>{veh.luggage}</span>
                           </span>
                           <span>•</span>
-                          <span className="text-emerald-400 font-semibold">Dual AC</span>
+                          <span className="text-[#19A89A] font-bold">Dual AC</span>
                         </div>
 
                         {/* Features */}
-                        <div className="space-y-1 text-xs text-slate-400 border-t border-slate-800 pt-3">
+                        <div className="space-y-1 text-xs text-[#64748B] border-t border-[#E5EDF5] pt-3">
                           {veh.features?.slice(0, 3).map((f, i) => (
                             <div key={i} className="flex items-center gap-1.5">
-                              <CheckCircle2 className="w-3 h-3 text-cyan-400 shrink-0" />
-                              <span className="text-[11px]">{f}</span>
+                              <CheckCircle2 className="w-3 h-3 text-[#19A89A] shrink-0" />
+                              <span className="text-[11px] font-medium">{f}</span>
                             </div>
                           ))}
                         </div>
@@ -603,15 +603,15 @@ export const BookingWorkflowPage = () => {
 
                     {/* Bottom Fare & Action */}
                     <div className="p-6 pt-0">
-                      <div className="p-4 rounded-2xl bg-navy-950 border border-slate-800 flex items-center justify-between mb-4">
+                      <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E5EDF5] flex items-center justify-between mb-4">
                         <div>
-                          <span className="text-[10px] uppercase font-bold text-slate-400 block">Total Est. Fare</span>
-                          <div className="text-xl font-black text-white font-mono flex items-center gap-0.5">
-                            <span className="text-cyan-400">₹</span>
+                          <span className="text-[10px] uppercase font-bold text-[#64748B] block">Total Est. Fare</span>
+                          <div className="text-xl font-black text-[#153B5B] font-mono flex items-center gap-0.5">
+                            <span className="text-[#3898D8]">₹</span>
                             <span>{estBreakdown.totalFare.toLocaleString()}</span>
                           </div>
                         </div>
-                        <span className="text-[10px] text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded">
+                        <span className="text-[10px] text-[#19A89A] font-bold bg-[#E6F7F5] px-2 py-0.5 rounded border border-[#19A89A]/30">
                           Tolls &amp; GST Included
                         </span>
                       </div>
@@ -619,10 +619,10 @@ export const BookingWorkflowPage = () => {
                       <button
                         type="button"
                         onClick={() => handleSelectVehicleAndProceed(veh)}
-                        className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-cyan-600/30 transition-all"
+                        className="w-full py-3 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer"
                       >
                         <span>Select Vehicle &amp; Continue</span>
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="w-4 h-4 text-white" />
                       </button>
                     </div>
 
@@ -636,28 +636,28 @@ export const BookingWorkflowPage = () => {
         {/* STEP 3: PASSENGER PARTICULARS */}
         {currentStep === 3 && (
           <div className="max-w-2xl mx-auto space-y-6">
-            <div className="flex items-center gap-3 pb-4 border-b border-slate-800">
+            <div className="flex items-center gap-3 pb-4 border-b border-[#E5EDF5]">
               <button
                 type="button"
                 onClick={() => setCurrentStep(2)}
-                className="p-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white"
+                className="p-2 rounded-xl bg-[#EFF7FC] text-[#153B5B] hover:bg-[#DCEEFF] transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
               <div>
-                <h2 className="text-xl font-bold text-white font-display">
+                <h2 className="text-xl font-bold text-[#153B5B] font-display">
                   Passenger Particulars &amp; Notes
                 </h2>
-                <p className="text-xs text-slate-400">
-                  Vehicle: <strong className="text-cyan-300">{selectedVehicle?.name}</strong> • {currentWorkflow.name}
+                <p className="text-xs text-[#64748B]">
+                  Vehicle: <strong className="text-[#3898D8]">{selectedVehicle?.name}</strong> • {currentWorkflow.name}
                 </p>
               </div>
             </div>
 
-            <form onSubmit={handleProceedToReview} className="rounded-3xl bg-navy-900 border border-slate-800 p-6 sm:p-8 shadow-xl space-y-5">
+            <form onSubmit={handleProceedToReview} className="rounded-3xl bg-white border border-[#E5EDF5] p-6 sm:p-8 shadow-sm space-y-5">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-cyan-400" />
+                <label className="block text-xs font-semibold text-[#153B5B] mb-1.5 flex items-center gap-1.5">
+                  <User className="w-3.5 h-3.5 text-[#3898D8]" />
                   <span>Lead Passenger Full Name</span>
                 </label>
                 <input
@@ -666,7 +666,7 @@ export const BookingWorkflowPage = () => {
                   onChange={(e) => setPassengerName(e.target.value)}
                   required
                   placeholder="e.g. Snehal Hande"
-                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] focus:outline-none focus:border-[#3898D8]"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8]"
                 />
               </div>
 
@@ -682,7 +682,7 @@ export const BookingWorkflowPage = () => {
                     onChange={(e) => setPassengerPhone(e.target.value)}
                     required
                     placeholder="+91 98202 88410"
-                    className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] focus:outline-none focus:border-[#3898D8] font-mono"
+                    className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8] font-mono"
                   />
                 </div>
 
@@ -696,13 +696,13 @@ export const BookingWorkflowPage = () => {
                     onChange={(e) => setPassengerEmail(e.target.value)}
                     required
                     placeholder="snehal@example.com"
-                    className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] focus:outline-none focus:border-[#3898D8]"
+                    className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-[#153B5B] mb-1.5">
                   Pickup Landmark &amp; Driver Special Instructions
                 </label>
                 <textarea
@@ -710,25 +710,25 @@ export const BookingWorkflowPage = () => {
                   value={landmarkNotes}
                   onChange={(e) => setLandmarkNotes(e.target.value)}
                   placeholder="e.g. Near Gate 3 building lobby, extra boot space needed for golf kit..."
-                  className="w-full bg-navy-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-400"
+                  className="w-full bg-[#F8FAFC] border border-[#E5EDF5] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#153B5B] font-semibold focus:outline-none focus:border-[#3898D8]"
                 />
               </div>
 
-              <div className="pt-4 border-t border-slate-800 flex justify-between items-center">
+              <div className="pt-4 border-t border-[#E5EDF5] flex justify-between items-center">
                 <button
                   type="button"
                   onClick={() => setCurrentStep(2)}
-                  className="text-xs text-slate-400 hover:text-white"
+                  className="text-xs text-[#64748B] hover:text-[#153B5B] transition-colors"
                 >
                   Back to Vehicles
                 </button>
 
                 <button
                   type="submit"
-                  className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-sm flex items-center gap-2 shadow-lg shadow-cyan-600/30 transition-all"
+                  className="px-8 py-3.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-sm flex items-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer"
                 >
                   <span>Review Booking Summary</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </button>
               </div>
             </form>
@@ -738,19 +738,19 @@ export const BookingWorkflowPage = () => {
         {/* STEP 4: REVIEW & SUMMARY */}
         {currentStep === 4 && (
           <div className="max-w-4xl mx-auto space-y-6">
-            <div className="flex items-center gap-3 pb-4 border-b border-slate-800">
+            <div className="flex items-center gap-3 pb-4 border-b border-[#E5EDF5]">
               <button
                 type="button"
                 onClick={() => setCurrentStep(3)}
-                className="p-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white"
+                className="p-2 rounded-xl bg-[#EFF7FC] text-[#153B5B] hover:bg-[#DCEEFF] transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
               <div>
-                <h2 className="text-xl font-bold text-white font-display">
+                <h2 className="text-xl font-bold text-[#153B5B] font-display">
                   Review Travel Summary
                 </h2>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-[#64748B]">
                   Verify journey parameters, chauffeur dispatch details, and transparent billing
                 </p>
               </div>
@@ -760,53 +760,53 @@ export const BookingWorkflowPage = () => {
               
               {/* Left Column: Itinerary Details */}
               <div className="lg:col-span-7 space-y-5">
-                <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 shadow-xl space-y-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                    <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">
+                <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#E5EDF5]">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#3898D8] font-mono">
                       {currentWorkflow.name}
                     </span>
-                    <span className="text-xs text-slate-400">{journeyDate} at {pickupTime}</span>
+                    <span className="text-xs text-[#64748B]">{journeyDate} at {pickupTime}</span>
                   </div>
 
                   <div className="space-y-3 text-xs">
                     <div>
-                      <span className="text-[10px] text-slate-500 uppercase font-semibold block">Pickup Location</span>
-                      <span className="font-bold text-white text-sm">{pickup}</span>
+                      <span className="text-[10px] text-[#64748B] uppercase font-bold block">Pickup Location</span>
+                      <span className="font-bold text-[#153B5B] text-sm">{pickup}</span>
                     </div>
 
                     <div>
-                      <span className="text-[10px] text-slate-500 uppercase font-semibold block">Destination</span>
-                      <span className="font-bold text-white text-sm">
+                      <span className="text-[10px] text-[#64748B] uppercase font-bold block">Destination</span>
+                      <span className="font-bold text-[#153B5B] text-sm">
                         {currentWorkflow.supportsHourlyPackages ? selectedHourlyPackage.name : drop}
                       </span>
                     </div>
 
                     {currentWorkflow.requiresReturnDate && (
                       <div>
-                        <span className="text-[10px] text-slate-500 uppercase font-semibold block">Return Date</span>
-                        <span className="font-bold text-emerald-400">{returnDate}</span>
+                        <span className="text-[10px] text-[#64748B] uppercase font-bold block">Return Date</span>
+                        <span className="font-bold text-[#19A89A]">{returnDate}</span>
                       </div>
                     )}
                   </div>
 
-                  <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-300">
+                  <div className="pt-3 border-t border-[#E5EDF5] flex items-center justify-between text-xs text-[#64748B]">
                     <span>Selected Vehicle:</span>
-                    <strong className="text-white">{selectedVehicle?.name}</strong>
+                    <strong className="text-[#153B5B]">{selectedVehicle?.name}</strong>
                   </div>
-                  <div className="flex items-center justify-between text-xs text-slate-300">
+                  <div className="flex items-center justify-between text-xs text-[#64748B]">
                     <span>Lead Passenger:</span>
-                    <strong className="text-white">{passengerName} ({passengerPhone})</strong>
+                    <strong className="text-[#153B5B]">{passengerName} ({passengerPhone})</strong>
                   </div>
                 </div>
 
                 {/* Simulated Chauffeur Card */}
-                <div className="p-5 rounded-2xl bg-navy-950 border border-slate-800 text-xs flex items-center justify-between">
+                <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E5EDF5] text-xs flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-500 block">Simulated Chauffeur Allocation</span>
-                    <div className="font-bold text-white text-sm mt-0.5">Sanjay Pawar (4.9 ★ Rating)</div>
-                    <div className="text-[11px] text-slate-400 mt-0.5">Verified Chauffeur • Police Cleared</div>
+                    <span className="text-[10px] uppercase font-bold text-[#64748B] block">Simulated Chauffeur Allocation</span>
+                    <div className="font-bold text-[#153B5B] text-sm mt-0.5">Sanjay Pawar (4.9 ★ Rating)</div>
+                    <div className="text-[11px] text-[#64748B] mt-0.5">Verified Chauffeur • Police Cleared</div>
                   </div>
-                  <span className="text-[10px] text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-full border border-cyan-500/20 font-mono">
+                  <span className="text-[10px] text-[#3898D8] bg-[#DCEEFF] px-2.5 py-1 rounded-full border border-[#3898D8]/30 font-mono font-bold">
                     DEMO DISPATCH
                   </span>
                 </div>
@@ -814,66 +814,66 @@ export const BookingWorkflowPage = () => {
 
               {/* Right Column: Transparent Billing */}
               <div className="lg:col-span-5 space-y-4">
-                <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 shadow-xl space-y-4">
-                  <h3 className="text-sm font-bold text-white uppercase tracking-wider pb-2 border-b border-slate-800">
+                <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 shadow-sm space-y-4">
+                  <h3 className="text-sm font-bold text-[#153B5B] uppercase tracking-wider pb-2 border-b border-[#E5EDF5]">
                     Transparent Itemized Billing
                   </h3>
 
-                  <div className="space-y-2.5 text-xs text-slate-300">
+                  <div className="space-y-2.5 text-xs text-[#64748B]">
                     <div className="flex justify-between">
                       <span>Base Rental ({fareBreakdown?.billableDistance} KM):</span>
-                      <span className="font-mono font-semibold">₹{fareBreakdown?.baseFare}</span>
+                      <span className="font-mono font-semibold text-[#153B5B]">₹{fareBreakdown?.baseFare}</span>
                     </div>
 
                     {fareBreakdown?.driverAllowance > 0 && (
                       <div className="flex justify-between">
                         <span>Chauffeur Allowance:</span>
-                        <span className="font-mono font-semibold">₹{fareBreakdown?.driverAllowance}</span>
+                        <span className="font-mono font-semibold text-[#153B5B]">₹{fareBreakdown?.driverAllowance}</span>
                       </div>
                     )}
 
                     <div className="flex justify-between">
                       <span>Estimated Tolls &amp; State Permit:</span>
-                      <span className="font-mono font-semibold">₹{fareBreakdown?.tollEstimate}</span>
+                      <span className="font-mono font-semibold text-[#153B5B]">₹{fareBreakdown?.tollEstimate}</span>
                     </div>
 
                     <div className="flex justify-between">
                       <span>GST (5% Passenger Transport):</span>
-                      <span className="font-mono font-semibold">₹{fareBreakdown?.gstAmount}</span>
+                      <span className="font-mono font-semibold text-[#153B5B]">₹{fareBreakdown?.gstAmount}</span>
                     </div>
 
                     {fareBreakdown?.discount > 0 && (
-                      <div className="flex justify-between text-emerald-400 font-semibold">
+                      <div className="flex justify-between text-[#19A89A] font-bold">
                         <span>Promo Code ({promoCode}):</span>
                         <span className="font-mono">-₹{fareBreakdown?.discount}</span>
                       </div>
                     )}
 
-                    <div className="pt-3 border-t border-slate-800 flex justify-between items-center text-sm font-bold text-white">
+                    <div className="pt-3 border-t border-[#E5EDF5] flex justify-between items-center text-sm font-bold text-[#153B5B]">
                       <span>Net Total Payable:</span>
-                      <span className="font-mono text-xl text-cyan-400">
+                      <span className="font-mono text-xl text-[#3898D8] font-black">
                         ₹{fareBreakdown?.totalFare?.toLocaleString()}
                       </span>
                     </div>
                   </div>
 
                   {/* Promo Box */}
-                  <div className="p-3 rounded-xl bg-navy-950 border border-slate-800 flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-1.5 text-slate-300">
-                      <Tag className="w-3.5 h-3.5 text-cyan-400" />
-                      <span className="font-mono font-bold text-cyan-300">{promoCode}</span>
+                  <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E5EDF5] flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-1.5 text-[#153B5B]">
+                      <Tag className="w-3.5 h-3.5 text-[#3898D8]" />
+                      <span className="font-mono font-bold text-[#3898D8]">{promoCode}</span>
                     </div>
-                    <span className="text-[10px] text-emerald-400 font-bold">APPLIED (₹200 Off)</span>
+                    <span className="text-[10px] text-[#19A89A] font-bold">APPLIED (₹200 Off)</span>
                   </div>
 
                   <button
                     type="button"
                     onClick={handleProceedToPayment}
-                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-600/30 transition-all"
+                    className="w-full py-3.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer"
                   >
-                    <CreditCard className="w-4 h-4" />
+                    <CreditCard className="w-4 h-4 text-white" />
                     <span>Proceed to Demo Payment</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 text-white" />
                   </button>
                 </div>
               </div>
@@ -885,34 +885,34 @@ export const BookingWorkflowPage = () => {
         {/* STEP 5: DEMO PAYMENT */}
         {currentStep === 5 && (
           <div className="max-w-2xl mx-auto space-y-6">
-            <div className="flex items-center gap-3 pb-4 border-b border-slate-800">
+            <div className="flex items-center gap-3 pb-4 border-b border-[#E5EDF5]">
               <button
                 type="button"
                 onClick={() => setCurrentStep(4)}
-                className="p-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white"
+                className="p-2 rounded-xl bg-[#EFF7FC] text-[#153B5B] hover:bg-[#DCEEFF] transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
               <div>
-                <h2 className="text-xl font-bold text-white font-display">
+                <h2 className="text-xl font-bold text-[#153B5B] font-display">
                   Simulated Payment Checkout
                 </h2>
-                <p className="text-xs text-slate-400">
-                  Total Amount: <strong className="font-mono text-cyan-300">₹{fareBreakdown?.totalFare?.toLocaleString()}</strong>
+                <p className="text-xs text-[#64748B]">
+                  Total Amount: <strong className="font-mono text-[#3898D8]">₹{fareBreakdown?.totalFare?.toLocaleString()}</strong>
                 </p>
               </div>
             </div>
 
-            <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 sm:p-8 shadow-xl space-y-6">
-              <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 text-amber-400 shrink-0" />
+            <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 sm:p-8 shadow-sm space-y-6">
+              <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
                 <span>
                   <strong>DEMO PAYMENT:</strong> No real bank charges occur. Simulated payment confirmation generates your travel voucher.
                 </span>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-3">
+                <label className="block text-xs font-semibold text-[#153B5B] mb-3">
                   Choose Demo Payment Instrument
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -921,12 +921,12 @@ export const BookingWorkflowPage = () => {
                     onClick={() => setPaymentMethod('UPI')}
                     className={`p-4 rounded-xl border text-left transition-all ${
                       paymentMethod === 'UPI'
-                        ? 'bg-cyan-600/20 border-cyan-400 text-white shadow-md'
-                        : 'bg-navy-950 border-slate-800 text-slate-400'
+                        ? 'bg-[#DCEEFF] border-[#3898D8] text-[#153B5B] shadow-sm'
+                        : 'bg-[#F8FAFC] border-[#E5EDF5] text-[#64748B] hover:border-[#3898D8]'
                     }`}
                   >
-                    <div className="font-bold text-xs text-white">Instant UPI</div>
-                    <div className="text-[10px] text-slate-400 mt-1">GPay, PhonePe, Paytm</div>
+                    <div className="font-bold text-xs text-[#153B5B]">Instant UPI</div>
+                    <div className="text-[10px] text-[#64748B] mt-1">GPay, PhonePe, Paytm</div>
                   </button>
 
                   <button
@@ -934,12 +934,12 @@ export const BookingWorkflowPage = () => {
                     onClick={() => setPaymentMethod('CARD')}
                     className={`p-4 rounded-xl border text-left transition-all ${
                       paymentMethod === 'CARD'
-                        ? 'bg-cyan-600/20 border-cyan-400 text-white shadow-md'
-                        : 'bg-navy-950 border-slate-800 text-slate-400'
+                        ? 'bg-[#DCEEFF] border-[#3898D8] text-[#153B5B] shadow-sm'
+                        : 'bg-[#F8FAFC] border-[#E5EDF5] text-[#64748B] hover:border-[#3898D8]'
                     }`}
                   >
-                    <div className="font-bold text-xs text-white">Corporate Card</div>
-                    <div className="text-[10px] text-slate-400 mt-1">Visa, RuPay, Amex</div>
+                    <div className="font-bold text-xs text-[#153B5B]">Corporate Card</div>
+                    <div className="text-[10px] text-[#64748B] mt-1">Visa, RuPay, Amex</div>
                   </button>
 
                   <button
@@ -947,27 +947,27 @@ export const BookingWorkflowPage = () => {
                     onClick={() => setPaymentMethod('NET30')}
                     className={`p-4 rounded-xl border text-left transition-all ${
                       paymentMethod === 'NET30'
-                        ? 'bg-cyan-600/20 border-cyan-400 text-white shadow-md'
-                        : 'bg-navy-950 border-slate-800 text-slate-400'
+                        ? 'bg-[#DCEEFF] border-[#3898D8] text-[#153B5B] shadow-sm'
+                        : 'bg-[#F8FAFC] border-[#E5EDF5] text-[#64748B] hover:border-[#3898D8]'
                     }`}
                   >
-                    <div className="font-bold text-xs text-white">Enterprise Net-30</div>
-                    <div className="text-[10px] text-slate-400 mt-1">Monthly Billing Invoice</div>
+                    <div className="font-bold text-xs text-[#153B5B]">Enterprise Net-30</div>
+                    <div className="text-[10px] text-[#64748B] mt-1">Monthly Billing Invoice</div>
                   </button>
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-navy-950 border border-slate-800 text-xs text-slate-300">
-                <span className="font-mono text-cyan-300 block mb-1">Simulated VPA: passenger@okhdfcbank</span>
-                <span className="text-[11px] text-slate-400">Zero sensitive banking passwords requested. Sandbox tokenized verification.</span>
+              <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E5EDF5] text-xs text-[#153B5B]">
+                <span className="font-mono text-[#3898D8] font-bold block mb-1">Simulated VPA: passenger@okhdfcbank</span>
+                <span className="text-[11px] text-[#64748B]">Zero sensitive banking passwords requested. Sandbox tokenized verification.</span>
               </div>
 
               <button
                 type="button"
                 onClick={handleCompleteDemoPayment}
-                className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-cyan-600/30 transition-all"
+                className="w-full py-4 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer"
               >
-                <CheckCircle2 className="w-5 h-5" />
+                <CheckCircle2 className="w-5 h-5 text-white" />
                 <span>Simulate Payment &amp; Dispatch Ride (₹{fareBreakdown?.totalFare?.toLocaleString()})</span>
               </button>
             </div>
@@ -979,30 +979,30 @@ export const BookingWorkflowPage = () => {
           <div className="max-w-3xl mx-auto space-y-6">
             
             {/* Top Success Banner */}
-            <div className="p-6 rounded-3xl bg-emerald-950/60 border border-emerald-500/40 text-center space-y-2 shadow-2xl">
-              <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-2">
+            <div className="p-6 rounded-3xl bg-[#E6F7F5] border border-[#19A89A]/30 text-center space-y-2 shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-[#19A89A]/20 text-[#19A89A] flex items-center justify-center mx-auto mb-2">
                 <CheckCircle2 className="w-7 h-7" />
               </div>
-              <h2 className="text-xl sm:text-2xl font-black text-white font-display">
+              <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] font-display">
                 Chauffeur Ride Reserved Successfully!
               </h2>
-              <div className="text-xs text-emerald-300 font-mono">
-                Booking ID: <strong className="text-white underline">{confirmedBookingData.id}</strong> • Simulated Dispatch
+              <div className="text-xs text-[#19A89A] font-mono font-bold">
+                Booking ID: <strong className="text-[#153B5B] underline">{confirmedBookingData.id}</strong> • Simulated Dispatch
               </div>
             </div>
 
             {/* Travel Voucher Card */}
-            <div className="rounded-3xl bg-navy-900 border border-slate-800 p-6 sm:p-8 shadow-xl space-y-6">
+            <div className="rounded-3xl bg-white border border-[#E5EDF5] p-6 sm:p-8 shadow-sm space-y-6">
               
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800 gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#E5EDF5] gap-3">
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-cyan-400 tracking-wider">Service Type</span>
-                  <div className="text-base font-bold text-white">{confirmedBookingData.service}</div>
+                  <span className="text-[10px] uppercase font-bold text-[#3898D8] tracking-wider">Service Type</span>
+                  <div className="text-base font-bold text-[#153B5B]">{confirmedBookingData.service}</div>
                 </div>
 
                 <div className="text-left sm:text-right">
-                  <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Date &amp; Pickup Time</span>
-                  <div className="text-sm font-bold text-white font-mono">
+                  <span className="text-[10px] uppercase font-bold text-[#64748B] tracking-wider">Date &amp; Pickup Time</span>
+                  <div className="text-sm font-bold text-[#153B5B] font-mono">
                     {confirmedBookingData.date} at {confirmedBookingData.time}
                   </div>
                 </div>
@@ -1010,50 +1010,50 @@ export const BookingWorkflowPage = () => {
 
               {/* Itinerary */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div className="p-4 rounded-xl bg-navy-950 border border-slate-800">
-                  <span className="text-[10px] text-slate-400 uppercase font-bold block mb-1">Pickup</span>
-                  <div className="font-bold text-white text-sm">{confirmedBookingData.from}</div>
+                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E5EDF5]">
+                  <span className="text-[10px] text-[#64748B] uppercase font-bold block mb-1">Pickup</span>
+                  <div className="font-bold text-[#153B5B] text-sm">{confirmedBookingData.from}</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-navy-950 border border-slate-800">
-                  <span className="text-[10px] text-slate-400 uppercase font-bold block mb-1">Destination</span>
-                  <div className="font-bold text-white text-sm">{confirmedBookingData.to}</div>
+                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E5EDF5]">
+                  <span className="text-[10px] text-[#64748B] uppercase font-bold block mb-1">Destination</span>
+                  <div className="font-bold text-[#153B5B] text-sm">{confirmedBookingData.to}</div>
                 </div>
               </div>
 
               {/* Chauffeur & Vehicle Allocation */}
-              <div className="p-5 rounded-2xl bg-navy-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
+              <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E5EDF5] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-400">Allocated Chauffeur</span>
-                  <div className="text-base font-bold text-white mt-0.5">{confirmedBookingData.driverName}</div>
-                  <div className="text-xs font-mono text-cyan-400 mt-0.5">{confirmedBookingData.driverPhone}</div>
+                  <span className="text-[10px] uppercase font-bold text-[#64748B]">Allocated Chauffeur</span>
+                  <div className="text-base font-bold text-[#153B5B] mt-0.5">{confirmedBookingData.driverName}</div>
+                  <div className="text-xs font-mono text-[#3898D8] font-semibold mt-0.5">{confirmedBookingData.driverPhone}</div>
                 </div>
 
                 <div className="text-left sm:text-right">
-                  <span className="text-[10px] uppercase font-bold text-slate-400">Vehicle Assigned</span>
-                  <div className="text-sm font-bold text-white mt-0.5">{confirmedBookingData.vehicle}</div>
-                  <div className="text-xs font-mono text-amber-400 mt-0.5">{confirmedBookingData.vehicleNumber}</div>
+                  <span className="text-[10px] uppercase font-bold text-[#64748B]">Vehicle Assigned</span>
+                  <div className="text-sm font-bold text-[#153B5B] mt-0.5">{confirmedBookingData.vehicle}</div>
+                  <div className="text-xs font-mono text-amber-600 font-bold mt-0.5">{confirmedBookingData.vehicleNumber}</div>
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+              <div className="pt-4 border-t border-[#E5EDF5] flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => window.print()}
-                    className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs flex items-center gap-1.5 border border-slate-700"
+                    className="px-4 py-2.5 rounded-xl bg-[#EFF7FC] hover:bg-[#DCEEFF] text-[#153B5B] font-semibold text-xs flex items-center gap-1.5 border border-[#E5EDF5] transition-colors"
                   >
-                    <Printer className="w-4 h-4" />
+                    <Printer className="w-4 h-4 text-[#3898D8]" />
                     <span>Print Voucher</span>
                   </button>
 
                   <Link
                     to="/dashboard/my-bookings"
-                    className="px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-md shadow-cyan-600/30"
+                    className="px-4 py-2.5 rounded-xl bg-[#3898D8] hover:bg-[#287DB8] text-white font-bold text-xs flex items-center gap-1.5 shadow-md transition-colors"
                   >
                     <span>View in Trip History</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-4 h-4 text-white" />
                   </Link>
                 </div>
 
@@ -1063,7 +1063,7 @@ export const BookingWorkflowPage = () => {
                     setCurrentStep(1);
                     setConfirmedBookingData(null);
                   }}
-                  className="text-xs text-slate-400 hover:text-white underline"
+                  className="text-xs text-[#64748B] hover:text-[#3898D8] underline"
                 >
                   Book Another Journey
                 </button>
