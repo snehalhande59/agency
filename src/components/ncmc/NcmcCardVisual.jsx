@@ -12,8 +12,8 @@ export const NcmcCardVisual = ({ card, showBalance = true, className = '' }) => 
       {/* Background with Metallic Glass & Gradients */}
       <div className={`absolute inset-0 transition-all duration-500 ${
         isBlocked
-          ? 'bg-gradient-to-br from-slate-900 via-rose-950/70 to-slate-950 border border-rose-500/40'
-          : 'bg-gradient-to-br from-navy-900 via-blue-950 to-slate-950 border border-cyan-500/30'
+          ? 'bg-gradient-to-br from-slate-950 via-rose-950/90 to-slate-900 border border-rose-500/50 shadow-xl'
+          : 'bg-gradient-to-br from-[#071B2F] via-[#0F2D4A] to-[#1A4568] border border-cyan-400/40 shadow-2xl'
       }`}>
         {/* Holographic Sheen / Wave Pattern */}
         <div className="absolute -top-24 -right-24 w-72 h-72 bg-cyan-500/10 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700 pointer-events-none" />

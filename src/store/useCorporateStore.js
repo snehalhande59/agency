@@ -83,6 +83,17 @@ export const useCorporateStore = create(
         }
       },
 
+      // 0. High-Level Corporate Statistics
+      stats: {
+        totalEmployees: 1280,
+        activeVehicles: 48,
+        todaysTrips: 142,
+        completedTrips: 136,
+        pendingApprovals: 4,
+        monthlyRetainers: 42,
+        totalSpendYtd: 2845000
+      },
+
       // 1. Company Profile
       companyProfile: {
         companyName: 'Nexus Global Technologies India Pvt Ltd',

@@ -20,11 +20,11 @@ export const NcmcOverviewPage = () => {
               <span>Unified National Transit Standard • Powered by RuPay</span>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl font-black text-[#153B5B] tracking-tight font-display">
+            <h2 className="text-2xl sm:text-4xl font-black text-[#153B5B] tracking-tight font-display" style={{ color: '#153B5B' }}>
               One Nation • One Mobility Card
             </h2>
 
-            <p className="text-[#64748B] text-sm sm:text-base leading-relaxed max-w-xl">
+            <p className="text-[#64748B] text-sm sm:text-base leading-relaxed max-w-xl" style={{ color: '#64748B' }}>
               Tap and ride seamlessly across Mumbai Metro, Pune Metro, BEST electric city buses, suburban transit turnstiles, and highway toll plazas. Zero queue delays with sub-second contactless tap-and-go.
             </p>
 
