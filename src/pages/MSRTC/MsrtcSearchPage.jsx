@@ -66,10 +66,10 @@ export const MsrtcSearchPage = () => {
             <span>Maharashtra State Road Transport Corporation (MSRTC) Reservation</span>
           </div>
           
-          <h2 className="text-2xl sm:text-3xl font-black text-[#153B5B] tracking-tight font-display mb-2" style={{ color: '#153B5B' }}>
+          <h2 className="text-2xl sm:text-3xl font-black text-[#153B5B] tracking-tight font-display mb-2">
             Book Maharashtra ST &amp; Shivneri Buses
           </h2>
-          <p className="text-[#64748B] text-xs sm:text-sm max-w-2xl leading-relaxed" style={{ color: '#64748B' }}>
+          <p className="text-[#64748B] text-xs sm:text-sm max-w-2xl leading-relaxed">
             Search 18,000+ daily MSRTC state bus routes across Maharashtra. Experience guaranteed government concession rates, real-time depot departures, and interactive seat booking.
           </p>
         </div>
@@ -245,11 +245,11 @@ export const MsrtcSearchPage = () => {
       {/* Popular Corridors Quick-Select */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-base sm:text-lg font-black text-[#153B5B] font-display flex items-center gap-2" style={{ color: '#153B5B' }}>
+          <h3 className="text-base sm:text-lg font-black text-[#153B5B] font-display flex items-center gap-2">
             <Bus className="w-4 h-4 text-rose-600" />
             <span>Popular Maharashtra Corridors</span>
           </h3>
-          <span className="text-xs text-[#64748B]" style={{ color: '#64748B' }}>Instant one-click route selection</span>
+          <span className="text-xs text-[#64748B]">Instant one-click route selection</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
@@ -269,12 +269,12 @@ export const MsrtcSearchPage = () => {
                 <span className="text-[10px] font-bold uppercase tracking-wider bg-rose-50 text-rose-700 px-2.5 py-0.5 rounded-full border border-rose-200">
                   {c.tag}
                 </span>
-                <div className="mt-2 text-sm font-extrabold text-[#153B5B] group-hover:text-rose-600 transition-colors" style={{ color: '#153B5B' }}>
+                <div className="mt-2 text-sm font-extrabold text-[#153B5B] group-hover:text-rose-600 transition-colors">
                   {c.from}
                 </div>
-                <div className="text-xs text-[#64748B] mt-1 flex items-center gap-1.5" style={{ color: '#64748B' }}>
+                <div className="text-xs text-[#64748B] mt-1 flex items-center gap-1.5">
                   <span className="text-[#94A3B8]">to</span>
-                  <span className="text-[#153B5B] font-bold" style={{ color: '#153B5B' }}>{c.to}</span>
+                  <span className="text-[#153B5B] font-bold">{c.to}</span>
                 </div>
               </div>
               <div className="mt-3 pt-2.5 border-t border-[#E5EDF5] flex items-center justify-between text-xs font-bold text-rose-600 group-hover:translate-x-1 transition-transform">

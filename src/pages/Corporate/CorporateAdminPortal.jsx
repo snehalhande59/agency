@@ -33,42 +33,22 @@ import {
 import { useCorporateStore } from '../../store/useCorporateStore';
 
 export const CorporateAdminPortal = () => {
-  const store = useCorporateStore();
-  
-  const companyProfile = store.companyProfile || {
-    companyName: 'Nexus Global Technologies India Pvt Ltd',
-    cin: 'U72900MH2018PTC319802',
-    gstin: '27AABCN8821Q1Z4',
-    headquarters: 'Tower 4, Level 8, Maker Maxity, BKC, Mumbai 400051',
-    totalEmployees: 1280,
-    activeContracts: 42,
-    accountManager: 'Vikramaditya Singhania (VP Enterprise Mobility)',
-    billingCycle: 'Net-30 Corporate Invoicing',
-    slaTier: 'Platinum Enterprise (99.4% On-Time Guarantee)'
-  };
-  
-  const employees = store.employees || [];
-  const drivers = store.drivers || [];
-  const vehicles = store.vehicles || [];
-  const routes = store.routes || [];
-  const monthlyContracts = store.monthlyContracts || [];
-  const corporateBookings = store.corporateBookings || [];
-  const invoices = store.invoices || [];
-  const safetyAlerts = store.safetyAlerts || [];
-  const hrApproveBooking = store.hrApproveBooking || (() => {});
-  const hrRejectBooking = store.hrRejectBooking || (() => {});
-  const addEmployee = store.addEmployee || (() => {});
-  const resolveEmergencyAlert = store.resolveEmergencyAlert || (() => {});
-
-  const stats = store.stats || {
-    totalEmployees: companyProfile?.totalEmployees || 1280,
-    activeVehicles: vehicles?.length || 48,
-    todaysTrips: 142,
-    completedTrips: 136,
-    pendingApprovals: 4,
-    monthlyRetainers: monthlyContracts?.length || 42,
-    totalSpendYtd: 2845000
-  };
+  const { 
+    companyProfile, 
+    stats, 
+    employees, 
+    drivers, 
+    vehicles, 
+    routes, 
+    monthlyContracts, 
+    corporateBookings, 
+    invoices, 
+    safetyAlerts,
+    hrApproveBooking, 
+    hrRejectBooking, 
+    addEmployee,
+    resolveEmergencyAlert
+  } = useCorporateStore();
 
   const [activeTab, setActiveTab] = useState('DASHBOARD');
   const [employeeSearch, setEmployeeSearch] = useState('');

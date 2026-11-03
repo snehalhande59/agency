@@ -81,46 +81,19 @@
 }
 
 /* Light Theme Contrast Protections for Cards, Modals, Forms & Panels */
-h1, h2, h3, h4, h5, h6 {
+.glass-panel h1, .glass-panel h2, .glass-panel h3, .glass-panel h4, .glass-panel h5,
+.glass-card h1, .glass-card h2, .glass-card h3, .glass-card h4, .glass-card h5,
+.bg-white h1:not(.destination-image-card *), 
+.bg-white h2:not(.destination-image-card *), 
+.bg-white h3:not(.destination-image-card *), 
+.bg-white h4:not(.destination-image-card *), 
+.bg-white h5:not(.destination-image-card *), 
+.bg-white h6:not(.destination-image-card *) {
   color: #153B5B !important;
-  font-family: 'Outfit', sans-serif;
-  text-shadow: none !important;
 }
 
-/* Explicit high-contrast text color enforcement */
-.text-\[\#153B5B\],
-[class*="text-[#153B5B]"],
-.text-navy-dark {
-  color: #153B5B !important;
-  -webkit-text-fill-color: #153B5B !important;
-  text-shadow: none !important;
-}
-
-.text-\[\#64748B\],
-[class*="text-[#64748B]"],
-.text-navy-400 {
-  color: #64748B !important;
-  -webkit-text-fill-color: #64748B !important;
-  text-shadow: none !important;
-}
-
-.text-\[\#3898D8\],
-[class*="text-[#3898D8]"],
-.text-travel-primary {
-  color: #3898D8 !important;
-  -webkit-text-fill-color: #3898D8 !important;
-  text-shadow: none !important;
-}
-
-.text-\[\#19A89A\],
-[class*="text-[#19A89A]"],
-.text-travel-teal {
-  color: #19A89A !important;
-  -webkit-text-fill-color: #19A89A !important;
-  text-shadow: none !important;
-}
-
-/* Explicit destination card text protection: scoped strictly to hero photo cards */
+/* Explicit destination card text protection: must stay pure white on dark photo overlay */
+.destination-image-card,
 .destination-image-card h1,
 .destination-image-card h2,
 .destination-image-card h3,
@@ -162,6 +135,25 @@ textarea::placeholder {
   color: #153B5B !important;
 }
 
+/* Override unintentional text-white on light cards, tables and dialogs */
+.bg-navy-900 td.text-white,
+.bg-navy-950 td.text-white,
+.bg-white td.text-white,
+.bg-navy-900 div.text-white:not([class*="bg-"]):not(button[class*="bg-"] *):not(a[class*="bg-"] *),
+.bg-navy-950 div.text-white:not([class*="bg-"]):not(button[class*="bg-"] *):not(a[class*="bg-"] *),
+.bg-white div.text-white:not([class*="bg-"]):not(button[class*="bg-"] *):not(a[class*="bg-"] *),
+.bg-navy-900 strong.text-white,
+.bg-navy-950 strong.text-white,
+.bg-white strong.text-white,
+.bg-navy-900 span.text-white:not([class*="bg-"]),
+.bg-navy-950 span.text-white:not([class*="bg-"]),
+.bg-white span.text-white:not([class*="bg-"]),
+button:not([class*="bg-red"]):not([class*="bg-rose"]):not([class*="bg-electric"]):not([class*="bg-cyan"]):not([class*="bg-emerald"]):not([class*="bg-blue"]):not([class*="bg-[#3898D8]"]):not([class*="bg-slate-900"]):not([class*="bg-black"]) .text-white,
+button:not([class*="bg-red"]):not([class*="bg-rose"]):not([class*="bg-electric"]):not([class*="bg-cyan"]):not([class*="bg-emerald"]):not([class*="bg-blue"]):not([class*="bg-[#3898D8]"]):not([class*="bg-slate-900"]):not([class*="bg-black"]) .text-slate-300,
+button:not([class*="bg-red"]):not([class*="bg-rose"]):not([class*="bg-electric"]):not([class*="bg-cyan"]):not([class*="bg-emerald"]):not([class*="bg-blue"]):not([class*="bg-[#3898D8]"]):not([class*="bg-slate-900"]):not([class*="bg-black"]) .text-slate-400 {
+  color: #153B5B !important;
+}
+
 /* Ensure background of legacy navy-950 and navy-900 are light cards */
 .bg-navy-950, .bg-navy-900 {
   background-color: #FFFFFF !important;
@@ -175,13 +167,13 @@ textarea::placeholder {
   color: #153B5B !important;
 }
 
-/* Ensure muted texts on light backgrounds are readable (#64748B) */
-.bg-navy-900 .text-slate-400, .bg-navy-900 .text-slate-300,
-.bg-navy-950 .text-slate-400, .bg-navy-950 .text-slate-300,
-.bg-white .text-slate-400, .bg-white .text-slate-300,
+/* Ensure muted texts on light backgrounds are readable (#64748B) instead of invisible slate */
+.bg-navy-900 .text-slate-400, .bg-navy-900 .text-slate-300, .bg-navy-900 .text-slate-200,
+.bg-navy-950 .text-slate-400, .bg-navy-950 .text-slate-300, .bg-navy-950 .text-slate-200,
+.bg-white .text-slate-400, .bg-white .text-slate-300, .bg-white .text-slate-200,
 .glass-panel .text-slate-400, .glass-panel .text-slate-300,
 .glass-card .text-slate-400, .glass-card .text-slate-300 {
-  color: #64748B !important;
+  color: #64748B;
 }
 
 /* Ensure borders on light cards do not use harsh dark borders */
@@ -190,15 +182,19 @@ textarea::placeholder {
   border-color: #E5EDF5 !important;
 }
 
-/* Safe colored primary button text contrast without wildcard child corruption */
-.btn-primary,
-button.bg-rose-600,
-button.bg-rose-700,
-button.bg-red-600,
-button.bg-emerald-600,
-button.bg-cyan-600,
-a.bg-rose-600,
-a.bg-red-600 {
+/* Ensure colored primary buttons always retain crisp white text */
+button[class*="bg-electric"], button[class*="bg-[#3898D8]"],
+button[class*="bg-cyan-600"], button[class*="bg-emerald-600"],
+button[class*="bg-purple-600"], button[class*="bg-red-600"], button[class*="bg-rose-600"],
+a[class*="bg-electric"], a[class*="bg-[#3898D8]"],
+a[class*="bg-red-600"], a[class*="bg-rose-600"], a[class*="bg-emerald-600"] {
+  color: #FFFFFF !important;
+}
+button[class*="bg-electric"] *, button[class*="bg-[#3898D8]"] *,
+button[class*="bg-cyan-600"] *, button[class*="bg-emerald-600"] *,
+button[class*="bg-purple-600"] *, button[class*="bg-red-600"] *, button[class*="bg-rose-600"] *,
+a[class*="bg-electric"] *, a[class*="bg-[#3898D8]"] *,
+a[class*="bg-red-600"] *, a[class*="bg-rose-600"] *, a[class*="bg-emerald-600"] * {
   color: #FFFFFF !important;
 }
 

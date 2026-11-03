@@ -45,10 +45,10 @@ export const NcmcRegisterPage = () => {
           <ArrowLeft className="w-5 h-5" />
         </Link>
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] font-display" style={{ color: '#153B5B' }}>
+          <h2 className="text-xl sm:text-2xl font-black text-[#153B5B] font-display">
             Apply for New NCMC Smart Mobility Card
           </h2>
-          <p className="text-xs text-[#64748B] mt-0.5" style={{ color: '#64748B' }}>
+          <p className="text-xs text-[#64748B] mt-0.5">
             Interoperable RuPay contactless transit card for Mumbai Metro, BEST &amp; Pune Metro
           </p>
         </div>
@@ -127,8 +127,8 @@ export const NcmcRegisterPage = () => {
                       : 'bg-white border-[#E5EDF5] hover:border-[#3898D8] hover:bg-[#F8FAFC]'
                   }`}
                 >
-                  <div className="text-xs font-extrabold text-[#153B5B]" style={{ color: '#153B5B' }}>{issuer.name}</div>
-                  <div className={`text-[10px] mt-0.5 font-bold ${isSelected ? 'text-[#19A89A]' : 'text-[#64748B]'}`} style={{ color: isSelected ? '#19A89A' : '#64748B' }}>
+                  <div className="text-xs font-extrabold text-[#153B5B]">{issuer.name}</div>
+                  <div className={`text-[10px] mt-0.5 font-bold ${isSelected ? 'text-[#19A89A]' : 'text-[#64748B]'}`}>
                     {issuer.cardScheme}
                   </div>
                 </button>
