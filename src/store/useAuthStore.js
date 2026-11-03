@@ -9,9 +9,27 @@ export const DEMO_PROFILES = {
     phone: '+91 98202 88410',
     role: 'CUSTOMER',
     roleTitle: 'Passenger / Retail Customer',
-    roleDescription: 'Personal travel: Cabs, Flights, Train tickets, MSRTC State Buses, NCMC Metro Card',
+    roleDescription: 'Personal travel: Outstation Cabs, Flights, Train tickets, MSRTC State Buses, NCMC Metro Card',
     dashboardPath: '/dashboard',
     memberSince: 'January 2024',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
+  },
+  EMPLOYEE: {
+    id: 'EMP-8842',
+    name: 'Pooja Sharma',
+    email: 'pooja.sharma@nexus-enterprise.in',
+    phone: '+91 98202 11094',
+    company: 'Nexus Global Technologies India Pvt. Ltd.',
+    designation: 'Senior Software Engineer (Frontend Core)',
+    department: 'Engineering Department (Hinjewadi & BKC)',
+    pickupPoint: 'Samarth Deep, Lokhandwala Circle, Andheri West, Mumbai',
+    dropPoint: 'Tower 4, Maker Maxity, BKC, Mumbai',
+    assignedCab: 'Toyota Innova Crysta (MH 02 ER 9120)',
+    role: 'EMPLOYEE',
+    roleTitle: 'Corporate Employee Commuter',
+    roleDescription: 'Daily office commute: Live assigned cab, chauffeur Ramesh Shinde, boarding OTP & shift roster',
+    dashboardPath: '/corporate/employee',
+    memberSince: 'February 2024',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
   },
   CORPORATE: {
@@ -25,7 +43,7 @@ export const DEMO_PROFILES = {
     location: 'Phase 3, Hinjewadi Rajiv Gandhi Infotech Park, Pune',
     role: 'CORPORATE',
     roleTitle: 'Corporate VP HR Admin',
-    roleDescription: 'Enterprise transport: Employee shift rosters, cab dispatch, B2B monthly billing & ESG carbon reports',
+    roleDescription: 'Enterprise transport: 1,280 employee shift rosters, cab dispatch, B2B monthly billing & ESG carbon reports',
     dashboardPath: '/corporate/admin',
     memberSince: 'March 2024',
     avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80'
@@ -61,7 +79,9 @@ export const useAuthStore = create(
 
       login: (email, password, roleType = 'CUSTOMER') => {
         let baseProfile = DEMO_PROFILES[roleType] || DEMO_PROFILES.CUSTOMER;
-        if (email && email.includes('@nexus')) {
+        if (email && email.toLowerCase().includes('pooja')) {
+          baseProfile = DEMO_PROFILES.EMPLOYEE;
+        } else if (email && email.includes('@nexus')) {
           baseProfile = DEMO_PROFILES.CORPORATE;
         } else if (email && email.includes('@aerovoyage')) {
           baseProfile = DEMO_PROFILES.ADMIN;
